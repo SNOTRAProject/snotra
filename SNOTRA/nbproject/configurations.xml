@@ -23,8 +23,10 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>Game.cpp</itemPath>
+    <itemPath>Game.h</itemPath>
+    <itemPath>Game.ui</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

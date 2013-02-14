@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=SNOTRA
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/SNOTRA
+CND_ARTIFACT_NAME_Debug=SNOTRATest
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/SNOTRATest
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=SNOTRA.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/SNOTRA.tar
+CND_PACKAGE_NAME_Debug=SNOTRATest.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/SNOTRATest.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=SNOTRA
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/SNOTRA
+CND_ARTIFACT_NAME_Release=SNOTRATest
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/SNOTRATest
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=SNOTRA.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/SNOTRA.tar
+CND_PACKAGE_NAME_Release=SNOTRATest.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/SNOTRATest.tar
 #
 # include compiler specific variables
 #
