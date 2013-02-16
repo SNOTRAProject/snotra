@@ -2,7 +2,7 @@
 # Use project properties -> Build -> Qt -> Expert -> Custom Definitions.
 TEMPLATE = app
 DESTDIR = dist/Debug/GNU-Linux-x86
-TARGET = SNOTRATest
+TARGET = SNOTRA
 VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += debug 
@@ -11,7 +11,7 @@ QT = core gui
 SOURCES += main.cpp Game.cpp
 HEADERS += Game.h
 FORMS += Game.ui
-RESOURCES +=
+RESOURCES += IconeItemNetwork/IconeItemNetwork.qrc
 TRANSLATIONS +=
 OBJECTS_DIR = build/Debug/GNU-Linux-x86
 MOC_DIR = 

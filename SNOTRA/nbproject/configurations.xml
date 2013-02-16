@@ -27,6 +27,7 @@
     <itemPath>Game.cpp</itemPath>
     <itemPath>Game.h</itemPath>
     <itemPath>Game.ui</itemPath>
+    <itemPath>IconeItemNetwork/IconeItemNetwork.qrc</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
