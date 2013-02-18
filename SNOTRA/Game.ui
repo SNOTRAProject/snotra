@@ -37,18 +37,11 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="5">
-       <widget class="QPushButton" name="changeModepushButton">
-        <property name="text">
-         <string>Mode</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="2">
        <widget class="QLCDNumber" name="lapsCounterLcdNumber"/>
       </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="globalPercentNlabel">
+       <widget class="QLabel" name="globalPercentLabel">
         <property name="text">
          <string>Pourcentage global réalisé</string>
         </property>
@@ -71,20 +64,6 @@
       <item row="0" column="2">
        <widget class="QLCDNumber" name="scoreLcdNumber"/>
       </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="breakPushButton">
-        <property name="text">
-         <string>Pause</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5">
-       <widget class="QPushButton" name="getCluedPushButton">
-        <property name="text">
-         <string>Obtenir un indice</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="4">
        <widget class="QLCDNumber" name="lcdNumber"/>
       </item>
@@ -102,6 +81,18 @@
         </property>
         <property name="horizontalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="viewMode">
+         <enum>QMdiArea::SubWindowView</enum>
+        </property>
+        <property name="documentMode">
+         <bool>false</bool>
+        </property>
+        <property name="tabsClosable">
+         <bool>false</bool>
+        </property>
+        <property name="tabsMovable">
+         <bool>false</bool>
         </property>
         <widget class="QWidget" name="toolBox">
          <property name="minimumSize">
@@ -383,6 +374,7 @@
     <addaction name="actionPause"/>
     <addaction name="actionDifficult"/>
     <addaction name="actionObtenir_un_indice"/>
+    <addaction name="actionTool_Box"/>
    </widget>
    <widget class="QMenu" name="menuOption">
     <property name="title">
@@ -441,10 +433,32 @@
     <string>Aide</string>
    </property>
   </action>
+  <action name="actionTool_Box">
+   <property name="text">
+    <string>Tool Box</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="IconeItemNetwork/IconeItemNetwork.qrc"/>
   <include location="IconeItemNetwork/IconeItemNetwork.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionQuitter</sender>
+   <signal>activated()</signal>
+   <receiver>Game</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
