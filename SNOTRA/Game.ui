@@ -367,12 +367,84 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuPartie">
+    <property name="title">
+     <string>Partie</string>
+    </property>
+    <addaction name="actionNouvelle"/>
+    <addaction name="actionRecommencer"/>
+    <addaction name="actionCharger"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuJeu">
+    <property name="title">
+     <string>Jeu</string>
+    </property>
+    <addaction name="actionPause"/>
+    <addaction name="actionDifficult"/>
+    <addaction name="actionObtenir_un_indice"/>
+   </widget>
+   <widget class="QMenu" name="menuOption">
+    <property name="title">
+     <string>Option</string>
+    </property>
+    <addaction name="actionCr_dit"/>
+    <addaction name="actionAide"/>
+   </widget>
+   <addaction name="menuPartie"/>
+   <addaction name="menuJeu"/>
+   <addaction name="menuOption"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNouvelle">
+   <property name="text">
+    <string>Nouvelle</string>
+   </property>
+  </action>
+  <action name="actionRecommencer">
+   <property name="text">
+    <string>Recommencer</string>
+   </property>
+  </action>
+  <action name="actionCharger">
+   <property name="text">
+    <string>Charger</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actionDifficult">
+   <property name="text">
+    <string>Difficulté</string>
+   </property>
+  </action>
+  <action name="actionObtenir_un_indice">
+   <property name="text">
+    <string>Obtenir un indice</string>
+   </property>
+  </action>
+  <action name="actionCr_dit">
+   <property name="text">
+    <string>Crédit</string>
+   </property>
+  </action>
+  <action name="actionAide">
+   <property name="text">
+    <string>Aide</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="IconeItemNetwork/IconeItemNetwork.qrc"/>
-  <include location="../../../.designer/backup/IconeItemNetwork/IconeItemNetwork.qrc"/>
+  <include location="IconeItemNetwork/IconeItemNetwork.qrc"/>
  </resources>
  <connections/>
 </ui>
