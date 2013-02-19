@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Game.ui'
 **
-** Created: Mon Feb 18 14:48:56 2013
+** Created: Tue Feb 19 15:42:41 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -56,11 +56,6 @@ public:
     QGridLayout *networkViewGridLayout;
     QMdiArea *mdiArea;
     QWidget *toolBox;
-    QLabel *HUB;
-    QLabel *Routeur;
-    QLabel *Ordi;
-    QLabel *RouteurNat;
-    QLabel *Switch;
     QLabel *labelHUBToolBox;
     QLabel *labelRouteurToolBox;
     QLabel *labelOrdiToolBox;
@@ -156,48 +151,18 @@ public:
         mdiArea->setAutoFillBackground(true);
         mdiArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         mdiArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        mdiArea->setViewMode(QMdiArea::SubWindowView);
+        mdiArea->setDocumentMode(false);
+        mdiArea->setTabsClosable(false);
+        mdiArea->setTabsMovable(false);
         toolBox = new QWidget();
         toolBox->setObjectName(QString::fromUtf8("toolBox"));
         toolBox->setMinimumSize(QSize(200, 600));
         toolBox->setMaximumSize(QSize(16777215, 16777215));
         toolBox->setBaseSize(QSize(0, 0));
+        toolBox->setAcceptDrops(false);
         toolBox->setLayoutDirection(Qt::LeftToRight);
         toolBox->setAutoFillBackground(false);
-        HUB = new QLabel(toolBox);
-        HUB->setObjectName(QString::fromUtf8("HUB"));
-        HUB->setGeometry(QRect(0, 0, 130, 90));
-        HUB->setMinimumSize(QSize(130, 90));
-        HUB->setMaximumSize(QSize(130, 90));
-        HUB->setPixmap(QPixmap(QString::fromUtf8(":/HUB.png")));
-        HUB->setScaledContents(true);
-        Routeur = new QLabel(toolBox);
-        Routeur->setObjectName(QString::fromUtf8("Routeur"));
-        Routeur->setGeometry(QRect(20, 100, 130, 90));
-        Routeur->setMinimumSize(QSize(130, 90));
-        Routeur->setMaximumSize(QSize(130, 90));
-        Routeur->setPixmap(QPixmap(QString::fromUtf8(":/Routeur.png")));
-        Routeur->setScaledContents(true);
-        Ordi = new QLabel(toolBox);
-        Ordi->setObjectName(QString::fromUtf8("Ordi"));
-        Ordi->setGeometry(QRect(20, 200, 130, 90));
-        Ordi->setMinimumSize(QSize(130, 90));
-        Ordi->setMaximumSize(QSize(130, 90));
-        Ordi->setPixmap(QPixmap(QString::fromUtf8(":/Ordi.png")));
-        Ordi->setScaledContents(true);
-        RouteurNat = new QLabel(toolBox);
-        RouteurNat->setObjectName(QString::fromUtf8("RouteurNat"));
-        RouteurNat->setGeometry(QRect(20, 290, 130, 90));
-        RouteurNat->setMinimumSize(QSize(130, 90));
-        RouteurNat->setMaximumSize(QSize(130, 90));
-        RouteurNat->setPixmap(QPixmap(QString::fromUtf8(":/RouteurNat.png")));
-        RouteurNat->setScaledContents(true);
-        Switch = new QLabel(toolBox);
-        Switch->setObjectName(QString::fromUtf8("Switch"));
-        Switch->setGeometry(QRect(30, 440, 130, 90));
-        Switch->setMinimumSize(QSize(130, 90));
-        Switch->setMaximumSize(QSize(130, 90));
-        Switch->setPixmap(QPixmap(QString::fromUtf8(":/Switch.png")));
-        Switch->setScaledContents(true);
         labelHUBToolBox = new QLabel(toolBox);
         labelHUBToolBox->setObjectName(QString::fromUtf8("labelHUBToolBox"));
         labelHUBToolBox->setGeometry(QRect(110, 20, 66, 17));
@@ -251,7 +216,6 @@ public:
 
         retranslateUi(Game);
         QObject::connect(actionQuitter, SIGNAL(activated()), Game, SLOT(close()));
-        QObject::connect(actionTool_Box, SIGNAL(activated()), mdiArea, SLOT(activateNextSubWindow()));
 
         QMetaObject::connectSlotsByName(Game);
     } // setupUi
@@ -274,11 +238,6 @@ public:
         globalPercentLabel->setText(QApplication::translate("Game", "Pourcentage global r\303\251alis\303\251", 0, QApplication::UnicodeUTF8));
         scoreLabel->setText(QApplication::translate("Game", "Score", 0, QApplication::UnicodeUTF8));
         toolBox->setWindowTitle(QApplication::translate("Game", "Tool Box", 0, QApplication::UnicodeUTF8));
-        HUB->setText(QString());
-        Routeur->setText(QString());
-        Ordi->setText(QString());
-        RouteurNat->setText(QString());
-        Switch->setText(QString());
         labelHUBToolBox->setText(QApplication::translate("Game", "HUB", 0, QApplication::UnicodeUTF8));
         labelRouteurToolBox->setText(QApplication::translate("Game", "Routeur", 0, QApplication::UnicodeUTF8));
         labelOrdiToolBox->setText(QApplication::translate("Game", "Ordi", 0, QApplication::UnicodeUTF8));

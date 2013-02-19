@@ -15,9 +15,22 @@ class Game : public QMainWindow {
     Q_OBJECT
 public:
     Game();
+    void setPictureItemNetwork();
+    void setGridLayout();
     virtual ~Game();
 private:
-    Ui::Game widget;
+    Ui::Game gameWindow;
+
+    QLabel *HUB;
+    QLabel *Ordi;
+    QLabel *Switch;
+    QLabel *RouteurNat;
+    QLabel *Routeur;
+
+    QGridLayout *gridLayoutToolBox;
+
+public slots:
+    void addSubWindowToolBox();
 };
 
 #endif	/* _GAME_H */

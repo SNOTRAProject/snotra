@@ -28,6 +28,8 @@
     <itemPath>Game.h</itemPath>
     <itemPath>Game.ui</itemPath>
     <itemPath>IconeItemNetwork/IconeItemNetwork.qrc</itemPath>
+    <itemPath>SubWindowWidget.cpp</itemPath>
+    <itemPath>SubWindowWidget.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
