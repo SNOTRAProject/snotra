@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>738</width>
     <height>800</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
        <enum>QLayout::SetMinAndMaxSize</enum>
       </property>
       <property name="spacing">
-       <number>0</number>
+       <number>5</number>
       </property>
       <item row="0" column="3">
        <widget class="QLabel" name="timeLabel">
@@ -94,103 +94,6 @@
         <property name="tabsMovable">
          <bool>false</bool>
         </property>
-        <widget class="QWidget" name="toolBox">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>600</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="acceptDrops">
-          <bool>false</bool>
-         </property>
-         <property name="windowTitle">
-          <string>Tool Box</string>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <widget class="QLabel" name="labelHUBToolBox">
-          <property name="geometry">
-           <rect>
-            <x>110</x>
-            <y>20</y>
-            <width>66</width>
-            <height>17</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>HUB</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="labelRouteurToolBox">
-          <property name="geometry">
-           <rect>
-            <x>120</x>
-            <y>120</y>
-            <width>66</width>
-            <height>17</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Routeur</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="labelOrdiToolBox">
-          <property name="geometry">
-           <rect>
-            <x>130</x>
-            <y>230</y>
-            <width>66</width>
-            <height>17</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Ordi</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="labelRouteurNatToolBox">
-          <property name="geometry">
-           <rect>
-            <x>120</x>
-            <y>310</y>
-            <width>66</width>
-            <height>17</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Routeur NAT</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="labelSwitchToolBox">
-          <property name="geometry">
-           <rect>
-            <x>110</x>
-            <y>460</y>
-            <width>66</width>
-            <height>17</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Switch</string>
-          </property>
-         </widget>
-        </widget>
        </widget>
       </item>
      </layout>
@@ -202,7 +105,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
+     <width>738</width>
      <height>25</height>
     </rect>
    </property>

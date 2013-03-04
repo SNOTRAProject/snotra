@@ -30,6 +30,9 @@
     <itemPath>IconeItemNetwork/IconeItemNetwork.qrc</itemPath>
     <itemPath>SubWindowWidget.cpp</itemPath>
     <itemPath>SubWindowWidget.h</itemPath>
+    <itemPath>ToolBox.cpp</itemPath>
+    <itemPath>ToolBox.h</itemPath>
+    <itemPath>ToolBox.ui</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

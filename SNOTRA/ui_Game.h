@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Game.ui'
 **
-** Created: Tue Feb 19 15:42:41 2013
+** Created: Mon Mar 4 19:04:42 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -55,12 +55,6 @@ public:
     QLCDNumber *lcdNumber;
     QGridLayout *networkViewGridLayout;
     QMdiArea *mdiArea;
-    QWidget *toolBox;
-    QLabel *labelHUBToolBox;
-    QLabel *labelRouteurToolBox;
-    QLabel *labelOrdiToolBox;
-    QLabel *labelRouteurNatToolBox;
-    QLabel *labelSwitchToolBox;
     QMenuBar *menubar;
     QMenu *menuPartie;
     QMenu *menuJeu;
@@ -71,7 +65,7 @@ public:
     {
         if (Game->objectName().isEmpty())
             Game->setObjectName(QString::fromUtf8("Game"));
-        Game->resize(1280, 800);
+        Game->resize(738, 800);
         actionNouvelle = new QAction(Game);
         actionNouvelle->setObjectName(QString::fromUtf8("actionNouvelle"));
         actionRecommencer = new QAction(Game);
@@ -97,7 +91,7 @@ public:
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         scoreGridLayout = new QGridLayout();
-        scoreGridLayout->setSpacing(0);
+        scoreGridLayout->setSpacing(5);
         scoreGridLayout->setObjectName(QString::fromUtf8("scoreGridLayout"));
         scoreGridLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
         timeLabel = new QLabel(centralwidget);
@@ -155,30 +149,6 @@ public:
         mdiArea->setDocumentMode(false);
         mdiArea->setTabsClosable(false);
         mdiArea->setTabsMovable(false);
-        toolBox = new QWidget();
-        toolBox->setObjectName(QString::fromUtf8("toolBox"));
-        toolBox->setMinimumSize(QSize(200, 600));
-        toolBox->setMaximumSize(QSize(16777215, 16777215));
-        toolBox->setBaseSize(QSize(0, 0));
-        toolBox->setAcceptDrops(false);
-        toolBox->setLayoutDirection(Qt::LeftToRight);
-        toolBox->setAutoFillBackground(false);
-        labelHUBToolBox = new QLabel(toolBox);
-        labelHUBToolBox->setObjectName(QString::fromUtf8("labelHUBToolBox"));
-        labelHUBToolBox->setGeometry(QRect(110, 20, 66, 17));
-        labelRouteurToolBox = new QLabel(toolBox);
-        labelRouteurToolBox->setObjectName(QString::fromUtf8("labelRouteurToolBox"));
-        labelRouteurToolBox->setGeometry(QRect(120, 120, 66, 17));
-        labelOrdiToolBox = new QLabel(toolBox);
-        labelOrdiToolBox->setObjectName(QString::fromUtf8("labelOrdiToolBox"));
-        labelOrdiToolBox->setGeometry(QRect(130, 230, 66, 17));
-        labelRouteurNatToolBox = new QLabel(toolBox);
-        labelRouteurNatToolBox->setObjectName(QString::fromUtf8("labelRouteurNatToolBox"));
-        labelRouteurNatToolBox->setGeometry(QRect(120, 310, 66, 17));
-        labelSwitchToolBox = new QLabel(toolBox);
-        labelSwitchToolBox->setObjectName(QString::fromUtf8("labelSwitchToolBox"));
-        labelSwitchToolBox->setGeometry(QRect(110, 460, 66, 17));
-        mdiArea->addSubWindow(toolBox);
 
         networkViewGridLayout->addWidget(mdiArea, 0, 0, 1, 1);
 
@@ -188,7 +158,7 @@ public:
         Game->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Game);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1280, 25));
+        menubar->setGeometry(QRect(0, 0, 738, 25));
         menuPartie = new QMenu(menubar);
         menuPartie->setObjectName(QString::fromUtf8("menuPartie"));
         menuJeu = new QMenu(menubar);
@@ -237,12 +207,6 @@ public:
         lapsCounterLabel->setText(QApplication::translate("Game", "Nombre de coups", 0, QApplication::UnicodeUTF8));
         globalPercentLabel->setText(QApplication::translate("Game", "Pourcentage global r\303\251alis\303\251", 0, QApplication::UnicodeUTF8));
         scoreLabel->setText(QApplication::translate("Game", "Score", 0, QApplication::UnicodeUTF8));
-        toolBox->setWindowTitle(QApplication::translate("Game", "Tool Box", 0, QApplication::UnicodeUTF8));
-        labelHUBToolBox->setText(QApplication::translate("Game", "HUB", 0, QApplication::UnicodeUTF8));
-        labelRouteurToolBox->setText(QApplication::translate("Game", "Routeur", 0, QApplication::UnicodeUTF8));
-        labelOrdiToolBox->setText(QApplication::translate("Game", "Ordi", 0, QApplication::UnicodeUTF8));
-        labelRouteurNatToolBox->setText(QApplication::translate("Game", "Routeur NAT", 0, QApplication::UnicodeUTF8));
-        labelSwitchToolBox->setText(QApplication::translate("Game", "Switch", 0, QApplication::UnicodeUTF8));
         menuPartie->setTitle(QApplication::translate("Game", "Partie", 0, QApplication::UnicodeUTF8));
         menuJeu->setTitle(QApplication::translate("Game", "Jeu", 0, QApplication::UnicodeUTF8));
         menuOption->setTitle(QApplication::translate("Game", "Option", 0, QApplication::UnicodeUTF8));

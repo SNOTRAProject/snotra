@@ -13,9 +13,6 @@ SubWindowWidget::SubWindowWidget() {
     
 }
 
-SubWindowWidget::SubWindowWidget(const SubWindowWidget& orig) {
-}
-
 SubWindowWidget::~SubWindowWidget() {
 }
 

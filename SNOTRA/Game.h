@@ -9,23 +9,33 @@
 #define	_GAME_H
 
 #include "ui_Game.h"
+#include "ToolBox.h"
 #include <QtGui>
 
 class Game : public QMainWindow {
     Q_OBJECT
 public:
     Game();
-    void setPictureItemNetwork();
-    void setGridLayout();
     virtual ~Game();
 private:
     Ui::Game gameWindow;
+
+    /*QLabel *labelHUBToolBox;
+    QLabel *labelRouteurToolBox;
+    QLabel *labelOrdiToolBox;
+    QLabel *labelRouteurNatToolBox;
+    QLabel *labelSwitchToolBox ;
+    
+     */
+    ToolBox *toolBox;
 
     QLabel *HUB;
     QLabel *Ordi;
     QLabel *Switch;
     QLabel *RouteurNat;
     QLabel *Routeur;
+
+
 
     QGridLayout *gridLayoutToolBox;
 

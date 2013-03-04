@@ -11,10 +11,10 @@
 #ifndef SUBWINDOWWIDGET_H
 #define	SUBWINDOWWIDGET_H
 
-class SubWindowWidget : public QLabel {
+class SubWindowWidget : public QWidget {
+    Q_OBJECT
 public:
     SubWindowWidget();
-    SubWindowWidget(const SubWindowWidget& orig);
     virtual ~SubWindowWidget();
 private:
 
