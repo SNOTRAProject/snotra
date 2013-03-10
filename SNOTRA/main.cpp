@@ -9,6 +9,7 @@
 #include <qt4/QtGui/qwidget.h>
 
 #include "Game.h"
+#include "NetworkGameArea.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -19,5 +20,11 @@ int main(int argc, char *argv[]) {
     // create and show your widgets here
     Game *game = new Game();
     game->show();
+    
+    //////////////////////////////////////////////
+    
+    NetworkGameArea *networkGameArea = new NetworkGameArea();
+    networkGameArea->show();
+    
     return app.exec();
 }
