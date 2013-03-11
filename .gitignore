@@ -13,5 +13,3 @@
 *.a
 /SNOTRA/dist/
 /SNOTRA/build/
-/SNOTRA/moc_Game.cpp
-
