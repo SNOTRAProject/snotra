@@ -6,21 +6,29 @@
  */
 
 #include "NetworkGameArea.h"
+using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
     widget.setupUi(this);
-    QPushButton *bouton = new QPushButton("Mon bouton entre en scène !");
+    buttonTest = new QPushButton("button");
     QGraphicsScene* scene = new QGraphicsScene();
 
     QGraphicsProxyWidget *proxy = new QGraphicsProxyWidget();
-    proxy->setWidget(bouton);
+    proxy->setWidget(buttonTest);
     scene->addItem(proxy);
 
     widget.graphicsView->setScene(scene);
-    /*QGraphicsView view(&scene);
-    view.show();*/
+    scene->setSceneRect(-150, -200, 300, 300);
+    mouseEvent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
 
 }
 
 NetworkGameArea::~NetworkGameArea() {
+}
+
+void NetworkGameArea::setX() {
+    this->x = mouseEvent->globalX();
+    
+    std::cout << this->x << std::endl;
+
 }

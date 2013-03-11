@@ -11,16 +11,25 @@
 #include "ui_NetworkGameArea.h"
 #include <QApplication>
 #include <QtGui>
-
+#include <QMouseEvent>
+ #include <iostream>
 class NetworkGameArea : public QWidget {
     Q_OBJECT
 public:
     NetworkGameArea();
     virtual ~NetworkGameArea();
+    QMouseEvent *mouseEvent;
+    QPushButton *buttonTest;
+    int x;
+
 private:
     Ui::NetworkGameArea widget;
+    QPoint point;
 
+    
 
+public slots:
+    void setX();
 };
 
 #endif	/* _NETWORKGAMEAREA_H */
