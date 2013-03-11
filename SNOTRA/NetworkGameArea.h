@@ -25,6 +25,7 @@ public:
 private:
     Ui::NetworkGameArea widget;
     QPoint point;
+    //
 
     
 
