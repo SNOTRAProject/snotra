@@ -38,9 +38,9 @@ private:
 
 
     QGridLayout *gridLayoutToolBox;
+    ToolBox *toolbox;
 
 public slots:
-    void addSubWindowToolBox();
 };
 
 #endif	/* _GAME_H */

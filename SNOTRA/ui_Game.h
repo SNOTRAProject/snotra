@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Game.ui'
 **
-** Created: Mon Mar 11 13:23:24 2013
+** Created: Mon Mar 11 15:53:25 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -65,7 +65,7 @@ public:
     {
         if (Game->objectName().isEmpty())
             Game->setObjectName(QString::fromUtf8("Game"));
-        Game->resize(738, 800);
+        Game->resize(802, 800);
         actionNouvelle = new QAction(Game);
         actionNouvelle->setObjectName(QString::fromUtf8("actionNouvelle"));
         actionRecommencer = new QAction(Game);
@@ -158,7 +158,7 @@ public:
         Game->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Game);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 738, 25));
+        menubar->setGeometry(QRect(0, 0, 802, 25));
         menuPartie = new QMenu(menubar);
         menuPartie->setObjectName(QString::fromUtf8("menuPartie"));
         menuJeu = new QMenu(menubar);

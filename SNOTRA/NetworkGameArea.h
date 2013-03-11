@@ -18,9 +18,10 @@ class NetworkGameArea : public QWidget {
 public:
     NetworkGameArea();
     virtual ~NetworkGameArea();
-    QMouseEvent *mouseEvent;
+    //QMouseEvent *mouseEvent;
     QPushButton *buttonTest;
     int x;
+    int y;
 
 private:
     Ui::NetworkGameArea widget;

@@ -18,8 +18,8 @@ NetworkGameArea::NetworkGameArea() {
     scene->addItem(proxy);
 
     widget.graphicsView->setScene(scene);
-    scene->setSceneRect(-150, -200, 300, 300);
-    mouseEvent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+    scene->setSceneRect(0, 0, 1000, 1000);
+    //mouseEvent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::NoButton, Qt::NoButton, Qt::NoModifier);
 
 }
 
@@ -27,8 +27,12 @@ NetworkGameArea::~NetworkGameArea() {
 }
 
 void NetworkGameArea::setX() {
+    QMouseEvent* mouseEvent = new QMouseEvent(QEvent::MouseButtonPress, point,
+            Qt::NoButton, Qt::NoButton, Qt::NoModifier);
     this->x = mouseEvent->globalX();
-    
-    std::cout << this->x << std::endl;
+    this->y = mouseEvent->globalY();
+    delete mouseEvent;
 
+    std::cout << this->x << std::endl;
+    std::cout << this->y << std::endl;
 }
