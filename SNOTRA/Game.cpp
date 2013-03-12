@@ -12,12 +12,22 @@ Game::Game() {
     gameWindow.setupUi(this);
 
     QMdiSubWindow * toolBoxMdi = new QMdiSubWindow;
+    QMdiSubWindow * networkGameAreaMdi = new QMdiSubWindow;
+
     gameWindow.mdiArea->addSubWindow(toolBoxMdi);
+    gameWindow.mdiArea->addSubWindow(networkGameAreaMdi);
+    
     toolBox = new ToolBox();
+    networkGameArea = new NetworkGameArea();
+    
     toolBoxMdi->setWidget(toolBox);
+    networkGameAreaMdi->setWidget(networkGameArea);
+    
+    networkGameAreaMdi->setGeometry(300,0,1200,800);
 
     connect(gameWindow.actionTool_Box, SIGNAL(activated()), toolBox, SLOT(show()));
-
+    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
+            networkGameArea, SLOT(setX()));
 }
 
 Game::~Game() {

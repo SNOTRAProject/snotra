@@ -10,6 +10,7 @@
 
 #include "ui_Game.h"
 #include "ToolBox.h"
+#include "NetworkGameArea.h"
 #include <QtGui>
 
 class Game : public QMainWindow {
@@ -20,22 +21,14 @@ public:
 private:
     Ui::Game gameWindow;
 
-    /*QLabel *labelHUBToolBox;
-    QLabel *labelRouteurToolBox;
-    QLabel *labelOrdiToolBox;
-    QLabel *labelRouteurNatToolBox;
-    QLabel *labelSwitchToolBox ;
-    
-     */
     ToolBox *toolBox;
+    NetworkGameArea * networkGameArea;
 
     QLabel *HUB;
     QLabel *Ordi;
     QLabel *Switch;
     QLabel *RouteurNat;
     QLabel *Routeur;
-
-//
 
     QGridLayout *gridLayoutToolBox;
     ToolBox *toolbox;

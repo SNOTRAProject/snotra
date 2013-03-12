@@ -4,18 +4,18 @@
  *
  * Created on 12 février 2013, 22:17
  */
-
+/*
 #include <QtGui/QApplication>
 #include <qt4/QtGui/qwidget.h>
-
+*/
 
 #include "Game.h"
 #include "NetworkGameArea.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
-    // Q_INIT_RESOURCE(resfile);
-    int x = 0;
+    // Q_INIT_RESOURCE(resfile)
+    
     QApplication app(argc, argv);
 
     // create and show your widgets here
@@ -24,11 +24,11 @@ int main(int argc, char *argv[]) {
     
     //////////////////////////////////////////////
     
-    NetworkGameArea *networkGameArea = new NetworkGameArea();
+    /*NetworkGameArea *networkGameArea = new NetworkGameArea();
     networkGameArea->show();
-    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),networkGameArea, SLOT(setX()));
-    
+    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
+            networkGameArea, SLOT(setX()));
 
-    
+    */
     return app.exec();
 }
