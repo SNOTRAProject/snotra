@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'NetworkGameArea.ui'
 **
-** Created: Tue Mar 12 20:18:28 2013
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Wed Mar 13 16:19:14 2013
+**      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/

@@ -34,6 +34,9 @@
     <itemPath>ToolBox.cpp</itemPath>
     <itemPath>ToolBox.h</itemPath>
     <itemPath>ToolBox.ui</itemPath>
+    <itemPath>WireShark.cpp</itemPath>
+    <itemPath>WireShark.h</itemPath>
+    <itemPath>WireShark.ui</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
