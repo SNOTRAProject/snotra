@@ -11,6 +11,7 @@
 
 #include "Game.h"
 #include "NetworkGameArea.h"
+#include "WireShark.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -21,14 +22,8 @@ int main(int argc, char *argv[]) {
     // create and show your widgets here
     Game *game = new Game();
     game->show();
+    WireShark *wireShark = new WireShark();
+    wireShark->show();
     
-    //////////////////////////////////////////////
-    
-    /*NetworkGameArea *networkGameArea = new NetworkGameArea();
-    networkGameArea->show();
-    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
-            networkGameArea, SLOT(setX()));
-
-    */
     return app.exec();
 }
