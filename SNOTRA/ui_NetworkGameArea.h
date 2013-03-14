@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'NetworkGameArea.ui'
 **
-** Created: Wed Mar 13 16:19:14 2013
-**      by: Qt User Interface Compiler version 4.8.3
+** Created: Wed Mar 13 19:08:21 2013
+**      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,7 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QGraphicsView>
+#include <QtGui/QFrame>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QWidget>
@@ -25,7 +25,7 @@ class Ui_NetworkGameArea
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QGraphicsView *graphicsView;
+    QFrame *frame;
 
     void setupUi(QWidget *NetworkGameArea)
     {
@@ -34,10 +34,13 @@ public:
         NetworkGameArea->resize(866, 556);
         horizontalLayout = new QHBoxLayout(NetworkGameArea);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        graphicsView = new QGraphicsView(NetworkGameArea);
-        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        frame = new QFrame(NetworkGameArea);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setAcceptDrops(true);
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
 
-        horizontalLayout->addWidget(graphicsView);
+        horizontalLayout->addWidget(frame);
 
 
         retranslateUi(NetworkGameArea);

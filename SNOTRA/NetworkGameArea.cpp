@@ -10,15 +10,6 @@ using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
     widget.setupUi(this);
-    buttonTest = new QPushButton("button");
-    scene = new QGraphicsScene();
-
-    proxy = new QGraphicsProxyWidget();
-    proxy->setWidget(buttonTest);
-    scene->addItem(proxy);
-    
-    widget.graphicsView->setScene(scene);
-    scene->setSceneRect(0, 0, 1000, 1000);
     setAcceptDrops(true);
 
 }
@@ -73,8 +64,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         dataStream >> pixmap >> offset;
 
         QLabel *newIcon = new QLabel(this);
+
         newIcon->setPixmap(pixmap);
+        newIcon->setScaledContents(true);
         newIcon->move(event->pos() - offset);
+        newIcon->setFixedSize(100, 100);
         newIcon->show();
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -90,37 +84,43 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
-    QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
-    if (!child)
-        return;
 
-    QPixmap pixmap = *child->pixmap();
+    if (event->button() == Qt::LeftButton) {
 
-    QByteArray itemData;
-    QDataStream dataStream(&itemData, QIODevice::WriteOnly);
-    dataStream << pixmap << QPoint(event->pos() - child->pos());
+        QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
+        if (!child)
+            return;
 
-    QMimeData *mimeData = new QMimeData;
-    mimeData->setData("application/x-dnditemdata", itemData);
+        QPixmap pixmap = *child->pixmap();
 
-    QDrag *drag = new QDrag(this);
-    drag->setMimeData(mimeData);
-    drag->setPixmap(pixmap);
-    drag->setHotSpot(event->pos() - child->pos());
+        QByteArray itemData;
+        QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+        dataStream << pixmap << QPoint(event->pos() - child->pos());
 
-    QPixmap tempPixmap = pixmap;
-    QPainter painter;
-    painter.begin(&tempPixmap);
-    painter.fillRect(pixmap.rect(), QColor(127, 127, 127, 127));
-    painter.end();
+        QMimeData *mimeData = new QMimeData;
+        mimeData->setData("application/x-dnditemdata", itemData);
 
-    child->setPixmap(tempPixmap);
+        QDrag *drag = new QDrag(this);
+        drag->setMimeData(mimeData);
+        drag->setPixmap(pixmap);
+        drag->setHotSpot(event->pos() - child->pos());
 
-    if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
-        child->close();
-    else {
-        child->show();
-        child->setPixmap(pixmap);
+        QPixmap tempPixmap = pixmap;
+        QPainter painter;
+        painter.begin(&tempPixmap);
+        painter.fillRect(pixmap.rect(), QColor(500, 500, 500, 500));
+        painter.end();
+
+        child->setPixmap(tempPixmap);
+
+        if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
+            child->close();
+        else {
+            child->show();
+            child->setPixmap(pixmap);
+        }
+    }else if(event->button() == Qt::RightArrow){
+           
     }
 }
 

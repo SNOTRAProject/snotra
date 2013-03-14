@@ -19,7 +19,6 @@ class NetworkGameArea : public QWidget {
 public:
     NetworkGameArea();
     virtual ~NetworkGameArea();
-    QPushButton *buttonTest;
 
     int x;
     int y;
