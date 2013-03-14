@@ -20,23 +20,24 @@ public:
     NetworkGameArea();
     virtual ~NetworkGameArea();
 
-    int x;
-    int y;
+    /*int x;
+    int y;*/
     void dragEnterEvent(QDragEnterEvent *event);
     void dragMoveEvent(QDragMoveEvent *event);
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
-
-
+    void contextMenuEvent(QContextMenuEvent *event);
 
 private:
     Ui::NetworkGameArea widget;
     QPoint point;
     QGraphicsScene* scene;
     QGraphicsProxyWidget *proxy;
+    QAction *newAct;
+
 
 public slots:
-    void setX();
+   // void setX();
 
 };
 

@@ -6,6 +6,7 @@
  */
 #include <iostream>;
 #include "NetworkGameArea.h"
+#include <iostream>
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
@@ -17,7 +18,7 @@ NetworkGameArea::NetworkGameArea() {
 NetworkGameArea::~NetworkGameArea() {
 }
 
-void NetworkGameArea::setX() {
+/*void NetworkGameArea::setX() {
     QMouseEvent* mouseEvent = new QMouseEvent(QEvent::MouseButtonPress, point,
             Qt::NoButton, Qt::NoButton, Qt::NoModifier);
     this->x = mouseEvent->globalX();
@@ -26,7 +27,7 @@ void NetworkGameArea::setX() {
 
     std::cout << this->x << std::endl;
     std::cout << this->y << std::endl;
-}
+}*/
 
 void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -108,7 +109,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
         QPixmap tempPixmap = pixmap;
         QPainter painter;
         painter.begin(&tempPixmap);
-        painter.fillRect(pixmap.rect(), QColor(500, 500, 500, 500));
+        painter.fillRect(pixmap.rect(), QColor(127, 127, 127, 127));
         painter.end();
 
         child->setPixmap(tempPixmap);
@@ -119,8 +120,19 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
             child->show();
             child->setPixmap(pixmap);
         }
-    }else if(event->button() == Qt::RightArrow){
-           
     }
 }
+
+void NetworkGameArea::contextMenuEvent(QContextMenuEvent *event/*, QMouseEvent *mouseEvent*/) {
+    QMenu menu(this);
+    QMouseEvent *mouseEvent;
+    newAct = new QAction(tr("&New"), this);
+    newAct->setShortcuts(QKeySequence::New);
+    newAct->setStatusTip(tr("Create a new file"));
+    menu.addAction(newAct);
+    menu.exec(event->globalPos());
+}
+
+
+
 

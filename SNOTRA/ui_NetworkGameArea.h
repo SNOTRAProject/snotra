@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'NetworkGameArea.ui'
 **
-** Created: Wed Mar 13 19:08:21 2013
+** Created: Thu Mar 14 10:35:03 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -36,6 +36,7 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         frame = new QFrame(NetworkGameArea);
         frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setMouseTracking(false);
         frame->setAcceptDrops(true);
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
