@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ToolBox.ui'
 **
-** Created: Wed Mar 13 19:08:21 2013
+** Created: Thu Mar 14 17:05:19 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -31,10 +31,12 @@ public:
     QLabel *labelSwitchToolBox;
     QLabel *labelHUBToolBox;
     QLabel *labelPixmapRouteur;
+    QLabel *labelPixmapRouteurNat;
     QLabel *labelPixmapHUB;
     QLabel *labelOrdiToolBox;
-    QLabel *labelPixmapRouteurNat;
     QLabel *labelPixmapOrdi;
+    QLabel *label;
+    QLabel *label_2;
 
     void setupUi(QWidget *ToolBox)
     {
@@ -85,6 +87,14 @@ public:
 
         gridLayout->addWidget(labelPixmapRouteur, 1, 1, 1, 1);
 
+        labelPixmapRouteurNat = new QLabel(ToolBox);
+        labelPixmapRouteurNat->setObjectName(QString::fromUtf8("labelPixmapRouteurNat"));
+        labelPixmapRouteurNat->setMaximumSize(QSize(150, 150));
+        labelPixmapRouteurNat->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/RouteurNat.png")));
+        labelPixmapRouteurNat->setScaledContents(true);
+
+        gridLayout->addWidget(labelPixmapRouteurNat, 3, 1, 1, 1);
+
         labelPixmapHUB = new QLabel(ToolBox);
         labelPixmapHUB->setObjectName(QString::fromUtf8("labelPixmapHUB"));
         labelPixmapHUB->setMaximumSize(QSize(150, 150));
@@ -98,14 +108,6 @@ public:
 
         gridLayout->addWidget(labelOrdiToolBox, 4, 0, 1, 1);
 
-        labelPixmapRouteurNat = new QLabel(ToolBox);
-        labelPixmapRouteurNat->setObjectName(QString::fromUtf8("labelPixmapRouteurNat"));
-        labelPixmapRouteurNat->setMaximumSize(QSize(150, 150));
-        labelPixmapRouteurNat->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/RouteurNat.png")));
-        labelPixmapRouteurNat->setScaledContents(true);
-
-        gridLayout->addWidget(labelPixmapRouteurNat, 3, 1, 1, 1);
-
         labelPixmapOrdi = new QLabel(ToolBox);
         labelPixmapOrdi->setObjectName(QString::fromUtf8("labelPixmapOrdi"));
         labelPixmapOrdi->setMaximumSize(QSize(150, 150));
@@ -113,6 +115,16 @@ public:
         labelPixmapOrdi->setScaledContents(true);
 
         gridLayout->addWidget(labelPixmapOrdi, 4, 1, 1, 1);
+
+        label = new QLabel(ToolBox);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        gridLayout->addWidget(label, 5, 0, 1, 1);
+
+        label_2 = new QLabel(ToolBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        gridLayout->addWidget(label_2, 5, 1, 1, 1);
 
 
         retranslateUi(ToolBox);
@@ -128,10 +140,12 @@ public:
         labelRouteurNatToolBox->setText(QApplication::translate("ToolBox", "Routeur NAT", 0, QApplication::UnicodeUTF8));
         labelSwitchToolBox->setText(QApplication::translate("ToolBox", "Switch", 0, QApplication::UnicodeUTF8));
         labelPixmapRouteur->setText(QString());
+        labelPixmapRouteurNat->setText(QString());
         labelPixmapHUB->setText(QString());
         labelOrdiToolBox->setText(QApplication::translate("ToolBox", "Ordi", 0, QApplication::UnicodeUTF8));
-        labelPixmapRouteurNat->setText(QString());
         labelPixmapOrdi->setText(QString());
+        label->setText(QApplication::translate("ToolBox", "Fil", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("ToolBox", "Ceci est un fil", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

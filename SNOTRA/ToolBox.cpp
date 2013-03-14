@@ -8,16 +8,16 @@
 
 #include "ToolBox.h"
 #include <QPainter>
+#include <iostream>
 
 ToolBox::ToolBox() {
     widget.setupUi(this);
-
 }
 
 ToolBox::~ToolBox() {
 }
 
-void ToolBox::dragEnterEvent(QDragEnterEvent *event) {
+/*void ToolBox::dragEnterEvent(QDragEnterEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -28,9 +28,9 @@ void ToolBox::dragEnterEvent(QDragEnterEvent *event) {
     } else {
         event->ignore();
     }
-}
+}*/
 
-void ToolBox::dragMoveEvent(QDragMoveEvent *event) {
+/*void ToolBox::dragMoveEvent(QDragMoveEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -41,9 +41,9 @@ void ToolBox::dragMoveEvent(QDragMoveEvent *event) {
     } else {
         event->ignore();
     }
-}
+}*/
 
-void ToolBox::dropEvent(QDropEvent *event) {
+/*void ToolBox::dropEvent(QDropEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
@@ -67,19 +67,23 @@ void ToolBox::dropEvent(QDropEvent *event) {
     } else {
         event->ignore();
     }
-}
+}*/
 
 void ToolBox::mousePressEvent(QMouseEvent *event) {
+    
+    
     QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
     if (!child)
         return;
 
     QPixmap pixmap = *child->pixmap();
+    QString name = child->objectName();
 
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
     dataStream << pixmap << QPoint(event->pos() - child->pos());
-
+    dataStream << name << QPoint(event->pos() - child->pos());
+    
     QMimeData *mimeData = new QMimeData;
     mimeData->setData("application/x-dnditemdata", itemData);
 

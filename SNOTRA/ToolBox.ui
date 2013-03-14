@@ -101,6 +101,25 @@
      </property>
     </widget>
    </item>
+   <item row="3" column="1">
+    <widget class="QLabel" name="labelPixmapRouteurNat">
+     <property name="maximumSize">
+      <size>
+       <width>150</width>
+       <height>150</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>IconeItemNetwork/RouteurNat.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="1">
     <widget class="QLabel" name="labelPixmapHUB">
      <property name="maximumSize">
@@ -127,25 +146,6 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1">
-    <widget class="QLabel" name="labelPixmapRouteurNat">
-     <property name="maximumSize">
-      <size>
-       <width>150</width>
-       <height>150</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>IconeItemNetwork/RouteurNat.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="1">
     <widget class="QLabel" name="labelPixmapOrdi">
      <property name="maximumSize">
@@ -162,6 +162,20 @@
      </property>
      <property name="scaledContents">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Fil</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Ceci est un fil</string>
      </property>
     </widget>
    </item>

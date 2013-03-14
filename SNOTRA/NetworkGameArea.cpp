@@ -42,7 +42,7 @@ void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     }
 }
 
-void NetworkGameArea::dragMoveEvent(QDragMoveEvent *event) {
+/*void NetworkGameArea::dragMoveEvent(QDragMoveEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -53,16 +53,23 @@ void NetworkGameArea::dragMoveEvent(QDragMoveEvent *event) {
     } else {
         event->ignore();
     }
-}
+}*/
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
+
+    /*
+     DEPOSE LES OBJET DANS LA FRAME
+     */
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
 
         QPixmap pixmap;
+        QString name;
+
         QPoint offset;
         dataStream >> pixmap >> offset;
+        dataStream >> name;
 
         QLabel *newIcon = new QLabel(this);
 
@@ -70,7 +77,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         newIcon->setScaledContents(true);
         newIcon->move(event->pos() - offset);
         newIcon->setFixedSize(100, 100);
+        newIcon->setObjectName(name);
+        std::cout << "le nom de l'objet : " << newIcon->objectName().toStdString() << endl;
         newIcon->show();
+
+
         newIcon->setAttribute(Qt::WA_DeleteOnClose);
 
         if (event->source() == this) {
@@ -85,7 +96,6 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
-
     if (event->button() == Qt::LeftButton) {
 
         QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
@@ -93,10 +103,12 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
             return;
 
         QPixmap pixmap = *child->pixmap();
-
+        QString name = child->objectName();
+        
         QByteArray itemData;
         QDataStream dataStream(&itemData, QIODevice::WriteOnly);
         dataStream << pixmap << QPoint(event->pos() - child->pos());
+        dataStream << name << QPoint(event->pos() - child->pos());
 
         QMimeData *mimeData = new QMimeData;
         mimeData->setData("application/x-dnditemdata", itemData);
@@ -125,11 +137,11 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent *event/*, QMouseEvent *mouseEvent*/) {
     QMenu menu(this);
-    QMouseEvent *mouseEvent;
     newAct = new QAction(tr("&New"), this);
     newAct->setShortcuts(QKeySequence::New);
     newAct->setStatusTip(tr("Create a new file"));
     menu.addAction(newAct);
+
     menu.exec(event->globalPos());
 }
 

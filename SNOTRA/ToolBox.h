@@ -22,9 +22,9 @@ private:
     Ui::ToolBox widget;
 
 protected:
-    void dragEnterEvent(QDragEnterEvent *event);
-    void dragMoveEvent(QDragMoveEvent *event);
-    void dropEvent(QDropEvent *event);
+//    void dragEnterEvent(QDragEnterEvent *event);
+//    void dragMoveEvent(QDragMoveEvent *event);
+//    void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
 };
 
