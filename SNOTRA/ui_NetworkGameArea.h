@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'NetworkGameArea.ui'
 **
-** Created: Thu Mar 14 17:05:19 2013
+** Created: Mon Mar 18 14:05:08 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -26,6 +26,7 @@ class Ui_NetworkGameArea
 public:
     QHBoxLayout *horizontalLayout;
     QFrame *frame;
+    QHBoxLayout *horizontalLayout_2;
 
     void setupUi(QWidget *NetworkGameArea)
     {
@@ -40,6 +41,8 @@ public:
         frame->setAcceptDrops(true);
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_2 = new QHBoxLayout(frame);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
 
         horizontalLayout->addWidget(frame);
 

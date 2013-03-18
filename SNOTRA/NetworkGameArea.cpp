@@ -7,27 +7,21 @@
 #include <iostream>;
 #include "NetworkGameArea.h"
 #include <iostream>
+#include <QPainter>
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
     widget.setupUi(this);
     setAcceptDrops(true);
-
 }
 
 NetworkGameArea::~NetworkGameArea() {
 }
 
-/*void NetworkGameArea::setX() {
-    QMouseEvent* mouseEvent = new QMouseEvent(QEvent::MouseButtonPress, point,
-            Qt::NoButton, Qt::NoButton, Qt::NoModifier);
-    this->x = mouseEvent->globalX();
-    this->y = mouseEvent->globalY();
-    delete mouseEvent;
-
-    std::cout << this->x << std::endl;
-    std::cout << this->y << std::endl;
-}*/
+/**
+ * permet de droper l'objet que l'on tient dans la JFrame
+ * @param event
+ */
 
 void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -57,8 +51,9 @@ void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
 
-    /*
-     DEPOSE LES OBJET DANS LA FRAME
+    /**
+     * fait glisser l'objet que l'on tiens dans la Frame
+     * @param event
      */
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
@@ -104,7 +99,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
         QPixmap pixmap = *child->pixmap();
         QString name = child->objectName();
-        
+
         QByteArray itemData;
         QDataStream dataStream(&itemData, QIODevice::WriteOnly);
         dataStream << pixmap << QPoint(event->pos() - child->pos());
@@ -132,10 +127,12 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
             child->show();
             child->setPixmap(pixmap);
         }
+    } else if (event->button() == Qt::RightButton) {
+          
     }
 }
 
-void NetworkGameArea::contextMenuEvent(QContextMenuEvent *event/*, QMouseEvent *mouseEvent*/) {
+/*void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QMenu menu(this);
     newAct = new QAction(tr("&New"), this);
     newAct->setShortcuts(QKeySequence::New);
@@ -143,8 +140,21 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent *event/*, QMouseEvent *
     menu.addAction(newAct);
 
     menu.exec(event->globalPos());
+}*/
+
+void NetworkGameArea::linker(QLabel &labelDestination) {
+
+
+    /*
+     Relier deux item entre eux */
+
+    //    this->painter.drawLine(child->pos(), labelDestination.pos());
+
 }
-
-
-
-
+ void NetworkGameArea::paintEvent(QPaintEvent *)
+ {
+     QPainter p;
+     p.begin(this);
+     p.drawLine(10,10,1000,1000);
+     p.end();
+ }
