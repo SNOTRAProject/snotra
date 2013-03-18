@@ -33,11 +33,13 @@ public:
 private:
     Ui::NetworkGameArea widget;
     QAction *connectAct;
+    QAction *deleteAct;
     bool firstConnect;
     //void paintEvent(QPaintEvent *);
 
 public slots:
    void stocker();
+   void deleteItem();
 };
 
 #endif	/* _NETWORKGAMEAREA_H */

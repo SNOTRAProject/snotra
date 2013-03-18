@@ -72,7 +72,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         newIcon->setPixmap(pixmap);
         newIcon->setScaledContents(true);
         newIcon->move(event->pos() - offset);
-        newIcon->setFixedSize(50,50);
+        newIcon->setFixedSize(50, 50);
         newIcon->setObjectName(name);
         std::cout << "le nom de l'objet : " << newIcon->objectName().toStdString() << endl;
         newIcon->show();
@@ -133,39 +133,32 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
 
+
+    QMenu menu(this);
+    QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
+
+    //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
+
+
+    connectAct = new QAction(tr("&Conect"), this);
+    connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
     if (firstConnect == true) {
-        QMenu menu(this);
-        QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
-
-        //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
-
-
-        connectAct = new QAction(tr("&Conect"), this);
-        //newAct->setShortcuts(QKeySequence::New);
-        connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
         labelConnecter1 = child;
-        //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
-        connect(connectAct, SIGNAL(triggered()), this, SLOT(stocker()));
-        menu.addAction(connectAct);
-        menu.exec(event->globalPos());
     } else {
-        QMenu menu(this);
-        QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
-
-        //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
-
-
-        connectAct = new QAction(tr("&Conect"), this);
-        //newAct->setShortcuts(QKeySequence::New);
-        connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
         labelConnecter2 = child;
-        //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
-        connect(connectAct, SIGNAL(triggered()), this, SLOT(stocker()));
-        menu.addAction(connectAct);
-        menu.exec(event->globalPos());
     }
-
-
+    //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
+    connect(connectAct, SIGNAL(triggered()), this, SLOT(stocker()));
+    
+    
+    deleteAct = new QAction(tr("&Delete"), this);
+    deleteAct->setStatusTip(tr("Delete le périphérique séléctionné"));
+    connect(deleteAct, SIGNAL(triggered()), this, SLOT(deleteItem()));
+    
+    
+    menu.addAction(connectAct);
+    menu.addAction(deleteAct);
+    menu.exec(event->globalPos());
 }
 
 /**
@@ -181,11 +174,14 @@ void NetworkGameArea::stocker() {
         firstConnect = false;
     } else {
         firstConnect = true;
-        std::cout << labelConnecter1->objectName().toStdString() << 
+        std::cout << labelConnecter1->objectName().toStdString() <<
                 "est connecté à " << labelConnecter2->objectName().toStdString()
                 << endl;
     }
-    //std::cout << labelConnecter1 << "est connecté à " << labelConnecter2 << endl;
+}
+
+void NetworkGameArea::deleteItem(){
+    labelConnecter1->close();
 }
 // void NetworkGameArea::paintEvent(QPaintEvent *) {
 //     QPainter p;
