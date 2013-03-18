@@ -26,6 +26,9 @@ public:
     void linker(QLabel &labelDestination);
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
+
+    QLabel *labelDisconnecter1;
+    QLabel *labelDisconnecter2;
     //QLabel *child;
     //void dragMoveEvent(QDragMoveEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
@@ -34,12 +37,15 @@ private:
     Ui::NetworkGameArea widget;
     QAction *connectAct;
     QAction *deleteAct;
+    QAction *disconnectAct;
     bool firstConnect;
+    bool firstDisconnect;
     //void paintEvent(QPaintEvent *);
 
 public slots:
-   void stocker();
-   void deleteItem();
+    void connectStocker();
+    void deleteItem();
+    void disconnectStocker();
 };
 
 #endif	/* _NETWORKGAMEAREA_H */

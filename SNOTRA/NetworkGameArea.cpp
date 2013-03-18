@@ -148,16 +148,25 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
         labelConnecter2 = child;
     }
     //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
-    connect(connectAct, SIGNAL(triggered()), this, SLOT(stocker()));
-    
-    
+    connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
+
+
     deleteAct = new QAction(tr("&Delete"), this);
     deleteAct->setStatusTip(tr("Delete le périphérique séléctionné"));
     connect(deleteAct, SIGNAL(triggered()), this, SLOT(deleteItem()));
-    
-    
+
+    disconnectAct = new QAction(tr("&Disconnect"), this);
+    disconnectAct->setStatusTip(tr("Deconnecter les deux péripherique sélectionner"));
+    if (firstDisconnect == true) {
+        labelDisconnecter1 = child;
+    } else {
+        labelDisconnecter2 = child;
+    }
+    connect(disconnectAct, SIGNAL(triggered()), this, SLOT(disconnectStocker()));
+
     menu.addAction(connectAct);
     menu.addAction(deleteAct);
+    menu.addAction(disconnectAct);
     menu.exec(event->globalPos());
 }
 
@@ -169,7 +178,7 @@ void NetworkGameArea::linker(QLabel &labelSource) {
 
 }
 
-void NetworkGameArea::stocker() {
+void NetworkGameArea::connectStocker() {
     if (firstConnect) {
         firstConnect = false;
     } else {
@@ -180,7 +189,24 @@ void NetworkGameArea::stocker() {
     }
 }
 
-void NetworkGameArea::deleteItem(){
+void NetworkGameArea::disconnectStocker() {
+    /*
+     
+     LE CODE DOIT FAIRE L'OBJET D'UNE VÉRIFICATION : EST IL DECONNECTER POUR 
+     * POUVOIR ETRE DECONNECTER ?
+     
+     */
+    if (firstDisconnect) {
+        firstDisconnect = false;
+    } else {
+        firstDisconnect = true;
+        std::cout << labelDisconnecter1->objectName().toStdString() <<
+                "est déconnecté de " << labelDisconnecter2->objectName().toStdString()
+                << endl;
+    }
+}
+
+void NetworkGameArea::deleteItem() {
     labelConnecter1->close();
 }
 // void NetworkGameArea::paintEvent(QPaintEvent *) {
