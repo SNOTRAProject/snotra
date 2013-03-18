@@ -179,6 +179,13 @@ void NetworkGameArea::linker(QLabel &labelSource) {
 }
 
 void NetworkGameArea::connectStocker() {
+    
+    /*
+     
+     * LE CODE DOIT FAIRE L'OBJET DE VERIFICATION : 
+     * EST CE QUE JE CONNECT BIEN DEUX ITEM ET PAS DEUX COMPOSANT DE MA 
+     * FENETRE ?
+     */
     if (firstConnect) {
         firstConnect = false;
     } else {
@@ -192,8 +199,10 @@ void NetworkGameArea::connectStocker() {
 void NetworkGameArea::disconnectStocker() {
     /*
      
-     LE CODE DOIT FAIRE L'OBJET D'UNE VÉRIFICATION : EST IL DECONNECTER POUR 
-     * POUVOIR ETRE DECONNECTER ?
+     LE CODE DOIT FAIRE L'OBJET D'UNE VÉRIFICATION : 
+     * EST IL DECONNECTER POUR POUVOIR ETRE DECONNECTER ?
+     * EST CE QUE JE DECONNECT BIEN DEUX ITEM ET PAS DEUX COMPOSANT DE MA 
+     * FENETRE ?
      
      */
     if (firstDisconnect) {
@@ -207,6 +216,11 @@ void NetworkGameArea::disconnectStocker() {
 }
 
 void NetworkGameArea::deleteItem() {
+    /*
+     LE CODE DOIT FAIRE L'OBJET D'UNE VERIFICATION : EST BIEN UN ITEM QUE JE 
+     * FERME, ON UN COMPOSANT DE MA FENETRE ?
+     
+     */
     labelConnecter1->close();
 }
 // void NetworkGameArea::paintEvent(QPaintEvent *) {
