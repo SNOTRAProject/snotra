@@ -24,6 +24,9 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
     </logicalFolder>
+    <itemPath>Frame.cpp</itemPath>
+    <itemPath>Frame.h</itemPath>
+    <itemPath>Frame.ui</itemPath>
     <itemPath>Game.cpp</itemPath>
     <itemPath>Game.h</itemPath>
     <itemPath>Game.ui</itemPath>

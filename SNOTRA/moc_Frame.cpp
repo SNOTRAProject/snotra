@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Game.h'
+** Meta object code from reading C++ file 'Frame.h'
 **
-** Created: Mon Mar 18 14:32:13 2013
+** Created: Mon Mar 18 13:47:06 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "Game.h"
+#include "Frame.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Game.h' doesn't include <QObject>."
+#error "The header file 'Frame.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.3. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_Game[] = {
+static const uint qt_meta_data_Frame[] = {
 
  // content:
        6,       // revision
@@ -33,11 +33,11 @@ static const uint qt_meta_data_Game[] = {
        0        // eod
 };
 
-static const char qt_meta_stringdata_Game[] = {
-    "Game\0"
+static const char qt_meta_stringdata_Frame[] = {
+    "Frame\0"
 };
 
-void Game::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Frame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -45,35 +45,35 @@ void Game::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData Game::staticMetaObjectExtraData = {
+const QMetaObjectExtraData Frame::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject Game::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_Game,
-      qt_meta_data_Game, &staticMetaObjectExtraData }
+const QMetaObject Frame::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_Frame,
+      qt_meta_data_Frame, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &Game::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &Frame::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *Game::metaObject() const
+const QMetaObject *Frame::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *Game::qt_metacast(const char *_clname)
+void *Frame::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_Game))
-        return static_cast<void*>(const_cast< Game*>(this));
-    return QMainWindow::qt_metacast(_clname);
+    if (!strcmp(_clname, qt_meta_stringdata_Frame))
+        return static_cast<void*>(const_cast< Frame*>(this));
+    return QDialog::qt_metacast(_clname);
 }
 
-int Game::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Frame::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;

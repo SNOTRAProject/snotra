@@ -6,6 +6,7 @@
  */
 
 #include "WireShark.h"
+#include "Frame.h"
 
 WireShark::WireShark() {
     widget.setupUi(this);

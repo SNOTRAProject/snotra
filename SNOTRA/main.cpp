@@ -12,6 +12,7 @@
 #include "Game.h"
 #include "NetworkGameArea.h"
 #include "WireShark.h"
+#include "Frame.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -24,6 +25,8 @@ int main(int argc, char *argv[]) {
     game->show();
     WireShark *wireShark = new WireShark();
     wireShark->show();
+    Frame *frame = new Frame();
+    frame->show();
     
     return app.exec();
 }
