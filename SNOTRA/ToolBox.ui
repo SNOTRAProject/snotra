@@ -24,8 +24,8 @@
     <widget class="QLabel" name="labelPixmapSwitch">
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>100</width>
+       <height>100</height>
       </size>
      </property>
      <property name="text">
@@ -86,8 +86,8 @@
     <widget class="QLabel" name="labelPixmapRouteur">
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>100</width>
+       <height>100</height>
       </size>
      </property>
      <property name="text">
@@ -105,8 +105,8 @@
     <widget class="QLabel" name="labelPixmapRouteurNat">
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>100</width>
+       <height>100</height>
       </size>
      </property>
      <property name="text">
@@ -124,8 +124,8 @@
     <widget class="QLabel" name="labelPixmapHUB">
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>100</width>
+       <height>100</height>
       </size>
      </property>
      <property name="text">
@@ -150,8 +150,8 @@
     <widget class="QLabel" name="labelPixmapOrdi">
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>100</width>
+       <height>100</height>
       </size>
      </property>
      <property name="text">

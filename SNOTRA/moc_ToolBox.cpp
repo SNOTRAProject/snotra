@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'ToolBox.h'
 **
-** Created: Mon Mar 18 14:32:16 2013
-**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
+** Created: Mon Mar 18 19:09:58 2013
+**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'ToolBox.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
-#error "This file was generated using the moc from 4.8.3. It"
+#error "This file was generated using the moc from 4.8.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif

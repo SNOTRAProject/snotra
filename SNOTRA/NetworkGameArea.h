@@ -24,21 +24,20 @@ public:
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void linker(QLabel &labelDestination);
-
+    QLabel *labelConnecter1;
+    QLabel *labelConnecter2;
+    //QLabel *child;
     //void dragMoveEvent(QDragMoveEvent *event);
-    //void contextMenuEvent(QContextMenuEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event);
 
 private:
     Ui::NetworkGameArea widget;
-    //QPoint point;
-    //QGraphicsScene* scene;
-    //QGraphicsProxyWidget *proxy;
-    QAction *newAct;
-    void paintEvent(QPaintEvent *);
+    QAction *connectAct;
+    bool firstConnect;
+    //void paintEvent(QPaintEvent *);
 
 public slots:
-    // void setX();
-
+   void stocker();
 };
 
 #endif	/* _NETWORKGAMEAREA_H */

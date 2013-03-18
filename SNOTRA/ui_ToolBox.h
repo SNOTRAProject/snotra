@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ToolBox.ui'
 **
-** Created: Thu Mar 14 17:05:19 2013
+** Created: Mon Mar 18 19:09:54 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -48,7 +48,7 @@ public:
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         labelPixmapSwitch = new QLabel(ToolBox);
         labelPixmapSwitch->setObjectName(QString::fromUtf8("labelPixmapSwitch"));
-        labelPixmapSwitch->setMaximumSize(QSize(150, 150));
+        labelPixmapSwitch->setMaximumSize(QSize(100, 100));
         labelPixmapSwitch->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Switch.png")));
         labelPixmapSwitch->setScaledContents(true);
 
@@ -81,7 +81,7 @@ public:
 
         labelPixmapRouteur = new QLabel(ToolBox);
         labelPixmapRouteur->setObjectName(QString::fromUtf8("labelPixmapRouteur"));
-        labelPixmapRouteur->setMaximumSize(QSize(150, 150));
+        labelPixmapRouteur->setMaximumSize(QSize(100, 100));
         labelPixmapRouteur->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Routeur.png")));
         labelPixmapRouteur->setScaledContents(true);
 
@@ -89,7 +89,7 @@ public:
 
         labelPixmapRouteurNat = new QLabel(ToolBox);
         labelPixmapRouteurNat->setObjectName(QString::fromUtf8("labelPixmapRouteurNat"));
-        labelPixmapRouteurNat->setMaximumSize(QSize(150, 150));
+        labelPixmapRouteurNat->setMaximumSize(QSize(100, 100));
         labelPixmapRouteurNat->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/RouteurNat.png")));
         labelPixmapRouteurNat->setScaledContents(true);
 
@@ -97,7 +97,7 @@ public:
 
         labelPixmapHUB = new QLabel(ToolBox);
         labelPixmapHUB->setObjectName(QString::fromUtf8("labelPixmapHUB"));
-        labelPixmapHUB->setMaximumSize(QSize(150, 150));
+        labelPixmapHUB->setMaximumSize(QSize(100, 100));
         labelPixmapHUB->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/HUB.png")));
         labelPixmapHUB->setScaledContents(true);
 
@@ -110,7 +110,7 @@ public:
 
         labelPixmapOrdi = new QLabel(ToolBox);
         labelPixmapOrdi->setObjectName(QString::fromUtf8("labelPixmapOrdi"));
-        labelPixmapOrdi->setMaximumSize(QSize(150, 150));
+        labelPixmapOrdi->setMaximumSize(QSize(100, 100));
         labelPixmapOrdi->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Ordi.png")));
         labelPixmapOrdi->setScaledContents(true);
 

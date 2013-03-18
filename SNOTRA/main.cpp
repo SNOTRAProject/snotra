@@ -23,10 +23,10 @@ int main(int argc, char *argv[]) {
     // create and show your widgets here
     Game *game = new Game();
     game->show();
-    WireShark *wireShark = new WireShark();
-    wireShark->show();
-    Frame *frame = new Frame();
-    frame->show();
+//    WireShark *wireShark = new WireShark();
+//    wireShark->show();
+//    Frame *frame = new Frame();
+//    frame->show();
     
     return app.exec();
 }
