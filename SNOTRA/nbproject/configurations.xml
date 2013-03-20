@@ -34,6 +34,9 @@
     <itemPath>NetworkGameArea.cpp</itemPath>
     <itemPath>NetworkGameArea.h</itemPath>
     <itemPath>NetworkGameArea.ui</itemPath>
+    <itemPath>PortConnecterChoice.cpp</itemPath>
+    <itemPath>PortConnecterChoice.h</itemPath>
+    <itemPath>PortConnecterChoice.ui</itemPath>
     <itemPath>ToolBox.cpp</itemPath>
     <itemPath>ToolBox.h</itemPath>
     <itemPath>ToolBox.ui</itemPath>
