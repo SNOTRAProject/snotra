@@ -16,12 +16,20 @@ public:
     PortConnecterChoice();
     virtual ~PortConnecterChoice();
     int portSelected;
+    Ui::PortConnecterChoice widget;
+    void setPortSelected(int portSelected);
+
+
+signals:
+    void signalPortChanged();
 
 
 public slots:
-    int setPort();
+
+    void setInterface();
+
+
 private:
-    Ui::PortConnecterChoice widget;
 
 };
 

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'PortConnecterChoice.h'
 **
-** Created: Wed Mar 20 23:29:23 2013
+** Created: Thu Mar 21 17:52:46 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,21 +23,25 @@ static const uint qt_meta_data_PortConnecterChoice[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      21,   20,   20,   20, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      25,   20,   21,   20, 0x0a,
+      41,   20,   20,   20, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_PortConnecterChoice[] = {
-    "PortConnecterChoice\0\0int\0setPort()\0"
+    "PortConnecterChoice\0\0signalPortChanged()\0"
+    "setInterface()\0"
 };
 
 void PortConnecterChoice::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,11 +50,12 @@ void PortConnecterChoice::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         Q_ASSERT(staticMetaObject.cast(_o));
         PortConnecterChoice *_t = static_cast<PortConnecterChoice *>(_o);
         switch (_id) {
-        case 0: { int _r = _t->setPort();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 0: _t->signalPortChanged(); break;
+        case 1: _t->setInterface(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData PortConnecterChoice::staticMetaObjectExtraData = {
@@ -85,10 +90,16 @@ int PortConnecterChoice::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
+}
+
+// SIGNAL 0
+void PortConnecterChoice::signalPortChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

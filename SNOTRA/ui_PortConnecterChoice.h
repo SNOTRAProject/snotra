@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'PortConnecterChoice.ui'
 **
-** Created: Wed Mar 20 23:29:21 2013
+** Created: Thu Mar 21 17:52:37 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,8 +15,8 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
-#include <QtGui/QDialogButtonBox>
 #include <QtGui/QHeaderView>
+#include <QtGui/QPushButton>
 #include <QtGui/QSpinBox>
 #include <QtGui/QTextBrowser>
 #include <QtGui/QVBoxLayout>
@@ -29,13 +29,14 @@ public:
     QVBoxLayout *verticalLayout;
     QTextBrowser *textBrowser;
     QSpinBox *spinBox;
-    QDialogButtonBox *buttonBox;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *PortConnecterChoice)
     {
         if (PortConnecterChoice->objectName().isEmpty())
             PortConnecterChoice->setObjectName(QString::fromUtf8("PortConnecterChoice"));
         PortConnecterChoice->resize(400, 300);
+        PortConnecterChoice->setModal(true);
         verticalLayout = new QVBoxLayout(PortConnecterChoice);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         textBrowser = new QTextBrowser(PortConnecterChoice);
@@ -48,17 +49,13 @@ public:
 
         verticalLayout->addWidget(spinBox);
 
-        buttonBox = new QDialogButtonBox(PortConnecterChoice);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        pushButton = new QPushButton(PortConnecterChoice);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-        verticalLayout->addWidget(buttonBox);
+        verticalLayout->addWidget(pushButton);
 
 
         retranslateUi(PortConnecterChoice);
-        QObject::connect(buttonBox, SIGNAL(accepted()), PortConnecterChoice, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), PortConnecterChoice, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(PortConnecterChoice);
     } // setupUi
@@ -71,6 +68,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Sur quel interface souhaitez vous brancher ?</p></body></html>", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("PortConnecterChoice", "OK", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

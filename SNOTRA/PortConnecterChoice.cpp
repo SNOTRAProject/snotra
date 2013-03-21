@@ -11,13 +11,24 @@
 
 PortConnecterChoice::PortConnecterChoice() {
     widget.setupUi(this);
-    connect(widget.buttonBox, SIGNAL(accepted()), this, SLOT(setPort()));
+    this->portSelected = 0;
+    connect(widget.pushButton, SIGNAL(clicked()), this, SLOT(setInterface()));
+    
 }
 
 PortConnecterChoice::~PortConnecterChoice() {
 }
 
-int PortConnecterChoice::setPort() {
-    std::cout<<widget.spinBox->value();
-    return widget.spinBox->value();
+void PortConnecterChoice::setInterface(){
+    setPortSelected(widget.spinBox->value());
+    //emit signalPortChanged();
+    done(0);
 }
+
+void PortConnecterChoice::setPortSelected(int portSelected){
+    this->portSelected = portSelected;
+}
+
+/*void PortConnecterChoice::portChanged(){
+    
+}*/

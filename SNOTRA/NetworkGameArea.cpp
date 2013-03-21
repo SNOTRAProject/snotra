@@ -8,12 +8,17 @@
 #include "NetworkGameArea.h"
 #include <iostream>
 #include <QPainter>
+#include <qt4/QtCore/qnamespace.h>
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
     widget.setupUi(this);
     setAcceptDrops(true);
     firstConnect = true;
+    portConnecterChoice1 = new PortConnecterChoice();
+    portConnecterChoice2 = new PortConnecterChoice();
+    
+    //connect(portConnecterChoice1, SIGNAL(signalPortChanged()), this, SLOT(std::cout<<"test Accompli"));
 }
 
 NetworkGameArea::~NetworkGameArea() {
@@ -94,7 +99,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
 
-        QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
+        QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
         if (!child)
             return;
 
@@ -134,13 +139,15 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
 
 
-    QMenu menu(this);
-    QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
 
+    QMenu menu(this);
+    QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
+    if (!child)
+            return;
     //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
 
 
-    connectAct = new QAction(tr("&Conect"), this);
+    connectAct = new QAction(tr("&Connect"), this);
     connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
     if (firstConnect == true) {
         labelConnecter1 = child;
@@ -149,7 +156,6 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     }
     //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
     connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
-
 
     deleteAct = new QAction(tr("&Delete"), this);
     deleteAct->setStatusTip(tr("Delete le périphérique séléctionné"));
@@ -168,18 +174,20 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
     menu.exec(event->globalPos());
+
+
+
 }
 
 /**
  * relier deux item entre eux
  * @param labelSource : label qui a été cliqué en premier
  */
-void NetworkGameArea::linker(QLabel &labelSource) {
 
-}
 
 void NetworkGameArea::connectStocker() {
-    
+
+
     /*
      
      * LE CODE DOIT FAIRE L'OBJET DE VERIFICATION : 
@@ -187,13 +195,15 @@ void NetworkGameArea::connectStocker() {
      * FENETRE ?
      */
     if (firstConnect) {
+        portConnecterChoice1->exec();
         firstConnect = false;
     } else {
         firstConnect = true;
-        std::cout << labelConnecter1->objectName().toStdString() <<
-                "est connecté à " << labelConnecter2->objectName().toStdString()
-                << endl;
+        portConnecterChoice2->exec();
+        descriptor();
+        //PortConnecterChoice::connect(portConnecterChoice2, SIGNAL(clicked()), this, SLOT(portConnecterChoice2->setPort()));
     }
+
 }
 
 void NetworkGameArea::disconnectStocker() {
@@ -210,7 +220,8 @@ void NetworkGameArea::disconnectStocker() {
     } else {
         firstDisconnect = true;
         std::cout << labelDisconnecter1->objectName().toStdString() <<
-                "est déconnecté de " << labelDisconnecter2->objectName().toStdString()
+                "est déconnecté de " <<
+                labelDisconnecter2->objectName().toStdString()
                 << endl;
     }
 }
@@ -230,3 +241,19 @@ void NetworkGameArea::deleteItem() {
 //     //child1->pos(), child2->pos()
 //     p.end();
 // }
+
+void NetworkGameArea::descriptor() {
+    if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
+        std::cout << labelConnecter1->objectName().toStdString() <<
+                "est connecté sur le port sue l'interface numéro " <<
+                portConnecterChoice1->portSelected << " à " <<
+                labelConnecter2->objectName().toStdString() <<
+                " sur l'interface numéro " <<
+                portConnecterChoice2->portSelected << "\n\n";
+    }
+}
+
+void NetworkGameArea::changeValuePort(){
+    //this->port1 = value;
+    std::cout<<"///////////done/////////////";
+}

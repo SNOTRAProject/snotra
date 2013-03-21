@@ -13,6 +13,7 @@
 #include <QtGui>
 #include <QMouseEvent>
 #include <iostream>
+#include "PortConnecterChoice.h"
 
 class NetworkGameArea : public QWidget {
     Q_OBJECT
@@ -23,15 +24,22 @@ public:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
-    void linker(QLabel &labelDestination);
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
 
     QLabel *labelDisconnecter1;
     QLabel *labelDisconnecter2;
-    //QLabel *child;
-    //void dragMoveEvent(QDragMoveEvent *event);
+
+    PortConnecterChoice *portConnecterChoice1;
+    PortConnecterChoice *portConnecterChoice2;
+
+
+
+    int port1;
+    int port2;
+
     void contextMenuEvent(QContextMenuEvent *event);
+    void descriptor();
 
 private:
     Ui::NetworkGameArea widget;
@@ -40,12 +48,18 @@ private:
     QAction *disconnectAct;
     bool firstConnect;
     bool firstDisconnect;
+
+
     //void paintEvent(QPaintEvent *);
+
+
 
 public slots:
     void connectStocker();
     void deleteItem();
     void disconnectStocker();
+    void changeValuePort();
 };
+
 
 #endif	/* _NETWORKGAMEAREA_H */

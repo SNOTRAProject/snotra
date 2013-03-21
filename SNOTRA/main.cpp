@@ -28,9 +28,7 @@ int main(int argc, char *argv[]) {
     //    wireShark->show();
     //    Frame *frame = new Frame();
     //    frame->show();
-
-    PortConnecterChoice *portConnecterChoice = new PortConnecterChoice;
-    portConnecterChoice->show();
+    
 
     return app.exec();
 
