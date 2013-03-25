@@ -54,16 +54,10 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
             }
         }
     }
+    
     //cette partie est à modifier je doit recupere les element que je recupere!!
     
     for( int row=0; row<5; row++ )
-   { for( int colum=0; colum<5; colum++)
-        {
-            QString sstr = "[ " + QString::number(row) + " , " + QString::number(colum) + " ]";
-            QStandardItem *item = new QStandardItem(QString("Idx ") + sstr);
-            model->setItem(row, colum, item);
-        }
-    }for( int row=0; row<5; row++ )
    { for( int colum=0; colum<5; colum++)
         {
             QString sstr = "[ " + QString::number(row) + " , " + QString::number(colum) + " ]";
