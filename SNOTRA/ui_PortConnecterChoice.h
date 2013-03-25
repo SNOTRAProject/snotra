@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'PortConnecterChoice.ui'
 **
-** Created: Thu Mar 21 17:52:37 2013
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Mon Mar 25 08:31:13 2013
+**      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -36,7 +36,6 @@ public:
         if (PortConnecterChoice->objectName().isEmpty())
             PortConnecterChoice->setObjectName(QString::fromUtf8("PortConnecterChoice"));
         PortConnecterChoice->resize(400, 300);
-        PortConnecterChoice->setModal(true);
         verticalLayout = new QVBoxLayout(PortConnecterChoice);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         textBrowser = new QTextBrowser(PortConnecterChoice);

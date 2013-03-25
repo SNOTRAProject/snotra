@@ -14,7 +14,10 @@
    <string>Frame</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="2">
+   <item row="1" column="2">
+    <widget class="QTextBrowser" name="sourceView"/>
+   </item>
+   <item row="0" column="1">
     <widget class="QLabel" name="temps">
      <property name="text">
       <string>TEMPS</string>
@@ -24,7 +27,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="4">
+   <item row="0" column="3">
     <widget class="QLabel" name="destination">
      <property name="text">
       <string>DESTINATION</string>
@@ -44,13 +47,13 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
+   <item row="1" column="1">
     <widget class="QTextBrowser" name="tempsView"/>
    </item>
    <item row="1" column="0">
     <widget class="QTextBrowser" name="NumberView"/>
    </item>
-   <item row="0" column="3">
+   <item row="0" column="2">
     <widget class="QLabel" name="source">
      <property name="text">
       <string>SOURCE</string>
@@ -61,17 +64,7 @@
     </widget>
    </item>
    <item row="1" column="3">
-    <widget class="QTextBrowser" name="sourceView"/>
-   </item>
-   <item row="1" column="4">
     <widget class="QTextBrowser" name="destanationView"/>
-   </item>
-   <item row="1" column="1">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>

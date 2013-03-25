@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Frame.ui'
 **
-** Created: Thu Mar 21 16:52:31 2013
-**      by: Qt User Interface Compiler version 4.8.1
+** Created: Mon Mar 25 08:31:13 2013
+**      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -15,7 +15,6 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QDialog>
-#include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -27,15 +26,14 @@ class Ui_Frame
 {
 public:
     QGridLayout *gridLayout;
+    QTextBrowser *sourceView;
     QLabel *temps;
     QLabel *destination;
     QLabel *number;
     QTextBrowser *tempsView;
     QTextBrowser *NumberView;
     QLabel *source;
-    QTextBrowser *sourceView;
     QTextBrowser *destanationView;
-    QFrame *line;
 
     void setupUi(QDialog *Frame)
     {
@@ -44,17 +42,22 @@ public:
         Frame->resize(1238, 119);
         gridLayout = new QGridLayout(Frame);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        sourceView = new QTextBrowser(Frame);
+        sourceView->setObjectName(QString::fromUtf8("sourceView"));
+
+        gridLayout->addWidget(sourceView, 1, 2, 1, 1);
+
         temps = new QLabel(Frame);
         temps->setObjectName(QString::fromUtf8("temps"));
         temps->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(temps, 0, 2, 1, 1);
+        gridLayout->addWidget(temps, 0, 1, 1, 1);
 
         destination = new QLabel(Frame);
         destination->setObjectName(QString::fromUtf8("destination"));
         destination->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(destination, 0, 4, 1, 1);
+        gridLayout->addWidget(destination, 0, 3, 1, 1);
 
         number = new QLabel(Frame);
         number->setObjectName(QString::fromUtf8("number"));
@@ -65,7 +68,7 @@ public:
         tempsView = new QTextBrowser(Frame);
         tempsView->setObjectName(QString::fromUtf8("tempsView"));
 
-        gridLayout->addWidget(tempsView, 1, 2, 1, 1);
+        gridLayout->addWidget(tempsView, 1, 1, 1, 1);
 
         NumberView = new QTextBrowser(Frame);
         NumberView->setObjectName(QString::fromUtf8("NumberView"));
@@ -76,24 +79,12 @@ public:
         source->setObjectName(QString::fromUtf8("source"));
         source->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(source, 0, 3, 1, 1);
-
-        sourceView = new QTextBrowser(Frame);
-        sourceView->setObjectName(QString::fromUtf8("sourceView"));
-
-        gridLayout->addWidget(sourceView, 1, 3, 1, 1);
+        gridLayout->addWidget(source, 0, 2, 1, 1);
 
         destanationView = new QTextBrowser(Frame);
         destanationView->setObjectName(QString::fromUtf8("destanationView"));
 
-        gridLayout->addWidget(destanationView, 1, 4, 1, 1);
-
-        line = new QFrame(Frame);
-        line->setObjectName(QString::fromUtf8("line"));
-        line->setFrameShape(QFrame::VLine);
-        line->setFrameShadow(QFrame::Sunken);
-
-        gridLayout->addWidget(line, 1, 1, 1, 1);
+        gridLayout->addWidget(destanationView, 1, 3, 1, 1);
 
 
         retranslateUi(Frame);
