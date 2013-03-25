@@ -10,46 +10,38 @@
 
 WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    QHBoxLayout *horLayout1 = new QHBoxLayout;
-    QHBoxLayout *horLayout2 = new QHBoxLayout;
-    
-    horLayout1->addWidget(lab1);
-    horLayout2->addWidget(lab2);
-    
-    
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+   
     mainWireSharkView = new QTableView();
     
-    mainWireSharkView->setSelectionBehavior(QAbstractItemView::SelectItems );
-    mainWireSharkView->setSelectionMode( QAbstractItemView::ExtendedSelection );
+    //mainWireSharkView->setSelectionBehavior(QAbstractItemView::SelectItems );
+    //mainWireSharkView->setSelectionMode( QAbstractItemView::ExtendedSelection );
     
-    mainLayout->addLayout(horLayout1);
-    mainLayout->addLayout(horLayout2);
     mainLayout->addWidget(mainWireSharkView);
     setLayout(mainLayout);
-    QStandardItemModel *model = new QStandardItemModel( 5, 2, this );
+    QStandardItemModel *model = new QStandardItemModel( 1, 1, this );
     for (int colum=0; colum<5; colum++){
         
         switch (colum)
         {
             case 0 :{
-                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("Number" ).arg(colum)) );
+                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("Number" )) );
                 break;
             }
             case 1 :{
-                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("Protocol" ).arg(colum)) );
+                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("Protocol" )) );
                 break;
             }
             case 2 :{
-                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("IP Source" ).arg(colum)) );
+                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("IP Source" )) );
                 break;
             }            
             case 3 :{
-                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("IP destination" ).arg(colum)) );
+                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("IP destination" )) );
                 break;
             }
             case 4 :{
-                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("information" ).arg(colum)) );
+                model->setHorizontalHeaderItem( colum, new QStandardItem( QString("information" )) );
                 break;
             }
         }
@@ -62,6 +54,7 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
         {
             QString sstr = "[ " + QString::number(row) + " , " + QString::number(colum) + " ]";
             QStandardItem *item = new QStandardItem(QString("Idx ") + sstr);
+            item->setEditable(false);
             model->setItem(row, colum, item);
         }
     }
