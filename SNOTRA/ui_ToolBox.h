@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ToolBox.ui'
 **
-** Created: Mon Mar 25 16:37:38 2013
+** Created: Mon Mar 25 22:31:43 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,6 +17,7 @@
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
+#include <QtGui/QPushButton>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -36,7 +37,7 @@ public:
     QLabel *labelOrdiToolBox;
     QLabel *labelPixmapOrdi;
     QLabel *label;
-    QLabel *label_2;
+    QPushButton *pushButtonFil;
 
     void setupUi(QWidget *ToolBox)
     {
@@ -121,10 +122,10 @@ public:
 
         gridLayout->addWidget(label, 5, 0, 1, 1);
 
-        label_2 = new QLabel(ToolBox);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        pushButtonFil = new QPushButton(ToolBox);
+        pushButtonFil->setObjectName(QString::fromUtf8("pushButtonFil"));
 
-        gridLayout->addWidget(label_2, 5, 1, 1, 1);
+        gridLayout->addWidget(pushButtonFil, 5, 1, 1, 1);
 
 
         retranslateUi(ToolBox);
@@ -145,7 +146,7 @@ public:
         labelOrdiToolBox->setText(QApplication::translate("ToolBox", "Ordi", 0, QApplication::UnicodeUTF8));
         labelPixmapOrdi->setText(QString());
         label->setText(QApplication::translate("ToolBox", "Fil", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("ToolBox", "Ceci est un fil", 0, QApplication::UnicodeUTF8));
+        pushButtonFil->setText(QApplication::translate("ToolBox", "Tracer un fil", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

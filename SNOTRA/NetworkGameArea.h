@@ -22,8 +22,15 @@ public:
     virtual ~NetworkGameArea();
 
     void dragEnterEvent(QDragEnterEvent *event);
+    
+   
+    QPoint pointDrawline1;
+    QPoint pointDrawline2;
+    
+    QPainter paint;
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
 
@@ -48,9 +55,7 @@ private:
     QAction *disconnectAct;
     bool firstConnect;
     bool firstDisconnect;
-
-
-    //void paintEvent(QPaintEvent *);
+    void paintEvent(QPaintEvent*);
 
 
 

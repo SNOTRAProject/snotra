@@ -173,9 +173,9 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="QLabel" name="label_2">
+    <widget class="QPushButton" name="pushButtonFil">
      <property name="text">
-      <string>Ceci est un fil</string>
+      <string>Tracer un fil</string>
      </property>
     </widget>
    </item>

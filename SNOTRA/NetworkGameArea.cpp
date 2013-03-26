@@ -6,9 +6,12 @@
  */
 #include <iostream>;
 #include "NetworkGameArea.h"
+#include "ToolBox.h"
 #include <iostream>
 #include <QPainter>
 #include <qt4/QtCore/qnamespace.h>
+#include <sstream>
+#include <qt4/QtCore/qdebug.h>
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
@@ -17,8 +20,7 @@ NetworkGameArea::NetworkGameArea() {
     firstConnect = true;
     portConnecterChoice1 = new PortConnecterChoice();
     portConnecterChoice2 = new PortConnecterChoice();
-    
-    //connect(portConnecterChoice1, SIGNAL(signalPortChanged()), this, SLOT(std::cout<<"test Accompli"));
+
 }
 
 NetworkGameArea::~NetworkGameArea() {
@@ -96,12 +98,41 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
     }
 }
 
+void NetworkGameArea::mouseReleaseEvent(QMouseEvent* event) {
+
+    if (event->button() == Qt::LeftButton) {
+        pointDrawline2 = event->pos();
+
+        std::cout << pointDrawline1.x() << endl;
+        std::cout << pointDrawline1.y() << endl;
+
+        std::cout << pointDrawline2.x() << endl;
+        std::cout << pointDrawline2.y() << endl;
+
+    }
+}
+
+void NetworkGameArea::paintEvent(QPaintEvent *paintEvent) {
+    paint.begin(this);
+    paint.setPen(Qt::black);
+    paint.drawLine(pointDrawline1, pointDrawline2);
+
+    paint.end();
+
+    update();
+
+}
+
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
+
     if (event->button() == Qt::LeftButton) {
 
         QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
-        if (!child)
+        pointDrawline1 = event->pos();
+
+        if (!child) {
             return;
+        }
 
         QPixmap pixmap = *child->pixmap();
         QString name = child->objectName();
@@ -143,7 +174,7 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QMenu menu(this);
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
     if (!child)
-            return;
+        return;
     //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
 
 
@@ -174,9 +205,6 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
     menu.exec(event->globalPos());
-
-
-
 }
 
 /**
@@ -201,7 +229,6 @@ void NetworkGameArea::connectStocker() {
         firstConnect = true;
         portConnecterChoice2->exec();
         descriptor();
-        //PortConnecterChoice::connect(portConnecterChoice2, SIGNAL(clicked()), this, SLOT(portConnecterChoice2->setPort()));
     }
 
 }
@@ -253,7 +280,7 @@ void NetworkGameArea::descriptor() {
     }
 }
 
-void NetworkGameArea::changeValuePort(){
+void NetworkGameArea::changeValuePort() {
     //this->port1 = value;
-    std::cout<<"///////////done/////////////";
+    std::cout << "///////////done/////////////";
 }
