@@ -20,13 +20,14 @@ class NetworkGameArea : public QWidget {
 public:
     NetworkGameArea();
     virtual ~NetworkGameArea();
+    Ui::NetworkGameArea widget;
 
     void dragEnterEvent(QDragEnterEvent *event);
-    
-   
+
+
     QPoint pointDrawline1;
     QPoint pointDrawline2;
-    
+
     QPainter paint;
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
@@ -48,14 +49,19 @@ public:
     void contextMenuEvent(QContextMenuEvent *event);
     void descriptor();
 
+    int static signalFromPushButtonPressed();
+
 private:
-    Ui::NetworkGameArea widget;
     QAction *connectAct;
     QAction *deleteAct;
     QAction *disconnectAct;
     bool firstConnect;
     bool firstDisconnect;
     void paintEvent(QPaintEvent*);
+    void signalPushButtonPressed();
+
+
+
 
 
 
@@ -64,6 +70,7 @@ public slots:
     void deleteItem();
     void disconnectStocker();
     void changeValuePort();
+    void sayCoucou();
 };
 
 

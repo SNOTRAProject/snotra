@@ -12,6 +12,7 @@
 #include <qt4/QtCore/qnamespace.h>
 #include <sstream>
 #include <qt4/QtCore/qdebug.h>
+#include <qt4/QtCore/qglobal.h>
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
@@ -20,6 +21,8 @@ NetworkGameArea::NetworkGameArea() {
     firstConnect = true;
     portConnecterChoice1 = new PortConnecterChoice();
     portConnecterChoice2 = new PortConnecterChoice();
+
+
 
 }
 
@@ -99,32 +102,27 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 }
 
 void NetworkGameArea::mouseReleaseEvent(QMouseEvent* event) {
-
     if (event->button() == Qt::LeftButton) {
         pointDrawline2 = event->pos();
 
-        std::cout << pointDrawline1.x() << endl;
-        std::cout << pointDrawline1.y() << endl;
-
-        std::cout << pointDrawline2.x() << endl;
-        std::cout << pointDrawline2.y() << endl;
-
+        //        std::cout << pointDrawline1.x() << endl;
+        //        std::cout << pointDrawline1.y() << endl;
+        //
+        //        std::cout << pointDrawline2.x() << endl;
+        //        std::cout << pointDrawline2.y() << endl;
     }
 }
 
 void NetworkGameArea::paintEvent(QPaintEvent *paintEvent) {
     paint.begin(this);
     paint.setPen(Qt::black);
-    paint.drawLine(pointDrawline1, pointDrawline2);
-
+    QLine line(pointDrawline1, pointDrawline2);
+    paint.drawLine(line);
     paint.end();
-
     update();
-
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
-
     if (event->button() == Qt::LeftButton) {
 
         QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
@@ -168,9 +166,6 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 }
 
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
-
-
-
     QMenu menu(this);
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
     if (!child)
@@ -284,3 +279,10 @@ void NetworkGameArea::changeValuePort() {
     //this->port1 = value;
     std::cout << "///////////done/////////////";
 }
+
+void NetworkGameArea::sayCoucou() {
+    qDebug("CETTE FONCTION EST CELLE QUI SPÉCIFIERA QUE LES DEVICES SONT BIEN CONNECTÉ");
+}
+
+
+

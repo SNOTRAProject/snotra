@@ -18,14 +18,11 @@ class ToolBox : public QWidget {
 public:
     ToolBox();
     virtual ~ToolBox();
-private:
     Ui::ToolBox widget;
 
-protected:
-//    void dragEnterEvent(QDragEnterEvent *event);
-//    void dragMoveEvent(QDragMoveEvent *event);
-//    void dropEvent(QDropEvent *event);
+private:
+    //Ui::ToolBox widget;
     void mousePressEvent(QMouseEvent *event);
-};
 
+};
 #endif	/* _TOOLBOX_H */

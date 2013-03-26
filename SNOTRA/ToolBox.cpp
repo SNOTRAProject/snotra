@@ -7,8 +7,11 @@
 
 
 #include "ToolBox.h"
+#include "NetworkGameArea.h"
 #include <QPainter>
 #include <iostream>
+#include <qt4/QtCore/qdebug.h>
+#include <qt4/QtCore/qglobal.h>
 
 ToolBox::ToolBox() {
     widget.setupUi(this);
@@ -16,6 +19,9 @@ ToolBox::ToolBox() {
 
 ToolBox::~ToolBox() {
 }
+
+
+
 
 /*void ToolBox::dragEnterEvent(QDragEnterEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
