@@ -59,7 +59,7 @@ private:
     bool firstDisconnect;
     void paintEvent(QPaintEvent*);
     void signalPushButtonPressed();
-
+    bool pushButton;
 
 
 
@@ -70,7 +70,7 @@ public slots:
     void deleteItem();
     void disconnectStocker();
     void changeValuePort();
-    void sayCoucou();
+    void pushButtonPressed();
 };
 
 

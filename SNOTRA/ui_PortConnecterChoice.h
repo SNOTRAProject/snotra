@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'PortConnecterChoice.ui'
 **
-** Created: Tue Mar 26 20:29:24 2013
+** Created: Wed Mar 27 19:13:16 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

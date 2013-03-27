@@ -26,7 +26,7 @@ Game::Game() {
     networkGameAreaMdi->setGeometry(300,0,1200,800);
 
     connect(gameWindow.actionTool_Box, SIGNAL(activated()), toolBox, SLOT(show()));
-    connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea, SLOT(sayCoucou()));
+    connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea, SLOT(pushButtonPressed()));
 //    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
 //            networkGameArea, SLOT(setX()));
 }

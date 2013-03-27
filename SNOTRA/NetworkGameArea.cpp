@@ -16,6 +16,7 @@
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
+    pushButton = false;
     widget.setupUi(this);
     setAcceptDrops(true);
     firstConnect = true;
@@ -47,19 +48,6 @@ void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     }
 }
 
-/*void NetworkGameArea::dragMoveEvent(QDragMoveEvent *event) {
-    if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
-        if (event->source() == this) {
-            event->setDropAction(Qt::MoveAction);
-            event->accept();
-        } else {
-            event->acceptProposedAction();
-        }
-    } else {
-        event->ignore();
-    }
-}*/
-
 void NetworkGameArea::dropEvent(QDropEvent *event) {
 
     /**
@@ -88,8 +76,13 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         newIcon->show();
 
 
-        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+        pointDrawline2 = newIcon->pos();
 
+
+        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+        if (newIcon->objectName() == "") {
+            delete newIcon;
+        }
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -103,7 +96,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
 void NetworkGameArea::mouseReleaseEvent(QMouseEvent* event) {
     if (event->button() == Qt::LeftButton) {
-        pointDrawline2 = event->pos();
+        //pointDrawline2 = event->pos();
 
         //        std::cout << pointDrawline1.x() << endl;
         //        std::cout << pointDrawline1.y() << endl;
@@ -123,10 +116,43 @@ void NetworkGameArea::paintEvent(QPaintEvent *paintEvent) {
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
-    if (event->button() == Qt::LeftButton) {
 
-        QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
-        pointDrawline1 = event->pos();
+
+
+    QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
+
+    if (event->button() == Qt::LeftButton) {
+        if (pushButton == true) {
+            pointDrawline1 = event->pos();
+            pushButton = false;
+
+            QLabel *qLabelFactice = new QLabel();
+
+            QByteArray itemData;
+            QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+
+
+            dataStream << qLabelFactice; // << QPoint(event->pos());
+            QMimeData *mimeData = new QMimeData;
+            mimeData->setData("application/x-dnditemdata", itemData);
+
+            QDrag *drag = new QDrag(this);
+            drag->setMimeData(mimeData);
+            drag->setHotSpot(event->pos());
+
+
+            QPainter painter;
+
+
+            painter.begin(qLabelFactice);
+            //????????
+            painter.end();
+
+            drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction);
+
+            return;
+        }
+
 
         if (!child) {
             return;
@@ -148,6 +174,8 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
         drag->setPixmap(pixmap);
         drag->setHotSpot(event->pos() - child->pos());
 
+
+
         QPixmap tempPixmap = pixmap;
         QPainter painter;
         painter.begin(&tempPixmap);
@@ -162,6 +190,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
             child->show();
             child->setPixmap(pixmap);
         }
+
     }
 }
 
@@ -218,6 +247,7 @@ void NetworkGameArea::connectStocker() {
      * FENETRE ?
      */
     if (firstConnect) {
+
         portConnecterChoice1->exec();
         firstConnect = false;
     } else {
@@ -280,8 +310,10 @@ void NetworkGameArea::changeValuePort() {
     std::cout << "///////////done/////////////";
 }
 
-void NetworkGameArea::sayCoucou() {
+void NetworkGameArea::pushButtonPressed() {
+
     qDebug("CETTE FONCTION EST CELLE QUI SPÉCIFIERA QUE LES DEVICES SONT BIEN CONNECTÉ");
+    pushButton = true;
 }
 
 
