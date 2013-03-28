@@ -15,9 +15,12 @@ class PortConnecterChoice : public QDialog {
 public:
     PortConnecterChoice();
     virtual ~PortConnecterChoice();
-    int portSelected;
+    int portSelectedDevice1;
+    int portSelectedDevice2;
+
     Ui::PortConnecterChoice widget;
-    void setPortSelected(int portSelected);
+    void setPortSelected(int portSelectedDevice1, int portSelectedDevice2);
+    void setText(QString Device1Name, QString Device2Name);
 
 
 signals:

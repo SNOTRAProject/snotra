@@ -39,8 +39,7 @@ public:
     QLabel *labelDisconnecter1;
     QLabel *labelDisconnecter2;
 
-    PortConnecterChoice *portConnecterChoice1;
-    PortConnecterChoice *portConnecterChoice2;
+    PortConnecterChoice *portConnecterChoice;
 
  
     int port1;
@@ -66,7 +65,7 @@ private:
 
 
 public slots:
-    void connectStocker();
+//    void connectStocker();
     void deleteItem();
     void disconnectStocker();
     void changeValuePort();
