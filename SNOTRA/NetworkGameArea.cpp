@@ -48,6 +48,25 @@ void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     }
 }
 
+void NetworkGameArea::dragMoveEvent(QDragMoveEvent* event) {
+    if (!pointDrawline1.isNull()) {
+        pointDrawline2 = event->pos();
+        update();
+    }
+}
+
+void NetworkGameArea::paintEvent(QPaintEvent*) {
+    if (!pointDrawline1.isNull() && !pointDrawline2.isNull()) {
+        QPainter painter;
+        painter.begin(this);
+        painter.setPen(Qt::black);
+        QLine line(pointDrawline1, pointDrawline2);
+        painter.drawLine(line);
+        painter.end();
+        update();
+    }
+}
+
 void NetworkGameArea::dropEvent(QDropEvent *event) {
 
     /**
@@ -65,24 +84,25 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         dataStream >> pixmap >> offset;
         dataStream >> name;
 
-        QLabel *newIcon = new QLabel(this);
+        if (!name.isEmpty()) {
+            QLabel *newIcon = new QLabel(this);
 
-        newIcon->setPixmap(pixmap);
-        newIcon->setScaledContents(true);
-        newIcon->move(event->pos() - offset);
-        newIcon->setFixedSize(50, 50);
-        newIcon->setObjectName(name);
-        std::cout << "le nom de l'objet : " << newIcon->objectName().toStdString() << endl;
-        newIcon->show();
-
-
-        pointDrawline2 = newIcon->pos();
-
-
-        newIcon->setAttribute(Qt::WA_DeleteOnClose);
-        if (newIcon->objectName() == "") {
-            delete newIcon;
+            newIcon->setPixmap(pixmap);
+            newIcon->setScaledContents(true);
+            newIcon->move(event->pos() - offset);
+            newIcon->setFixedSize(50, 50);
+            newIcon->setObjectName(name);
+            std::cout << "le nom de l'objet : " << newIcon->objectName().toStdString() << endl;
+            newIcon->show();
+        } else if (childAt(event->pos()) != NULL) {
+            // Mode fil
+            qDebug("Création d'un fil");
+            
+            // Popup des interfaces
+            // Dire au modèle qu'il y a un nouveau fil
         }
+        pointDrawline1 = QPoint();
+        pointDrawline2 = QPoint();
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
             event->accept();
@@ -106,55 +126,32 @@ void NetworkGameArea::mouseReleaseEvent(QMouseEvent* event) {
     }
 }
 
-void NetworkGameArea::paintEvent(QPaintEvent *paintEvent) {
-    paint.begin(this);
-    paint.setPen(Qt::black);
-    QLine line(pointDrawline1, pointDrawline2);
-    paint.drawLine(line);
-    paint.end();
-    update();
-}
-
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
-
-
-
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
 
     if (event->button() == Qt::LeftButton) {
+        if (!child) {
+            return;
+        }
+        
         if (pushButton == true) {
             pointDrawline1 = event->pos();
             pushButton = false;
 
-            QLabel *qLabelFactice = new QLabel();
-
-            QByteArray itemData;
-            QDataStream dataStream(&itemData, QIODevice::WriteOnly);
+            //QByteArray itemData;
+            //QDataStream dataStream(&itemData, QIODevice::WriteOnly);
 
 
-            dataStream << qLabelFactice; // << QPoint(event->pos());
+            //dataStream << qLabelFactice; // << QPoint(event->pos());
             QMimeData *mimeData = new QMimeData;
-            mimeData->setData("application/x-dnditemdata", itemData);
+            mimeData->setData("application/x-dnditemdata", QByteArray());
 
             QDrag *drag = new QDrag(this);
             drag->setMimeData(mimeData);
             drag->setHotSpot(event->pos());
 
-
-            QPainter painter;
-
-
-            painter.begin(qLabelFactice);
-            //????????
-            painter.end();
-
             drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction);
 
-            return;
-        }
-
-
-        if (!child) {
             return;
         }
 
@@ -173,8 +170,6 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
         drag->setMimeData(mimeData);
         drag->setPixmap(pixmap);
         drag->setHotSpot(event->pos() - child->pos());
-
-
 
         QPixmap tempPixmap = pixmap;
         QPainter painter;

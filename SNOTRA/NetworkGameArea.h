@@ -23,6 +23,7 @@ public:
     Ui::NetworkGameArea widget;
 
     void dragEnterEvent(QDragEnterEvent *event);
+    void dragMoveEvent(QDragMoveEvent*);
 
 
     QPoint pointDrawline1;
@@ -41,8 +42,7 @@ public:
     PortConnecterChoice *portConnecterChoice1;
     PortConnecterChoice *portConnecterChoice2;
 
-
-
+ 
     int port1;
     int port2;
 
