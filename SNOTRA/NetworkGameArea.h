@@ -50,6 +50,9 @@ public:
 
     int static signalFromPushButtonPressed();
 
+    
+        QList<QLabel*> qLabelList;
+
 private:
     QAction *connectAct;
     QAction *deleteAct;

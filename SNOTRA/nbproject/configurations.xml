@@ -24,6 +24,8 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
     </logicalFolder>
+    <itemPath>DataBaseManager.cpp</itemPath>
+    <itemPath>DataBaseManager.h</itemPath>
     <itemPath>Frame.cpp</itemPath>
     <itemPath>Frame.h</itemPath>
     <itemPath>Frame.ui</itemPath>
@@ -52,7 +54,10 @@
         <compilerSet>default</compilerSet>
       </toolsSet>
       <qt>
-        <modules>core gui</modules>
+        <modules>core gui sql</modules>
+        <defs>
+          <Elem>"QT += sql"</Elem>
+        </defs>
       </qt>
       <compileType>
       </compileType>

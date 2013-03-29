@@ -14,6 +14,7 @@
 #include "WireShark.h"
 #include "Frame.h"
 #include "PortConnecterChoice.h"
+#include "DataBaseManager.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -29,6 +30,9 @@ int main(int argc, char *argv[]) {
     //    Frame *frame = new Frame();
     //    frame->show();
 
+    DataBase *db = new DataBase();
+    //db->openDB();
+    
 
     return app.exec();
 

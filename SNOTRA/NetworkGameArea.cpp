@@ -93,8 +93,17 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             newIcon->setObjectName(name);
             std::cout << "le nom de l'objet : " << newIcon->objectName().toStdString() << endl;
             newIcon->show();
+            ///////////////////////////////////////////////////////////////
+            //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
+            ///////////////////////////////////////////////////////////////            
+            qLabelList.append(newIcon);
+            qDebug("%d", qLabelList.size());
+            QLabel *test = qLabelList.at(0);
+            qDebug() << test->pos();
+            //
+            ////////////////////////////////////////////////////////////////       
         } else if (childAt(event->pos()) != NULL) {
-            
+
             QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
             labelConnecter2 = child;
             portConnecterChoice->setText(labelConnecter1->objectName(), labelConnecter2->objectName());
