@@ -13,6 +13,7 @@
 #include <sstream>
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtCore/qglobal.h>
+#include "DataBaseManager.h"
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
@@ -21,8 +22,6 @@ NetworkGameArea::NetworkGameArea() {
     setAcceptDrops(true);
     firstConnect = true;
     portConnecterChoice = new PortConnecterChoice();
-
-
 
 }
 
@@ -97,9 +96,10 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
             ///////////////////////////////////////////////////////////////            
             qLabelList.append(newIcon);
-            qDebug("%d", qLabelList.size());
             QLabel *test = qLabelList.at(0);
-            qDebug() << test->pos();
+            DataBaseManager *db = new DataBaseManager();
+            //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
+            db->create(test);
             //
             ////////////////////////////////////////////////////////////////       
         } else if (childAt(event->pos()) != NULL) {
@@ -127,18 +127,6 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         }
     } else {
         event->ignore();
-    }
-}
-
-void NetworkGameArea::mouseReleaseEvent(QMouseEvent* event) {
-    if (event->button() == Qt::LeftButton) {
-        //pointDrawline2 = event->pos();
-
-        //        std::cout << pointDrawline1.x() << endl;
-        //        std::cout << pointDrawline1.y() << endl;
-        //
-        //        std::cout << pointDrawline2.x() << endl;
-        //        std::cout << pointDrawline2.y() << endl;
     }
 }
 
@@ -223,6 +211,7 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     //    }
     //    //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
     //    connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
+    labelConnecter1 = child;
 
     deleteAct = new QAction(tr("&Delete"), this);
     deleteAct->setStatusTip(tr("Delete le périphérique séléctionné"));
@@ -237,38 +226,11 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     }
     connect(disconnectAct, SIGNAL(triggered()), this, SLOT(disconnectStocker()));
 
-    menu.addAction(connectAct);
+    //menu.addAction(connectAct);
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
     menu.exec(event->globalPos());
 }
-
-/**
- * relier deux item entre eux
- * @param labelSource : label qui a été cliqué en premier
- */
-
-
-//void NetworkGameArea::connectStocker() {
-//
-//
-//    /*
-//     
-//     * LE CODE DOIT FAIRE L'OBJET DE VERIFICATION : 
-//     * EST CE QUE JE CONNECT BIEN DEUX ITEM ET PAS DEUX COMPOSANT DE MA 
-//     * FENETRE ?
-//     */
-//    if (firstConnect) {
-//
-//        portConnecterChoice1->exec();
-//        firstConnect = false;
-//    } else {
-//        firstConnect = true;
-//        portConnecterChoice2->exec();
-//        descriptor();
-//    }
-//
-//}
 
 void NetworkGameArea::disconnectStocker() {
     /*
@@ -296,6 +258,7 @@ void NetworkGameArea::deleteItem() {
      * FERME, ON UN COMPOSANT DE MA FENETRE ?
      
      */
+    std::cout << labelConnecter1->objectName().toStdString() << endl;
     labelConnecter1->close();
 }
 // void NetworkGameArea::paintEvent(QPaintEvent *) {

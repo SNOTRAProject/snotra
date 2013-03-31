@@ -11,15 +11,25 @@
 #include <QSqlDatabase>
 #include <QtSql>
 
-class DataBase {
+
+
+#include <QApplication>
+#include <QtGui>
+#include <QMouseEvent>
+#include <iostream>
+
+class DataBaseManager {
 public:
-    bool openDB();
-    void createTable();
-    DataBase();
-    DataBase(const DataBase & orig);
-    virtual ~DataBase();
+    DataBaseManager();
+    DataBaseManager(const DataBaseManager & orig);
+    void create(QLabel *item);
+
+    virtual ~DataBaseManager();
 private:
     QSqlDatabase db;
+    
+    int setLastID();
+
 
 };
 

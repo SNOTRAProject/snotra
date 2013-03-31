@@ -9,9 +9,10 @@
 #include <QDir>
 #include <iostream>
 #include <qt4/QtCore/qdebug.h>
+#include <qt4/QtGui/qlabel.h>
 #define q2c(string) string.toStdString()
 
-DataBase::DataBase() {
+DataBaseManager::DataBaseManager() {
 
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -28,29 +29,50 @@ DataBase::DataBase() {
 
     if (db.open()) {
         qDebug("vous etes connecté");
+        QSqlQuery createTableQuerry;
+        createTableQuerry.exec("CREATE TABLE sauvegarde (ID INTEGER, name TEXT,"
+                "image INTEGER, position TEXT)");
     } else {
         qDebug("connecttion echoue");
         std::cout << "La connexion a échouée, désolé :(" << std::endl << q2c(db.lastError().text()) << std::endl;
     }
 
 }
+/**
+ * creer une sauvegarde 
+ */
+void DataBaseManager::create(QLabel *item) {
+    
+     
+    
+    int ID = 0;
+    ID = setLastID() + 1;
+    QSqlQuery query("INSERT INTO sauvegarde (ID, name,image, position) VALUES("
+            "?,?,1,'COUCOU')");
+    query.bindValue(0,ID);
+    query.bindValue(1,item->objectName());
+    query.exec();
+    
+  }
 
-void DataBase::createTable() {
+int DataBaseManager::setLastID() {
+    int lastID = 0;
+    QSqlQuery query;
+    /*revoi un bool*/
+    query.exec("SELECT MAX(ID) FROM sauvegarde");
 
-}
+    if (query.isSelect()) {
+        while (query.next()) {
 
-bool DataBase::openDB() {
-
-    if (!db.open()) {
-        qDebug("erreur");
+            lastID = query.value(0).toInt();
+        }
     }
-
-    return db.open();
+    return lastID;
 }
 
-DataBase::DataBase(const DataBase& orig) {
+DataBaseManager::DataBaseManager(const DataBaseManager& orig) {
 }
 
-DataBase::~DataBase() {
+DataBaseManager::~DataBaseManager() {
 }
 

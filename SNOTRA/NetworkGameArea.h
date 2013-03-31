@@ -32,7 +32,7 @@ public:
     QPainter paint;
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
+  
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
 

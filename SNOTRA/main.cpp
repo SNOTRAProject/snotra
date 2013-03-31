@@ -30,8 +30,7 @@ int main(int argc, char *argv[]) {
     //    Frame *frame = new Frame();
     //    frame->show();
 
-    DataBase *db = new DataBase();
-    //db->openDB();
+    
     
 
     return app.exec();
