@@ -16,19 +16,25 @@ Game::Game() {
 
     gameWindow.mdiArea->addSubWindow(toolBoxMdi);
     gameWindow.mdiArea->addSubWindow(networkGameAreaMdi);
-    
+
     toolBox = new ToolBox();
     networkGameArea = new NetworkGameArea();
-    
+
     toolBoxMdi->setWidget(toolBox);
     networkGameAreaMdi->setWidget(networkGameArea);
-    
-    networkGameAreaMdi->setGeometry(300,0,1200,800);
 
-    connect(gameWindow.actionTool_Box, SIGNAL(activated()), toolBox, SLOT(show()));
-    connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea, SLOT(pushButtonPressed()));
-//    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
-//            networkGameArea, SLOT(setX()));
+    networkGameAreaMdi->setGeometry(300, 0, 1200, 800);
+
+    connect(gameWindow.actionTool_Box, SIGNAL(activated()), toolBox,
+            SLOT(show()));
+    connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea,
+            SLOT(pushButtonPressed()));
+    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea, 
+            SLOT(sayCoucou()));
+
+
+    //    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
+    //            networkGameArea, SLOT(setX()));
 }
 
 Game::~Game() {

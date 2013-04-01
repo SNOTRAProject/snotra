@@ -69,7 +69,10 @@
       </toolsSet>
       <qt>
         <buildMode>1</buildMode>
-        <modules>core gui</modules>
+        <modules>core gui sql</modules>
+        <defs>
+          <Elem>"QT += sql"</Elem>
+        </defs>
       </qt>
       <compileType>
         <cTool>

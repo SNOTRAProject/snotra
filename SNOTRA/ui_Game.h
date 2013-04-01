@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Game.ui'
 **
-** Created: Sun Mar 31 23:18:33 2013
+** Created: Mon Apr 1 14:07:20 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -42,6 +42,7 @@ public:
     QAction *actionCr_dit;
     QAction *actionAide;
     QAction *actionTool_Box;
+    QAction *actionSauvegarder;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QGridLayout *scoreGridLayout;
@@ -86,6 +87,8 @@ public:
         actionAide->setObjectName(QString::fromUtf8("actionAide"));
         actionTool_Box = new QAction(Game);
         actionTool_Box->setObjectName(QString::fromUtf8("actionTool_Box"));
+        actionSauvegarder = new QAction(Game);
+        actionSauvegarder->setObjectName(QString::fromUtf8("actionSauvegarder"));
         centralwidget = new QWidget(Game);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -177,6 +180,7 @@ public:
         menuPartie->addAction(actionRecommencer);
         menuPartie->addAction(actionCharger);
         menuPartie->addAction(actionQuitter);
+        menuPartie->addAction(actionSauvegarder);
         menuJeu->addAction(actionPause);
         menuJeu->addAction(actionDifficult);
         menuJeu->addAction(actionObtenir_un_indice);
@@ -203,6 +207,7 @@ public:
         actionCr_dit->setText(QApplication::translate("Game", "Cr\303\251dit", 0, QApplication::UnicodeUTF8));
         actionAide->setText(QApplication::translate("Game", "Aide", 0, QApplication::UnicodeUTF8));
         actionTool_Box->setText(QApplication::translate("Game", "Tool Box", 0, QApplication::UnicodeUTF8));
+        actionSauvegarder->setText(QApplication::translate("Game", "Sauvegarder", 0, QApplication::UnicodeUTF8));
         timeLabel->setText(QApplication::translate("Game", "Time", 0, QApplication::UnicodeUTF8));
         lapsCounterLabel->setText(QApplication::translate("Game", "Nombre de coups", 0, QApplication::UnicodeUTF8));
         globalPercentLabel->setText(QApplication::translate("Game", "Pourcentage global r\303\251alis\303\251", 0, QApplication::UnicodeUTF8));

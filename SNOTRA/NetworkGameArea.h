@@ -26,32 +26,18 @@ public:
     void dragMoveEvent(QDragMoveEvent*);
 
 
-    QPoint pointDrawline1;
-    QPoint pointDrawline2;
-
-    QPainter paint;
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
-  
-    QLabel *labelConnecter1;
-    QLabel *labelConnecter2;
-
-    QLabel *labelDisconnecter1;
-    QLabel *labelDisconnecter2;
-
-    PortConnecterChoice *portConnecterChoice;
-
- 
-    int port1;
-    int port2;
 
     void contextMenuEvent(QContextMenuEvent *event);
     void descriptor();
 
     int static signalFromPushButtonPressed();
 
-    
-        QList<QLabel*> qLabelList;
+
+
+
+    void showLabelList();
 
 private:
     QAction *connectAct;
@@ -64,15 +50,26 @@ private:
     bool pushButton;
 
 
-
-
+    QLabel *labelConnecter1;
+    QLabel *labelConnecter2;
+    QLabel *labelDisconnecter1;
+    QLabel *labelDisconnecter2;
+    PortConnecterChoice *portConnecterChoice;
+    int port1;
+    int port2;
+    QPoint pointDrawline1;
+    QPoint pointDrawline2;
+    QPainter paint;
+    QList<QLabel*> qLabelList;
 
 public slots:
-//    void connectStocker();
+    //    void connectStocker();
     void deleteItem();
     void disconnectStocker();
-    void changeValuePort();
+    ////    void changeValuePort();
     void pushButtonPressed();
+    void sayCoucou();
+
 };
 
 

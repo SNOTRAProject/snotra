@@ -6,7 +6,7 @@
  */
 #include <iostream>;
 #include "NetworkGameArea.h"
-#include "ToolBox.h"
+
 #include <iostream>
 #include <QPainter>
 #include <qt4/QtCore/qnamespace.h>
@@ -72,7 +72,8 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
      * @param event
      */
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
-        QByteArray itemData = event->mimeData()->data("application/x-dnditemdata");
+        QByteArray itemData = event->mimeData()->data(
+                "application/x-dnditemdata");
         QDataStream dataStream(&itemData, QIODevice::ReadOnly);
 
         QPixmap pixmap;
@@ -90,23 +91,24 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             newIcon->move(event->pos() - offset);
             newIcon->setFixedSize(50, 50);
             newIcon->setObjectName(name);
-            std::cout << "le nom de l'objet : " << newIcon->objectName().toStdString() << endl;
+            std::cout << "le nom de l'objet : " << 
+                    newIcon->objectName().toStdString() << endl;
             newIcon->show();
             ///////////////////////////////////////////////////////////////
             //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
             ///////////////////////////////////////////////////////////////            
             qLabelList.append(newIcon);
-            QLabel *test = qLabelList.at(0);
-            DataBaseManager *db = new DataBaseManager();
             //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
-            db->create(test);
-            //
+            //            DataBaseManager *db = new DataBaseManager();
+            //            db->create(test);
+
             ////////////////////////////////////////////////////////////////       
         } else if (childAt(event->pos()) != NULL) {
 
             QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
             labelConnecter2 = child;
-            portConnecterChoice->setText(labelConnecter1->objectName(), labelConnecter2->objectName());
+            portConnecterChoice->setText(labelConnecter1->objectName(), 
+                    labelConnecter2->objectName());
             // Mode fil
             qDebug("Création d'un fil");
 
@@ -184,7 +186,8 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
         child->setPixmap(tempPixmap);
 
-        if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction)
+        if (drag->exec(Qt::CopyAction | Qt::MoveAction, 
+                Qt::CopyAction) == Qt::MoveAction)
             child->close();
         else {
             child->show();
@@ -199,18 +202,18 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
     if (!child)
         return;
-    //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
+//std::cout << "ce label est : " << child->objectName().toStdString() << endl;
 
 
-    //    connectAct = new QAction(tr("&Connect"), this);
-    //    connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
-    //    if (firstConnect == true) {
-    //        labelConnecter1 = child;
-    //    } else {
-    //        labelConnecter2 = child;
-    //    }
-    //    //std::cout<<"le label est desormais : "<<labelMenuConnecter->objectName().toStdString();
-    //    connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
+//connectAct = new QAction(tr("&Connect"), this);
+//connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
+//if (firstConnect == true) {
+//    labelConnecter1 = child;
+//} else {
+//    labelConnecter2 = child;
+//}
+//std::cout<<"le label : "<<labelMenuConnecter->objectName().toStdString();
+//connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
     labelConnecter1 = child;
 
     deleteAct = new QAction(tr("&Delete"), this);
@@ -218,13 +221,15 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     connect(deleteAct, SIGNAL(triggered()), this, SLOT(deleteItem()));
 
     disconnectAct = new QAction(tr("&Disconnect"), this);
-    disconnectAct->setStatusTip(tr("Deconnecter les deux péripherique sélectionner"));
+    disconnectAct->setStatusTip(tr("Deconnecter les deux péripherique "
+            "sélectionner"));
     if (firstDisconnect == true) {
         labelDisconnecter1 = child;
     } else {
         labelDisconnecter2 = child;
     }
-    connect(disconnectAct, SIGNAL(triggered()), this, SLOT(disconnectStocker()));
+    connect(disconnectAct, SIGNAL(triggered()), this,
+            SLOT(disconnectStocker()));
 
     //menu.addAction(connectAct);
     menu.addAction(deleteAct);
@@ -279,17 +284,33 @@ void NetworkGameArea::descriptor() {
                 portConnecterChoice->portSelectedDevice2 << "\n\n";
     }
 }
-
-void NetworkGameArea::changeValuePort() {
-    //this->port1 = value;
-    std::cout << "///////////done/////////////";
-}
+//
+//void NetworkGameArea::changeValuePort() {
+//    //this->port1 = value;
+//    std::cout << "///////////done/////////////";
+//}
 
 void NetworkGameArea::pushButtonPressed() {
 
-    //qDebug("CETTE FONCTION EST CELLE QUI SPÉCIFIERA QUE LES DEVICES SONT BIEN CONNECTÉ");
+    /**qDebug("CETTE FONCTION EST CELLE QUI SPÉCIFIERA QUE LES DEVICES SONT 
+     * BIEN CONNECTÉ");
+     */
     pushButton = true;
 }
 
+void NetworkGameArea::showLabelList() {
+    QList<QLabel*>::iterator i;
+    for (i = qLabelList.begin(); i != qLabelList.end(); ++i) {
+        QLabel *test = *i;
 
+        if (test->objectName() == "labelPixmapRouteur") {
+            qDebug("ok");
+        }
+        qDebug() << test->objectName();
 
+    }
+}
+
+void NetworkGameArea::sayCoucou() {
+    showLabelList();
+}
