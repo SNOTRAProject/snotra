@@ -68,7 +68,7 @@ public slots:
     void disconnectStocker();
     ////    void changeValuePort();
     void pushButtonPressed();
-    void sayCoucou();
+    void slotShowLabelList();
 
 };
 

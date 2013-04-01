@@ -311,6 +311,6 @@ void NetworkGameArea::showLabelList() {
     }
 }
 
-void NetworkGameArea::sayCoucou() {
+void NetworkGameArea::slotShowLabelList() {
     showLabelList();
 }
