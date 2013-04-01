@@ -26,13 +26,13 @@ public:
     void closeDb();
     QList<QLabel*> load();
     virtual ~DataBaseManager();
+//    void setTableName(QString tableName);
 private:
     QSqlDatabase db;
-
-
     int setLastID();
-
-
+    QString tableName;
+    
+public slots : 
 };
 
 #endif	/* DATABASE_H */

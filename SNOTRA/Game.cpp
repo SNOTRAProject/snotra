@@ -6,6 +6,7 @@
  */
 
 #include "Game.h"
+#include "Sauvegarder.h"
 
 Game::Game() {
 
@@ -22,6 +23,7 @@ Game::Game() {
 
     toolBoxMdi->setWidget(toolBox);
     networkGameAreaMdi->setWidget(networkGameArea);
+//    Sauvegarder *save = new Sauvegarder();
 
     networkGameAreaMdi->setGeometry(300, 0, 1200, 800);
 
@@ -29,15 +31,10 @@ Game::Game() {
             SLOT(show()));
     connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea,
             SLOT(pushButtonPressed()));
-    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea, 
-            SLOT(slotSaveLabelList()));
-    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea, 
+    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea,
             SLOT(slotLoadLabelList()));
-    
-
-
-    //    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),
-    //            networkGameArea, SLOT(setX()));
+    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea,
+            SLOT(slotSaveLabelList()));
 }
 
 Game::~Game() {

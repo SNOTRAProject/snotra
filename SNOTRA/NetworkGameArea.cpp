@@ -14,6 +14,7 @@
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtCore/qglobal.h>
 #include "DataBaseManager.h"
+#include "Sauvegarder.h"
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
@@ -22,7 +23,9 @@ NetworkGameArea::NetworkGameArea() {
     setAcceptDrops(true);
     firstConnect = true;
     portConnecterChoice = new PortConnecterChoice();
-    db = new DataBaseManager();
+
+    //    connect(save->widget.buttonBox, SIGNAL(accepted()), this,
+    //            SLOT(slotSaveLabelList()));
 }
 
 NetworkGameArea::~NetworkGameArea() {
@@ -287,16 +290,15 @@ void NetworkGameArea::pushButtonPressed() {
 }
 
 void NetworkGameArea::saveLabelList() {
+    db = new DataBaseManager();
+    //db->setTableName("sauvegardetest");
     QList<QLabel*>::iterator i;
     for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
         QLabel *test = *i;
-
         /**
          * ajout des données du Qlabel dans la BDD (sauvegarde.db)
          */
-
         db->create(test);
-
         //penser à fermer la BDD
     }
 }
@@ -337,23 +339,4 @@ void NetworkGameArea::loadLabelList() {
         labelAdded->show();
         qDebug() << labelAdded->pos();
     }
-
-    /**     
-     * etre en mesure de recreer une liste de Qlabel depuis la base de données
-     */
-
-
-
-
-    ////////Test d'ajout de pixmap sur un QLabel factice//////////
-    //
-    //    /**
-    //     * reconnaissance des item par leur nom (UTILE POUR LA FONCTION CHARGER)
-    //     */
-    //
-    //
-    //    labelFactice->setPixmap(pixmap);
-    //    labelFactice->setFixedSize(50, 50);
-    //    this->widget.horizontalLayout->addWidget(labelFactice);
-
 }

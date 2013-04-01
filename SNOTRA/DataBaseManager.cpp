@@ -14,8 +14,10 @@
 #define q2c(string) string.toStdString()
 
 DataBaseManager::DataBaseManager() {
-
-
+    Sauvegarder *save = new Sauvegarder();
+    save->exec();
+    tableName = save->getResultLineString();
+    qDebug()<<tableName;
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 
     //db.setHostName();
@@ -31,7 +33,7 @@ DataBaseManager::DataBaseManager() {
     if (db.open()) {
         qDebug("vous etes connecté");
         QSqlQuery createTableQuerry;
-        createTableQuerry.exec("CREATE TABLE sauvegarde (ID INTEGER, name TEXT,"
+        createTableQuerry.exec("CREATE TABLE "+tableName+" (ID INTEGER, name TEXT,"
                 "positionX INTEGER, positionY INTEGER)");
     } else {
         qDebug("connecttion echoue");
@@ -49,7 +51,7 @@ void DataBaseManager::create(QLabel *item) {
 
     int ID = 0;
     ID = setLastID() + 1;
-    QSqlQuery query("INSERT INTO sauvegarde (ID, name, positionX, positionY)"
+    QSqlQuery query("INSERT INTO "+tableName+" (ID, name, positionX, positionY)"
             " VALUES(?,?,?,?)");
     query.bindValue(0, ID);
     query.bindValue(1, item->objectName());
@@ -63,7 +65,7 @@ int DataBaseManager::setLastID() {
     int lastID = 0;
     QSqlQuery query;
     /*revoi un bool*/
-    query.exec("SELECT MAX(ID) FROM sauvegarde");
+    query.exec("SELECT MAX(ID) FROM "+tableName);
 
     if (query.isSelect()) {
         while (query.next()) {
@@ -100,3 +102,6 @@ DataBaseManager::DataBaseManager(const DataBaseManager& orig) {
 DataBaseManager::~DataBaseManager() {
 }
 
+//void DataBaseManager::setTableName(QString tableName){
+//    this->tableName=tableName;
+//}
