@@ -14,6 +14,7 @@
 #include <QMouseEvent>
 #include <iostream>
 #include "PortConnecterChoice.h"
+#include "DataBaseManager.h"
 
 class NetworkGameArea : public QWidget {
     Q_OBJECT
@@ -21,23 +22,13 @@ public:
     NetworkGameArea();
     virtual ~NetworkGameArea();
     Ui::NetworkGameArea widget;
-
     void dragEnterEvent(QDragEnterEvent *event);
     void dragMoveEvent(QDragMoveEvent*);
-
-
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
-
     void contextMenuEvent(QContextMenuEvent *event);
     void descriptor();
-
     int static signalFromPushButtonPressed();
-
-
-
-
-    void showLabelList();
 
 private:
     QAction *connectAct;
@@ -60,7 +51,14 @@ private:
     QPoint pointDrawline1;
     QPoint pointDrawline2;
     QPainter paint;
-    QList<QLabel*> qLabelList;
+    QList<QLabel*> qLabelListSave;
+    QList<QLabel*> qLabelListLoad;
+
+    DataBaseManager *db;
+    std::string pixmapTab[5];
+    void loadLabelList();
+    void saveLabelList();
+
 
 public slots:
     //    void connectStocker();
@@ -68,8 +66,8 @@ public slots:
     void disconnectStocker();
     ////    void changeValuePort();
     void pushButtonPressed();
-    void slotShowLabelList();
-
+    void slotSaveLabelList();
+    void slotLoadLabelList();
 };
 
 

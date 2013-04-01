@@ -30,7 +30,10 @@ Game::Game() {
     connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea,
             SLOT(pushButtonPressed()));
     connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea, 
-            SLOT(sayCoucou()));
+            SLOT(slotSaveLabelList()));
+    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea, 
+            SLOT(slotLoadLabelList()));
+    
 
 
     //    QObject::connect(networkGameArea->buttonTest, SIGNAL(clicked()),

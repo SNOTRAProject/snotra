@@ -22,7 +22,7 @@ NetworkGameArea::NetworkGameArea() {
     setAcceptDrops(true);
     firstConnect = true;
     portConnecterChoice = new PortConnecterChoice();
-
+    db = new DataBaseManager();
 }
 
 NetworkGameArea::~NetworkGameArea() {
@@ -91,13 +91,13 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             newIcon->move(event->pos() - offset);
             newIcon->setFixedSize(50, 50);
             newIcon->setObjectName(name);
-            std::cout << "le nom de l'objet : " << 
+            std::cout << "le nom de l'objet : " <<
                     newIcon->objectName().toStdString() << endl;
             newIcon->show();
             ///////////////////////////////////////////////////////////////
             //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
             ///////////////////////////////////////////////////////////////            
-            qLabelList.append(newIcon);
+            qLabelListSave.append(newIcon);
             //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
             //            DataBaseManager *db = new DataBaseManager();
             //            db->create(test);
@@ -107,7 +107,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
             QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
             labelConnecter2 = child;
-            portConnecterChoice->setText(labelConnecter1->objectName(), 
+            portConnecterChoice->setText(labelConnecter1->objectName(),
                     labelConnecter2->objectName());
             // Mode fil
             qDebug("Création d'un fil");
@@ -186,7 +186,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
         child->setPixmap(tempPixmap);
 
-        if (drag->exec(Qt::CopyAction | Qt::MoveAction, 
+        if (drag->exec(Qt::CopyAction | Qt::MoveAction,
                 Qt::CopyAction) == Qt::MoveAction)
             child->close();
         else {
@@ -202,18 +202,18 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
     if (!child)
         return;
-//std::cout << "ce label est : " << child->objectName().toStdString() << endl;
+    //std::cout << "ce label est : " << child->objectName().toStdString() << endl;
 
 
-//connectAct = new QAction(tr("&Connect"), this);
-//connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
-//if (firstConnect == true) {
-//    labelConnecter1 = child;
-//} else {
-//    labelConnecter2 = child;
-//}
-//std::cout<<"le label : "<<labelMenuConnecter->objectName().toStdString();
-//connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
+    //connectAct = new QAction(tr("&Connect"), this);
+    //connectAct->setStatusTip(tr("Connecter un périphérique à un autre"));
+    //if (firstConnect == true) {
+    //    labelConnecter1 = child;
+    //} else {
+    //    labelConnecter2 = child;
+    //}
+    //std::cout<<"le label : "<<labelMenuConnecter->objectName().toStdString();
+    //connect(connectAct, SIGNAL(triggered()), this, SLOT(connectStocker()));
     labelConnecter1 = child;
 
     deleteAct = new QAction(tr("&Delete"), this);
@@ -266,13 +266,6 @@ void NetworkGameArea::deleteItem() {
     std::cout << labelConnecter1->objectName().toStdString() << endl;
     labelConnecter1->close();
 }
-// void NetworkGameArea::paintEvent(QPaintEvent *) {
-//     QPainter p;
-//     p.begin(this);
-//     p.drawLine(200,200,400,400);
-//     //child1->pos(), child2->pos()
-//     p.end();
-// }
 
 void NetworkGameArea::descriptor() {
     if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
@@ -284,11 +277,6 @@ void NetworkGameArea::descriptor() {
                 portConnecterChoice->portSelectedDevice2 << "\n\n";
     }
 }
-//
-//void NetworkGameArea::changeValuePort() {
-//    //this->port1 = value;
-//    std::cout << "///////////done/////////////";
-//}
 
 void NetworkGameArea::pushButtonPressed() {
 
@@ -298,19 +286,74 @@ void NetworkGameArea::pushButtonPressed() {
     pushButton = true;
 }
 
-void NetworkGameArea::showLabelList() {
+void NetworkGameArea::saveLabelList() {
     QList<QLabel*>::iterator i;
-    for (i = qLabelList.begin(); i != qLabelList.end(); ++i) {
+    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
         QLabel *test = *i;
 
-        if (test->objectName() == "labelPixmapRouteur") {
-            qDebug("ok");
-        }
-        qDebug() << test->objectName();
+        /**
+         * ajout des données du Qlabel dans la BDD (sauvegarde.db)
+         */
 
+        db->create(test);
+
+        //penser à fermer la BDD
     }
 }
 
-void NetworkGameArea::slotShowLabelList() {
-    showLabelList();
+void NetworkGameArea::slotSaveLabelList() {
+    saveLabelList();
+}
+
+void NetworkGameArea::slotLoadLabelList() {
+    loadLabelList();
+}
+
+void NetworkGameArea::loadLabelList() {
+    QPixmap pixmapHUB(":/HUB.png");
+    QPixmap pixmapRouteur(":/Routeur.png");
+    QPixmap pixmapSwitch(":/Switch.png");
+    QPixmap pixmapRouteurNat(":/RouteurNat.png");
+    QPixmap pixmapOrdi(":/Ordi.png");
+
+    QList<QLabel*>::iterator i;
+    qLabelListLoad = db->load();
+    for (i = qLabelListLoad.begin(); i != qLabelListLoad.end(); ++i) {
+        QLabel *labelAdded = *i;
+        if (labelAdded->objectName() == "labelPixmapHUB") {
+            labelAdded->setPixmap(pixmapHUB);
+        } else if (labelAdded->objectName() == "labelPixmapRouteur") {
+            labelAdded->setPixmap(pixmapRouteur);
+        } else if (labelAdded->objectName() == "labelPixmapSwitch") {
+            labelAdded->setPixmap(pixmapSwitch);
+        } else if (labelAdded->objectName() == "labelPixmapRouteurNat") {
+            labelAdded->setPixmap(pixmapRouteurNat);
+        } else if (labelAdded->objectName() == "labelPixmapOrdi") {
+            labelAdded->setPixmap(pixmapOrdi);
+        }
+        labelAdded->setParent(this);
+        labelAdded->setFixedSize(50, 50);
+        labelAdded->setScaledContents(true);
+        labelAdded->show();
+        qDebug() << labelAdded->pos();
+    }
+
+    /**     
+     * etre en mesure de recreer une liste de Qlabel depuis la base de données
+     */
+
+
+
+
+    ////////Test d'ajout de pixmap sur un QLabel factice//////////
+    //
+    //    /**
+    //     * reconnaissance des item par leur nom (UTILE POUR LA FONCTION CHARGER)
+    //     */
+    //
+    //
+    //    labelFactice->setPixmap(pixmap);
+    //    labelFactice->setFixedSize(50, 50);
+    //    this->widget.horizontalLayout->addWidget(labelFactice);
+
 }

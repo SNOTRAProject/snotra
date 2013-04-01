@@ -23,11 +23,13 @@ public:
     DataBaseManager();
     DataBaseManager(const DataBaseManager & orig);
     void create(QLabel *item);
-
+    void closeDb();
+    QList<QLabel*> load();
     virtual ~DataBaseManager();
 private:
     QSqlDatabase db;
-    
+
+
     int setLastID();
 
 
