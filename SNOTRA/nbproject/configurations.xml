@@ -39,12 +39,12 @@
     <itemPath>NetworkGameArea.cpp</itemPath>
     <itemPath>NetworkGameArea.h</itemPath>
     <itemPath>NetworkGameArea.ui</itemPath>
-    <itemPath>Onglet1.cpp</itemPath>
-    <itemPath>Onglet1.h</itemPath>
-    <itemPath>Onglet1.ui</itemPath>
     <itemPath>PortConnecterChoice.cpp</itemPath>
     <itemPath>PortConnecterChoice.h</itemPath>
     <itemPath>PortConnecterChoice.ui</itemPath>
+    <itemPath>RelevantActions.cpp</itemPath>
+    <itemPath>RelevantActions.h</itemPath>
+    <itemPath>RelevantActions.ui</itemPath>
     <itemPath>Sauvegarder.cpp</itemPath>
     <itemPath>Sauvegarder.h</itemPath>
     <itemPath>Sauvegarder.ui</itemPath>

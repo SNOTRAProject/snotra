@@ -1,7 +1,7 @@
 /********************************************************************************
-** Form generated from reading UI file 'Onglet1.ui'
+** Form generated from reading UI file 'ActionsPertinantes.ui'
 **
-** Created: Tue Apr 2 23:40:10 2013
+** Created: Wed Apr 3 00:16:53 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -43,17 +43,17 @@ public:
     QTextBrowser *textBrowserContext;
     QLabel *labelObjectif;
     QTextBrowser *textBrowserObjectif;
-    QLabel *labelListeAction;
-    QTextBrowser *textBrowserListeAction;
-    QLabel *label;
-    QTextBrowser *textBrowser;
-    QLabel *label_2;
-    QTextBrowser *textBrowser_2;
+    QLabel *labelListeActions;
+    QTextBrowser *textBrowserListeActions;
+    QLabel *labelActionsPertinantes;
+    QTextBrowser *textBrowserActionsPertinantes;
+    QLabel *labelActionsNonPertinantes;
+    QTextBrowser *textBrowserActionsNonPertinantes;
 
     void setupUi(QWidget *ActionsPertinantes)
     {
         if (ActionsPertinantes->objectName().isEmpty())
-            ActionsPertinantes->setObjectName(QString::fromUtf8("Actions Pertinantes"));
+            ActionsPertinantes->setObjectName(QString::fromUtf8("ActionsPertinantes"));
         ActionsPertinantes->resize(1077, 549);
         horizontalLayout = new QHBoxLayout(ActionsPertinantes);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -123,35 +123,35 @@ public:
 
         verticalLayout->addWidget(textBrowserObjectif);
 
-        labelListeAction = new QLabel(ActionsPertinantes);
-        labelListeAction->setObjectName(QString::fromUtf8("labelListeAction"));
+        labelListeActions = new QLabel(ActionsPertinantes);
+        labelListeActions->setObjectName(QString::fromUtf8("labelListeActions"));
 
-        verticalLayout->addWidget(labelListeAction);
+        verticalLayout->addWidget(labelListeActions);
 
-        textBrowserListeAction = new QTextBrowser(ActionsPertinantes);
-        textBrowserListeAction->setObjectName(QString::fromUtf8("textBrowserListeAction"));
+        textBrowserListeActions = new QTextBrowser(ActionsPertinantes);
+        textBrowserListeActions->setObjectName(QString::fromUtf8("textBrowserListeActions"));
 
-        verticalLayout->addWidget(textBrowserListeAction);
+        verticalLayout->addWidget(textBrowserListeActions);
 
-        label = new QLabel(ActionsPertinantes);
-        label->setObjectName(QString::fromUtf8("label"));
+        labelActionsPertinantes = new QLabel(ActionsPertinantes);
+        labelActionsPertinantes->setObjectName(QString::fromUtf8("labelActionsPertinantes"));
 
-        verticalLayout->addWidget(label);
+        verticalLayout->addWidget(labelActionsPertinantes);
 
-        textBrowser = new QTextBrowser(ActionsPertinantes);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowserActionsPertinantes = new QTextBrowser(ActionsPertinantes);
+        textBrowserActionsPertinantes->setObjectName(QString::fromUtf8("textBrowserActionsPertinantes"));
 
-        verticalLayout->addWidget(textBrowser);
+        verticalLayout->addWidget(textBrowserActionsPertinantes);
 
-        label_2 = new QLabel(ActionsPertinantes);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        labelActionsNonPertinantes = new QLabel(ActionsPertinantes);
+        labelActionsNonPertinantes->setObjectName(QString::fromUtf8("labelActionsNonPertinantes"));
 
-        verticalLayout->addWidget(label_2);
+        verticalLayout->addWidget(labelActionsNonPertinantes);
 
-        textBrowser_2 = new QTextBrowser(ActionsPertinantes);
-        textBrowser_2->setObjectName(QString::fromUtf8("textBrowser_2"));
+        textBrowserActionsNonPertinantes = new QTextBrowser(ActionsPertinantes);
+        textBrowserActionsNonPertinantes->setObjectName(QString::fromUtf8("textBrowserActionsNonPertinantes"));
 
-        verticalLayout->addWidget(textBrowser_2);
+        verticalLayout->addWidget(textBrowserActionsNonPertinantes);
 
 
         horizontalLayout->addLayout(verticalLayout);
@@ -164,7 +164,7 @@ public:
 
     void retranslateUi(QWidget *ActionsPertinantes)
     {
-        ActionsPertinantes->setWindowTitle(QApplication::translate("ActionsPertinantes", "ActionsPertinantes", 0, QApplication::UnicodeUTF8));
+        ActionsPertinantes->setWindowTitle(QApplication::translate("ActionsPertinantes", "Onglet1", 0, QApplication::UnicodeUTF8));
         checkBox->setText(QApplication::translate("ActionsPertinantes", "CheckBox", 0, QApplication::UnicodeUTF8));
         checkBox_2->setText(QApplication::translate("ActionsPertinantes", "CheckBox", 0, QApplication::UnicodeUTF8));
         checkBox_3->setText(QApplication::translate("ActionsPertinantes", "CheckBox", 0, QApplication::UnicodeUTF8));
@@ -174,9 +174,9 @@ public:
         checkBox_7->setText(QApplication::translate("ActionsPertinantes", "CheckBox", 0, QApplication::UnicodeUTF8));
         labelContexte->setText(QApplication::translate("ActionsPertinantes", "Contexte", 0, QApplication::UnicodeUTF8));
         labelObjectif->setText(QApplication::translate("ActionsPertinantes", "Objectifs", 0, QApplication::UnicodeUTF8));
-        labelListeAction->setText(QApplication::translate("ActionsPertinantes", "Liste d'actions", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("ActionsPertinantes", "Actions Pertinantes", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("ActionsPertinantes", "Actions non pertinantes", 0, QApplication::UnicodeUTF8));
+        labelListeActions->setText(QApplication::translate("ActionsPertinantes", "Liste d'actions", 0, QApplication::UnicodeUTF8));
+        labelActionsPertinantes->setText(QApplication::translate("ActionsPertinantes", "Actions Pertinantes", 0, QApplication::UnicodeUTF8));
+        labelActionsNonPertinantes->setText(QApplication::translate("ActionsPertinantes", "Actions non pertinantes", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

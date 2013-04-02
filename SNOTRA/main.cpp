@@ -16,7 +16,7 @@
 #include "PortConnecterChoice.h"
 #include "DataBaseManager.h"
 #include "Sauvegarder.h"
-#include "Onglet1.h"
+#include "RelevantActions.h"
 
 
 int main(int argc, char *argv[]) {
@@ -41,8 +41,8 @@ int main(int argc, char *argv[]) {
      * Onglet1 *onglet...
      */
     
-    //Onglet1 *onglet1 = new Onglet1();
-    //onglet1->show();
+    RelevantActions *r = new RelevantActions();
+    r->show();
     
     /////////// FIN ////////////
 

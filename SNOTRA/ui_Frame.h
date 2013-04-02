@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Frame.ui'
 **
-** Created: Tue Apr 2 14:33:43 2013
+** Created: Wed Apr 3 00:12:11 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
