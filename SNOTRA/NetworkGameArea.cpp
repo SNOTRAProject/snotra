@@ -271,6 +271,8 @@ void NetworkGameArea::deleteItem() {
      
      */
     std::cout << labelConnecter1->objectName().toStdString() << endl;
+    qLabelListSave.removeOne(labelConnecter1);
+    qDebug() << labelConnecter1->objectName();
     labelConnecter1->close();
 }
 
@@ -324,6 +326,8 @@ void NetworkGameArea::loadLabelList() {
 
     QList<QLabel*>::iterator i;
     qLabelListLoad = db->load();
+
+    resetGame();
     for (i = qLabelListLoad.begin(); i != qLabelListLoad.end(); ++i) {
         QLabel *labelAdded = *i;
         if (labelAdded->objectName() == "labelPixmapHUB") {
@@ -343,4 +347,22 @@ void NetworkGameArea::loadLabelList() {
         labelAdded->show();
         qDebug() << labelAdded->pos();
     }
+}
+
+void NetworkGameArea::resetGame() {
+    QLabel *labelToRemove;
+
+    QList<QLabel*>::iterator i;
+    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
+        labelToRemove = *i;
+        labelToRemove->close();
+        qLabelListSave.removeOne(labelToRemove);
+    }
+}
+void NetworkGameArea::slotResetGame(){
+    resetGame();
+}
+
+void NetworkGameArea::closeEvent(QCloseEvent *event){
+    event->ignore();
 }

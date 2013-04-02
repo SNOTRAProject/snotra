@@ -35,6 +35,8 @@ Game::Game() {
             SLOT(slotLoadLabelList()));
     connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea,
             SLOT(slotSaveLabelList()));
+    connect(gameWindow.actionNouvelle, SIGNAL(activated()), networkGameArea, 
+            SLOT(slotResetGame()));
 }
 
 Game::~Game() {

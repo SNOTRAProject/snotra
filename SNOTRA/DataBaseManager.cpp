@@ -62,7 +62,7 @@ QList<QLabel*> DataBaseManager::load() {
 
         QString table = QString("");
         QStringList list = db.tables();
-        QStringList::Iterator it = list.begin();
+//        QStringList::Iterator it = list.begin();
 
         Charger *charger = new Charger();
         charger->widget.comboBox->addItems(list);

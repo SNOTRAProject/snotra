@@ -27,6 +27,7 @@ public:
     void dropEvent(QDropEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void contextMenuEvent(QContextMenuEvent *event);
+    void closeEvent(QCloseEvent *event);
     void descriptor();
     int static signalFromPushButtonPressed();
 
@@ -58,7 +59,7 @@ private:
     std::string pixmapTab[5];
     void loadLabelList();
     void saveLabelList();
-
+    void resetGame();
 
 public slots:
     //    void connectStocker();
@@ -68,6 +69,7 @@ public slots:
     void pushButtonPressed();
     void slotSaveLabelList();
     void slotLoadLabelList();
+    void slotResetGame();
 };
 
 
