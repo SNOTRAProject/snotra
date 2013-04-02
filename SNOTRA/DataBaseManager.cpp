@@ -11,6 +11,8 @@
 #include <iostream>
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtGui/qlabel.h>
+#include "Charger.h"
+
 #define q2c(string) string.toStdString()
 
 DataBaseManager::DataBaseManager() {
@@ -49,20 +51,45 @@ int DataBaseManager::setLastID() {
 }
 
 QList<QLabel*> DataBaseManager::load() {
+
     QList<QLabel*> qLabelList;
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QString path(QDir::home().path());
+    path = QDir::toNativeSeparators(path);
+    path.append(QDir::separator()).append("sauvegarde.db");
+    db.setDatabaseName(path);
+    if (db.open()) {
 
-    QSqlQuery query("SELECT * FROM sauvegarde");
-    if (query.isSelect()) {
-        while (query.next()) {
-            QLabel *labelExtracted = new QLabel();
-            labelExtracted->setObjectName(query.value(1).toString());
-            labelExtracted->move(query.value(2).toInt(),
-                    query.value(3).toInt());
+        QString table = QString("");
+        QStringList list = db.tables();
+        QStringList::Iterator it = list.begin();
 
-            qLabelList.append(labelExtracted);
+        Charger *charger = new Charger();
+        charger->widget.comboBox->addItems(list);
+        charger->exec();
+        tableNameChoose = charger->getResultLineString();
+
+        //        while (it != list.end()) {
+        //            // we save the name of the first table for later
+        //            if (table.isEmpty()) table = *it;
+        //            qDebug() << "Table: " << *it;
+        //            ++it;
+        //        }
+        QSqlQuery query("SELECT * FROM "+tableNameChoose);
+        if (query.isSelect()) {
+            while (query.next()) {
+                QLabel *labelExtracted = new QLabel();
+                labelExtracted->setObjectName(query.value(1).toString());
+                labelExtracted->move(query.value(2).toInt(),
+                        query.value(3).toInt());
+
+                qLabelList.append(labelExtracted);
+            }
         }
+        return qLabelList;
+    } else {
+        qDebug() << "echec de connection";
     }
-    return qLabelList;
 }
 
 void DataBaseManager::closeDb() {
@@ -119,7 +146,7 @@ void DataBaseManager::launchSave() {
     showTable();
 }
 
-DataBaseManager::DataBaseManager(const DataBaseManager& orig) {
+DataBaseManager::DataBaseManager(const DataBaseManager & orig) {
 }
 
 DataBaseManager::~DataBaseManager() {

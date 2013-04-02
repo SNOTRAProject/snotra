@@ -32,8 +32,10 @@ private:
     QSqlDatabase db;
     int setLastID();
     QString tableName;
-    
-public slots : 
+    QString tableNameChoose;
+
+    public 
+slots:
 };
 
 #endif	/* DATABASE_H */

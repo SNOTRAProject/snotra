@@ -14,7 +14,8 @@
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtCore/qglobal.h>
 #include "DataBaseManager.h"
-#include "Sauvegarder.h"
+//#include "Sauvegarder.h"
+//#include "Charger.h"
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
