@@ -24,8 +24,11 @@ NetworkGameArea::NetworkGameArea() {
     firstConnect = true;
     portConnecterChoice = new PortConnecterChoice();
 
-    //    connect(save->widget.buttonBox, SIGNAL(accepted()), this,
-    //            SLOT(slotSaveLabelList()));
+
+    //A SUPRIMER////////////////////////////////////////////
+    db = new DataBaseManager();
+    //    db->showTable();
+    //    qDebug() << "OK";
 }
 
 NetworkGameArea::~NetworkGameArea() {
@@ -290,8 +293,7 @@ void NetworkGameArea::pushButtonPressed() {
 }
 
 void NetworkGameArea::saveLabelList() {
-    db = new DataBaseManager();
-    //db->setTableName("sauvegardetest");
+    db->launchSave();
     QList<QLabel*>::iterator i;
     for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
         QLabel *test = *i;
@@ -300,6 +302,7 @@ void NetworkGameArea::saveLabelList() {
          */
         db->create(test);
         //penser à fermer la BDD
+
     }
 }
 

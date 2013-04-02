@@ -26,7 +26,8 @@ public:
     void closeDb();
     QList<QLabel*> load();
     virtual ~DataBaseManager();
-//    void setTableName(QString tableName);
+    void showTable();
+    void launchSave();
 private:
     QSqlDatabase db;
     int setLastID();
