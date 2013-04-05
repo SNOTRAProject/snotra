@@ -18,6 +18,8 @@
 #include <QMouseEvent>
 #include <iostream>
 
+#include "Confirmation.h"
+
 class DataBaseManager {
 public:
     DataBaseManager();
@@ -28,12 +30,17 @@ public:
     virtual ~DataBaseManager();
     void showTable();
     void launchSave();
+    void setResetGame(bool choice);
+    bool getResetGame();
 private:
     QSqlDatabase db;
     int setLastID();
     QString tableName;
     QString tableNameChoose;
-
+    bool checkExistence();
+    Confirmation *confirmation;
+    bool resetGame;
+    
     public 
 slots:
 };

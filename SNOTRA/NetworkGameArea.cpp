@@ -326,8 +326,11 @@ void NetworkGameArea::loadLabelList() {
 
     QList<QLabel*>::iterator i;
     qLabelListLoad = db->load();
-
-    resetGame();
+    if (db->getResetGame()) {
+        resetGame();
+        db->setResetGame(false);
+    }
+    //setResetGame(false)
     for (i = qLabelListLoad.begin(); i != qLabelListLoad.end(); ++i) {
         QLabel *labelAdded = *i;
         if (labelAdded->objectName() == "labelPixmapHUB") {
@@ -359,10 +362,11 @@ void NetworkGameArea::resetGame() {
         qLabelListSave.removeOne(labelToRemove);
     }
 }
-void NetworkGameArea::slotResetGame(){
+
+void NetworkGameArea::slotResetGame() {
     resetGame();
 }
 
-void NetworkGameArea::closeEvent(QCloseEvent *event){
+void NetworkGameArea::closeEvent(QCloseEvent *event) {
     event->ignore();
 }

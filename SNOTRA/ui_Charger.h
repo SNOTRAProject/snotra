@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Charger.ui'
 **
-** Created: Wed Apr 3 00:12:11 2013
+** Created: Fri Apr 5 22:15:27 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -62,6 +62,7 @@ public:
 
         retranslateUi(Charger);
         QObject::connect(pushButtonOK, SIGNAL(pressed()), Charger, SLOT(close()));
+        QObject::connect(pushButtonAnnuler, SIGNAL(pressed()), Charger, SLOT(close()));
 
         QMetaObject::connectSlotsByName(Charger);
     } // setupUi

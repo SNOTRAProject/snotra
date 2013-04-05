@@ -18,8 +18,11 @@ public:
     virtual ~Charger();
     void setResultLineString();
     QString getResultLineString();
+    void setResetGame(bool choice);
+    bool getResetGame();
 private:
     QString resultLineString;
+    bool resetGame;
 
 public slots:
     void slotGetLineString();

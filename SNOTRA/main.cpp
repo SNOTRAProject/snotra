@@ -28,24 +28,13 @@ int main(int argc, char *argv[]) {
     // create and show your widgets here
     Game *game = new Game();
     game->show();
-    //  WireShark *wireShark = new WireShark();
-    //    wireShark->show();
-    //    Frame *frame = new Frame();
-    //    frame->show();
+//    WireShark *wireShark = new WireShark();
+//    wireShark->show();
+//
+//    
+//    RelevantActions *r = new RelevantActions();
+//    r->show();
     
-    /**
-     * FONCTION POUR PIERRE ALEXANDRE
-     * 
-     * si tu souhaite afficher l'interface que tu as conçu, enlève les 
-     * commentaire des 2 lignes ci dessou (celle commençant par 
-     * Onglet1 *onglet...
-     */
-    
-    RelevantActions *r = new RelevantActions();
-    r->show();
-    
-    /////////// FIN ////////////
-
     return app.exec();
 
 }

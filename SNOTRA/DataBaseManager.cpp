@@ -62,20 +62,22 @@ QList<QLabel*> DataBaseManager::load() {
 
         QString table = QString("");
         QStringList list = db.tables();
-//        QStringList::Iterator it = list.begin();
+        //        QStringList::Iterator it = list.begin();
 
         Charger *charger = new Charger();
         charger->widget.comboBox->addItems(list);
         charger->exec();
+        resetGame = charger->getResetGame();
+        
         tableNameChoose = charger->getResultLineString();
-
+        charger->setResetGame(false);
         //        while (it != list.end()) {
         //            // we save the name of the first table for later
         //            if (table.isEmpty()) table = *it;
         //            qDebug() << "Table: " << *it;
         //            ++it;
         //        }
-        QSqlQuery query("SELECT * FROM "+tableNameChoose);
+        QSqlQuery query("SELECT * FROM " + tableNameChoose);
         if (query.isSelect()) {
             while (query.next()) {
                 QLabel *labelExtracted = new QLabel();
@@ -131,9 +133,24 @@ void DataBaseManager::launchSave() {
     path = QDir::toNativeSeparators(path);
     path.append(QDir::separator()).append("sauvegarde.db");
     db.setDatabaseName(path);
+
+
     if (db.open()) {
         qDebug("vous etes connecté");
+
+        if (checkExistence()) {
+            confirmation = new Confirmation();
+            confirmation->exec();
+            qDebug() << "attention la table porte déjà ce nom";
+            if (confirmation->getReplyOK()) {
+                QSqlQuery dropTableQuerry;
+                dropTableQuerry.exec("DROP TABLE '" + tableName + "'");
+            } else {
+                tableName = "";
+            }
+        }
         QSqlQuery createTableQuerry;
+
         createTableQuerry.exec("CREATE TABLE " + tableName + " (ID INTEGER, "
                 "name TEXT, positionX INTEGER, positionY INTEGER)");
 
@@ -146,8 +163,39 @@ void DataBaseManager::launchSave() {
     showTable();
 }
 
+bool DataBaseManager::checkExistence() {
+    QList<QLabel*> qLabelList;
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QString path(QDir::home().path());
+    path = QDir::toNativeSeparators(path);
+    path.append(QDir::separator()).append("sauvegarde.db");
+    db.setDatabaseName(path);
+    if (db.open()) {
+        QStringList list;
+        list = db.tables();
+        qDebug("%d", list.size());
+        QStringList::Iterator it = list.begin();
+        while (it != list.end()) {
+            // we save the name of the first table for later
+            if (tableName == *it) {
+                return true;
+            }
+            ++it;
+        }
+    }
+    return false;
+}
+
 DataBaseManager::DataBaseManager(const DataBaseManager & orig) {
 }
 
 DataBaseManager::~DataBaseManager() {
+}
+
+void DataBaseManager::setResetGame(bool choice) {
+    resetGame = choice;
+}
+
+bool DataBaseManager::getResetGame() {
+    return resetGame;
 }

@@ -27,6 +27,9 @@
     <itemPath>Charger.cpp</itemPath>
     <itemPath>Charger.h</itemPath>
     <itemPath>Charger.ui</itemPath>
+    <itemPath>Confirmation.cpp</itemPath>
+    <itemPath>Confirmation.h</itemPath>
+    <itemPath>Confirmation.ui</itemPath>
     <itemPath>DataBaseManager.cpp</itemPath>
     <itemPath>DataBaseManager.h</itemPath>
     <itemPath>Frame.cpp</itemPath>

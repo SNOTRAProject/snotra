@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Sauvegarder.ui'
 **
-** Created: Wed Apr 3 00:12:11 2013
+** Created: Fri Apr 5 22:13:59 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -72,6 +72,7 @@ public:
 
         retranslateUi(Sauvegarder);
         QObject::connect(pushButtonOK, SIGNAL(pressed()), Sauvegarder, SLOT(close()));
+        QObject::connect(pushButtonAnnuler, SIGNAL(pressed()), Sauvegarder, SLOT(close()));
 
         QMetaObject::connectSlotsByName(Sauvegarder);
     } // setupUi

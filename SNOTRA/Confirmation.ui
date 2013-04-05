@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Sauvegarder</class>
- <widget class="QDialog" name="Sauvegarder">
+ <class>Confirmation</class>
+ <widget class="QDialog" name="Confirmation">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>849</width>
-    <height>305</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
-  <property name="focusPolicy">
-   <enum>Qt::StrongFocus</enum>
-  </property>
   <property name="windowTitle">
-   <string>Sauvegarder</string>
-  </property>
-  <property name="sizeGripEnabled">
-   <bool>false</bool>
-  </property>
-  <property name="modal">
-   <bool>true</bool>
+   <string>Confirmation</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -30,12 +21,9 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Veuillez donner un nom  votre sauvegarde&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600;&quot;&gt;Une sauvegarde porte déjà ce nom, souhaitez-vous la remplacer ?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-   </item>
-   <item>
-    <widget class="QLineEdit" name="lineEdit"/>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -60,34 +48,34 @@ p, li { white-space: pre-wrap; }
  <resources/>
  <connections>
   <connection>
-   <sender>pushButtonOK</sender>
+   <sender>pushButtonAnnuler</sender>
    <signal>pressed()</signal>
-   <receiver>Sauvegarder</receiver>
+   <receiver>Confirmation</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>633</x>
-     <y>281</y>
+     <x>103</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>424</x>
-     <y>152</y>
+     <x>199</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButtonAnnuler</sender>
+   <sender>pushButtonOK</sender>
    <signal>pressed()</signal>
-   <receiver>Sauvegarder</receiver>
+   <receiver>Confirmation</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>215</x>
-     <y>281</y>
+     <x>296</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>424</x>
-     <y>152</y>
+     <x>199</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
