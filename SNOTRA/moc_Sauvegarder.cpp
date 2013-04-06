@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Charger.h'
+** Meta object code from reading C++ file 'Sauvegarder.h'
 **
-** Created: Sat Apr 6 17:51:39 2013
+** Created: Sat Apr 6 17:51:29 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "Charger.h"
+#include "Sauvegarder.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Charger.h' doesn't include <QObject>."
+#error "The header file 'Sauvegarder.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.3. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_Charger[] = {
+static const uint qt_meta_data_Sauvegarder[] = {
 
  // content:
        6,       // revision
@@ -31,20 +31,20 @@ static const uint qt_meta_data_Charger[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-       9,    8,    8,    8, 0x0a,
+      13,   12,   12,   12, 0x0a,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_Charger[] = {
-    "Charger\0\0slotGetLineString()\0"
+static const char qt_meta_stringdata_Sauvegarder[] = {
+    "Sauvegarder\0\0slotGetLineString()\0"
 };
 
-void Charger::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Sauvegarder::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        Charger *_t = static_cast<Charger *>(_o);
+        Sauvegarder *_t = static_cast<Sauvegarder *>(_o);
         switch (_id) {
         case 0: _t->slotGetLineString(); break;
         default: ;
@@ -53,33 +53,33 @@ void Charger::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData Charger::staticMetaObjectExtraData = {
+const QMetaObjectExtraData Sauvegarder::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject Charger::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_Charger,
-      qt_meta_data_Charger, &staticMetaObjectExtraData }
+const QMetaObject Sauvegarder::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_Sauvegarder,
+      qt_meta_data_Sauvegarder, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &Charger::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &Sauvegarder::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *Charger::metaObject() const
+const QMetaObject *Sauvegarder::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *Charger::qt_metacast(const char *_clname)
+void *Sauvegarder::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_Charger))
-        return static_cast<void*>(const_cast< Charger*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_Sauvegarder))
+        return static_cast<void*>(const_cast< Sauvegarder*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int Charger::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Sauvegarder::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

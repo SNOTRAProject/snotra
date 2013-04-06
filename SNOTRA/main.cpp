@@ -28,8 +28,8 @@ int main(int argc, char *argv[]) {
     // create and show your widgets here
     Game *game = new Game();
     game->show();
-//    WireShark *wireShark = new WireShark();
-//    wireShark->show();
+    WireShark *wireShark = new WireShark();
+    wireShark->show();
 //
 //    
 //    RelevantActions *r = new RelevantActions();
