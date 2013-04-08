@@ -12,7 +12,6 @@
 #include "Game.h"
 #include "NetworkGameArea.h"
 #include "WireShark.h"
-#include "Frame.h"
 #include "PortConnecterChoice.h"
 #include "DataBaseManager.h"
 #include "Sauvegarder.h"

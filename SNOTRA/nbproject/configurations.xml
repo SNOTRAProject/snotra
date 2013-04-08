@@ -5,6 +5,53 @@
                    displayName="Header Files"
                    projectFiles="true">
     </logicalFolder>
+    <logicalFolder name="modele" displayName="modele" projectFiles="true">
+      <itemPath>modele/ARPHeader.cpp</itemPath>
+      <itemPath>modele/ARPHeader.h</itemPath>
+      <itemPath>modele/ARPTable.cpp</itemPath>
+      <itemPath>modele/ARPTable.h</itemPath>
+      <itemPath>modele/DataLinkHeader.cpp</itemPath>
+      <itemPath>modele/DataLinkHeader.h</itemPath>
+      <itemPath>modele/Device.cpp</itemPath>
+      <itemPath>modele/Device.h</itemPath>
+      <itemPath>modele/DeviceN4.cpp</itemPath>
+      <itemPath>modele/DeviceN4.h</itemPath>
+      <itemPath>modele/Header.cpp</itemPath>
+      <itemPath>modele/Header.h</itemPath>
+      <itemPath>modele/Hub.cpp</itemPath>
+      <itemPath>modele/Hub.h</itemPath>
+      <itemPath>modele/ICMPHeader.cpp</itemPath>
+      <itemPath>modele/ICMPHeader.h</itemPath>
+      <itemPath>modele/Ip.cpp</itemPath>
+      <itemPath>modele/Ip.h</itemPath>
+      <itemPath>modele/Ipv4.cpp</itemPath>
+      <itemPath>modele/Ipv4.h</itemPath>
+      <itemPath>modele/Mac.cpp</itemPath>
+      <itemPath>modele/Mac.h</itemPath>
+      <itemPath>modele/MacTable.cpp</itemPath>
+      <itemPath>modele/MacTable.h</itemPath>
+      <itemPath>modele/Mask.cpp</itemPath>
+      <itemPath>modele/Mask.h</itemPath>
+      <itemPath>modele/NetworkHeader.cpp</itemPath>
+      <itemPath>modele/NetworkHeader.h</itemPath>
+      <itemPath>modele/NetworkInterface.cpp</itemPath>
+      <itemPath>modele/NetworkInterface.h</itemPath>
+      <itemPath>modele/README.md</itemPath>
+      <itemPath>modele/RoutingTable.cpp</itemPath>
+      <itemPath>modele/RoutingTable.h</itemPath>
+      <itemPath>modele/Switch.cpp</itemPath>
+      <itemPath>modele/Switch.h</itemPath>
+      <itemPath>modele/TCPHeader.cpp</itemPath>
+      <itemPath>modele/TCPHeader.h</itemPath>
+      <itemPath>modele/TransportHeader.cpp</itemPath>
+      <itemPath>modele/TransportHeader.h</itemPath>
+      <itemPath>modele/UDPHeader.cpp</itemPath>
+      <itemPath>modele/UDPHeader.h</itemPath>
+      <itemPath>modele/Wire.cpp</itemPath>
+      <itemPath>modele/Wire.h</itemPath>
+      <itemPath>modele/enum.h</itemPath>
+      <itemPath>modele/spare.cpp</itemPath>
+    </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
@@ -32,9 +79,6 @@
     <itemPath>Confirmation.ui</itemPath>
     <itemPath>DataBaseManager.cpp</itemPath>
     <itemPath>DataBaseManager.h</itemPath>
-    <itemPath>Frame.cpp</itemPath>
-    <itemPath>Frame.h</itemPath>
-    <itemPath>Frame.ui</itemPath>
     <itemPath>Game.cpp</itemPath>
     <itemPath>Game.h</itemPath>
     <itemPath>Game.ui</itemPath>
@@ -58,6 +102,9 @@
     <itemPath>WireShark.h</itemPath>
     <itemPath>WireShark.ui</itemPath>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>modele</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="4">
