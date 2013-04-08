@@ -92,6 +92,7 @@ QList<QLabel*> DataBaseManager::load() {
     } else {
         qDebug() << "echec de connection";
     }
+     closeDb();
 }
 
 void DataBaseManager::closeDb() {
@@ -121,6 +122,7 @@ void DataBaseManager::showTable() {
         std::cout << "La connexion a échouée, désolé :(" << std::endl <<
                 q2c(db.lastError().text()) << std::endl;
     }
+     closeDb();
 
 }
 
@@ -179,11 +181,13 @@ bool DataBaseManager::checkExistence() {
             // we save the name of the first table for later
             if (tableName == *it) {
                 return true;
+                 closeDb();
             }
             ++it;
         }
     }
     return false;
+     closeDb();
 }
 
 DataBaseManager::DataBaseManager(const DataBaseManager & orig) {
