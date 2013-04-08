@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Charger.h'
 **
-** Created: Sat Apr 6 17:51:39 2013
+** Created: Mon Apr 8 18:22:34 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.3)
 **
 ** WARNING! All changes made in this file will be lost!
