@@ -36,5 +36,6 @@ int main(int argc, char *argv[]) {
 //    r->show();
     
     return app.exec();
+    
 
 }
