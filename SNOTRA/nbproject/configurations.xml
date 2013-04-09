@@ -26,8 +26,6 @@
       <itemPath>modele/ICMPHeader.h</itemPath>
       <itemPath>modele/Ip.cpp</itemPath>
       <itemPath>modele/Ip.h</itemPath>
-      <itemPath>modele/Ipv4.cpp</itemPath>
-      <itemPath>modele/Ipv4.h</itemPath>
       <itemPath>modele/Mac.cpp</itemPath>
       <itemPath>modele/Mac.h</itemPath>
       <itemPath>modele/MacTable.cpp</itemPath>

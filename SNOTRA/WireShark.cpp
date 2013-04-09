@@ -6,7 +6,7 @@
  */
 
 #include "WireShark.h"
-#include "Frame.h"
+#include "modele/Frame.h"
 
 WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);

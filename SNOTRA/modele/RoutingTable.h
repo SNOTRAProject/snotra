@@ -10,14 +10,14 @@ class RoutingTable {
  public:
   RoutingTable();
   virtual ~RoutingTable();
-  std::map<std::shared_ptr<Ip>, std::pair<std::shared_ptr<Ip>, int>> getAllLines();
+  std::map<Ip, std::pair<Ip, int>> getAllLines();
   void resetRoutingTable();
-  std::pair<std::shared_ptr<Ip>, int> getLineByIp(std::shared_ptr<Ip>);
-  void addLine(std::shared_ptr<Ip>, std::shared_ptr<Ip>, int);
-  void removeLine(std::shared_ptr<Ip>);
+  std::pair<Ip, int> getLineByIp(Ip);
+  void addLine(Ip, Ip, int);
+  void removeLine(Ip);
 
  private:
-  std::map<std::shared_ptr<Ip>, std::pair<std::shared_ptr<Ip>, int>> routingTable;
+  std::map<Ip, std::pair<Ip, int>> routingTable;
 
 };
 

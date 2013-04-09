@@ -9,13 +9,13 @@
 class ICMPHeader : public TransportHeader {
  public:
   ICMPHeader();
-  ICMPHeader(std::shared_ptr<Ip>, bool);
+  ICMPHeader(Ip, bool);
   virtual ~ICMPHeader();
-  std::shared_ptr<Ip> getSourceIp();
-  void setSourceIp(std::shared_ptr<Ip>);
+  Ip getSourceIp();
+  void setSourceIp(Ip);
 
  private:
-  std::shared_ptr<Ip> sourceIp;
+  Ip sourceIp;
 
 };
 

@@ -23,7 +23,7 @@ class Device {
   virtual void receiveFrame(std::shared_ptr<Frame>, int, int);
   std::shared_ptr<Frame> giveFrameToInterface(std::shared_ptr<Frame>, int);
   virtual void sendFrame(std::shared_ptr<Frame>) = 0;
-  void addNetworkInterface(std::string, Mac, std::shared_ptr<Ip>, bool);
+  void addNetworkInterface(std::string, Mac, Ip, bool);
   virtual void connectNeighbour(std::shared_ptr<Device>, int, int, int, int);
   void disconnectNeighbour(int);
   void activateNetworkInterface(int);

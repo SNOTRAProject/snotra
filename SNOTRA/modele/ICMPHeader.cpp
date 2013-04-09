@@ -3,17 +3,17 @@
 ICMPHeader::ICMPHeader() {
 }
 
-ICMPHeader::ICMPHeader(std::shared_ptr<Ip> ip, bool isAnswer) : TransportHeader(isAnswer) {
+ICMPHeader::ICMPHeader(Ip ip, bool isAnswer) : TransportHeader(isAnswer) {
   sourceIp = ip;
 }
 
 ICMPHeader::~ICMPHeader() {
 }
 
-std::shared_ptr<Ip> ICMPHeader::getSourceIp() {
+Ip ICMPHeader::getSourceIp() {
   return sourceIp;
 }
 
-void ICMPHeader::setSourceIp(std::shared_ptr<Ip> ip) {
+void ICMPHeader::setSourceIp(Ip ip) {
   sourceIp = ip;
 }

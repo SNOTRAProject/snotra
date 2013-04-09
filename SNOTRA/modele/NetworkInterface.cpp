@@ -3,7 +3,7 @@
 NetworkInterface::NetworkInterface() {
 }
 
-NetworkInterface::NetworkInterface(std::string name_, Mac mac_, std::shared_ptr<Ip> ip_, bool isUp_) {
+NetworkInterface::NetworkInterface(std::string name_, Mac mac_, Ip ip_, bool isUp_) {
   ip = ip_;
   mac = mac_;
   isUp = isUp_;
@@ -21,11 +21,11 @@ void NetworkInterface::setMac(Mac mac_) {
   mac = mac_;
 }
 
-std::shared_ptr<Ip> NetworkInterface::getIp() const {
+Ip NetworkInterface::getIp() const {
   return ip;
 }
 
-void NetworkInterface::setIp(std::shared_ptr<Ip> ip_) {
+void NetworkInterface::setIp(Ip ip_) {
   ip = ip_;
 }
 
