@@ -26,6 +26,8 @@
       <itemPath>modele/ICMPHeader.h</itemPath>
       <itemPath>modele/Ip.cpp</itemPath>
       <itemPath>modele/Ip.h</itemPath>
+      <itemPath>modele/Ipv4.cpp</itemPath>
+      <itemPath>modele/Ipv4.h</itemPath>
       <itemPath>modele/Mac.cpp</itemPath>
       <itemPath>modele/Mac.h</itemPath>
       <itemPath>modele/MacTable.cpp</itemPath>
@@ -50,6 +52,7 @@
       <itemPath>modele/Wire.cpp</itemPath>
       <itemPath>modele/Wire.h</itemPath>
       <itemPath>modele/enum.h</itemPath>
+      <itemPath>modele/spare.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -76,6 +79,9 @@
     <itemPath>Confirmation.cpp</itemPath>
     <itemPath>Confirmation.h</itemPath>
     <itemPath>Confirmation.ui</itemPath>
+    <itemPath>ConnecterChoice.cpp</itemPath>
+    <itemPath>ConnecterChoice.h</itemPath>
+    <itemPath>ConnecterChoice.ui</itemPath>
     <itemPath>DataBaseManager.cpp</itemPath>
     <itemPath>DataBaseManager.h</itemPath>
     <itemPath>Game.cpp</itemPath>

@@ -15,9 +15,9 @@
 #include <iostream>
 #include "DataBaseManager.h"
 #include "Sauvegarder.h"
-#include "modele/ConnecterChoice.h"
-#include "modele/PropertiesOfIterfaceSetter.h"
-#include "modele/NumberOfInterfaceSetter.h"
+#include "ConnecterChoice.h"
+#include "PropertiesOfIterfaceSetter.h"
+#include "NumberOfInterfaceSetter.h"
 
 class NetworkGameArea : public QWidget {
     Q_OBJECT
