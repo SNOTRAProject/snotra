@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'WireShark.ui'
 **
-** Created: Wed Apr 3 00:12:11 2013
+** Created: Thu Apr 11 10:34:09 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -29,7 +29,7 @@ public:
     {
         if (WireShark->objectName().isEmpty())
             WireShark->setObjectName(QString::fromUtf8("WireShark"));
-        WireShark->resize(342, 406);
+        WireShark->resize(1115, 482);
         verticalLayout_2 = new QVBoxLayout(WireShark);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
 

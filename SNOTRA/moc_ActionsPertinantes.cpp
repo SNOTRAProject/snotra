@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Sauvegarder.h'
+** Meta object code from reading C++ file 'ActionsPertinantes.h'
 **
-** Created: Thu Apr 11 10:34:26 2013
+** Created: Wed Apr 3 00:12:22 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "Sauvegarder.h"
+#include "ActionsPertinantes.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Sauvegarder.h' doesn't include <QObject>."
+#error "The header file 'ActionsPertinantes.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_Sauvegarder[] = {
+static const uint qt_meta_data_ActionsPertinantes[] = {
 
  // content:
        6,       // revision
@@ -31,57 +31,57 @@ static const uint qt_meta_data_Sauvegarder[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      13,   12,   12,   12, 0x0a,
+      20,   19,   19,   19, 0x0a,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_Sauvegarder[] = {
-    "Sauvegarder\0\0slotGetLineString()\0"
+static const char qt_meta_stringdata_ActionsPertinantes[] = {
+    "ActionsPertinantes\0\0slotSayCoucou()\0"
 };
 
-void Sauvegarder::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ActionsPertinantes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        Sauvegarder *_t = static_cast<Sauvegarder *>(_o);
+        ActionsPertinantes *_t = static_cast<ActionsPertinantes *>(_o);
         switch (_id) {
-        case 0: _t->slotGetLineString(); break;
+        case 0: _t->slotSayCoucou(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData Sauvegarder::staticMetaObjectExtraData = {
+const QMetaObjectExtraData ActionsPertinantes::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject Sauvegarder::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_Sauvegarder,
-      qt_meta_data_Sauvegarder, &staticMetaObjectExtraData }
+const QMetaObject ActionsPertinantes::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_ActionsPertinantes,
+      qt_meta_data_ActionsPertinantes, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &Sauvegarder::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &ActionsPertinantes::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *Sauvegarder::metaObject() const
+const QMetaObject *ActionsPertinantes::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *Sauvegarder::qt_metacast(const char *_clname)
+void *ActionsPertinantes::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_Sauvegarder))
-        return static_cast<void*>(const_cast< Sauvegarder*>(this));
-    return QDialog::qt_metacast(_clname);
+    if (!strcmp(_clname, qt_meta_stringdata_ActionsPertinantes))
+        return static_cast<void*>(const_cast< ActionsPertinantes*>(this));
+    return QWidget::qt_metacast(_clname);
 }
 
-int Sauvegarder::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ActionsPertinantes::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QDialog::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

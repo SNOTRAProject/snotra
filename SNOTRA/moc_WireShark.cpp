@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'WireShark.h'
 **
-** Created: Thu Mar 21 16:52:39 2013
+** Created: Thu Apr 11 10:34:29 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -50,7 +50,7 @@ const QMetaObjectExtraData WireShark::staticMetaObjectExtraData = {
 };
 
 const QMetaObject WireShark::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_WireShark,
+    { &QWidget::staticMetaObject, qt_meta_stringdata_WireShark,
       qt_meta_data_WireShark, &staticMetaObjectExtraData }
 };
 
@@ -68,12 +68,12 @@ void *WireShark::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_WireShark))
         return static_cast<void*>(const_cast< WireShark*>(this));
-    return QDialog::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int WireShark::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QDialog::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;
