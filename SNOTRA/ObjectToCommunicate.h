@@ -21,11 +21,14 @@ public:
     int getInterfaceNumber();
     std::string* getInterfaceIP();
     std::string* getInterfaceName();
+    void setSizeOfInterfaceNameArray(int size);
+    int getSizeOfInterfaceNameArray();
 
 private:
     int interfaceNumber;
     std::string *interfaceName;
     std::string *IP;
+    int sizeOfInterfaceNameArray;
 };
 
 #endif	/* OBJECTTOCOMMUNICATE_H */

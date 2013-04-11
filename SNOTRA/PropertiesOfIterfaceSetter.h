@@ -19,9 +19,9 @@ public:
     void setText(QString textName);
     void setName(QString name);
     void setIP(QString IP);
+    Ui::PropertiesOfIterfaceSetter widget;
     
 private:
-    Ui::PropertiesOfIterfaceSetter widget;
     QString name;
     QString IP;
     

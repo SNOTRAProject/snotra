@@ -18,6 +18,7 @@
 #include "ConnecterChoice.h"
 #include "PropertiesOfIterfaceSetter.h"
 #include "NumberOfInterfaceSetter.h"
+#include "ObjectToCommunicate.h"
 
 class NetworkGameArea : public QWidget {
     Q_OBJECT
@@ -38,6 +39,7 @@ private:
     QAction *connectAct;
     QAction *deleteAct;
     QAction *disconnectAct;
+    QAction *resetIPAct;
     bool firstConnect;
     bool firstDisconnect;
     void paintEvent(QPaintEvent*);
@@ -64,10 +66,12 @@ private:
     void loadLabelList();
     void saveLabelList();
     void resetGame();
+    ObjectToCommunicate *item;
 public slots:
     //    void connectStocker();
     void deleteItem();
     void disconnectStocker();
+    void resetIPItem();
     ////    void changeValuePort();
     void pushButtonPressed();
     void slotSaveLabelList();

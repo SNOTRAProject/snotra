@@ -25,7 +25,6 @@ NetworkGameArea::NetworkGameArea() {
     firstConnect = true;
     connecterChoice = new ConnecterChoice();
 
-
     db = new DataBaseManager();
     addingItem = true;
 }
@@ -107,13 +106,36 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             if (addingItem) {
                 numberOfInterfaces = new NumberOfInterfaceSetter();
                 numberOfInterfaces->exec();
+                int sizeOfInterfaceNameArray = numberOfInterfaces->getNbInterfaces();
+                std::string *interfaceName
+                        = new std::string[sizeOfInterfaceNameArray];
+
+                std::string *IP
+                        = new std::string[sizeOfInterfaceNameArray];
+
                 for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
                     propertiesOfInterfaces = new PropertiesOfIterfaceSetter();
                     QString str = QString::number(i + 1);
                     propertiesOfInterfaces->setText("Veuillez entrer le nom de "
                             "l'interface numero : " + str);
                     propertiesOfInterfaces->exec();
+                    interfaceName[i]
+                            = propertiesOfInterfaces->widget.lineEditSetName
+                            ->text().toStdString();
+                    IP[i] = propertiesOfInterfaces->widget.lineEditSetIP
+                            ->text().toStdString();
                 }
+                
+                ///////////////////////////////////////////////////////////
+                //          CONCEPTION DE L'OBJET POUR COMMUNIQUER
+                ///////////////////////////////////////////////////////////
+                item = new ObjectToCommunicate(qLabelListSave.size(),
+                        interfaceName, IP);
+                item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
+                qDebug() << "int associe a l'objet "
+                        + QString::number(qLabelListSave.size());
+
+
             }
             addingItem = true;
 
@@ -137,6 +159,15 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             connecterChoice = new ConnecterChoice();
             connecterChoice->setText(labelConnecter1->objectName(),
                     labelConnecter2->objectName());
+            //////////////remplir la comboBox∕//////////////////////////////////
+            //QList<std::string> listStd;
+            QStringList list;
+            for (int i = 0; i < item->getSizeOfInterfaceNameArray(); i++) {
+                list.append(item->getInterfaceName()[i].c_str());
+            }
+
+            connecterChoice->widget.comboBoxChoiceInterfaceDevice1
+                    ->addItems(list);
             connecterChoice->exec();
 
             descriptor();
@@ -161,7 +192,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
  * proceed according to the event
  * @param event
  */
-void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
+void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
 
     if (event->button() == Qt::LeftButton) {
@@ -254,8 +285,12 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     connect(deleteAct, SIGNAL(triggered()), this, SLOT(deleteItem()));
 
     disconnectAct = new QAction(tr("&Disconnect"), this);
-    disconnectAct->setStatusTip(tr("Deconnecter les deux péripherique "
-            "sélectionner"));
+    disconnectAct->setStatusTip(tr("Deconnecter les deux péripherique "));
+    //connect()
+
+    resetIPAct = new QAction(tr("&resetIP"), this);
+    resetIPAct->setStatusTip(tr("reparametrer l IP du périphérique"));
+    connect(resetIPAct, SIGNAL(triggered()), this, SLOT(resetIPItem()));
     if (firstDisconnect == true) {
         labelDisconnecter1 = child;
     } else {
@@ -267,6 +302,7 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     //menu.addAction(connectAct);
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
+    menu.addAction(resetIPAct);
     menu.exec(event->globalPos());
 }
 
@@ -303,6 +339,10 @@ void NetworkGameArea::deleteItem() {
     qLabelListSave.removeOne(labelConnecter1);
     qDebug() << labelConnecter1->objectName();
     labelConnecter1->close();
+}
+
+void NetworkGameArea::resetIPItem() {
+    qDebug() << "rest Ip";
 }
 
 void NetworkGameArea::descriptor() {
@@ -392,7 +432,7 @@ void NetworkGameArea::slotResetGame() {
     resetGame();
 }
 
-void NetworkGameArea::closeEvent(QCloseEvent *event) {
+void NetworkGameArea::closeEvent(QCloseEvent * event) {
     event->ignore();
 }
 

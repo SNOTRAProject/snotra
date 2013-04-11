@@ -31,10 +31,16 @@ std::string* ObjectToCommunicate::getInterfaceIP() {
     return IP;
 }
 
-std::string* ObjectToCommunicate::getInterfaceName(){
+std::string* ObjectToCommunicate::getInterfaceName() {
     return interfaceName;
 }
 
-int ObjectToCommunicate::getInterfaceNumber(){
+int ObjectToCommunicate::getInterfaceNumber() {
     return interfaceNumber;
+}
+int ObjectToCommunicate::getSizeOfInterfaceNameArray(){
+    return sizeOfInterfaceNameArray;
+}
+void ObjectToCommunicate::setSizeOfInterfaceNameArray(int size){
+    this->sizeOfInterfaceNameArray = size;
 }
