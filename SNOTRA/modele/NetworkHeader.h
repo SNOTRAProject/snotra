@@ -9,12 +9,12 @@
 class NetworkHeader : public Header {
  public:
   NetworkHeader();
-  NetworkHeader(std::shared_ptr<Ip>, std::shared_ptr<Ip>, int, Protocole, bool);
+  NetworkHeader(Ip, Ip, int, Protocole, bool);
   virtual ~NetworkHeader();
-  std::shared_ptr<Ip> getSource();
-  void setSource(std::shared_ptr<Ip>);
-  std::shared_ptr<Ip> getDestination();
-  void setDestination(std::shared_ptr<Ip>);
+  Ip getSource();
+  void setSource(Ip);
+  Ip getDestination();
+  void setDestination(Ip);
   int getTimeToLive();
   void decreaseTimeToLive();
   void setTimeToLive(int);
@@ -22,8 +22,8 @@ class NetworkHeader : public Header {
   void setProtocole(Protocole);
 
  private:
-  std::shared_ptr<Ip> source;
-  std::shared_ptr<Ip> destination;
+  Ip source;
+  Ip destination;
   int timeToLive;
   Protocole protocole;
 

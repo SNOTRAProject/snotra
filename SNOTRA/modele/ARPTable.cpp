@@ -6,7 +6,7 @@ ARPTable::ARPTable() {
 ARPTable::~ARPTable() {
 }
 
-std::map<std::shared_ptr<Ip>, Mac> ARPTable::getAllLines() {
+std::map<Ip, Mac> ARPTable::getAllLines() {
   return arpTable;
 }
 
@@ -14,12 +14,12 @@ void ARPTable::resetARPTable() {
   arpTable.clear();
 }
 
-Mac ARPTable::getMacByIp(std::shared_ptr<Ip> ip) {
+Mac ARPTable::getMacByIp(Ip ip) {
   return arpTable.at(ip);
 }
 
-void ARPTable::addLine(std::shared_ptr<Ip> ip, Mac mac) {
-  arpTable.insert(std::pair<std::shared_ptr<Ip>, Mac>(ip, mac));
+void ARPTable::addLine(Ip ip, Mac mac) {
+  arpTable.insert(std::pair<Ip, Mac>(ip, mac));
 }
 
 void ARPTable::checkForDeletion() {
@@ -28,6 +28,6 @@ void ARPTable::checkForDeletion() {
   }
 }
 
-void ARPTable::removeLine(std::shared_ptr<Ip> ip) {
+void ARPTable::removeLine(Ip ip) {
   arpTable.erase(ip);
 }

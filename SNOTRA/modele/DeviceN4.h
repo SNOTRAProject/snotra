@@ -23,7 +23,7 @@ class DeviceN4 : public Device {
   void setARPTable(ARPTable);
   virtual void receiveFrame(std::shared_ptr<Frame>, int, int);
   virtual void sendFrame(std::shared_ptr<Frame>);
-  void createFrame(std::shared_ptr<Ip>, std::string);
+  void createFrame(Ip, std::string);
 
  private:
   RoutingTable routingTable;

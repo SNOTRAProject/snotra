@@ -18,12 +18,12 @@ class Frame;
 class NetworkInterface {
  public:
   NetworkInterface();
-  NetworkInterface(std::string, Mac = Mac("00:00:00:00:00:00"), std::shared_ptr<Ip> = 0, bool = true);
+  NetworkInterface(std::string, Mac = Mac("00:00:00:00:00:00"), Ip = Ip("0.0.0.0", 0), bool = true);
   virtual ~NetworkInterface();
   Mac getMac() const;
   void setMac(Mac);
-  std::shared_ptr<Ip> getIp() const;
-  void setIp(std::shared_ptr<Ip>);
+  Ip getIp() const;
+  void setIp(Ip);
   bool getIsUp() const;
   void setIsUp(bool);
   std::string getName() const;
@@ -38,7 +38,7 @@ class NetworkInterface {
 
  private:
   Mac mac;
-  std::shared_ptr<Ip> ip;
+  Ip ip;
   bool isUp;
   std::string name;
   std::vector<Wire> wires;

@@ -45,7 +45,7 @@ std::shared_ptr<Frame> Device::giveFrameToInterface(std::shared_ptr<Frame> frame
   return networkInterfaces.at(interfaceId).receiveFrame(frame);
 }
 
-void Device::addNetworkInterface(std::string name, Mac mac, std::shared_ptr<Ip> ip, bool isUp) {
+void Device::addNetworkInterface(std::string name, Mac mac, Ip ip, bool isUp) {
   networkInterfaces.push_back(NetworkInterface(name, mac, ip, isUp));
 }
 

@@ -10,16 +10,16 @@ class ARPTable {
  public:
   ARPTable();
   virtual ~ARPTable();
-  std::map<std::shared_ptr<Ip>, Mac> getAllLines();
+  std::map<Ip, Mac> getAllLines();
   void resetARPTable();
-  Mac getMacByIp(std::shared_ptr<Ip> ip);
-  void addLine(std::shared_ptr<Ip>, Mac);
+  Mac getMacByIp(Ip ip);
+  void addLine(Ip, Mac);
   void checkForDeletion();
 
  private:
-  std::map<std::shared_ptr<Ip>, Mac> arpTable;
+  std::map<Ip, Mac> arpTable;
 
-  void removeLine(std::shared_ptr<Ip>);
+  void removeLine(Ip);
 
 };
 

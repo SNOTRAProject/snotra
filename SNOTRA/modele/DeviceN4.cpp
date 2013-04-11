@@ -46,12 +46,12 @@ void DeviceN4::sendFrame(std::shared_ptr<Frame> frame) {
   }
 }
 
-void DeviceN4::createFrame(std::shared_ptr<Ip> destination, std::string protocole) {
+void DeviceN4::createFrame(Ip destination, std::string protocole) {
   std::shared_ptr<Frame> frame;
   int temp = routingTable.getLineByIp(destination).second;
   if(temp != -1) {
-    std::shared_ptr<Ip> source = getNetworkInterfaces().at(temp).getIp();
-    std::shared_ptr<Ip> gateway = routingTable.getLineByIp(destination).first;
+    Ip source = getNetworkInterfaces().at(temp).getIp();
+    Ip gateway = routingTable.getLineByIp(destination).first;
     if(protocole.compare("ARP")) {
       std::shared_ptr<Header> networkHeader = std::shared_ptr<ARPHeader>(new ARPHeader(source, destination, STANDART_TTL, NONE, getNetworkInterfaces().at(temp).getMac(), Mac("FF:FF:FF:FF:FF:FF"), false));
       frame = std::shared_ptr<Frame>(new Frame(0, networkHeader, 0, 0));

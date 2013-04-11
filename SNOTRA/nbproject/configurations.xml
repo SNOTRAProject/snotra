@@ -16,6 +16,8 @@
       <itemPath>modele/Device.h</itemPath>
       <itemPath>modele/DeviceN4.cpp</itemPath>
       <itemPath>modele/DeviceN4.h</itemPath>
+      <itemPath>modele/Frame.cpp</itemPath>
+      <itemPath>modele/Frame.h</itemPath>
       <itemPath>modele/Header.cpp</itemPath>
       <itemPath>modele/Header.h</itemPath>
       <itemPath>modele/Hub.cpp</itemPath>
@@ -24,8 +26,6 @@
       <itemPath>modele/ICMPHeader.h</itemPath>
       <itemPath>modele/Ip.cpp</itemPath>
       <itemPath>modele/Ip.h</itemPath>
-      <itemPath>modele/Ipv4.cpp</itemPath>
-      <itemPath>modele/Ipv4.h</itemPath>
       <itemPath>modele/Mac.cpp</itemPath>
       <itemPath>modele/Mac.h</itemPath>
       <itemPath>modele/MacTable.cpp</itemPath>
@@ -50,7 +50,6 @@
       <itemPath>modele/Wire.cpp</itemPath>
       <itemPath>modele/Wire.h</itemPath>
       <itemPath>modele/enum.h</itemPath>
-      <itemPath>modele/spare.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"

@@ -3,7 +3,7 @@
 NetworkHeader::NetworkHeader() : Header(NETWORK, true) {
 }
 
-NetworkHeader::NetworkHeader(std::shared_ptr<Ip> source_, std::shared_ptr<Ip> destination_, int ttl, Protocole protocole_, bool isAnswer) : Header(NETWORK, isAnswer) {
+NetworkHeader::NetworkHeader(Ip source_, Ip destination_, int ttl, Protocole protocole_, bool isAnswer) : Header(NETWORK, isAnswer) {
   source = source_;
   destination = destination_;
   timeToLive = ttl;
@@ -13,19 +13,19 @@ NetworkHeader::NetworkHeader(std::shared_ptr<Ip> source_, std::shared_ptr<Ip> de
 NetworkHeader::~NetworkHeader() {
 }
 
-std::shared_ptr<Ip> NetworkHeader::getSource() {
+Ip NetworkHeader::getSource() {
   return source;
 }
 
-void NetworkHeader::setSource(std::shared_ptr<Ip> ip) {
+void NetworkHeader::setSource(Ip ip) {
   source = ip;
 }
 
-std::shared_ptr<Ip> NetworkHeader::getDestination() {
+Ip NetworkHeader::getDestination() {
   return destination;
 }
 
-void NetworkHeader::setDestination(std::shared_ptr<Ip> ip) {
+void NetworkHeader::setDestination(Ip ip) {
   source = ip;
 }
 
