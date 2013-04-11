@@ -12,11 +12,9 @@
 #include "Game.h"
 #include "NetworkGameArea.h"
 #include "WireShark.h"
-#include "PortConnecterChoice.h"
 #include "DataBaseManager.h"
 #include "Sauvegarder.h"
 #include "RelevantActions.h"
-
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -29,12 +27,8 @@ int main(int argc, char *argv[]) {
     game->show();
     WireShark *wireShark = new WireShark();
     wireShark->show();
-//
-//    
-//    RelevantActions *r = new RelevantActions();
-//    r->show();
     
     return app.exec();
-    
+
 
 }

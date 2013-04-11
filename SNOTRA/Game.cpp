@@ -8,6 +8,9 @@
 #include "Game.h"
 #include "Sauvegarder.h"
 
+/**
+ * the  window Game and connect the toolbox and the area of the game
+ */
 Game::Game() {
 
     gameWindow.setupUi(this);
@@ -23,7 +26,6 @@ Game::Game() {
 
     toolBoxMdi->setWidget(toolBox);
     networkGameAreaMdi->setWidget(networkGameArea);
-//    Sauvegarder *save = new Sauvegarder();
 
     networkGameAreaMdi->setGeometry(300, 0, 1200, 800);
 

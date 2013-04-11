@@ -1,5 +1,5 @@
 #include "Device.h"
-
+#include "Frame.h"
 Device::Device() {
 }
 

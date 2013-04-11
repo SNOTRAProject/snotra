@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ToolBox.ui'
 **
-** Created: Wed Apr 3 00:12:11 2013
+** Created: Thu Apr 11 10:23:21 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -26,17 +26,17 @@ class Ui_ToolBox
 {
 public:
     QGridLayout *gridLayout;
-    QLabel *labelPixmapSwitch;
-    QLabel *labelRouteurToolBox;
-    QLabel *labelRouteurNatToolBox;
+    QLabel *switc;
+    QLabel *labelRouterToolBox;
+    QLabel *labelRouterNatToolBox;
     QLabel *labelSwitchToolBox;
     QLabel *labelHUBToolBox;
-    QLabel *labelPixmapRouteur;
-    QLabel *labelPixmapRouteurNat;
-    QLabel *labelPixmapHUB;
-    QLabel *labelOrdiToolBox;
-    QLabel *labelPixmapOrdi;
-    QLabel *label;
+    QLabel *router;
+    QLabel *routerNat;
+    QLabel *hub;
+    QLabel *labelPCToolBox;
+    QLabel *pc;
+    QLabel *labelWire;
     QPushButton *pushButtonFil;
 
     void setupUi(QWidget *ToolBox)
@@ -47,23 +47,23 @@ public:
         ToolBox->setMinimumSize(QSize(300, 800));
         gridLayout = new QGridLayout(ToolBox);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        labelPixmapSwitch = new QLabel(ToolBox);
-        labelPixmapSwitch->setObjectName(QString::fromUtf8("labelPixmapSwitch"));
-        labelPixmapSwitch->setMaximumSize(QSize(100, 100));
-        labelPixmapSwitch->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Switch.png")));
-        labelPixmapSwitch->setScaledContents(true);
+        switc = new QLabel(ToolBox);
+        switc->setObjectName(QString::fromUtf8("switc"));
+        switc->setMaximumSize(QSize(100, 100));
+        switc->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Switch.png")));
+        switc->setScaledContents(true);
 
-        gridLayout->addWidget(labelPixmapSwitch, 2, 1, 1, 1);
+        gridLayout->addWidget(switc, 2, 1, 1, 1);
 
-        labelRouteurToolBox = new QLabel(ToolBox);
-        labelRouteurToolBox->setObjectName(QString::fromUtf8("labelRouteurToolBox"));
+        labelRouterToolBox = new QLabel(ToolBox);
+        labelRouterToolBox->setObjectName(QString::fromUtf8("labelRouterToolBox"));
 
-        gridLayout->addWidget(labelRouteurToolBox, 1, 0, 1, 1);
+        gridLayout->addWidget(labelRouterToolBox, 1, 0, 1, 1);
 
-        labelRouteurNatToolBox = new QLabel(ToolBox);
-        labelRouteurNatToolBox->setObjectName(QString::fromUtf8("labelRouteurNatToolBox"));
+        labelRouterNatToolBox = new QLabel(ToolBox);
+        labelRouterNatToolBox->setObjectName(QString::fromUtf8("labelRouterNatToolBox"));
 
-        gridLayout->addWidget(labelRouteurNatToolBox, 3, 0, 1, 1);
+        gridLayout->addWidget(labelRouterNatToolBox, 3, 0, 1, 1);
 
         labelSwitchToolBox = new QLabel(ToolBox);
         labelSwitchToolBox->setObjectName(QString::fromUtf8("labelSwitchToolBox"));
@@ -80,47 +80,47 @@ public:
 
         gridLayout->addWidget(labelHUBToolBox, 0, 0, 1, 1);
 
-        labelPixmapRouteur = new QLabel(ToolBox);
-        labelPixmapRouteur->setObjectName(QString::fromUtf8("labelPixmapRouteur"));
-        labelPixmapRouteur->setMaximumSize(QSize(100, 100));
-        labelPixmapRouteur->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Routeur.png")));
-        labelPixmapRouteur->setScaledContents(true);
+        router = new QLabel(ToolBox);
+        router->setObjectName(QString::fromUtf8("router"));
+        router->setMaximumSize(QSize(100, 100));
+        router->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Routeur.png")));
+        router->setScaledContents(true);
 
-        gridLayout->addWidget(labelPixmapRouteur, 1, 1, 1, 1);
+        gridLayout->addWidget(router, 1, 1, 1, 1);
 
-        labelPixmapRouteurNat = new QLabel(ToolBox);
-        labelPixmapRouteurNat->setObjectName(QString::fromUtf8("labelPixmapRouteurNat"));
-        labelPixmapRouteurNat->setMaximumSize(QSize(100, 100));
-        labelPixmapRouteurNat->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/RouteurNat.png")));
-        labelPixmapRouteurNat->setScaledContents(true);
+        routerNat = new QLabel(ToolBox);
+        routerNat->setObjectName(QString::fromUtf8("routerNat"));
+        routerNat->setMaximumSize(QSize(100, 100));
+        routerNat->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/RouteurNat.png")));
+        routerNat->setScaledContents(true);
 
-        gridLayout->addWidget(labelPixmapRouteurNat, 3, 1, 1, 1);
+        gridLayout->addWidget(routerNat, 3, 1, 1, 1);
 
-        labelPixmapHUB = new QLabel(ToolBox);
-        labelPixmapHUB->setObjectName(QString::fromUtf8("labelPixmapHUB"));
-        labelPixmapHUB->setMaximumSize(QSize(100, 100));
-        labelPixmapHUB->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/HUB.png")));
-        labelPixmapHUB->setScaledContents(true);
+        hub = new QLabel(ToolBox);
+        hub->setObjectName(QString::fromUtf8("hub"));
+        hub->setMaximumSize(QSize(100, 100));
+        hub->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/HUB.png")));
+        hub->setScaledContents(true);
 
-        gridLayout->addWidget(labelPixmapHUB, 0, 1, 1, 1);
+        gridLayout->addWidget(hub, 0, 1, 1, 1);
 
-        labelOrdiToolBox = new QLabel(ToolBox);
-        labelOrdiToolBox->setObjectName(QString::fromUtf8("labelOrdiToolBox"));
+        labelPCToolBox = new QLabel(ToolBox);
+        labelPCToolBox->setObjectName(QString::fromUtf8("labelPCToolBox"));
 
-        gridLayout->addWidget(labelOrdiToolBox, 4, 0, 1, 1);
+        gridLayout->addWidget(labelPCToolBox, 4, 0, 1, 1);
 
-        labelPixmapOrdi = new QLabel(ToolBox);
-        labelPixmapOrdi->setObjectName(QString::fromUtf8("labelPixmapOrdi"));
-        labelPixmapOrdi->setMaximumSize(QSize(100, 100));
-        labelPixmapOrdi->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Ordi.png")));
-        labelPixmapOrdi->setScaledContents(true);
+        pc = new QLabel(ToolBox);
+        pc->setObjectName(QString::fromUtf8("pc"));
+        pc->setMaximumSize(QSize(100, 100));
+        pc->setPixmap(QPixmap(QString::fromUtf8("IconeItemNetwork/Ordi.png")));
+        pc->setScaledContents(true);
 
-        gridLayout->addWidget(labelPixmapOrdi, 4, 1, 1, 1);
+        gridLayout->addWidget(pc, 4, 1, 1, 1);
 
-        label = new QLabel(ToolBox);
-        label->setObjectName(QString::fromUtf8("label"));
+        labelWire = new QLabel(ToolBox);
+        labelWire->setObjectName(QString::fromUtf8("labelWire"));
 
-        gridLayout->addWidget(label, 5, 0, 1, 1);
+        gridLayout->addWidget(labelWire, 5, 0, 1, 1);
 
         pushButtonFil = new QPushButton(ToolBox);
         pushButtonFil->setObjectName(QString::fromUtf8("pushButtonFil"));
@@ -136,16 +136,16 @@ public:
     void retranslateUi(QWidget *ToolBox)
     {
         ToolBox->setWindowTitle(QApplication::translate("ToolBox", "ToolBox", 0, QApplication::UnicodeUTF8));
-        labelPixmapSwitch->setText(QString());
-        labelRouteurToolBox->setText(QApplication::translate("ToolBox", "Routeur", 0, QApplication::UnicodeUTF8));
-        labelRouteurNatToolBox->setText(QApplication::translate("ToolBox", "Routeur NAT", 0, QApplication::UnicodeUTF8));
+        switc->setText(QString());
+        labelRouterToolBox->setText(QApplication::translate("ToolBox", "Routeur", 0, QApplication::UnicodeUTF8));
+        labelRouterNatToolBox->setText(QApplication::translate("ToolBox", "Routeur NAT", 0, QApplication::UnicodeUTF8));
         labelSwitchToolBox->setText(QApplication::translate("ToolBox", "Switch", 0, QApplication::UnicodeUTF8));
-        labelPixmapRouteur->setText(QString());
-        labelPixmapRouteurNat->setText(QString());
-        labelPixmapHUB->setText(QString());
-        labelOrdiToolBox->setText(QApplication::translate("ToolBox", "Ordi", 0, QApplication::UnicodeUTF8));
-        labelPixmapOrdi->setText(QString());
-        label->setText(QApplication::translate("ToolBox", "Fil", 0, QApplication::UnicodeUTF8));
+        router->setText(QString());
+        routerNat->setText(QString());
+        hub->setText(QString());
+        labelPCToolBox->setText(QApplication::translate("ToolBox", "Ordi", 0, QApplication::UnicodeUTF8));
+        pc->setText(QString());
+        labelWire->setText(QApplication::translate("ToolBox", "Fil", 0, QApplication::UnicodeUTF8));
         pushButtonFil->setText(QApplication::translate("ToolBox", "Tracer un fil", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

@@ -23,23 +23,20 @@ NetworkGameArea::NetworkGameArea() {
     widget.setupUi(this);
     setAcceptDrops(true);
     firstConnect = true;
-    portConnecterChoice = new PortConnecterChoice();
+    connecterChoice = new ConnecterChoice();
 
 
-    //A SUPRIMER////////////////////////////////////////////
     db = new DataBaseManager();
-    //    db->showTable();
-    //    qDebug() << "OK";
+    addingItem = true;
 }
 
 NetworkGameArea::~NetworkGameArea() {
 }
 
 /**
- * permet de droper l'objet que l'on tient dans la JFrame
+ * drag the item
  * @param event
  */
-
 void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
@@ -72,6 +69,10 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     }
 }
 
+/**
+ * drop the item selected
+ * @param event
+ */
 void NetworkGameArea::dropEvent(QDropEvent *event) {
 
     /**
@@ -101,6 +102,18 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             std::cout << "le nom de l'objet : " <<
                     newIcon->objectName().toStdString() << endl;
             newIcon->show();
+
+            //ajout de la fenetre de paramétrage des proprités des devices
+            if (addingItem) {
+                numberOfInterfaces = new NumberOfInterfaceSetter();
+                numberOfInterfaces->exec();
+                for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
+                    propertiesOfInterfaces = new PropertiesOfIterfaceSetter();
+                    propertiesOfInterfaces->exec();
+                }
+            }
+            addingItem = true;
+
             ///////////////////////////////////////////////////////////////
             //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
             ///////////////////////////////////////////////////////////////            
@@ -114,12 +127,13 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
             QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
             labelConnecter2 = child;
-            portConnecterChoice->setText(labelConnecter1->objectName(),
+            connecterChoice->setText(labelConnecter1->objectName(),
                     labelConnecter2->objectName());
             // Mode fil
             qDebug("Création d'un fil");
 
-            portConnecterChoice->exec();
+            connecterChoice = new ConnecterChoice();
+            connecterChoice->exec();
 
             descriptor();
 
@@ -138,7 +152,10 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         event->ignore();
     }
 }
-
+/**
+ * proceed according to the event
+ * @param event
+ */
 void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
 
@@ -146,7 +163,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
         if (!child) {
             return;
         }
-
+        addingItem = false;
         if (pushButton == true) {
             pointDrawline1 = event->pos();
             pushButton = false;
@@ -203,7 +220,10 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
     }
 }
-
+/**
+ * make the context menu
+ * @param event
+ */
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QMenu menu(this);
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
@@ -264,6 +284,9 @@ void NetworkGameArea::disconnectStocker() {
     }
 }
 
+/**
+ * delete the item
+ */
 void NetworkGameArea::deleteItem() {
     /*
      LE CODE DOIT FAIRE L'OBJET D'UNE VERIFICATION : EST BIEN UN ITEM QUE JE 
@@ -280,10 +303,10 @@ void NetworkGameArea::descriptor() {
     if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
         std::cout << labelConnecter1->objectName().toStdString() <<
                 "est connecté sur le port sue l'interface numéro " <<
-                portConnecterChoice->portSelectedDevice1 << " à " <<
+                connecterChoice->portSelectedDevice1 << " à " <<
                 labelConnecter2->objectName().toStdString() <<
                 " sur l'interface numéro " <<
-                portConnecterChoice->portSelectedDevice2 << "\n\n";
+                connecterChoice->portSelectedDevice2 << "\n\n";
     }
 }
 
@@ -370,3 +393,16 @@ void NetworkGameArea::slotResetGame() {
 void NetworkGameArea::closeEvent(QCloseEvent *event) {
     event->ignore();
 }
+
+//bool NetworkGameArea::browseList(QLabel *label) {
+//    QList<QLabel*>::iterator i;
+//    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
+//        QLabel *test = *i;
+//        if (label == *i) {
+//            qDebug() << "find !";
+//            return true;
+//        }
+//    }
+//    qDebug() << "pas trouvé";
+//    return false;
+//}

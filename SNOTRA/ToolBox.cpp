@@ -8,6 +8,7 @@
 
 #include "ToolBox.h"
 #include "NetworkGameArea.h"
+//#include "NetworkGameArea.h"
 #include <QPainter>
 #include <iostream>
 #include <qt4/QtCore/qdebug.h>
@@ -76,8 +77,6 @@ ToolBox::~ToolBox() {
 }*/
 
 void ToolBox::mousePressEvent(QMouseEvent *event) {
-    
-    
     QLabel *child = static_cast<QLabel*> (childAt(event->pos()));
     if (!child)
         return;

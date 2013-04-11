@@ -21,7 +21,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1">
-    <widget class="QLabel" name="labelPixmapSwitch">
+    <widget class="QLabel" name="switc">
      <property name="maximumSize">
       <size>
        <width>100</width>
@@ -40,14 +40,14 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QLabel" name="labelRouteurToolBox">
+    <widget class="QLabel" name="labelRouterToolBox">
      <property name="text">
       <string>Routeur</string>
      </property>
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QLabel" name="labelRouteurNatToolBox">
+    <widget class="QLabel" name="labelRouterNatToolBox">
      <property name="text">
       <string>Routeur NAT</string>
      </property>
@@ -83,7 +83,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QLabel" name="labelPixmapRouteur">
+    <widget class="QLabel" name="router">
      <property name="maximumSize">
       <size>
        <width>100</width>
@@ -102,7 +102,7 @@
     </widget>
    </item>
    <item row="3" column="1">
-    <widget class="QLabel" name="labelPixmapRouteurNat">
+    <widget class="QLabel" name="routerNat">
      <property name="maximumSize">
       <size>
        <width>100</width>
@@ -121,7 +121,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QLabel" name="labelPixmapHUB">
+    <widget class="QLabel" name="hub">
      <property name="maximumSize">
       <size>
        <width>100</width>
@@ -140,14 +140,14 @@
     </widget>
    </item>
    <item row="4" column="0">
-    <widget class="QLabel" name="labelOrdiToolBox">
+    <widget class="QLabel" name="labelPCToolBox">
      <property name="text">
       <string>Ordi</string>
      </property>
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QLabel" name="labelPixmapOrdi">
+    <widget class="QLabel" name="pc">
      <property name="maximumSize">
       <size>
        <width>100</width>
@@ -166,7 +166,7 @@
     </widget>
    </item>
    <item row="5" column="0">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="labelWire">
      <property name="text">
       <string>Fil</string>
      </property>

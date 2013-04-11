@@ -13,9 +13,12 @@
 #include <QtGui>
 #include <QMouseEvent>
 #include <iostream>
-#include "PortConnecterChoice.h"
 #include "DataBaseManager.h"
 #include "Sauvegarder.h"
+#include "modele/ConnecterChoice.h"
+#include "modele/PropertiesOfIterfaceSetter.h"
+#include "modele/NumberOfInterfaceSetter.h"
+
 class NetworkGameArea : public QWidget {
     Q_OBJECT
 public:
@@ -40,13 +43,11 @@ private:
     void paintEvent(QPaintEvent*);
     void signalPushButtonPressed();
     bool pushButton;
-
-
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
     QLabel *labelDisconnecter1;
     QLabel *labelDisconnecter2;
-    PortConnecterChoice *portConnecterChoice;
+    ConnecterChoice *connecterChoice;
     int port1;
     int port2;
     QPoint pointDrawline1;
@@ -54,13 +55,14 @@ private:
     QPainter paint;
     QList<QLabel*> qLabelListSave;
     QList<QLabel*> qLabelListLoad;
-
     DataBaseManager *db;
     std::string pixmapTab[5];
+    PropertiesOfIterfaceSetter *propertiesOfInterfaces;
+    NumberOfInterfaceSetter *numberOfInterfaces;
+    bool addingItem;
     void loadLabelList();
     void saveLabelList();
     void resetGame();
-
 public slots:
     //    void connectStocker();
     void deleteItem();

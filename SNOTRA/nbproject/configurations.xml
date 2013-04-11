@@ -116,6 +116,7 @@
         <modules>core gui sql</modules>
         <defs>
           <Elem>"QT += sql"</Elem>
+          <Elem>QMAKE_CXXFLAGS += -std=c++0x</Elem>
         </defs>
       </qt>
       <compileType>

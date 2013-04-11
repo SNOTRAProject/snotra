@@ -186,8 +186,9 @@ bool DataBaseManager::checkExistence() {
             ++it;
         }
     }
+    closeDb();
     return false;
-     closeDb();
+     
 }
 
 DataBaseManager::DataBaseManager(const DataBaseManager & orig) {
