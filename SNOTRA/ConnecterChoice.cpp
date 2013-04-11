@@ -46,9 +46,15 @@ void ConnecterChoice::setPortSelected(int portSelectedDevice1,
  * @param Device2Name
  */
 void ConnecterChoice::setText(QString Device1Name, QString Device2Name) {
-    widget.textBrowserDevice1Interface->setText("Sur quel interface de "
-            + Device1Name + " souhaitez vous banchez ce fil ?");
-    widget.textBrowserDevice2Interface->setText("Sur quel interface de "
-            + Device2Name + " souhaitez vous banchez ce fil ?");
+    widget.textBrowserDevice1Interface->setText("Sur quel interface du "
+            + Device1Name + " souhaitez vous bancher ce fil ?");
+    widget.textBrowserDevice2Interface->setText("Sur quel interface du "
+            + Device2Name + " souhaitez vous bancher ce fil ?");
+}
 
+int ConnecterChoice::getPortDevice1(){
+    return portSelectedDevice1;
+}
+int ConnecterChoice::getPortDevice2(){
+    return portSelectedDevice1;
 }

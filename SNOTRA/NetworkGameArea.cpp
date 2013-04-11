@@ -109,6 +109,9 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 numberOfInterfaces->exec();
                 for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
                     propertiesOfInterfaces = new PropertiesOfIterfaceSetter();
+                    QString str = QString::number(i + 1);
+                    propertiesOfInterfaces->setText("Veuillez entrer le nom de "
+                            "l'interface numero : " + str);
                     propertiesOfInterfaces->exec();
                 }
             }
@@ -127,12 +130,13 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
             QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
             labelConnecter2 = child;
-            connecterChoice->setText(labelConnecter1->objectName(),
-                    labelConnecter2->objectName());
+
             // Mode fil
             qDebug("Création d'un fil");
 
             connecterChoice = new ConnecterChoice();
+            connecterChoice->setText(labelConnecter1->objectName(),
+                    labelConnecter2->objectName());
             connecterChoice->exec();
 
             descriptor();
@@ -152,6 +156,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         event->ignore();
     }
 }
+
 /**
  * proceed according to the event
  * @param event
@@ -220,6 +225,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent *event) {
 
     }
 }
+
 /**
  * make the context menu
  * @param event
@@ -303,18 +309,14 @@ void NetworkGameArea::descriptor() {
     if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
         std::cout << labelConnecter1->objectName().toStdString() <<
                 "est connecté sur le port sue l'interface numéro " <<
-                connecterChoice->portSelectedDevice1 << " à " <<
+                connecterChoice->getPortDevice1() << " à " <<
                 labelConnecter2->objectName().toStdString() <<
                 " sur l'interface numéro " <<
-                connecterChoice->portSelectedDevice2 << "\n\n";
+                connecterChoice->getPortDevice2() << "\n\n";
     }
 }
 
 void NetworkGameArea::pushButtonPressed() {
-
-    /**qDebug("CETTE FONCTION EST CELLE QUI SPÉCIFIERA QUE LES DEVICES SONT 
-     * BIEN CONNECTÉ");
-     */
     pushButton = true;
 }
 

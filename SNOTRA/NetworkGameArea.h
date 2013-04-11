@@ -58,6 +58,7 @@ private:
     DataBaseManager *db;
     std::string pixmapTab[5];
     PropertiesOfIterfaceSetter *propertiesOfInterfaces;
+    
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
     void loadLabelList();
