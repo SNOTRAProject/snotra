@@ -7,6 +7,8 @@
 
 #include "WireShark.h"
 #include "modele/Frame.h"
+#include "modele/Header.h"
+#include "modele/ICMPHeader.h"
 
 WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);
@@ -102,9 +104,9 @@ void WireShark::btnFiltre_clicked()
 }
 void WireShark::addFrame()
 {
-    //Frame frame = new Frame();
-    //std::shared_ptr<Header> head = new ICMPHeader(Ip("192.168.1.2"));
-    
+    Frame *frame = new Frame();
+    std::shared_ptr<Header> head = std::shared_ptr<ICMPHeader>(new ICMPHeader(Ip("192.168.1.2", 24)));
+    frame->setHeader(head);
 
 }
 WireShark::~WireShark() {
