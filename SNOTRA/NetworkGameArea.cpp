@@ -108,11 +108,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 numberOfInterfaces->exec();
                 int sizeOfInterfaceNameArray = numberOfInterfaces
                         ->getNbInterfaces();
-                std::string *interfaceName
-                        = new std::string[sizeOfInterfaceNameArray];
+                std::vector<std::string> interfaceName
+                        = std::vector<std::string>();
 
-                std::string *IP
-                        = new std::string[sizeOfInterfaceNameArray];
+                std::vector<std::string> IP
+                        = std::vector<std::string>();
 
                 for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
                     propertiesOfInterfaces = new PropertiesOfIterfaceSetter();
@@ -120,11 +120,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                     propertiesOfInterfaces->setText("Veuillez entrer le nom de "
                             "l'interface numero : " + str);
                     propertiesOfInterfaces->exec();
-                    interfaceName[i]
-                            = propertiesOfInterfaces->widget.lineEditSetName
-                            ->text().toStdString();
-                    IP[i] = propertiesOfInterfaces->widget.lineEditSetIP
-                            ->text().toStdString();
+                    interfaceName.push_back(
+                            propertiesOfInterfaces->widget.lineEditSetName
+                            ->text().toStdString());
+                    IP.push_back(propertiesOfInterfaces->widget.lineEditSetIP
+                            ->text().toStdString());
                 }
 
                 ///////////////////////////////////////////////////////////
@@ -374,11 +374,11 @@ void NetworkGameArea::descriptor() {
 
         qDebug() << item1->getLabel()->objectName() << " est connnecté à " <<
                 item2->getLabel()->objectName();
-        qDebug() << "interface du premier : " << item1->getInterfaceName();
-        qDebug() << "interface du deuxieme : " << item2->getInterfaceName();
+        //qDebug() << "interface du premier : " << item1->getInterfaceName();
+        //qDebug() << "interface du deuxieme : " << item2->getInterfaceName();
 
-        qDebug() << "IP du premier " << item1->getInterfaceIP();
-        qDebug() << "IP du dexieme " << item2->getInterfaceIP();
+        //qDebug() << "IP du premier " << item1->getInterfaceIP();
+        //qDebug() << "IP du dexieme " << item2->getInterfaceIP();
         qDebug() << "////////////////////////////////////////////////////////";
 
     }
