@@ -13,6 +13,7 @@
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QString>
+#include <list>
 #include "ui_WireShark.h"
 
 class WireShark : public QWidget {
@@ -28,6 +29,9 @@ private:
     int nrow, ncol;
     Ui::WireShark widget;
     QLineEdit *filtre;
+    void makeArray(int sizeOfList);
+    QStringList strExtractedSplited;
+    std::list<QStringList> tableLine;
 public slots :
     void btnFiltre_clicked();
 
