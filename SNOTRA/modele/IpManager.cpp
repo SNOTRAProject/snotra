@@ -5,11 +5,11 @@
  * Created on 12 avril 2013, 13:35
  */
 
-#include "ChangeIp.h"
+#include "IpManager.h"
 
-ChangeIp::ChangeIp() {
+IpManager::IpManager() {
     widget.setupUi(this);
 }
 
-ChangeIp::~ChangeIp() {
+IpManager::~IpManager() {
 }

@@ -5,42 +5,40 @@
  * Created on 2 avril 2013, 14:08
  */
 
-#include "Charger.h"
+#include "LoadManager.h"
 #include <QDebug>
-/**
- * lauch the window charger
- */
-Charger::Charger() {
+
+LoadManager::LoadManager() {
     widget.setupUi(this);
     connect(this->widget.pushButtonOK, SIGNAL(pressed()), this,
             SLOT(slotGetLineString()));
     resetGame = false;
 }
 
-void Charger::slotGetLineString() {
+void LoadManager::slotGetLineString() {
     setResultLineString();
 }
 
 /**
  * set the result choosen in the comboBox
  */
-void Charger::setResultLineString() {
+void LoadManager::setResultLineString() {
     resultLineString = this->widget.comboBox->currentText();
     qDebug()<<resultLineString;
     setResetGame(true);
 }
 
-QString Charger::getResultLineString(){
+QString LoadManager::getResultLineString(){
     return resultLineString;
 }
 
-Charger::~Charger() {
+LoadManager::~LoadManager() {
 }
 
-bool Charger::getResetGame(){
+bool LoadManager::getResetGame(){
     return resetGame;
 }
 
-void Charger::setResetGame(bool choice){
+void LoadManager::setResetGame(bool choice){
     resetGame = choice;
 }

@@ -16,6 +16,10 @@
 class Game : public QMainWindow {
     Q_OBJECT
 public:
+    /**
+     * create the main windows of the game
+     * Contains a menu, the toolBox, and the area network 
+     */
     Game();
     virtual ~Game();
 private:

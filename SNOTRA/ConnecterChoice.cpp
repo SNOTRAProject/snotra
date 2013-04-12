@@ -7,9 +7,6 @@
 
 #include "ConnecterChoice.h"
 
-/**
- * launch the window ConnecterChoice
- */
 ConnecterChoice::ConnecterChoice() {
     widget.setupUi(this);
     this->portSelectedDevice1 = 0;

@@ -15,6 +15,7 @@
 #include "DataBaseManager.h"
 #include "Sauvegarder.h"
 #include "RelevantActions.h"
+#include "LoadManager.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -27,7 +28,7 @@ int main(int argc, char *argv[]) {
     game->show();
     WireShark *wireShark = new WireShark();
     wireShark->show();
-    
+
     return app.exec();
 
 

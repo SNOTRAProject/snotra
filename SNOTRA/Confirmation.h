@@ -13,8 +13,16 @@
 class Confirmation : public QDialog {
     Q_OBJECT
 public:
+    /**
+     * create a window that asks if you are sure you want to overwrite the 
+     * existing backup
+     * 
+     */
     Confirmation();
     virtual ~Confirmation();
+    /**
+     * set replyOK to overwrite the existing backup
+     */
     void setReplyOK();
     bool getReplyOK();
 private:

@@ -11,16 +11,14 @@
 #include <iostream>
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtGui/qlabel.h>
-#include "Charger.h"
+#include "LoadManager.h"
 
 #define q2c(string) string.toStdString()
 
 DataBaseManager::DataBaseManager() {
 }
 
-/**
- * creer une sauvegarde 
- */
+
 void DataBaseManager::create(QLabel *item) {
     qDebug() << tableName;
 
@@ -50,6 +48,7 @@ int DataBaseManager::setLastID() {
     return lastID;
 }
 
+
 QList<QLabel*> DataBaseManager::load() {
 
     QList<QLabel*> qLabelList;
@@ -64,7 +63,7 @@ QList<QLabel*> DataBaseManager::load() {
         QStringList list = db.tables();
         //        QStringList::Iterator it = list.begin();
 
-        Charger *charger = new Charger();
+        LoadManager *charger = new LoadManager();
         charger->widget.comboBox->addItems(list);
         charger->exec();
         resetGame = charger->getResetGame();
@@ -126,6 +125,7 @@ void DataBaseManager::showTable() {
 
 }
 
+
 void DataBaseManager::launchSave() {
     Sauvegarder *save = new Sauvegarder();
     save->exec();
@@ -164,6 +164,7 @@ void DataBaseManager::launchSave() {
     closeDb();
     showTable();
 }
+
 
 bool DataBaseManager::checkExistence() {
     QList<QLabel*> qLabelList;

@@ -10,13 +10,16 @@
 
 #include "ui_ChangeIp.h"
 
-class ChangeIp : public QDialog {
+class IpManager : public QDialog {
     Q_OBJECT
 public:
-    ChangeIp();
-    virtual ~ChangeIp();
+    /**
+     * create the window to reset IP
+     */
+    IpManager();
+    virtual ~IpManager();
 private:
-    Ui::ChangeIp widget;
+    Ui::IpManager widget;
 };
 
 #endif	/* _CHANGEIP_H */

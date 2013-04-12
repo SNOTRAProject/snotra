@@ -14,7 +14,7 @@
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtCore/qglobal.h>
 #include "DataBaseManager.h"
-#include "modele/ChangeIp.h"
+#include "modele/IpManager.h"
 //#include "Sauvegarder.h"
 //#include "Charger.h"
 using namespace std;
@@ -365,7 +365,7 @@ void NetworkGameArea::resetIPItem() {
     item = findItem(labelConnecter1);
     
     //qDebug()<<
-    ChangeIp *changeIp = new ChangeIp();
+    IpManager *changeIp = new IpManager();
     changeIp->exec();
 }
 

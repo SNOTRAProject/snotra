@@ -10,12 +10,15 @@
 
 #include "ui_Charger.h"
 
-class Charger : public QDialog {
+class LoadManager : public QDialog {
     Q_OBJECT
 public:
     Ui::Charger widget;
-    Charger();
-    virtual ~Charger();
+    /**
+     * lauch the window to choose the backup avaible in the database
+     */
+    LoadManager();
+    virtual ~LoadManager();
     void setResultLineString();
     QString getResultLineString();
     void setResetGame(bool choice);

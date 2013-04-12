@@ -6,7 +6,7 @@
  */
 
 #include "Confirmation.h"
-#include "Charger.h"
+#include "LoadManager.h"
 #include <QDebug>
 
 Confirmation::Confirmation() {
@@ -18,9 +18,11 @@ Confirmation::Confirmation() {
 
 Confirmation::~Confirmation() {
 }
+
 void Confirmation::slotReplyOK(){
     setReplyOK();
 }
+
 void Confirmation::setReplyOK(){
     replyOK=true;
 }

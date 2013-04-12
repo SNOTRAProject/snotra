@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Charger</class>
- <widget class="QDialog" name="Charger">
+ <class>LoadManager</class>
+ <widget class="QDialog" name="LoadManager">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -42,7 +42,7 @@
   <connection>
    <sender>pushButtonOK</sender>
    <signal>pressed()</signal>
-   <receiver>Charger</receiver>
+   <receiver>LoadManager</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -58,7 +58,7 @@
   <connection>
    <sender>pushButtonAnnuler</sender>
    <signal>pressed()</signal>
-   <receiver>Charger</receiver>
+   <receiver>LoadManager</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">

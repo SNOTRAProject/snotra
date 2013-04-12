@@ -73,12 +73,6 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
     </logicalFolder>
-    <itemPath>modele/ChangeIp.cpp</itemPath>
-    <itemPath>modele/ChangeIp.h</itemPath>
-    <itemPath>modele/ChangeIp.ui</itemPath>
-    <itemPath>Charger.cpp</itemPath>
-    <itemPath>Charger.h</itemPath>
-    <itemPath>Charger.ui</itemPath>
     <itemPath>Confirmation.cpp</itemPath>
     <itemPath>Confirmation.h</itemPath>
     <itemPath>Confirmation.ui</itemPath>
@@ -91,6 +85,12 @@
     <itemPath>Game.h</itemPath>
     <itemPath>Game.ui</itemPath>
     <itemPath>IconeItemNetwork/IconeItemNetwork.qrc</itemPath>
+    <itemPath>modele/IpManager.cpp</itemPath>
+    <itemPath>modele/IpManager.h</itemPath>
+    <itemPath>modele/IpManager.ui</itemPath>
+    <itemPath>LoadManager.cpp</itemPath>
+    <itemPath>LoadManager.h</itemPath>
+    <itemPath>LoadManager.ui</itemPath>
     <itemPath>NetworkGameArea.cpp</itemPath>
     <itemPath>NetworkGameArea.h</itemPath>
     <itemPath>NetworkGameArea.ui</itemPath>
