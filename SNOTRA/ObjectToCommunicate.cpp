@@ -38,9 +38,19 @@ std::string* ObjectToCommunicate::getInterfaceName() {
 int ObjectToCommunicate::getInterfaceNumber() {
     return interfaceNumber;
 }
-int ObjectToCommunicate::getSizeOfInterfaceNameArray(){
+
+int ObjectToCommunicate::getSizeOfInterfaceNameArray() {
     return sizeOfInterfaceNameArray;
 }
-void ObjectToCommunicate::setSizeOfInterfaceNameArray(int size){
+
+void ObjectToCommunicate::setSizeOfInterfaceNameArray(int size) {
     this->sizeOfInterfaceNameArray = size;
+}
+
+QLabel* ObjectToCommunicate::getLabel() {
+    return label;
+}
+
+void ObjectToCommunicate::setLabel(QLabel* label) {
+    this->label = label;
 }

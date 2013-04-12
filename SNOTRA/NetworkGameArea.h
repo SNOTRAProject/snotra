@@ -47,6 +47,10 @@ private:
     bool pushButton;
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
+
+    ObjectToCommunicate *item2;
+    ObjectToCommunicate *item1;
+
     QLabel *labelDisconnecter1;
     QLabel *labelDisconnecter2;
     ConnecterChoice *connecterChoice;
@@ -55,16 +59,18 @@ private:
     QPoint pointDrawline1;
     QPoint pointDrawline2;
     QPainter paint;
+    QList<ObjectToCommunicate*> listItem;
     QList<QLabel*> qLabelListSave;
     QList<QLabel*> qLabelListLoad;
     DataBaseManager *db;
     std::string pixmapTab[5];
     PropertiesOfIterfaceSetter *propertiesOfInterfaces;
-    
+
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
     void loadLabelList();
     void saveLabelList();
+    ObjectToCommunicate* findItem(QLabel* label);
     void resetGame();
     ObjectToCommunicate *item;
 public slots:

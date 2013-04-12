@@ -106,7 +106,8 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             if (addingItem) {
                 numberOfInterfaces = new NumberOfInterfaceSetter();
                 numberOfInterfaces->exec();
-                int sizeOfInterfaceNameArray = numberOfInterfaces->getNbInterfaces();
+                int sizeOfInterfaceNameArray = numberOfInterfaces
+                        ->getNbInterfaces();
                 std::string *interfaceName
                         = new std::string[sizeOfInterfaceNameArray];
 
@@ -125,7 +126,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                     IP[i] = propertiesOfInterfaces->widget.lineEditSetIP
                             ->text().toStdString();
                 }
-                
+
                 ///////////////////////////////////////////////////////////
                 //          CONCEPTION DE L'OBJET POUR COMMUNIQUER
                 ///////////////////////////////////////////////////////////
@@ -134,6 +135,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
                 qDebug() << "int associe a l'objet "
                         + QString::number(qLabelListSave.size());
+                item->setLabel(newIcon);
 
 
             }
@@ -141,17 +143,23 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
             ///////////////////////////////////////////////////////////////
             //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
-            ///////////////////////////////////////////////////////////////            
+            ///////////////////////////////////////////////////////////////  
+            listItem.append(item);
             qLabelListSave.append(newIcon);
             //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
             //            DataBaseManager *db = new DataBaseManager();
             //            db->create(test);
 
-            ////////////////////////////////////////////////////////////////       
+            //////////////////////////////////////////////////////////////// 
+
         } else if (childAt(event->pos()) != NULL) {
 
             QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
             labelConnecter2 = child;
+
+            /////////////////////////////TEST//////////////////////////////////
+            item2 = findItem(labelConnecter2);
+            item1 = findItem(labelConnecter1);
 
             // Mode fil
             qDebug("Création d'un fil");
@@ -161,13 +169,21 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                     labelConnecter2->objectName());
             //////////////remplir la comboBox∕//////////////////////////////////
             //QList<std::string> listStd;
-            QStringList list;
-            for (int i = 0; i < item->getSizeOfInterfaceNameArray(); i++) {
-                list.append(item->getInterfaceName()[i].c_str());
+            QStringList listOfInterfacesItem1;
+            for (int i = 0; i < item1->getSizeOfInterfaceNameArray(); i++) {
+                listOfInterfacesItem1.append(item1->getInterfaceName()[i].c_str());
             }
 
+            QStringList listOfInterfacesItem2;
+            for (int i = 0; i < item2->getSizeOfInterfaceNameArray(); i++) {
+                listOfInterfacesItem2.append(item2->getInterfaceName()[i].c_str());
+            }
+
+
             connecterChoice->widget.comboBoxChoiceInterfaceDevice1
-                    ->addItems(list);
+                    ->addItems(listOfInterfacesItem1);
+            connecterChoice->widget.comboBoxChoiceInterfaceDevice2
+                    ->addItems(listOfInterfacesItem2);
             connecterChoice->exec();
 
             descriptor();
@@ -347,12 +363,24 @@ void NetworkGameArea::resetIPItem() {
 
 void NetworkGameArea::descriptor() {
     if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
+        qDebug() << "/////////////////////////////////////////////////////";
         std::cout << labelConnecter1->objectName().toStdString() <<
-                "est connecté sur le port sue l'interface numéro " <<
+                "est connecté l'interface numéro " <<
                 connecterChoice->getPortDevice1() << " à " <<
                 labelConnecter2->objectName().toStdString() <<
                 " sur l'interface numéro " <<
                 connecterChoice->getPortDevice2() << "\n\n";
+        qDebug() << "/////////////////////////////////////////////////////";
+
+        qDebug() << item1->getLabel()->objectName() << " est connnecté à " <<
+                item2->getLabel()->objectName();
+        qDebug() << "interface du premier : " << item1->getInterfaceName();
+        qDebug() << "interface du deuxieme : " << item2->getInterfaceName();
+
+        qDebug() << "IP du premier " << item1->getInterfaceIP();
+        qDebug() << "IP du dexieme " << item2->getInterfaceIP();
+        qDebug() << "////////////////////////////////////////////////////////";
+
     }
 }
 
@@ -448,3 +476,15 @@ void NetworkGameArea::closeEvent(QCloseEvent * event) {
 //    qDebug() << "pas trouvé";
 //    return false;
 //}
+
+ObjectToCommunicate* NetworkGameArea::findItem(QLabel* label) {
+    QList<ObjectToCommunicate*>::iterator i;
+    for (i = listItem.begin(); i != listItem.end(); ++i) {
+        ObjectToCommunicate *test = *i;
+        qDebug() << test->getLabel() << label;
+        if (test->getLabel() == label) {
+            return test;
+        }
+        //penser à fermer la BDD
+    }
+}

@@ -23,8 +23,12 @@ public:
     std::string* getInterfaceName();
     void setSizeOfInterfaceNameArray(int size);
     int getSizeOfInterfaceNameArray();
+    QLabel* getLabel();
+    void setLabel(QLabel* label);
+
 
 private:
+    QLabel *label;
     int interfaceNumber;
     std::string *interfaceName;
     std::string *IP;
