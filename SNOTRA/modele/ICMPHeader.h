@@ -9,7 +9,7 @@
 class ICMPHeader : public TransportHeader {
  public:
   ICMPHeader();
-  ICMPHeader(Ip, bool = false);
+  ICMPHeader(Ip, bool = true);
   virtual ~ICMPHeader();
   Ip getSourceIp();
   void setSourceIp(Ip);

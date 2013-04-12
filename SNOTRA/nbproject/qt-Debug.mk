@@ -69,6 +69,7 @@ SOURCES       = modele/Device.cpp \
 		PropertiesOfIterfaceSetter.cpp \
 		NumberOfInterfaceSetter.cpp \
 		modele/RoutingTable.cpp \
+		modele/DeviceFactory.cpp \
 		NetworkGameArea.cpp \
 		Confirmation.cpp \
 		modele/MacTable.cpp \
@@ -115,6 +116,7 @@ OBJECTS       = build/Debug/GNU-Linux-x86/Device.o \
 		build/Debug/GNU-Linux-x86/PropertiesOfIterfaceSetter.o \
 		build/Debug/GNU-Linux-x86/NumberOfInterfaceSetter.o \
 		build/Debug/GNU-Linux-x86/RoutingTable.o \
+		build/Debug/GNU-Linux-x86/DeviceFactory.o \
 		build/Debug/GNU-Linux-x86/NetworkGameArea.o \
 		build/Debug/GNU-Linux-x86/Confirmation.o \
 		build/Debug/GNU-Linux-x86/MacTable.o \
@@ -254,7 +256,7 @@ qmake:  FORCE
 
 dist: 
 	@$(CHK_DIR_EXISTS) build/Debug/GNU-Linux-x86/SNOTRA1.0.0 || $(MKDIR) build/Debug/GNU-Linux-x86/SNOTRA1.0.0 
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents Sauvegarder.h modele/ICMPHeader.h RelevantActions.h modele/ARPHeader.h ConnecterChoice.h Game.h modele/Header.h PropertiesOfIterfaceSetter.h modele/RoutingTable.h modele/enum.h modele/DataLinkHeader.h modele/Mask.h WireShark.h ToolBox.h modele/TCPHeader.h DataBaseManager.h Confirmation.h modele/UDPHeader.h NetworkGameArea.h modele/DeviceN4.h Charger.h ObjectToCommunicate.h modele/MacTable.h modele/ARPTable.h modele/Ip.h modele/Wire.h modele/TransportHeader.h modele/Switch.h NumberOfInterfaceSetter.h modele/Hub.h modele/Device.h modele/Mac.h modele/NetworkHeader.h modele/Frame.h modele/NetworkInterface.h build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents IconeItemNetwork/IconeItemNetwork.qrc build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents modele/Device.cpp modele/ARPTable.cpp modele/DeviceN4.cpp ToolBox.cpp modele/ICMPHeader.cpp modele/NetworkInterface.cpp modele/Frame.cpp DataBaseManager.cpp main.cpp modele/Wire.cpp modele/NetworkHeader.cpp modele/Hub.cpp WireShark.cpp modele/Header.cpp modele/Mac.cpp modele/ARPHeader.cpp modele/TransportHeader.cpp ObjectToCommunicate.cpp modele/UDPHeader.cpp modele/Switch.cpp RelevantActions.cpp modele/DataLinkHeader.cpp Game.cpp PropertiesOfIterfaceSetter.cpp NumberOfInterfaceSetter.cpp modele/RoutingTable.cpp NetworkGameArea.cpp Confirmation.cpp modele/MacTable.cpp modele/Ip.cpp modele/TCPHeader.cpp ConnecterChoice.cpp Charger.cpp modele/Mask.cpp Sauvegarder.cpp build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents ToolBox.ui Charger.ui Sauvegarder.ui NetworkGameArea.ui PropertiesOfIterfaceSetter.ui WireShark.ui ConnecterChoice.ui Confirmation.ui RelevantActions.ui NumberOfInterfaceSetter.ui Game.ui build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && (cd `dirname build/Debug/GNU-Linux-x86/SNOTRA1.0.0` && $(TAR) SNOTRA1.0.0.tar SNOTRA1.0.0 && $(COMPRESS) SNOTRA1.0.0.tar) && $(MOVE) `dirname build/Debug/GNU-Linux-x86/SNOTRA1.0.0`/SNOTRA1.0.0.tar.gz . && $(DEL_FILE) -r build/Debug/GNU-Linux-x86/SNOTRA1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents Sauvegarder.h modele/ICMPHeader.h RelevantActions.h modele/ARPHeader.h ConnecterChoice.h Game.h modele/Header.h PropertiesOfIterfaceSetter.h modele/RoutingTable.h modele/enum.h modele/DataLinkHeader.h modele/Mask.h WireShark.h ToolBox.h modele/TCPHeader.h DataBaseManager.h Confirmation.h modele/UDPHeader.h NetworkGameArea.h modele/DeviceN4.h Charger.h ObjectToCommunicate.h modele/MacTable.h modele/ARPTable.h modele/Ip.h modele/Wire.h modele/TransportHeader.h modele/Switch.h modele/DeviceFactory.h NumberOfInterfaceSetter.h modele/Hub.h modele/Device.h modele/Mac.h modele/NetworkHeader.h modele/Frame.h modele/NetworkInterface.h build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents IconeItemNetwork/IconeItemNetwork.qrc build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents modele/Device.cpp modele/ARPTable.cpp modele/DeviceN4.cpp ToolBox.cpp modele/ICMPHeader.cpp modele/NetworkInterface.cpp modele/Frame.cpp DataBaseManager.cpp main.cpp modele/Wire.cpp modele/NetworkHeader.cpp modele/Hub.cpp WireShark.cpp modele/Header.cpp modele/Mac.cpp modele/ARPHeader.cpp modele/TransportHeader.cpp ObjectToCommunicate.cpp modele/UDPHeader.cpp modele/Switch.cpp RelevantActions.cpp modele/DataLinkHeader.cpp Game.cpp PropertiesOfIterfaceSetter.cpp NumberOfInterfaceSetter.cpp modele/RoutingTable.cpp modele/DeviceFactory.cpp NetworkGameArea.cpp Confirmation.cpp modele/MacTable.cpp modele/Ip.cpp modele/TCPHeader.cpp ConnecterChoice.cpp Charger.cpp modele/Mask.cpp Sauvegarder.cpp build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && $(COPY_FILE) --parents ToolBox.ui Charger.ui Sauvegarder.ui NetworkGameArea.ui PropertiesOfIterfaceSetter.ui WireShark.ui ConnecterChoice.ui Confirmation.ui RelevantActions.ui NumberOfInterfaceSetter.ui Game.ui build/Debug/GNU-Linux-x86/SNOTRA1.0.0/ && (cd `dirname build/Debug/GNU-Linux-x86/SNOTRA1.0.0` && $(TAR) SNOTRA1.0.0.tar SNOTRA1.0.0 && $(COMPRESS) SNOTRA1.0.0.tar) && $(MOVE) `dirname build/Debug/GNU-Linux-x86/SNOTRA1.0.0`/SNOTRA1.0.0.tar.gz . && $(DEL_FILE) -r build/Debug/GNU-Linux-x86/SNOTRA1.0.0
 
 
 clean:compiler_clean 
@@ -761,6 +763,29 @@ build/Debug/GNU-Linux-x86/RoutingTable.o: modele/RoutingTable.cpp modele/Routing
 		modele/DataLinkHeader.h \
 		modele/NetworkHeader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux-x86/RoutingTable.o modele/RoutingTable.cpp
+
+build/Debug/GNU-Linux-x86/DeviceFactory.o: modele/DeviceFactory.cpp modele/DeviceFactory.h \
+		modele/Device.h \
+		modele/Frame.h \
+		modele/Header.h \
+		modele/enum.h \
+		modele/NetworkInterface.h \
+		modele/Mac.h \
+		modele/Ip.h \
+		modele/Mask.h \
+		modele/Wire.h \
+		modele/DataLinkHeader.h \
+		modele/NetworkHeader.h \
+		modele/Hub.h \
+		modele/Switch.h \
+		modele/MacTable.h \
+		modele/DeviceN4.h \
+		modele/ARPTable.h \
+		modele/RoutingTable.h \
+		modele/ARPHeader.h \
+		modele/ICMPHeader.h \
+		modele/TransportHeader.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux-x86/DeviceFactory.o modele/DeviceFactory.cpp
 
 build/Debug/GNU-Linux-x86/NetworkGameArea.o: NetworkGameArea.cpp NetworkGameArea.h \
 		ui_NetworkGameArea.h \
