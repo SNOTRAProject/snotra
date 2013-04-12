@@ -100,6 +100,12 @@ void WireShark::btnFiltre_clicked()
     }
     mainWireSharkView->setModel(model);
 }
+void WireShark::addFrame()
+{
+    //Frame frame = new Frame();
+    //std::shared_ptr<Header> head = new ICMPHeader(Ip("192.168.1.2"));
+    
 
+}
 WireShark::~WireShark() {
 }

@@ -19,6 +19,7 @@ class WireShark : public QWidget {
     Q_OBJECT
 public:
     WireShark(QWidget *parent = 0);
+    void addFrame();
     virtual ~WireShark();
 private:
     QTableView * mainWireSharkView;
