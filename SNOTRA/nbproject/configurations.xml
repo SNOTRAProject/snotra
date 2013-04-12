@@ -73,6 +73,9 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
     </logicalFolder>
+    <itemPath>modele/ChangeIp.cpp</itemPath>
+    <itemPath>modele/ChangeIp.h</itemPath>
+    <itemPath>modele/ChangeIp.ui</itemPath>
     <itemPath>Charger.cpp</itemPath>
     <itemPath>Charger.h</itemPath>
     <itemPath>Charger.ui</itemPath>

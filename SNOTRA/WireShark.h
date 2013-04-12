@@ -19,14 +19,18 @@ class WireShark : public QWidget {
     Q_OBJECT
 public:
     WireShark(QWidget *parent = 0);
+    void addFrame();
     virtual ~WireShark();
 private:
     QTableView * mainWireSharkView;
     QLabel *lab1 , *lab2;
-    QPushButton *btnApply;
+    QPushButton *btnFiltre;
     int nrow, ncol;
     Ui::WireShark widget;
-    
+    QLineEdit *filtre;
+public slots :
+    void btnFiltre_clicked();
+
 };
 
 #endif	/* _WIRESHARK_H */
