@@ -15,7 +15,7 @@ ObjectToCommunicate::ObjectToCommunicate() {
 }
 
 ObjectToCommunicate::ObjectToCommunicate(int interfaceNumber,
-        std::string *interfaceName, std::string *IP) {
+        std::vector<std::string> interfaceName, std::vector<std::string> IP) {
     this->interfaceNumber = interfaceNumber;
     this->interfaceName = interfaceName;
     this->IP = IP;
@@ -27,11 +27,11 @@ ObjectToCommunicate::ObjectToCommunicate(const ObjectToCommunicate& orig) {
 ObjectToCommunicate::~ObjectToCommunicate() {
 }
 
-std::string* ObjectToCommunicate::getInterfaceIP() {
+std::vector<std::string> ObjectToCommunicate::getInterfaceIP() {
     return IP;
 }
 
-std::string* ObjectToCommunicate::getInterfaceName() {
+std::vector<std::string> ObjectToCommunicate::getInterfaceName() {
     return interfaceName;
 }
 

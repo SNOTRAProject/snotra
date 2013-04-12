@@ -3,6 +3,9 @@
 DeviceN4::DeviceN4() {
 }
 
+DeviceN4::DeviceN4(int numberOfInterface, std::vector<std::string> names, std::vector<std::string> ip) : Device(numberOfInterface, names, ip) {
+}
+
 DeviceN4::~DeviceN4() {
 }
 

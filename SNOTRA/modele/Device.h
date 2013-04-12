@@ -15,6 +15,7 @@ class NetworkInterface;
 class Device {
  public:
   Device();
+  Device(int, std::vector<std::string>, std::vector<std::string>);
   virtual ~Device();
   std::list<std::shared_ptr<Frame>> getAllFrameHistory() const;
   std::vector<NetworkInterface> getNetworkInterfaces() const;
@@ -24,7 +25,7 @@ class Device {
   std::shared_ptr<Frame> giveFrameToInterface(std::shared_ptr<Frame>, int);
   virtual void sendFrame(std::shared_ptr<Frame>) = 0;
   void addNetworkInterface(std::string, Mac, Ip, bool);
-  virtual void connectNeighbour(std::shared_ptr<Device>, int, int, int, int);
+  virtual void connectNeighbour(std::shared_ptr<Device>, int, int, int, int, bool = true);
   void disconnectNeighbour(int);
   void activateNetworkInterface(int);
   void desactivateNetworkInterface(int);

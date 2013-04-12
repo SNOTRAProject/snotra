@@ -3,6 +3,9 @@
 Hub::Hub() {
 }
 
+Hub::Hub(int numberOfInterface, std::vector<std::string> names, std::vector<std::string> ip) : Device(numberOfInterface, names, ip) {
+}
+
 Hub::~Hub() {
 }
 

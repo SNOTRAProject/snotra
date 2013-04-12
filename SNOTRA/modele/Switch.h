@@ -2,6 +2,7 @@
 #define __SWITCH_H__
 
 #include <memory>
+#include <vector>
 #include "Frame.h"
 #include "MacTable.h"
 #include "Mac.h"
@@ -13,7 +14,7 @@
 class Switch : public Device {
  public:
   Switch();
-  Switch(int);
+  Switch(int, std::vector<std::string>, std::vector<std::string>);
   virtual ~Switch();
   MacTable getMacTable() const;
   void setMacTable(MacTable);

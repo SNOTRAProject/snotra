@@ -5,6 +5,7 @@
 
 #include <map>
 #include <memory>
+#include <vector>
 #include "enum.h"
 #include "Device.h"
 #include "ARPTable.h"
@@ -16,6 +17,7 @@
 class DeviceN4 : public Device {
  public:
   DeviceN4();
+  DeviceN4(int, std::vector<std::string>, std::vector<std::string>);
   virtual ~DeviceN4();
   RoutingTable getRoutingTable() const;
   void setRoutingTable(RoutingTable);

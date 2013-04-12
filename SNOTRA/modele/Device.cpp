@@ -3,6 +3,12 @@
 Device::Device() {
 }
 
+Device::Device(int numberOfInterface, std::vector<std::string> names, std::vector<std::string> ip) {
+    for(int i = 0; i < numberOfInterface; i++) {
+        addNetworkInterface(names.at(i), Mac(), Ip(ip.at(i), 24), true);
+    }
+}
+
 Device::~Device() {
 }
 
@@ -12,6 +18,10 @@ std::list<std::shared_ptr<Frame>> Device::getAllFrameHistory() const{
 
 std::vector<NetworkInterface> Device::getNetworkInterfaces() const {
   return networkInterfaces;
+}
+
+void Device::addNetworkInterface(std::string name, Mac mac, Ip ip, bool isUp) {
+  networkInterfaces.push_back(NetworkInterface(name, mac, ip, isUp));
 }
 
 void Device::addFrameToHistory(std::shared_ptr<Frame> frame) {
@@ -45,12 +55,11 @@ std::shared_ptr<Frame> Device::giveFrameToInterface(std::shared_ptr<Frame> frame
   return networkInterfaces.at(interfaceId).receiveFrame(frame);
 }
 
-void Device::addNetworkInterface(std::string name, Mac mac, Ip ip, bool isUp) {
-  networkInterfaces.push_back(NetworkInterface(name, mac, ip, isUp));
-}
-
-void Device::connectNeighbour(std::shared_ptr<Device> neighbour, int thisInterfaceId, int thisPortId, int neighbourInterfaceId, int neighbourPortId) {
+void Device::connectNeighbour(std::shared_ptr<Device> neighbour, int thisInterfaceId, int thisPortId, int neighbourInterfaceId, int neighbourPortId, bool isContinue) {
   networkInterfaces.at(thisInterfaceId).connectWire(Wire((std::shared_ptr<Device>)this, thisInterfaceId, thisPortId, neighbour, neighbourInterfaceId, neighbourPortId));
+  if(isContinue) {
+      neighbour->connectNeighbour(std::shared_ptr<Device>(this), neighbourInterfaceId, neighbourPortId, thisInterfaceId, thisPortId, false);
+  }
 }
 
 void Device::disconnectNeighbour(int interfaceId) {

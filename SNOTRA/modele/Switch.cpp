@@ -4,7 +4,7 @@ Switch::Switch() {
   macTable = MacTable(DEFAULT_NUMBER_OF_INTERFACE);
 }
 
-Switch::Switch(int numberOfInterface) {
+Switch::Switch(int numberOfInterface, std::vector<std::string> names, std::vector<std::string> ip) : Device(numberOfInterface, names, ip) {
   macTable = MacTable(numberOfInterface);
 }
 

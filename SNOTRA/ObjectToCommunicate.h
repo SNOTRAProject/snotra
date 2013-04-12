@@ -13,14 +13,14 @@
 class ObjectToCommunicate {
 public:
     ObjectToCommunicate();
-    ObjectToCommunicate(int interfaceNumber, std::string *interfaceName,
-            std::string *IP);
+    ObjectToCommunicate(int interfaceNumber, std::vector<std::string> interfaceName,
+            std::vector<std::string> IP);
     ObjectToCommunicate(const ObjectToCommunicate& orig);
     virtual ~ObjectToCommunicate();
 
     int getInterfaceNumber();
-    std::string* getInterfaceIP();
-    std::string* getInterfaceName();
+    std::vector<std::string> getInterfaceIP();
+    std::vector<std::string> getInterfaceName();
     void setSizeOfInterfaceNameArray(int size);
     int getSizeOfInterfaceNameArray();
     QLabel* getLabel();
@@ -30,8 +30,8 @@ public:
 private:
     QLabel *label;
     int interfaceNumber;
-    std::string *interfaceName;
-    std::string *IP;
+    std::vector<std::string> interfaceName;
+    std::vector<std::string> IP;
     int sizeOfInterfaceNameArray;
 };
 
