@@ -14,6 +14,7 @@
 #include <qt4/QtCore/qdebug.h>
 #include <qt4/QtCore/qglobal.h>
 #include "DataBaseManager.h"
+#include "modele/ChangeIp.h"
 //#include "Sauvegarder.h"
 //#include "Charger.h"
 using namespace std;
@@ -185,6 +186,8 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             connecterChoice->widget.comboBoxChoiceInterfaceDevice2
                     ->addItems(listOfInterfacesItem2);
             connecterChoice->exec();
+            
+            
 
             descriptor();
 
@@ -358,7 +361,12 @@ void NetworkGameArea::deleteItem() {
 }
 
 void NetworkGameArea::resetIPItem() {
-    qDebug() << "rest Ip";
+    ObjectToCommunicate *item;
+    item = findItem(labelConnecter1);
+    
+    //qDebug()<<
+    ChangeIp *changeIp = new ChangeIp();
+    changeIp->exec();
 }
 
 void NetworkGameArea::descriptor() {
