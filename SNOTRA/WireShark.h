@@ -23,10 +23,13 @@ public:
 private:
     QTableView * mainWireSharkView;
     QLabel *lab1 , *lab2;
-    QPushButton *btnApply;
+    QPushButton *btnFiltre;
     int nrow, ncol;
     Ui::WireShark widget;
-    
+    QLineEdit *filtre;
+public slots :
+    void btnFiltre_clicked();
+
 };
 
 #endif	/* _WIRESHARK_H */
