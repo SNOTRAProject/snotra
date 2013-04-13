@@ -73,6 +73,9 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
     </logicalFolder>
+    <itemPath>BackupManager.cpp</itemPath>
+    <itemPath>BackupManager.h</itemPath>
+    <itemPath>BackupManager.ui</itemPath>
     <itemPath>Confirmation.cpp</itemPath>
     <itemPath>Confirmation.h</itemPath>
     <itemPath>Confirmation.ui</itemPath>
@@ -105,9 +108,6 @@
     <itemPath>RelevantActions.cpp</itemPath>
     <itemPath>RelevantActions.h</itemPath>
     <itemPath>RelevantActions.ui</itemPath>
-    <itemPath>Sauvegarder.cpp</itemPath>
-    <itemPath>Sauvegarder.h</itemPath>
-    <itemPath>Sauvegarder.ui</itemPath>
     <itemPath>ToolBox.cpp</itemPath>
     <itemPath>ToolBox.h</itemPath>
     <itemPath>ToolBox.ui</itemPath>
