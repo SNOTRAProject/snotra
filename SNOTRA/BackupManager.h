@@ -10,15 +10,15 @@
 
 #include "ui_Sauvegarder.h"
 
-class Sauvegarder : public QDialog {
+class BackupManager : public QDialog {
     Q_OBJECT
 public:
 
     /**
      * create a window for the user to set the name of the backup
      */
-    Sauvegarder();
-    virtual ~Sauvegarder();
+    BackupManager();
+    virtual ~BackupManager();
     Ui::Sauvegarder widget;
     void setResultLineString();
     QString getResultLineString();

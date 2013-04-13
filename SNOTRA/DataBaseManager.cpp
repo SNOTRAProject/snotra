@@ -127,7 +127,7 @@ void DataBaseManager::showTable() {
 
 
 void DataBaseManager::launchSave() {
-    Sauvegarder *save = new Sauvegarder();
+    BackupManager *save = new BackupManager();
     save->exec();
     tableName = save->getResultLineString();
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");

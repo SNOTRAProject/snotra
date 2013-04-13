@@ -14,7 +14,7 @@
 #include <QMouseEvent>
 #include <iostream>
 #include "DataBaseManager.h"
-#include "Sauvegarder.h"
+#include "BackupManager.h"
 #include "ConnecterChoice.h"
 #include "PropertiesOfIterfaceSetter.h"
 #include "NumberOfInterfaceSetter.h"

@@ -8,26 +8,26 @@
 #include <qt4/QtCore/qobject.h>
 #include <QDebug>
 
-#include "Sauvegarder.h"
+#include "BackupManager.h"
 
-Sauvegarder::Sauvegarder() {
+BackupManager::BackupManager() {
     widget.setupUi(this);
     connect(this->widget.pushButtonOK, SIGNAL(pressed()), this,
             SLOT(slotGetLineString()));
 }
 
-Sauvegarder::~Sauvegarder() {
+BackupManager::~BackupManager() {
 }
 
-void Sauvegarder::slotGetLineString() {
+void BackupManager::slotGetLineString() {
     setResultLineString();
 }
 
-void Sauvegarder::setResultLineString() {
+void BackupManager::setResultLineString() {
     resultLineString = this->widget.lineEdit->text();
     qDebug()<<this->widget.lineEdit->text();
 }
 
-QString Sauvegarder::getResultLineString(){
+QString BackupManager::getResultLineString(){
     return resultLineString;
 }

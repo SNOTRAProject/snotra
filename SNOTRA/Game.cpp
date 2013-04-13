@@ -6,7 +6,7 @@
  */
 
 #include "Game.h"
-#include "Sauvegarder.h"
+#include "BackupManager.h"
 
 /**
  * the  window Game and connect the toolbox and the area of the game
