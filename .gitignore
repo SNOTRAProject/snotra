@@ -18,3 +18,6 @@
 moc_*
 # UI files, auto generated too...
 ui_*
+
+# Other auto generated files
+/SNOTRA/nbproject/
