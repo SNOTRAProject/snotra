@@ -8,9 +8,7 @@
 #include <qt4/QtGui/qlabel.h>
 #include "ObjectToCommunicate.h"
 
-/**
- * create an object to speack betwen graphical interface and model
- */
+
 ObjectToCommunicate::ObjectToCommunicate() {
 }
 

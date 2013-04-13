@@ -13,6 +13,10 @@
 class Sauvegarder : public QDialog {
     Q_OBJECT
 public:
+
+    /**
+     * create a window for the user to set the name of the backup
+     */
     Sauvegarder();
     virtual ~Sauvegarder();
     Ui::Sauvegarder widget;

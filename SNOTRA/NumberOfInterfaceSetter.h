@@ -13,8 +13,16 @@
 class NumberOfInterfaceSetter : public QDialog {
     Q_OBJECT
 public:
+    
+    /**
+     * Create a window to set the interfaces number of the selected device
+     */
     NumberOfInterfaceSetter();
     virtual ~NumberOfInterfaceSetter();
+
+    /**
+     * Set the number of interface set in the spinbox
+     */
     void setNbInterfaces();
     int getNbInterfaces();
 

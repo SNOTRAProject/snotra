@@ -12,6 +12,10 @@
 
 class ObjectToCommunicate {
 public:
+
+    /**
+     * create an object to speack betwen graphical interface and model
+     */
     ObjectToCommunicate();
     ObjectToCommunicate(int interfaceNumber, std::vector<std::string> interfaceName,
             std::vector<std::string> IP);
