@@ -26,3 +26,10 @@ Mac ARPHeader::getDestinationMac() {
 void ARPHeader::setDestinationMac(Mac mac) {
   destinationMac = mac;
 }
+
+std::vector<std::string> ARPHeader::toString() {
+    std::vector<std::string> result;
+    result = NetworkHeader::toString();
+    result.at(7) = sourceMac.toString() + " to " + destinationMac.toString();
+    return result;
+}

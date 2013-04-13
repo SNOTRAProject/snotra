@@ -44,3 +44,24 @@ int Frame::getPortId() const {
 void Frame::setPortId(int portId_) {
   portId = portId_;
 }
+
+std::string Frame::toString() {
+    std::string result;
+    for(auto& it : toListString()) {
+        result += it;
+    }
+    return result;
+}
+
+std::vector<std::string> Frame::toListString() {
+    std::vector<std::string> result;
+    if(data != (std::shared_ptr<Frame>)0) {
+        result = data->toListString();
+    }
+    int i = 0;
+    for(auto& it : header->toString()) {
+            result.at(i) += it;
+            i++;
+    }
+    return result;
+}

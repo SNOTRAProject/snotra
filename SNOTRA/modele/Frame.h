@@ -20,6 +20,8 @@ class Frame {
   void setInterfaceId(int);
   int getPortId() const;
   void setPortId(int);
+  std::string toString();
+  std::vector<std::string> toListString();
 
  private:
   std::shared_ptr<Frame> data;

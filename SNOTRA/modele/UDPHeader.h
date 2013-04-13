@@ -12,6 +12,7 @@ class UDPHeader : public TransportHeader {
   void setSourcePort(int);
   int getDestinationPort();
   void setDestinationPort(int);
+  virtual std::vector<std::string> toString();
 
  private:
   int sourcePort;

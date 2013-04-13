@@ -9,6 +9,7 @@ class TransportHeader : public Header {
   TransportHeader();
   TransportHeader(bool);
   virtual ~TransportHeader();
+  virtual std::vector<std::string> toString();
 
  private:
 

@@ -48,3 +48,27 @@ Protocole NetworkHeader::getProtocole() {
 void NetworkHeader::setProtocole(Protocole protocole_) {
   protocole = protocole_;
 }
+
+std::vector<std::string> NetworkHeader::toString() {
+    std::vector<std::string> result;
+    result = Header::toString();
+    result.at(3) = source.toStringFull();
+    result.at(4) = destination.toStringFull();
+    std::string prot;
+    switch(protocole) {
+        case UDP :
+            prot = "/UDP";
+            break;
+        case TCP:
+            prot = "/TCP";
+            break;
+        case ICMP:
+            prot = "/ICMP";
+            break;
+        case NONE:
+            prot = "/ ";
+            break;
+    }
+    result.at(0) += prot;
+    return result;
+}

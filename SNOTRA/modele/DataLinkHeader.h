@@ -16,6 +16,7 @@ class DataLinkHeader : public Header {
   void setDestination(Mac);
   Type getType();
   void setType(Type);
+  virtual std::vector<std::string> toString();
 
  private:
   Mac source;

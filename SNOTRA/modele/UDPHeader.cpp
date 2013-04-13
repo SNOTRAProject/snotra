@@ -26,3 +26,11 @@ int UDPHeader::getDestinationPort() {
 void UDPHeader::setDestinationPort(int port) {
   destinationPort = port;
 }
+
+std::vector<std::string> UDPHeader::toString() {
+    std::vector<std::string> result;
+    result = TransportHeader::toString();
+    result.at(5) = sourcePort;
+    result.at(6) = destinationPort;
+    return result;
+}

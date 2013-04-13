@@ -13,6 +13,7 @@ class ARPHeader : public NetworkHeader {
   void setSourceMac(Mac);
   Mac getDestinationMac();
   void setDestinationMac(Mac);
+  virtual std::vector<std::string> toString();
 
  private:
   Mac sourceMac;

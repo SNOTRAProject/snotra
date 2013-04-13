@@ -17,6 +17,7 @@ class TCPHeader : public UDPHeader {
   unsigned char getFlags();
   void setFlags(unsigned char);
   void changeFlag(std::string, bool);
+  virtual std::vector<std::string> toString();
 
  private:
   int frameNumber;

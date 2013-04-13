@@ -2,6 +2,8 @@
 #define __HEADER_H__
 
 #include "enum.h"
+#include <string>
+#include <vector>
 
 class Header {
  public:
@@ -12,6 +14,7 @@ class Header {
   void setType(HeaderType);
   bool getIsAnswer();
   void setIsAnswer(bool);
+  virtual std::vector<std::string> toString();
 
  private:
   HeaderType type;

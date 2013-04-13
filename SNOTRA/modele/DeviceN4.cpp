@@ -65,7 +65,7 @@ void DeviceN4::createFrame(Ip destination, std::string protocole) {
     } else if(protocole.compare("ICMP")) {
       std::shared_ptr<Header> transportHeader = std::shared_ptr<ICMPHeader>(new ICMPHeader(source, false));
       std::shared_ptr<Frame> transportFrame = std::shared_ptr<Frame>(new Frame(0, transportHeader, 0, 0));
-      std::shared_ptr<Header> networkHeader = std::shared_ptr<Header>(new NetworkHeader(source, destination, STANDART_TTL, NONE, false));
+      std::shared_ptr<Header> networkHeader = std::shared_ptr<Header>(new NetworkHeader(source, destination, STANDART_TTL, ICMP, false));
       frame = std::shared_ptr<Frame>(new Frame(transportFrame, networkHeader, 0, 0));
     }
   }

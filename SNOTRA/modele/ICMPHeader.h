@@ -13,6 +13,7 @@ class ICMPHeader : public TransportHeader {
   virtual ~ICMPHeader();
   Ip getSourceIp();
   void setSourceIp(Ip);
+  virtual std::vector<std::string> toString();
 
  private:
   Ip sourceIp;

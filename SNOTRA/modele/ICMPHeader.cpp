@@ -17,3 +17,9 @@ Ip ICMPHeader::getSourceIp() {
 void ICMPHeader::setSourceIp(Ip ip) {
   sourceIp = ip;
 }
+
+std::vector<std::string> ICMPHeader::toString() {
+    std::vector<std::string> result;
+    result = TransportHeader::toString();
+    return result;
+}

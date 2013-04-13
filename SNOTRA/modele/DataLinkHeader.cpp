@@ -34,3 +34,21 @@ Type DataLinkHeader::getType() {
 void DataLinkHeader::setType(Type type_) {
   type = type_;
 }
+
+std::vector<std::string> DataLinkHeader::toString() {
+    std::vector<std::string> result;
+    result = Header::toString();
+    result.at(1) = source.toString();
+    result.at(2) = destination.toString();
+    std::string prot;
+    switch(type) {
+        case IP :
+            prot = "/IP";
+            break;
+        case ARP:
+            prot = "/ARP";
+            break;
+    }
+    result.at(0) += prot;
+    return result;
+}

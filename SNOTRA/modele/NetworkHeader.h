@@ -20,6 +20,7 @@ class NetworkHeader : public Header {
   void setTimeToLive(int);
   Protocole getProtocole();
   void setProtocole(Protocole);
+  virtual std::vector<std::string> toString();
 
  private:
   Ip source;

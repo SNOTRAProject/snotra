@@ -110,3 +110,9 @@ void TCPHeader::addFlag(int i) {
 void TCPHeader::removeFlag(int i) {
   flags = flags & !(1u << i);
 }
+
+std::vector<std::string> TCPHeader::toString() {
+    std::vector<std::string> result = new std::vector<std::string>();
+    result = UDPHeader::toString();
+    return result;
+}
