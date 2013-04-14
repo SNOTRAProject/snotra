@@ -112,7 +112,7 @@ void TCPHeader::removeFlag(int i) {
 }
 
 std::vector<std::string> TCPHeader::toString() {
-    std::vector<std::string> result = new std::vector<std::string>();
+    std::vector<std::string> result;
     result = UDPHeader::toString();
     return result;
 }

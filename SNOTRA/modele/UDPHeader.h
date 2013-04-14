@@ -2,6 +2,7 @@
 #define __UDPHEADER_H__
 
 #include "TransportHeader.h"
+#include <sstream>
 
 class UDPHeader : public TransportHeader {
  public:

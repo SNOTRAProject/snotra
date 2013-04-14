@@ -30,7 +30,7 @@ void UDPHeader::setDestinationPort(int port) {
 std::vector<std::string> UDPHeader::toString() {
     std::vector<std::string> result;
     result = TransportHeader::toString();
-    result.at(5) = sourcePort;
-    result.at(6) = destinationPort;
+    result.at(5) = std::to_string(sourcePort);
+    result.at(6) = std::to_string(destinationPort);
     return result;
 }

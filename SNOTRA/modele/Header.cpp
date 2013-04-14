@@ -26,3 +26,8 @@ bool Header::getIsAnswer() {
 void Header::setIsAnswer(bool isAnswer_) {
   isAnswer = isAnswer_;
 }
+
+std::vector<std::string> Header::toString() {
+    std::vector<std::string> result;
+    return result;
+}
