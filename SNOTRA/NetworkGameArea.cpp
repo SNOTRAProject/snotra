@@ -343,7 +343,7 @@ void NetworkGameArea::resetIPItem() {
     item = findItem(labelConnecter1);
 
     //qDebug()<<
-    IpManager *changeIp = new IpManager();
+    ChangeIp *changeIp = new ChangeIp();
     changeIp->exec();
 }
 

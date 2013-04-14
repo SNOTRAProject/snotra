@@ -7,9 +7,9 @@
 
 #include "IpManager.h"
 
-IpManager::IpManager() {
+ChangeIp::ChangeIp() {
     widget.setupUi(this);
 }
 
-IpManager::~IpManager() {
+ChangeIp::~ChangeIp() {
 }
