@@ -1,12 +1,12 @@
 /* 
- * File:   ChangeIp.h
+ * File:   IpManager.h
  * Author: antoine
  *
  * Created on 12 avril 2013, 13:35
  */
 
-#ifndef _CHANGEIP_H
-#define	_CHANGEIP_H
+#ifndef _IP_MANAGER_H
+#define	_IP_MANAGER_H
 
 #include "ui_ChangeIp.h"
 
