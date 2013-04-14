@@ -10,7 +10,7 @@ TransportHeader::~TransportHeader() {
 }
 
 std::vector<std::string> TransportHeader::toString() {
-    std::vector<std::string> result;
+    std::vector<std::string> result (8, "");
     result = Header::toString();
     return result;
 }

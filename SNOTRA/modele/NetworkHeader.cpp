@@ -50,7 +50,7 @@ void NetworkHeader::setProtocole(Protocole protocole_) {
 }
 
 std::vector<std::string> NetworkHeader::toString() {
-    std::vector<std::string> result;
+    std::vector<std::string> result (8, "");
     result = Header::toString();
     result.at(3) = source.toStringFull();
     result.at(4) = destination.toStringFull();

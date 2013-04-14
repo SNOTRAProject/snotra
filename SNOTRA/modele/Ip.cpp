@@ -3,9 +3,12 @@
 Ip::Ip() {
 }
 
+Ip::~Ip() {
+}
+
 Ip::Ip(std::string address_, int mask_) {
     unsigned int pos = 0;
-    int temp;
+    int temp = 0;
     std::string buffer;
     std::transform(address_.begin(), address_.end(), address_.begin(), ::toupper);
     while (pos < address_.length()) {
@@ -13,16 +16,17 @@ Ip::Ip(std::string address_, int mask_) {
         pos += buffer.length() + 1;
         std::istringstream iss(buffer);
         iss >> temp;
-        Ip::addCharToAddress((char) temp);
+        address.push_back((char)temp);
     }
     setMask(Mask(mask_));
 }
 
-Ip::~Ip() {
-}
-
 std::list<unsigned char> Ip::getAddress() const {
     return address;
+}
+
+std::string Ip::getSubstring(std::string str, int pos) {
+    return str.substr(pos, str.find('.', pos) - pos);
 }
 
 void Ip::addCharToAddress(unsigned char chr) {
@@ -55,19 +59,13 @@ bool Ip::operator<(const Ip& other) const {
     return true;
 }
 
-std::string Ip::getSubstring(std::string str, int pos) {
-    return str.substr(pos, str.find('.', pos) - pos);
-}
-
 std::string Ip::toString() const {
     std::string result;
-    for (std::list<unsigned char>::iterator it = getAddress().begin(); it != getAddress().end();) {
-        result += (int) *it;
-        it++;
-        if (it != getAddress().end()) {
+    for (auto& it : getAddress()) {
+        result += std::to_string(it);
             result += '.';
-        }
     }
+    result.erase(result.end() - 1);
     return result;
 }
 

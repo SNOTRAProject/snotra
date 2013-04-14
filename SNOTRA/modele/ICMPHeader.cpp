@@ -19,7 +19,7 @@ void ICMPHeader::setSourceIp(Ip ip) {
 }
 
 std::vector<std::string> ICMPHeader::toString() {
-    std::vector<std::string> result;
+    std::vector<std::string> result (8, "");
     result = TransportHeader::toString();
     return result;
 }

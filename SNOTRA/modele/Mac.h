@@ -20,7 +20,7 @@ class Mac {
   std::list<unsigned char> address;
 
   std::string getSubstring(std::string, int);
-  char toHex(int);
+  int toHex(int);
 
 };
 

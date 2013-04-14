@@ -28,6 +28,6 @@ void Header::setIsAnswer(bool isAnswer_) {
 }
 
 std::vector<std::string> Header::toString() {
-    std::vector<std::string> result;
+    std::vector<std::string> result (8, "");
     return result;
 }

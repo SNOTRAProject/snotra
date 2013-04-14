@@ -8,7 +8,7 @@ Mac::~Mac() {
 
 Mac::Mac(std::string address_) {
   unsigned int pos = 0;
-  int temp;
+  int temp = 0;
   std::string buffer;
   std::transform(address_.begin(), address_.end(), address_.begin(), ::toupper);
   while (pos < address_.length()) {
@@ -21,7 +21,7 @@ Mac::Mac(std::string address_) {
 }
 
 std::string Mac::getSubstring(std::string str, int pos) {
-  return str.substr(pos, str.find('.', pos) - pos);
+  return str.substr(pos, str.find(':', pos) - pos);
 }
 
 std::list<unsigned char> Mac::getAddress() {
@@ -31,16 +31,14 @@ std::list<unsigned char> Mac::getAddress() {
 std::string Mac::toString() {
   std::string result;
   int first = 0, second = 0;
-  for(std::list<unsigned char>::iterator it = getAddress().begin(); it != getAddress().end();) {
-    first = *it / 16;
-    second = *it % 16;
-    result += toHex(first);
-    result += toHex(second);
-    it++;
-    if(it != getAddress().end()) {
-      result += ':';
-    }
+  for(auto& it : getAddress()) {
+    first = it / 16;
+    second = it % 16;
+    result += (char)toHex(first);
+    result += (char)toHex(second);
+      result += ":";
   }
+  result.erase(result.end() - 1);
   return result;
 }
 
@@ -53,9 +51,9 @@ bool operator==(Mac mac1, Mac mac2) {
   return true;
 }
 
-char Mac::toHex(int i) {
+int Mac::toHex(int i) {
   if(i < 10) {
-    return (char)i;
+    return i;
   }
   else {
     switch(i) {
