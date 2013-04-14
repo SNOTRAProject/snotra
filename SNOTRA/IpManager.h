@@ -8,16 +8,16 @@
 #ifndef _IP_MANAGER_H
 #define	_IP_MANAGER_H
 
-#include "ui_ChangeIp.h"
+#include "ui_IpManager.h"
 
-class ChangeIp : public QDialog {
+class IpManager : public QDialog {
     Q_OBJECT
 public:
     /**
      * create the window to reset IP
      */
-    ChangeIp();
-    virtual ~ChangeIp();
+    IpManager();
+    virtual ~IpManager();
 private:
     Ui::ChangeIp widget;
 };

@@ -8,12 +8,12 @@
 #ifndef _CHARGER_H
 #define	_CHARGER_H
 
-#include "ui_Charger.h"
+#include "ui_LoadManager.h"
 
 class LoadManager : public QDialog {
     Q_OBJECT
 public:
-    Ui::Charger widget;
+    Ui::LoadManager widget;
     /**
      * lauch the window to choose the backup avaible in the database
      */

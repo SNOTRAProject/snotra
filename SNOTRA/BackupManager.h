@@ -8,7 +8,7 @@
 #ifndef _SAUVEGARDER_H
 #define	_SAUVEGARDER_H
 
-#include "ui_Sauvegarder.h"
+#include "ui_BackupManager.h"
 
 class BackupManager : public QDialog {
     Q_OBJECT
