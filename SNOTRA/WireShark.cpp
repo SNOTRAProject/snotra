@@ -32,9 +32,10 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     createHeaderTable();
 
     ///////////ici on recuperera la list/////////////
-    listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D");
-    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D");
-
+    listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
+    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
+    listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
+    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
     //////extraction de la string de la liste////////////////
     QStringList::iterator i;
     for (i = listOfstringFrame.begin(); i != listOfstringFrame.end(); ++i) {
@@ -81,21 +82,20 @@ void WireShark::createTableComplete() {
 }
 
 void WireShark::createLine(int row) {
-    if (!filtreExtractedSplited.empty()) {
-        for (int colum = 0; colum < 5; colum++) {
+        for (int colum = 0; colum < 8; colum++) {
             QString rowContent = filtreExtractedSplited.at(colum);
             QStandardItem *item = new QStandardItem(rowContent);
             item->setEditable(false);
             qDebug() << rowContent;
             model->setItem(row, colum, item);
         }
-    }
 
 }
 
 void WireShark::filterLine(int row) {
     QString delimiterPattern(";");
-    if (filtre->text() != "") {
+    qDebug() << filtre->text();
+    if (filtre->text().compare("")) {
         if (filtreExtracted.at(0) == "ip") {
             if (filtreExtracted.at(1) == "=") {
                 filtreLineIpSource(row);
@@ -105,6 +105,9 @@ void WireShark::filterLine(int row) {
                 filtreLineMacSource(row);
             }
         } else if (filtreExtracted.at(0) == "port"){
+            if (filtreExtracted.at(1) == "=") {
+                filtreLinePortSource(row);
+            }
         
         }else if (filtreExtracted.at(0) == "protocol"){
             if (filtreExtracted.at(1) == "=") {
@@ -118,7 +121,7 @@ void WireShark::filterLine(int row) {
 
 void WireShark::createHeaderTable() {
     model = new QStandardItemModel(1, 1, this);
-    for (int colum = 0; colum < 5; colum++) {
+    for (int colum = 0; colum < 8; colum++) {
 
         switch (colum) {
             case 0:
@@ -154,6 +157,18 @@ void WireShark::createHeaderTable() {
             case 5:
             {
                 model->setHorizontalHeaderItem(colum,
+                        new QStandardItem(QString("Port source")));
+                break;
+            }
+            case 6:
+            {
+                model->setHorizontalHeaderItem(colum,
+                        new QStandardItem(QString("Port destination")));
+                break;
+            }
+            case 7:
+            {
+                model->setHorizontalHeaderItem(colum,
                         new QStandardItem(QString("information")));
                 break;
             }
@@ -162,11 +177,14 @@ void WireShark::createHeaderTable() {
 }
 
 void WireShark::createTable() {
-    int row = 0;
+    int readingRow = 0, writingRow = 0;
     for (auto& it : tableLine) {
-        filterLine(row);
-        createLine(row);
-        row++;
+        filterLine(readingRow);
+        if (!filtreExtractedSplited.empty()) {
+                createLine(writingRow);
+                writingRow++;
+        }
+        readingRow++;
     }
 }
 
@@ -191,6 +209,13 @@ void WireShark::filtreLineMacSource(int row) {
 }
 
 void WireShark::filtreLinePortSource(int row) {
+    QString content = listOfstringFrame.at(row).split(";").at(5);
+    qDebug() << content << filtreExtracted.at(2);
+    if (filtreExtracted.at(2) == (content)) {
+        filtreExtractedSplited = listOfstringFrame.at(row).split(";");
+    } else {
+        filtreExtractedSplited.clear();
+    }
 }
 
 void WireShark::filtreLineProtocl(int row) {
