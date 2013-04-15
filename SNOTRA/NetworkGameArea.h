@@ -107,7 +107,6 @@ private:
     QPoint pointDrawline1;
     QPoint pointDrawline2;
     
-    QList<QLine> lineList;
     QPainter paint;
     QList<ObjectToCommunicate*> listItem;
     QList<QLabel*> qLabelListSave;

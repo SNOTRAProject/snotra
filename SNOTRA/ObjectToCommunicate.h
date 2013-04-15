@@ -34,7 +34,7 @@ public:
     void setLabel(QLabel* label);
     std::shared_ptr<Device> getDevice();
     void connectDevice(std::shared_ptr<Device>, std::shared_ptr<Device>, int, int, int, int);
-    bool isConnectedTo(ObjectToCommunicate) const;
+    bool isConnectedTo(std::shared_ptr<Device>) const;
 
 private:
     QLabel *label;

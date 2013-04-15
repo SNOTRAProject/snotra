@@ -54,23 +54,36 @@ void NetworkGameArea::dragMoveEvent(QDragMoveEvent* event) {
 }
 
 void NetworkGameArea::paintEvent(QPaintEvent*) {
+    QPainter painter;
+    painter.begin(this);
+    painter.setPen(Qt::black);
     if (!pointDrawline1.isNull() && !pointDrawline2.isNull()) {
-        QPainter painter;
-        painter.begin(this);
-        painter.setPen(Qt::black);
+
         QLine line(pointDrawline1, pointDrawline2);
 
 
-        for(auto& it : lineList){
-            painter.drawLine(it);
-        }
-
-
         painter.drawLine(line);
-        painter.end();
-        update();
     }
 
+    //    for (auto& it : lineList) {
+    //        painter.drawLine(it);
+    //    }
+
+    //QList<QLine> lineList;
+
+    if (listItem.count() > 2) {
+        for (auto& it1 : listItem) {
+            for (auto& it2 : listItem) {
+                if (it1->isConnectedTo(it2->getDevice())) {
+                    qDebug() << "bouh";
+                    painter.drawLine(QLine(it1->getLabel()->pos(),
+                            it2->getLabel()->pos()));
+                }
+            }
+        }
+    }
+    painter.end();
+    update();
 
 }
 
@@ -189,7 +202,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             // Dire au modèle qu'il y a un nouveau fil/////////////////
 
             QLine lineToAdd(item2->getLabel()->pos(), item1->getLabel()->pos());
-            lineList.append(lineToAdd);
+
 
         }
         pointDrawline1 = QPoint();
