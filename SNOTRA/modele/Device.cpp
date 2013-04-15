@@ -1,5 +1,6 @@
 #include "Device.h"
 #include "Frame.h"
+#include <qt4/QtCore/qdebug.h>
 Device::Device() {
 }
 
@@ -18,6 +19,17 @@ std::list<std::shared_ptr<Frame>> Device::getAllFrameHistory() const{
 
 std::vector<NetworkInterface> Device::getNetworkInterfaces() const {
   return networkInterfaces;
+}
+
+int Device::getNetworkInterfaceIdByName(std::string name) const {
+    int i = 0;
+    for (auto& it : networkInterfaces) {
+        if(it.getName().compare(name)) {
+            return i;
+        }
+        i++;
+    }
+    return -1;
 }
 
 void Device::addNetworkInterface(std::string name, Mac mac, Ip ip, bool isUp) {

@@ -10,12 +10,12 @@
 
 #include "ui_PropertiesOfIterfaceSetter.h"
 
-class PropertiesOfIterfaceSetter : public QDialog {
+class PropertiesOfInterfaceSetter : public QDialog {
     Q_OBJECT
     
 public:
-    PropertiesOfIterfaceSetter();
-    virtual ~PropertiesOfIterfaceSetter();
+    PropertiesOfInterfaceSetter();
+    virtual ~PropertiesOfInterfaceSetter();
     void setText(QString textName);
     void setName(QString name);
     void setIP(QString IP);

@@ -21,7 +21,7 @@ std::shared_ptr<Device> DeviceFactory::createDevice(std::string className, int n
     if(className.compare("hub")) {
         device = std::shared_ptr<Hub>(new Hub(numberOfInterface, names, ip));
     }
-    else if(className.compare("switch")) {
+    else if(className.compare("switche")) {
         device = std::shared_ptr<Switch>(new Switch(numberOfInterface, names, ip));
     }
     else if(className.compare("pc") || className.compare("router")) {

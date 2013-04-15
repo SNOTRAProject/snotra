@@ -8,15 +8,17 @@
 #include <qt4/QtGui/qlabel.h>
 #include "ObjectToCommunicate.h"
 
-
 ObjectToCommunicate::ObjectToCommunicate() {
 }
 
-ObjectToCommunicate::ObjectToCommunicate(int interfaceNumber,
+ObjectToCommunicate::ObjectToCommunicate(QLabel* label_, int interfaceNumber,
         std::vector<std::string> interfaceName, std::vector<std::string> IP) {
-    this->interfaceNumber = interfaceNumber;
+    label = label_;
+    device = DeviceFactory::createDevice(label->objectName().toStdString(),
+            interfaceNumber, interfaceName, IP);
     this->interfaceName = interfaceName;
     this->IP = IP;
+    this->interfaceNumber = interfaceNumber;
 }
 
 ObjectToCommunicate::ObjectToCommunicate(const ObjectToCommunicate& orig) {
@@ -51,4 +53,14 @@ QLabel* ObjectToCommunicate::getLabel() {
 
 void ObjectToCommunicate::setLabel(QLabel* label) {
     this->label = label;
+}
+
+std::shared_ptr<Device> ObjectToCommunicate::getDevice() {
+    return device;
+}
+
+void ObjectToCommunicate::connectDevice(std::shared_ptr<Device> item1,
+        std::shared_ptr<Device> item2, int intId1, int portId1, int intId2,
+        int portId2) {
+    item1->connectNeighbour(item2, intId1, portId1, intId2, portId2);
 }

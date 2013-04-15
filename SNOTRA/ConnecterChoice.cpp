@@ -53,5 +53,13 @@ int ConnecterChoice::getPortDevice1(){
     return portSelectedDevice1;
 }
 int ConnecterChoice::getPortDevice2(){
-    return portSelectedDevice1;
+    return portSelectedDevice2;
+}
+
+std::string ConnecterChoice::getInterfaceName1() {
+    return widget.comboBoxChoiceInterfaceDevice1->currentText().toStdString();
+}
+
+std::string ConnecterChoice::getInterfaceName2() {
+    return widget.comboBoxChoiceInterfaceDevice2->currentText().toStdString();
 }

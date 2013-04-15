@@ -106,13 +106,15 @@ private:
     int port2;
     QPoint pointDrawline1;
     QPoint pointDrawline2;
+    
+    //QList<QLine> lineList;
     QPainter paint;
     QList<ObjectToCommunicate*> listItem;
     QList<QLabel*> qLabelListSave;
     QList<QLabel*> qLabelListLoad;
     DataBaseManager *db;
     std::string pixmapTab[5];
-    PropertiesOfIterfaceSetter *propertiesOfInterfaces;
+    PropertiesOfInterfaceSetter *propertiesOfInterfaces;
 
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;

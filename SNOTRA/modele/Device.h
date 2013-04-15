@@ -19,6 +19,7 @@ class Device {
   virtual ~Device();
   std::list<std::shared_ptr<Frame>> getAllFrameHistory() const;
   std::vector<NetworkInterface> getNetworkInterfaces() const;
+  int getNetworkInterfaceIdByName (std::string) const;
   void sendFrameBroadcast(std::shared_ptr<Frame>);
   void sendFrameUnicast(std::shared_ptr<Frame>, int, int);
   virtual void receiveFrame(std::shared_ptr<Frame>, int, int);

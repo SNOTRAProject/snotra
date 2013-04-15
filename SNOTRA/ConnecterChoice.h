@@ -26,6 +26,8 @@ public:
     virtual ~ConnecterChoice();
     int getPortDevice1();
     int getPortDevice2();
+    std::string getInterfaceName1();
+    std::string getInterfaceName2();
 
 signals:
     void signalPortChanged();

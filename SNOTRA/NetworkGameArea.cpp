@@ -33,7 +33,6 @@ NetworkGameArea::NetworkGameArea() {
 NetworkGameArea::~NetworkGameArea() {
 }
 
-
 void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         if (event->source() == this) {
@@ -47,7 +46,6 @@ void NetworkGameArea::dragEnterEvent(QDragEnterEvent *event) {
     }
 }
 
-
 void NetworkGameArea::dragMoveEvent(QDragMoveEvent* event) {
     if (!pointDrawline1.isNull()) {
         pointDrawline2 = event->pos();
@@ -55,19 +53,29 @@ void NetworkGameArea::dragMoveEvent(QDragMoveEvent* event) {
     }
 }
 
-
 void NetworkGameArea::paintEvent(QPaintEvent*) {
     if (!pointDrawline1.isNull() && !pointDrawline2.isNull()) {
         QPainter painter;
         painter.begin(this);
         painter.setPen(Qt::black);
         QLine line(pointDrawline1, pointDrawline2);
+
+
+//        if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
+//            QLine lineItemConnected(labelConnecter1->pos(), labelConnecter2->pos());
+//            lineList.append(lineItemConnected);
+//
+//            painter.drawLine(lineItemConnected);
+//        }
+
+
         painter.drawLine(line);
         painter.end();
         update();
     }
-}
 
+
+}
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
 
@@ -105,9 +113,8 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
                 std::vector<std::string> IP
                         = std::vector<std::string > ();
-
                 for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
-                    propertiesOfInterfaces = new PropertiesOfIterfaceSetter();
+                    propertiesOfInterfaces = new PropertiesOfInterfaceSetter();
                     QString str = QString::number(i + 1);
                     propertiesOfInterfaces->setText("Veuillez entrer le nom de "
                             "l'interface numero : " + str);
@@ -122,8 +129,8 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 ///////////////////////////////////////////////////////////
                 //          CONCEPTION DE L'OBJET POUR COMMUNIQUER
                 ///////////////////////////////////////////////////////////
-                item = new ObjectToCommunicate(qLabelListSave.size(),
-                        interfaceName, IP);
+                item = new ObjectToCommunicate(newIcon,
+                        numberOfInterfaces->getNbInterfaces(), interfaceName, IP);
                 item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
                 qDebug() << "int associe a l'objet "
                         + QString::number(qLabelListSave.size());
@@ -175,6 +182,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             connecterChoice->widget.comboBoxChoiceInterfaceDevice2
                     ->addItems(listOfInterfacesItem2);
             connecterChoice->exec();
+            item1->connectDevice(item1->getDevice(), item2->getDevice(),
+                    item2->getDevice()->getNetworkInterfaceIdByName(connecterChoice->getInterfaceName1()),
+                    connecterChoice->getPortDevice1(),
+                    item1->getDevice()->getNetworkInterfaceIdByName(connecterChoice->getInterfaceName2()),
+                    connecterChoice->getPortDevice2());
             descriptor();
 
             // Popup des interfaces
@@ -258,7 +270,6 @@ void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
     }
 }
 
-
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QMenu menu(this);
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
@@ -324,7 +335,6 @@ void NetworkGameArea::disconnectStocker() {
     }
 }
 
-
 void NetworkGameArea::deleteItem() {
     /*
      LE CODE DOIT FAIRE L'OBJET D'UNE VERIFICATION : EST BIEN UN ITEM QUE JE 
@@ -337,7 +347,6 @@ void NetworkGameArea::deleteItem() {
     labelConnecter1->close();
 }
 
-
 void NetworkGameArea::resetIPItem() {
     ObjectToCommunicate *item;
     item = findItem(labelConnecter1);
@@ -346,7 +355,6 @@ void NetworkGameArea::resetIPItem() {
     IpManager *changeIp = new IpManager();
     changeIp->exec();
 }
-
 
 void NetworkGameArea::descriptor() {
     if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
@@ -375,7 +383,6 @@ void NetworkGameArea::pushButtonPressed() {
     pushButton = true;
 }
 
-
 void NetworkGameArea::saveLabelList() {
     db->launchSave();
     QList<QLabel*>::iterator i;
@@ -397,7 +404,6 @@ void NetworkGameArea::slotSaveLabelList() {
 void NetworkGameArea::slotLoadLabelList() {
     loadLabelList();
 }
-
 
 void NetworkGameArea::loadLabelList() {
     QPixmap pixmapHUB(":/HUB.png");
@@ -433,7 +439,6 @@ void NetworkGameArea::loadLabelList() {
     }
 }
 
-
 void NetworkGameArea::resetGame() {
     QLabel *labelToRemove;
 
@@ -465,7 +470,6 @@ void NetworkGameArea::closeEvent(QCloseEvent * event) {
 //    qDebug() << "pas trouvé";
 //    return false;
 //}
-
 
 ObjectToCommunicate* NetworkGameArea::findItem(QLabel* label) {
     QList<ObjectToCommunicate*>::iterator i;

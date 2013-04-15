@@ -13,6 +13,7 @@ NumberOfInterfaceSetter::NumberOfInterfaceSetter() {
     widget.setupUi(this);
     connect(this->widget.pushButton, SIGNAL(pressed()), this,
             SLOT(slotSetNbInterfaces()));
+    nbInterfaces = 0;
 }
 
 NumberOfInterfaceSetter::~NumberOfInterfaceSetter() {

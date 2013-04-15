@@ -9,28 +9,28 @@
 
 #include "PropertiesOfIterfaceSetter.h"
 
-PropertiesOfIterfaceSetter::PropertiesOfIterfaceSetter() {
+PropertiesOfInterfaceSetter::PropertiesOfInterfaceSetter() {
     widget.setupUi(this);
     connect(this->widget.pushButton, SIGNAL(pressed()), this,
             SLOT(slotSetProperties()));
 }
 
-PropertiesOfIterfaceSetter::~PropertiesOfIterfaceSetter() {
+PropertiesOfInterfaceSetter::~PropertiesOfInterfaceSetter() {
 }
 
-void PropertiesOfIterfaceSetter::setText(QString textName) {
+void PropertiesOfInterfaceSetter::setText(QString textName) {
     this->widget.textBrowserName->setText(textName);
 }
 
-void PropertiesOfIterfaceSetter::slotSetProperties() {
+void PropertiesOfInterfaceSetter::slotSetProperties() {
     setName(this->widget.lineEditSetName->text());
     setIP(this->widget.lineEditSetIP->text());
 }
 
-void PropertiesOfIterfaceSetter::setName(QString name) {
+void PropertiesOfInterfaceSetter::setName(QString name) {
     this->name = name;
 }
 
-void PropertiesOfIterfaceSetter::setIP(QString IP) {
+void PropertiesOfInterfaceSetter::setIP(QString IP) {
     this->IP = IP;
 }
