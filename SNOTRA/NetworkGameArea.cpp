@@ -61,12 +61,9 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
         QLine line(pointDrawline1, pointDrawline2);
 
 
-//        if (labelConnecter1 != NULL && labelConnecter2 != NULL) {
-//            QLine lineItemConnected(labelConnecter1->pos(), labelConnecter2->pos());
-//            lineList.append(lineItemConnected);
-//
-//            painter.drawLine(lineItemConnected);
-//        }
+        for(auto& it : lineList){
+            painter.drawLine(it);
+        }
 
 
         painter.drawLine(line);
@@ -189,8 +186,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                     connecterChoice->getPortDevice2());
             descriptor();
 
-            // Popup des interfaces
-            // Dire au modèle qu'il y a un nouveau fil
+            // Dire au modèle qu'il y a un nouveau fil/////////////////
+
+            QLine lineToAdd(item2->getLabel()->pos(), item1->getLabel()->pos());
+            lineList.append(lineToAdd);
+
         }
         pointDrawline1 = QPoint();
         pointDrawline2 = QPoint();

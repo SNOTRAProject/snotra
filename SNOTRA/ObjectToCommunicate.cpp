@@ -64,3 +64,7 @@ void ObjectToCommunicate::connectDevice(std::shared_ptr<Device> item1,
         int portId2) {
     item1->connectNeighbour(item2, intId1, portId1, intId2, portId2);
 }
+
+bool ObjectToCommunicate::isConnectedTo(ObjectToCommunicate other) const {
+    return this->device->isConnectedTo(other.getDevice());
+}

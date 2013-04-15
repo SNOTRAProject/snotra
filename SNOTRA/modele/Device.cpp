@@ -85,3 +85,14 @@ void Device::activateNetworkInterface(int interfaceId) {
 void Device::desactivateNetworkInterface(int interfaceId) {
   networkInterfaces.at(interfaceId).setIsUp(false);
 }
+
+bool Device::isConnectedTo(std::shared_ptr<Device> device) const {
+    for(auto& it : networkInterfaces) {
+        for(auto& it2 : it.getWire()) {
+            if(it2.getHead() == device) {
+                return true;
+            }
+        }
+    }
+    return false;
+}

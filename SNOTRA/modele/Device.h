@@ -30,6 +30,7 @@ class Device {
   void disconnectNeighbour(int);
   void activateNetworkInterface(int);
   void desactivateNetworkInterface(int);
+  bool isConnectedTo(std::shared_ptr<Device>) const;
 
  private:
   std::list<std::shared_ptr<Frame>> frameHistory;
