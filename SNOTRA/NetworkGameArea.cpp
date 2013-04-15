@@ -15,6 +15,7 @@
 #include <qt4/QtCore/qglobal.h>
 #include "DataBaseManager.h"
 #include "IpManager.h"
+#include "WireShark.h"
 //#include "Sauvegarder.h"
 //#include "Charger.h"
 using namespace std;
@@ -71,19 +72,30 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
 
     //QList<QLine> lineList;
 
-    if (listItem.count() > 2) {
-        for (auto& it1 : listItem) {
-            for (auto& it2 : listItem) {
-                if (it1->isConnectedTo(it2->getDevice())) {
-                    qDebug() << "bouh";
-                    painter.drawLine(QLine(it1->getLabel()->pos(),
-                            it2->getLabel()->pos()));
-                }
+
+    ///////////////////////////CORENTIN///////////////////////////////////////
+    //     LE PROGRAMME EFFACE LA LIGNE PRECEDENTE À CHAQUE TOUR DE BOULE...//
+    //     ET JE VEUX LES GARDER                :'(   
+
+    //          faire une liste de line à dessiner, et ne pas appeler fonction
+    //        drawline. 
+    //
+    //////////////////////////////////////////////////////////////////////////
+
+    for (auto& it1 : listItem) {
+        for (auto& it2 : listItem) {
+            if (it1->isConnectedTo(it2->getDevice())) {
+                qDebug() << "bouh";
+                painter.drawLine(QLine(it1->getLabel()->pos(),
+                        it2->getLabel()->pos()));
+
             }
         }
     }
+
+    //painter.drawLine(labelConnecter1->pos(), labelConnecter2->pos());
     painter.end();
-    update();
+    //update();
 
 }
 
