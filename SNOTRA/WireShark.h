@@ -27,6 +27,7 @@ public:
     WireShark(QWidget *parent = 0);
     /**
      * Add frame from the model
+     *@param ObjectToCommunicate device who want to show his frames
      */
     void addFrames(ObjectToCommunicate);
     /**
@@ -48,15 +49,31 @@ public:
      */
     void createLine(int);
     /**
-     * filtre the lines
+     * filtre the texte filtre
      * @param int the line number 
      */
     void filterLine(int);
-    
+    /**
+     * filtre the wireshark table by IP
+     * @param int the line of the row
+     */
     void filtreLineIp(int);
+    /**
+     * filtre the wireshark table by Mac
+     * @param int the line of the row
+     */
     void filtreLineMac(int);
+   /**
+     * filtre the wireshark table by Port
+     * @param int the line of the row
+     */ 
     void filtreLinePort(int);
+    /**
+     * filtre the wireshark table by Protocol
+     * @param int the line of the row
+     */
     void filtreLineProtocl(int);
+    
     virtual ~WireShark();
 private:
     QTableView * mainWireSharkView;
