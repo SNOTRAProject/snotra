@@ -68,7 +68,7 @@ std::shared_ptr<Frame> Device::giveFrameToInterface(std::shared_ptr<Frame> frame
 }
 
 void Device::connectNeighbour(std::shared_ptr<Device> neighbour, int thisInterfaceId, int thisPortId, int neighbourInterfaceId, int neighbourPortId, bool isContinue) {
-  networkInterfaces.at(thisInterfaceId).connectWire(Wire((std::shared_ptr<Device>)this, thisInterfaceId, thisPortId, neighbour, neighbourInterfaceId, neighbourPortId));
+  networkInterfaces.at(thisInterfaceId).connectWire(Wire(neighbour, neighbourInterfaceId, neighbourPortId));
   if(isContinue) {
       neighbour->connectNeighbour(std::shared_ptr<Device>(this), neighbourInterfaceId, neighbourPortId, thisInterfaceId, thisPortId, false);
   }

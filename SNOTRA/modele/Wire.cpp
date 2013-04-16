@@ -4,13 +4,10 @@
 Wire::Wire() {
 }
 
-Wire::Wire(std::shared_ptr<Device> head_, int headInterface_, int headPort_, std::shared_ptr<Device> tail_, int tailInterface_, int tailPort_) {
+Wire::Wire(std::shared_ptr<Device> head_, int headInterface_, int headPort_) {
   head = head_;
   headInterface = headInterface_;
   headPort = headPort_;
-  tail = tail_;
-  tailInterface = tailInterface_;
-  tailPort = tailPort_;
 }
 
 Wire::~Wire() {
@@ -40,30 +37,6 @@ void Wire::setHeadPort(int headPort_) {
   headPort = headPort_;
 }
 
-std::shared_ptr<Device> Wire::getTail() const{
-  return tail;
-}
-
-void Wire::setTail(std::shared_ptr<Device> device) {
-  tail = device;
-}
-
-int Wire::getTailInterface() const {
-  return tailInterface;
-}
-
-void Wire::setTailInterface(int tailInterface_) {
-  tailInterface = tailInterface_;
-}
-
-int Wire::getTailPort() const{
-  return tailPort;
-}
-
-void Wire::setTailPort(int tailPort_) {
-  tailPort = tailPort_;
-}
-
 void Wire::sendFrame(std::shared_ptr<Frame> frame) {
-  tail->receiveFrame(frame, tailInterface, tailPort);
+  head->receiveFrame(frame, headInterface, headPort);
 }

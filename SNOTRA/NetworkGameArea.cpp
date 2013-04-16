@@ -76,12 +76,12 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
 
     for (auto& it1 : listItem) {
         for (auto& it2 : listItem) {
-            if (it1->isConnectedTo(it2->getDevice())) {
-                QLine line(it1->getLabel()->pos(),
-                        it2->getLabel()->pos());
-
-                lineList.append(line);
-
+            if (it1 != it2) {
+                if (it1->isConnectedTo(it2->getDevice())) {
+                    QLine line(it1->getLabel()->pos(),
+                            it2->getLabel()->pos());
+                    lineList.append(line);
+                }
             }
         }
     }
@@ -89,8 +89,8 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     qDebug() << "liste item" << listItem.size();
     qDebug() << "nombre de ligne " << lineList.size();
 
-    
-    
+
+
 
     painter.end();
     paintWire(lineList);
@@ -158,10 +158,10 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 listItem.append(item);
 
             }
-            //addingItem = true;
+           addingItem = true;
 
 
-
+            
 
 
 
@@ -501,16 +501,17 @@ void NetworkGameArea::closeEvent(QCloseEvent * event) {
 ObjectToCommunicate* NetworkGameArea::findItem(QLabel* label) {
     QList<ObjectToCommunicate*>::iterator i;
     for (i = listItem.begin(); i != listItem.end(); ++i) {
-        ObjectToCommunicate *test = *i;
+        ObjectToCommunicate *result = *i;
         //   qDebug() << test->getLabel() << label;
-        if (test->getLabel() == label) {
-            return test;
+        if (result->getLabel() == label) {
+            return result;
         }
         //penser à fermer la BDD
     }
 }
 
-void NetworkGameArea::paintWire(QVector<QLine> lineList){
+void NetworkGameArea::paintWire(QVector<QLine> lineList) {
+
     QPainter painter;
     painter.begin(this);
     painter.drawLines(lineList);
