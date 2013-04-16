@@ -13,6 +13,7 @@
 #include "modele/Device.h"
 #include "modele/DeviceFactory.h"
 
+
 class ObjectToCommunicate {
 public:
 
@@ -43,6 +44,7 @@ private:
     std::vector<std::string> IP;
     int sizeOfInterfaceNameArray;
     std::shared_ptr<Device> device;
+    
 };
 
 #endif	/* OBJECTTOCOMMUNICATE_H */

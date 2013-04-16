@@ -19,6 +19,8 @@ ObjectToCommunicate::ObjectToCommunicate(QLabel* label_, int interfaceNumber,
     this->interfaceName = interfaceName;
     this->IP = IP;
     this->interfaceNumber = interfaceNumber;
+    
+    //wireShark = new WireShark();
 }
 
 ObjectToCommunicate::ObjectToCommunicate(const ObjectToCommunicate& orig) {
@@ -31,6 +33,9 @@ std::vector<std::string> ObjectToCommunicate::getInterfaceIP() {
     return IP;
 }
 
+//WireShark ObjectToCommunicate::getWireshark(){
+//    return wireShark;
+//}
 std::vector<std::string> ObjectToCommunicate::getInterfaceName() {
     return interfaceName;
 }

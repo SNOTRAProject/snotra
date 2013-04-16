@@ -78,7 +78,7 @@ public:
     int static signalFromPushButtonPressed();
 
 private:
-    QAction *connectAct;
+    QAction *wiresharkAct;
     QAction *deleteAct;
     QAction *disconnectAct;
     QAction *resetIPAct;
@@ -118,6 +118,7 @@ private:
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
     QVector<QPoint> pointPairs;
+    
 
 //    /**
 //     * add label in the NetworkGameArea object contained in the backup
@@ -144,8 +145,6 @@ private:
     void paintWire(QVector<QPoint>);
     
 public slots:
-
-
     /**
      * Close the item when the user click on delete in the conext menu
      */
@@ -156,6 +155,7 @@ public slots:
      * Calls an IpManager object to reset IP
      */
     void resetIPItem();
+    //void launchWireshark();
     ////    void changeValuePort();
     void pushButtonPressed();
 //    void slotSaveLabelList();
