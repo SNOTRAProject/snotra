@@ -9,10 +9,11 @@
 
 #include <iostream>
 #include <QPainter>
-#include <qt4/QtCore/qnamespace.h>
+#include <QtCore/qnamespace.h>
 #include <sstream>
-#include <qt4/QtCore/qdebug.h>
-#include <qt4/QtCore/qglobal.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qglobal.h>
+#include <QtGui/QDropEvent>
 #include "DataBaseManager.h"
 #include "IpManager.h"
 #include "WireShark.h"
@@ -63,7 +64,6 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     //   qDebug() << "tour de boucle";
 
     if (!pointDrawline1.isNull() && !pointDrawline2.isNull()) {
-
         QLine line(pointDrawline1, pointDrawline2);
         painter.drawLine(line);
     }
@@ -78,6 +78,8 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
         for (auto& it2 : listItem) {
             if (it1 != it2) {
                 if (it1->isConnectedTo(it2->getDevice())) {
+                    QPoint p1(this->pos().x()+this->width()/2, this->pos().y()+this->height()/2);
+                    QPoint p2(this->pos().x()+this->width()/2, this->pos().y()+this->height()/2);
                     QLine line(it1->getLabel()->pos(),
                             it2->getLabel()->pos());
                     lineList.append(line);
@@ -97,7 +99,6 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
 }
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
-
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data(
                 "application/x-dnditemdata");
@@ -111,71 +112,66 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
         dataStream >> name;
 
         if (!name.isEmpty()) {
-            QLabel *newIcon = new QLabel(this);
+            QLabel *newIcon;
+            if (event->dropAction() == Qt::CopyAction) {
+                newIcon = new QLabel(this);
 
-            newIcon->setPixmap(pixmap);
-            newIcon->setScaledContents(true);
-            newIcon->move(event->pos() - offset);
-            newIcon->setFixedSize(50, 50);
-            newIcon->setObjectName(name);
-            std::cout << "le nom de l'objet : " <<
-                    newIcon->objectName().toStdString() << endl;
-            newIcon->show();
+                newIcon->setPixmap(pixmap);
+                newIcon->setScaledContents(true);
+                newIcon->move(event->pos() - offset);
+                newIcon->setFixedSize(50, 50);
+                newIcon->setObjectName(name);
+                std::cout << "le nom de l'objet : " <<
+                        qPrintable(newIcon->objectName()) << endl;
+                newIcon->show();
+                if (addingItem) {
+                    numberOfInterfaces = new NumberOfInterfaceSetter();
+                    numberOfInterfaces->exec();
+                    int sizeOfInterfaceNameArray = numberOfInterfaces
+                            ->getNbInterfaces();
+                    std::vector<std::string> interfaceName
+                            = std::vector<std::string > ();
 
-            if (addingItem) {
-                numberOfInterfaces = new NumberOfInterfaceSetter();
-                numberOfInterfaces->exec();
-                int sizeOfInterfaceNameArray = numberOfInterfaces
-                        ->getNbInterfaces();
-                std::vector<std::string> interfaceName
-                        = std::vector<std::string > ();
+                    std::vector<std::string> IP
+                            = std::vector<std::string > ();
+                    for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
+                        propertiesOfInterfaces = new PropertiesOfInterfaceSetter();
+                        QString str = QString::number(i + 1);
+                        propertiesOfInterfaces->setText("Veuillez entrer le nom de "
+                                "l'interface numero : " + str);
+                        propertiesOfInterfaces->exec();
+                        interfaceName.push_back(
+                                propertiesOfInterfaces->widget.lineEditSetName
+                                ->text().toStdString());
+                        IP.push_back(propertiesOfInterfaces->widget.lineEditSetIP
+                                ->text().toStdString());
+                    }
 
-                std::vector<std::string> IP
-                        = std::vector<std::string > ();
-                for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
-                    propertiesOfInterfaces = new PropertiesOfInterfaceSetter();
-                    QString str = QString::number(i + 1);
-                    propertiesOfInterfaces->setText("Veuillez entrer le nom de "
-                            "l'interface numero : " + str);
-                    propertiesOfInterfaces->exec();
-                    interfaceName.push_back(
-                            propertiesOfInterfaces->widget.lineEditSetName
-                            ->text().toStdString());
-                    IP.push_back(propertiesOfInterfaces->widget.lineEditSetIP
-                            ->text().toStdString());
+                    ///////////////////////////////////////////////////////////
+                    //          CONCEPTION DE L'OBJET POUR COMMUNIQUER
+                    ///////////////////////////////////////////////////////////
+
+                    item = new ObjectToCommunicate(newIcon,
+                            numberOfInterfaces->getNbInterfaces(), interfaceName, IP);
+                    item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
+                    //                qDebug() << "int associe a l'objet "
+                    //                        + QString::number(qLabelListSave.size());
+                    item->setLabel(newIcon);
+                    listItem.append(item);
+
                 }
+                addingItem = true;
+                // qDebug() << findItem(newIcon);
 
-                ///////////////////////////////////////////////////////////
-                //          CONCEPTION DE L'OBJET POUR COMMUNIQUER
-                ///////////////////////////////////////////////////////////
+                //qLabelListSave.append(newIcon);
+                //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
+                //            DataBaseManager *db = new DataBaseManager();
+                //            db->create(test);
 
-                item = new ObjectToCommunicate(newIcon,
-                        numberOfInterfaces->getNbInterfaces(), interfaceName, IP);
-                item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
-                //                qDebug() << "int associe a l'objet "
-                //                        + QString::number(qLabelListSave.size());
-                item->setLabel(newIcon);
-                listItem.append(item);
-
+                //////////////////////////////////////////////////////////////// 
+            } else if (event->dropAction() == Qt::MoveAction) {
+                event->source()->move(event->pos() - offset);
             }
-           addingItem = true;
-
-
-            
-
-
-
-
-            // qDebug() << findItem(newIcon);
-
-
-
-            //qLabelListSave.append(newIcon);
-            //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
-            //            DataBaseManager *db = new DataBaseManager();
-            //            db->create(test);
-
-            //////////////////////////////////////////////////////////////// 
 
         } else if (childAt(event->pos()) != NULL) {
 
@@ -259,7 +255,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
             drag->setMimeData(mimeData);
             drag->setHotSpot(event->pos());
 
-            drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction);
+            drag->exec(Qt::MoveAction);
 
             return;
         }
@@ -275,7 +271,7 @@ void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
         QMimeData *mimeData = new QMimeData;
         mimeData->setData("application/x-dnditemdata", itemData);
 
-        QDrag *drag = new QDrag(this);
+        QDrag *drag = new QDrag(child);
         drag->setMimeData(mimeData);
         drag->setPixmap(pixmap);
         drag->setHotSpot(event->pos() - child->pos());
@@ -288,13 +284,10 @@ void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
 
         child->setPixmap(tempPixmap);
 
-        if (drag->exec(Qt::CopyAction | Qt::MoveAction,
-                Qt::CopyAction) == Qt::MoveAction)
-            child->close();
-        else {
+        if (drag->exec(Qt::MoveAction) != Qt::MoveAction) {
             child->show();
-            child->setPixmap(pixmap);
         }
+        child->setPixmap(pixmap);
 
     }
 }

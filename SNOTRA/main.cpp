@@ -19,7 +19,7 @@
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
-    // Q_INIT_RESOURCE(resfile)
+    Q_INIT_RESOURCE(IconeItemNetwork);
 
     QApplication app(argc, argv);
 
