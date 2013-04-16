@@ -29,7 +29,7 @@ NetworkGameArea::NetworkGameArea() {
     connecterChoice = new ConnecterChoice();
 
     db = new DataBaseManager();
-    addingItem = true;
+     
 }
 
 NetworkGameArea::~NetworkGameArea() {
@@ -99,7 +99,7 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
 }
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
-    paintWire(pointPairs);
+    
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data(
                 "application/x-dnditemdata");
@@ -125,7 +125,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 std::cout << "le nom de l'objet : " <<
                         qPrintable(newIcon->objectName()) << endl;
                 newIcon->show();
-                if (addingItem) {
+                
                     numberOfInterfaces = new NumberOfInterfaceSetter();
                     numberOfInterfaces->exec();
                     int sizeOfInterfaceNameArray = numberOfInterfaces
@@ -158,13 +158,11 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                     item = new ObjectToCommunicate(newIcon,
                             numberOfInterfaces->getNbInterfaces(), interfaceName, IP);
                     item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
-                    //                qDebug() << "int associe a l'objet "
-                    //                        + QString::number(qLabelListSave.size());
                     item->setLabel(newIcon);
                     listItem.append(item);
 
-                }
-                addingItem = true;
+               // }
+                
                 // qDebug() << findItem(newIcon);
 
                 //qLabelListSave.append(newIcon);
@@ -235,13 +233,16 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
+   
+    
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
 
     if (event->button() == Qt::LeftButton) {
         if (!child) {
             return;
         }
-        addingItem = false;
+        
+        
         if (pushedButtonIsPressed) {
             pointDrawline1 = event->pos();
             pushedButtonIsPressed = false;
@@ -294,6 +295,8 @@ void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
         child->setPixmap(pixmap);
 
     }
+    
+    update();
 }
 
 void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
