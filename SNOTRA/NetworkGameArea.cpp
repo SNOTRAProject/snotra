@@ -22,7 +22,7 @@
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
-    pushButton = false;
+    pushedButtonIsPressed = false;
     widget.setupUi(this);
     setAcceptDrops(true);
     firstConnect = true;
@@ -72,33 +72,34 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     //        painter.drawLine(it);
     //    }
 
-    QVector<QLine> lineList;
+    pointPairs.clear();
 
     for (auto& it1 : listItem) {
         for (auto& it2 : listItem) {
             if (it1 != it2) {
                 if (it1->isConnectedTo(it2->getDevice())) {
-                    QPoint p1(this->pos().x()+this->width()/2, this->pos().y()+this->height()/2);
-                    QPoint p2(this->pos().x()+this->width()/2, this->pos().y()+this->height()/2);
+                    QPoint p1(it1->getLabel()->pos().x() + it1->getLabel()->width() / 2, it1->getLabel()->pos().y() + it1->getLabel()->height() / 2);
+                    QPoint p2(it2->getLabel()->pos().x() + it2->getLabel()->width() / 2, it2->getLabel()->pos().y() + it2->getLabel()->height() / 2);
                     QLine line(it1->getLabel()->pos(),
                             it2->getLabel()->pos());
-                    lineList.append(line);
+                    pointPairs.append(p1);
+                    pointPairs.append(p2);
+
                 }
             }
         }
     }
 
     qDebug() << "liste item" << listItem.size();
-    qDebug() << "nombre de ligne " << lineList.size();
+    qDebug() << "nombre de ligne " << pointPairs.size();
 
-
-
+    paintWire(pointPairs);
 
     painter.end();
-    paintWire(lineList);
 }
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
+    paintWire(pointPairs);
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
         QByteArray itemData = event->mimeData()->data(
                 "application/x-dnditemdata");
@@ -134,11 +135,14 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
 
                     std::vector<std::string> IP
                             = std::vector<std::string > ();
-                    for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); i++) {
-                        propertiesOfInterfaces = new PropertiesOfInterfaceSetter();
+                    for (int i = 0; i < numberOfInterfaces->getNbInterfaces(); 
+                            i++) {
+                        propertiesOfInterfaces = new 
+                                PropertiesOfInterfaceSetter();
                         QString str = QString::number(i + 1);
-                        propertiesOfInterfaces->setText("Veuillez entrer le nom de "
-                                "l'interface numero : " + str);
+                        propertiesOfInterfaces->setText(
+                        "Veuillez entrer le nom de  l'interface numero : " 
+                        + str);
                         propertiesOfInterfaces->exec();
                         interfaceName.push_back(
                                 propertiesOfInterfaces->widget.lineEditSetName
@@ -238,9 +242,9 @@ void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
             return;
         }
         addingItem = false;
-        if (pushButton == true) {
+        if (pushedButtonIsPressed) {
             pointDrawline1 = event->pos();
-            pushButton = false;
+            pushedButtonIsPressed = false;
             labelConnecter1 = child;
 
             //QByteArray itemData;
@@ -400,7 +404,7 @@ void NetworkGameArea::descriptor() {
 }
 
 void NetworkGameArea::pushButtonPressed() {
-    pushButton = true;
+    pushedButtonIsPressed = true;
 }
 
 //void NetworkGameArea::saveLabelList() {
@@ -503,10 +507,10 @@ ObjectToCommunicate* NetworkGameArea::findItem(QLabel* label) {
     }
 }
 
-void NetworkGameArea::paintWire(QVector<QLine> lineList) {
+void NetworkGameArea::paintWire(QVector<QPoint> pointPairs) {
 
     QPainter painter;
     painter.begin(this);
-    painter.drawLines(lineList);
+    painter.drawLines(pointPairs);
     painter.end();
 }

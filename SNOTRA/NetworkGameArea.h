@@ -92,7 +92,7 @@ private:
      */
     void paintEvent(QPaintEvent*);
     void signalPushButtonPressed();
-    bool pushButton;
+    bool pushedButtonIsPressed;
     QLabel *labelConnecter1;
     QLabel *labelConnecter2;
 
@@ -117,7 +117,7 @@ private:
 
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
-    
+    QVector<QPoint> pointPairs;
 
 //    /**
 //     * add label in the NetworkGameArea object contained in the backup
@@ -141,7 +141,7 @@ private:
      */
 //    void resetGame();
     ObjectToCommunicate *item;
-    void paintWire(QVector<QLine> lineList);
+    void paintWire(QVector<QPoint>);
     
 public slots:
 
