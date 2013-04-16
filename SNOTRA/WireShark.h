@@ -28,7 +28,7 @@ public:
     /**
      * Add frame from the model
      */
-    void addFrame(ObjectToCommunicate);
+    void addFrames(ObjectToCommunicate);
     /**
      * create only the head of the table
      */

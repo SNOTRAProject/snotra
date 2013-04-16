@@ -30,7 +30,7 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     setLayout(mainLayout);
     createHeaderTable();
     ObjectToCommunicate obj = ObjectToCommunicate();
-    addFrame(obj);
+    addFrames(obj);
 }
 
 void WireShark::btnFiltre_clicked() {
@@ -39,7 +39,7 @@ void WireShark::btnFiltre_clicked() {
     createTableComplete();
 }
 
-void WireShark::addFrame(ObjectToCommunicate obj) {
+void WireShark::addFrames(ObjectToCommunicate obj) {
     listOfstringFrame.append("ARP/ICMP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
     listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
