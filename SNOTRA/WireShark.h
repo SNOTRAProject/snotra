@@ -52,9 +52,9 @@ public:
      */
     void filterLine(int);
     
-    void filtreLineIpSource(int);
-    void filtreLineMacSource(int);
-    void filtreLinePortSource(int);
+    void filtreLineIp(int);
+    void filtreLineMac(int);
+    void filtreLinePort(int);
     void filtreLineProtocl(int);
     virtual ~WireShark();
 private:

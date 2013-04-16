@@ -12,6 +12,7 @@
 #include "modele/Frame.h"
 #include "modele/Header.h"
 #include "modele/ICMPHeader.h"
+#include "PropertiesOfIterfaceSetter.h"
 
 WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);
@@ -32,7 +33,7 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     createHeaderTable();
 
     ///////////ici on recuperera la list/////////////
-    listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
+    listOfstringFrame.append("ARP/ICMP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
     listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
@@ -98,15 +99,15 @@ void WireShark::filterLine(int row) {
     if (filtre->text().compare("")) {
         if (filtreExtracted.at(0) == "ip") {
             if (filtreExtracted.at(1) == "=") {
-                filtreLineIpSource(row);
+                filtreLineIp(row);
             }
         } else if (filtreExtracted.at(0) == "mac") {
             if (filtreExtracted.at(1) == "=") {
-                filtreLineMacSource(row);
+                filtreLineMac(row);
             }
         } else if (filtreExtracted.at(0) == "port"){
             if (filtreExtracted.at(1) == "=") {
-                filtreLinePortSource(row);
+                filtreLinePort(row);
             }
         
         }else if (filtreExtracted.at(0) == "protocol"){
@@ -188,30 +189,33 @@ void WireShark::createTable() {
     }
 }
 
-void WireShark::filtreLineIpSource(int row) {
-    QString content = listOfstringFrame.at(row).split(";").at(3);
-    qDebug() << content << filtreExtracted.at(2);
-    if (filtreExtracted.at(2) == (content)) {
+void WireShark::filtreLineIp(int row) {
+//    QString content = listOfstringFrame.at(row).split(";").at(3);
+//    qDebug() << content << filtreExtracted.at(2);
+    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(3))||
+            (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(4))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
     } else {
         filtreExtractedSplited.clear();
     }
 }
 
-void WireShark::filtreLineMacSource(int row) {
-    QString content = listOfstringFrame.at(row).split(";").at(1);
-    qDebug() << content << filtreExtracted.at(2);
-    if (filtreExtracted.at(2) == (content)) {
+void WireShark::filtreLineMac(int row) {
+//    QString content = listOfstringFrame.at(row).split(";").at(1);
+//    qDebug() << content << filtreExtracted.at(2);
+    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(1))||
+            (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(2))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
     } else {
         filtreExtractedSplited.clear();
     }
 }
 
-void WireShark::filtreLinePortSource(int row) {
-    QString content = listOfstringFrame.at(row).split(";").at(5);
-    qDebug() << content << filtreExtracted.at(2);
-    if (filtreExtracted.at(2) == (content)) {
+void WireShark::filtreLinePort(int row) {
+//    QString content = listOfstringFrame.at(row).split(";").at(5);
+//    qDebug() << content << filtreExtracted.at(2);
+    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(5))|| 
+            (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(6))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
     } else {
         filtreExtractedSplited.clear();
@@ -221,9 +225,18 @@ void WireShark::filtreLinePortSource(int row) {
 void WireShark::filtreLineProtocl(int row) {
      QString content = listOfstringFrame.at(row).split(";").at(0);
     qDebug() << content << filtreExtracted.at(2);
-    if (filtreExtracted.at(2) == (content)) {
+    QStringList protocolSplited =  content.split("/");
+    for(auto& it: protocolSplited) {
+    qDebug() << it;
+    } 
+    bool isEmpty = true;
+    for (auto& it : protocolSplited) {
+    if (filtreExtracted.at(2) == (it)) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
-    } else {
+        isEmpty = false;
+    } 
+    }
+    if(isEmpty) {
         filtreExtractedSplited.clear();
     }
 }
