@@ -13,14 +13,13 @@
 #include "modele/Header.h"
 #include "modele/ICMPHeader.h"
 #include "PropertiesOfIterfaceSetter.h"
+#include "ObjectToCommunicate.h"
 
 WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainWireSharkView = new QTableView();
 
-    //mainWireSharkView->setSelectionBehavior(QAbstractItemView::SelectItems );
-    //mainWireSharkView->setSelectionMode( QAbstractItemView::ExtendedSelection);
     btnFiltre = new QPushButton(tr("Apply Filtre"));
     filtre = new QLineEdit("");
     mainLayout->addWidget(filtre);
@@ -29,21 +28,31 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
 
     mainLayout->addWidget(mainWireSharkView);
     setLayout(mainLayout);
-    //QStandardItemModel *model = new QStandardItemModel(1, 1, this);
     createHeaderTable();
+    ObjectToCommunicate obj = ObjectToCommunicate();
+    addFrame(obj);
+}
 
-    ///////////ici on recuperera la list/////////////
+void WireShark::btnFiltre_clicked() {
+    QString delimiterPattern(" ");
+    filtreExtracted = filtre->text().split(delimiterPattern);
+    createTableComplete();
+}
+
+void WireShark::addFrame(ObjectToCommunicate obj) {
     listOfstringFrame.append("ARP/ICMP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
     listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
-    //////extraction de la string de la liste////////////////
+    
+//    for(auto& it : obj.getDevice()->getAllFrameHistory()) {
+//        listOfstringFrame.append(it->toString().c_str());
+//    }
     QStringList::iterator i;
     for (i = listOfstringFrame.begin(); i != listOfstringFrame.end(); ++i) {
         QString strExtracted = *i;
         qDebug() << *i;
 
-        ////////////A FOUTRE DANS UNE FONCTION///////////////////////
         QString delimiterPattern(";");
         strExtractedSplited = strExtracted.split(delimiterPattern);
         QStringList::iterator j;
@@ -56,24 +65,6 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     }
     createTable();
     mainWireSharkView->setModel(model);
-}
-
-void WireShark::btnFiltre_clicked() {
-    QString delimiterPattern(" ");
-    filtreExtracted = filtre->text().split(delimiterPattern);
-    createTableComplete();
-}
-
-void WireShark::addFrame() {
-    Frame *frame = new Frame();
-    std::shared_ptr<Header> head = std::shared_ptr<ICMPHeader > (new ICMPHeader(Ip("192.168.1.2", 24)));
-    frame->setHeader(head);
-
-    for (int row = 0; row < 5; row++) {
-        QString rowContent = "frame.get(numberOfFrame)";
-        QStandardItem *item = new QStandardItem(rowContent);
-        item->setEditable(false);
-    }
 }
 
 void WireShark::createTableComplete() {
@@ -190,8 +181,6 @@ void WireShark::createTable() {
 }
 
 void WireShark::filtreLineIp(int row) {
-//    QString content = listOfstringFrame.at(row).split(";").at(3);
-//    qDebug() << content << filtreExtracted.at(2);
     if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(3))||
             (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(4))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
@@ -201,8 +190,6 @@ void WireShark::filtreLineIp(int row) {
 }
 
 void WireShark::filtreLineMac(int row) {
-//    QString content = listOfstringFrame.at(row).split(";").at(1);
-//    qDebug() << content << filtreExtracted.at(2);
     if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(1))||
             (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(2))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
@@ -212,8 +199,6 @@ void WireShark::filtreLineMac(int row) {
 }
 
 void WireShark::filtreLinePort(int row) {
-//    QString content = listOfstringFrame.at(row).split(";").at(5);
-//    qDebug() << content << filtreExtracted.at(2);
     if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(5))|| 
             (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(6))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");

@@ -15,6 +15,7 @@
 #include <QString>
 #include <list>
 #include "ui_WireShark.h"
+#include "ObjectToCommunicate.h"
 
 class WireShark : public QWidget {
     Q_OBJECT
@@ -27,7 +28,7 @@ public:
     /**
      * Add frame from the model
      */
-    void addFrame();
+    void addFrame(ObjectToCommunicate);
     /**
      * create only the head of the table
      */
