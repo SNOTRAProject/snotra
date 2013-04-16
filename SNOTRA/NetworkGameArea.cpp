@@ -59,14 +59,12 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     painter.begin(this);
     painter.setPen(Qt::black);
 
-    
-    qDebug()<<"tour de boucle";
+
+    //   qDebug() << "tour de boucle";
 
     if (!pointDrawline1.isNull() && !pointDrawline2.isNull()) {
 
         QLine line(pointDrawline1, pointDrawline2);
-
-
         painter.drawLine(line);
     }
 
@@ -74,23 +72,11 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     //        painter.drawLine(it);
     //    }
 
-    QList<QLine> lineList;
-
-
-    ///////////////////////////CORENTIN///////////////////////////////////////
-    //     LE PROGRAMME EFFACE LA LIGNE PRECEDENTE À CHAQUE TOUR DE BOULE...//
-    //     ET JE VEUX LES GARDER                :'(   
-
-    //          faire une liste de line à dessiner, et ne pas appeler fonction
-    //        drawline. 
-    //
-    //////////////////////////////////////////////////////////////////////////
-
+    QVector<QLine> lineList;
 
     for (auto& it1 : listItem) {
         for (auto& it2 : listItem) {
             if (it1->isConnectedTo(it2->getDevice())) {
-                qDebug() << "bouh";
                 QLine line(it1->getLabel()->pos(),
                         it2->getLabel()->pos());
 
@@ -99,17 +85,15 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
             }
         }
     }
+
+    qDebug() << "liste item" << listItem.size();
+    qDebug() << "nombre de ligne " << lineList.size();
+
     
-    for (auto& it : lineList)
-        painter.drawLine(it);
+    
 
-    //painter.drawLine(labelConnecter1->pos(), labelConnecter2->pos());
     painter.end();
-
-
-    //update();
-
-
+    paintWire(lineList);
 }
 
 void NetworkGameArea::dropEvent(QDropEvent *event) {
@@ -164,22 +148,29 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 ///////////////////////////////////////////////////////////
                 //          CONCEPTION DE L'OBJET POUR COMMUNIQUER
                 ///////////////////////////////////////////////////////////
+
                 item = new ObjectToCommunicate(newIcon,
                         numberOfInterfaces->getNbInterfaces(), interfaceName, IP);
                 item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
-                qDebug() << "int associe a l'objet "
-                        + QString::number(qLabelListSave.size());
+                //                qDebug() << "int associe a l'objet "
+                //                        + QString::number(qLabelListSave.size());
                 item->setLabel(newIcon);
-
+                listItem.append(item);
 
             }
-            addingItem = true;
+            //addingItem = true;
 
-            ///////////////////////////////////////////////////////////////
-            //             MISE EN PLACE DE LA LISTE DE SAUVEGARDE       //
-            ///////////////////////////////////////////////////////////////  
-            listItem.append(item);
-            qLabelListSave.append(newIcon);
+
+
+
+
+
+
+            // qDebug() << findItem(newIcon);
+
+
+
+            //qLabelListSave.append(newIcon);
             //BIEN FAIRE LA REQUETE POUR QU'ELLE CORRESPONDE À L'OBJET TEST
             //            DataBaseManager *db = new DataBaseManager();
             //            db->create(test);
@@ -241,8 +232,6 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
     } else {
         event->ignore();
     }
-
-
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
@@ -380,8 +369,8 @@ void NetworkGameArea::deleteItem() {
      
      */
     std::cout << labelConnecter1->objectName().toStdString() << endl;
-    qLabelListSave.removeOne(labelConnecter1);
-    qDebug() << labelConnecter1->objectName();
+    //qLabelListSave.removeOne(labelConnecter1);
+    //qDebug() << labelConnecter1->objectName();
     labelConnecter1->close();
 }
 
@@ -421,76 +410,76 @@ void NetworkGameArea::pushButtonPressed() {
     pushButton = true;
 }
 
-void NetworkGameArea::saveLabelList() {
-    db->launchSave();
-    QList<QLabel*>::iterator i;
-    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
-        QLabel *test = *i;
-        /**
-         * ajout des données du Qlabel dans la BDD (sauvegarde.db)
-         */
-        db->create(test);
-        //penser à fermer la BDD
+//void NetworkGameArea::saveLabelList() {
+//    db->launchSave();
+//    QList<QLabel*>::iterator i;
+//    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
+//        QLabel *test = *i;
+//        /**
+//         * ajout des données du Qlabel dans la BDD (sauvegarde.db)
+//         */
+//        db->create(test);
+//        //penser à fermer la BDD
+//
+//    }
+//}
 
-    }
-}
+//void NetworkGameArea::slotSaveLabelList() {
+//    saveLabelList();
+//}
 
-void NetworkGameArea::slotSaveLabelList() {
-    saveLabelList();
-}
+//void NetworkGameArea::slotLoadLabelList() {
+//    loadLabelList();
+//}
 
-void NetworkGameArea::slotLoadLabelList() {
-    loadLabelList();
-}
+//void NetworkGameArea::loadLabelList() {
+//    QPixmap pixmapHUB(":/HUB.png");
+//    QPixmap pixmapRouteur(":/Routeur.png");
+//    QPixmap pixmapSwitch(":/Switch.png");
+//    QPixmap pixmapRouteurNat(":/RouteurNat.png");
+//    QPixmap pixmapOrdi(":/Ordi.png");
+//
+//    QList<QLabel*>::iterator i;
+//    qLabelListLoad = db->load();
+//    if (db->getResetGame()) {
+//        resetGame();
+//        db->setResetGame(false);
+//    }
+//    for (i = qLabelListLoad.begin(); i != qLabelListLoad.end(); ++i) {
+//        QLabel *labelAdded = *i;
+//        if (labelAdded->objectName() == "labelPixmapHUB") {
+//            labelAdded->setPixmap(pixmapHUB);
+//        } else if (labelAdded->objectName() == "labelPixmapRouteur") {
+//            labelAdded->setPixmap(pixmapRouteur);
+//        } else if (labelAdded->objectName() == "labelPixmapSwitch") {
+//            labelAdded->setPixmap(pixmapSwitch);
+//        } else if (labelAdded->objectName() == "labelPixmapRouteurNat") {
+//            labelAdded->setPixmap(pixmapRouteurNat);
+//        } else if (labelAdded->objectName() == "labelPixmapOrdi") {
+//            labelAdded->setPixmap(pixmapOrdi);
+//        }
+//        labelAdded->setParent(this);
+//        labelAdded->setFixedSize(50, 50);
+//        labelAdded->setScaledContents(true);
+//        labelAdded->show();
+//        qDebug() << labelAdded->pos();
+//    }
+//}
 
-void NetworkGameArea::loadLabelList() {
-    QPixmap pixmapHUB(":/HUB.png");
-    QPixmap pixmapRouteur(":/Routeur.png");
-    QPixmap pixmapSwitch(":/Switch.png");
-    QPixmap pixmapRouteurNat(":/RouteurNat.png");
-    QPixmap pixmapOrdi(":/Ordi.png");
+//void NetworkGameArea::resetGame() {
+//    QLabel *labelToRemove;
+//
+//    QList<QLabel*>::iterator i;
+//    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
+//        labelToRemove = *i;
+//        labelToRemove->close();
+//        qLabelListSave.removeOne(labelToRemove);
+//    }
+//}
 
-    QList<QLabel*>::iterator i;
-    qLabelListLoad = db->load();
-    if (db->getResetGame()) {
-        resetGame();
-        db->setResetGame(false);
-    }
-    for (i = qLabelListLoad.begin(); i != qLabelListLoad.end(); ++i) {
-        QLabel *labelAdded = *i;
-        if (labelAdded->objectName() == "labelPixmapHUB") {
-            labelAdded->setPixmap(pixmapHUB);
-        } else if (labelAdded->objectName() == "labelPixmapRouteur") {
-            labelAdded->setPixmap(pixmapRouteur);
-        } else if (labelAdded->objectName() == "labelPixmapSwitch") {
-            labelAdded->setPixmap(pixmapSwitch);
-        } else if (labelAdded->objectName() == "labelPixmapRouteurNat") {
-            labelAdded->setPixmap(pixmapRouteurNat);
-        } else if (labelAdded->objectName() == "labelPixmapOrdi") {
-            labelAdded->setPixmap(pixmapOrdi);
-        }
-        labelAdded->setParent(this);
-        labelAdded->setFixedSize(50, 50);
-        labelAdded->setScaledContents(true);
-        labelAdded->show();
-        qDebug() << labelAdded->pos();
-    }
-}
-
-void NetworkGameArea::resetGame() {
-    QLabel *labelToRemove;
-
-    QList<QLabel*>::iterator i;
-    for (i = qLabelListSave.begin(); i != qLabelListSave.end(); ++i) {
-        labelToRemove = *i;
-        labelToRemove->close();
-        qLabelListSave.removeOne(labelToRemove);
-    }
-}
-
-void NetworkGameArea::slotResetGame() {
-    resetGame();
-}
+////void NetworkGameArea::slotResetGame() {
+//    resetGame();
+//}
 
 void NetworkGameArea::closeEvent(QCloseEvent * event) {
     event->ignore();
@@ -513,10 +502,17 @@ ObjectToCommunicate* NetworkGameArea::findItem(QLabel* label) {
     QList<ObjectToCommunicate*>::iterator i;
     for (i = listItem.begin(); i != listItem.end(); ++i) {
         ObjectToCommunicate *test = *i;
-        qDebug() << test->getLabel() << label;
+        //   qDebug() << test->getLabel() << label;
         if (test->getLabel() == label) {
             return test;
         }
         //penser à fermer la BDD
     }
+}
+
+void NetworkGameArea::paintWire(QVector<QLine> lineList){
+    QPainter painter;
+    painter.begin(this);
+    painter.drawLines(lineList);
+    painter.end();
 }

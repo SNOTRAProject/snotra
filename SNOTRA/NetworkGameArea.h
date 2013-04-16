@@ -109,24 +109,25 @@ private:
     
     QPainter paint;
     QList<ObjectToCommunicate*> listItem;
-    QList<QLabel*> qLabelListSave;
-    QList<QLabel*> qLabelListLoad;
+    //QList<QLabel*> qLabelListSave;
+    //QList<QLabel*> qLabelListLoad;
     DataBaseManager *db;
     std::string pixmapTab[5];
     PropertiesOfInterfaceSetter *propertiesOfInterfaces;
 
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
+    
 
-    /**
-     * add label in the NetworkGameArea object contained in the backup
-     */
-    void loadLabelList();
-
-    /**
-     * Make a list to make a backup
-     */
-    void saveLabelList();
+//    /**
+//     * add label in the NetworkGameArea object contained in the backup
+//     */
+//    void loadLabelList();
+//
+//    /**
+//     * Make a list to make a backup
+//     */
+//    void saveLabelList();
 
     /**
      * Find the ObjectToCommunicate object associated whith the Qlabel Object
@@ -138,8 +139,10 @@ private:
     /**
      * Close all item in the NetworkGameArea
      */
-    void resetGame();
+//    void resetGame();
     ObjectToCommunicate *item;
+    void paintWire(QVector<QLine> lineList);
+    
 public slots:
 
 
@@ -155,9 +158,9 @@ public slots:
     void resetIPItem();
     ////    void changeValuePort();
     void pushButtonPressed();
-    void slotSaveLabelList();
-    void slotLoadLabelList();
-    void slotResetGame();
+//    void slotSaveLabelList();
+//    void slotLoadLabelList();
+//    void slotResetGame();
 };
 
 
