@@ -33,10 +33,10 @@ Game::Game() {
             SLOT(show()));
     connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea,
             SLOT(pushButtonPressed()));
-    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea,
-            SLOT(slotLoadLabelList()));
-    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea,
-            SLOT(slotSaveLabelList()));
+//    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea,
+//            SLOT(slotLoadLabelList()));
+//    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea,
+//            SLOT(slotSaveLabelList()));
     connect(gameWindow.actionNouvelle, SIGNAL(activated()), networkGameArea, 
             SLOT(slotResetGame()));
 }
