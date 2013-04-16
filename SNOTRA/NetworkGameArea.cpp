@@ -58,6 +58,10 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     QPainter painter;
     painter.begin(this);
     painter.setPen(Qt::black);
+
+    
+    qDebug()<<"tour de boucle";
+
     if (!pointDrawline1.isNull() && !pointDrawline2.isNull()) {
 
         QLine line(pointDrawline1, pointDrawline2);
@@ -70,7 +74,7 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     //        painter.drawLine(it);
     //    }
 
-    //QList<QLine> lineList;
+    QList<QLine> lineList;
 
 
     ///////////////////////////CORENTIN///////////////////////////////////////
@@ -82,20 +86,29 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
     //
     //////////////////////////////////////////////////////////////////////////
 
+
     for (auto& it1 : listItem) {
         for (auto& it2 : listItem) {
             if (it1->isConnectedTo(it2->getDevice())) {
                 qDebug() << "bouh";
-                painter.drawLine(QLine(it1->getLabel()->pos(),
-                        it2->getLabel()->pos()));
+                QLine line(it1->getLabel()->pos(),
+                        it2->getLabel()->pos());
+
+                lineList.append(line);
 
             }
         }
     }
+    
+    for (auto& it : lineList)
+        painter.drawLine(it);
 
     //painter.drawLine(labelConnecter1->pos(), labelConnecter2->pos());
     painter.end();
+
+
     //update();
+
 
 }
 
@@ -228,6 +241,8 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
     } else {
         event->ignore();
     }
+
+
 }
 
 void NetworkGameArea::mousePressEvent(QMouseEvent * event) {
@@ -342,12 +357,10 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
 
 void NetworkGameArea::disconnectStocker() {
     /*
-     
-     LE CODE DOIT FAIRE L'OBJET D'UNE VÉRIFICATION : 
+     *  LE CODE DOIT FAIRE L'OBJET D'UNE VÉRIFICATION : 
      * EST IL DECONNECTER POUR POUVOIR ETRE DECONNECTER ?
      * EST CE QUE JE DECONNECT BIEN DEUX ITEM ET PAS DEUX COMPOSANT DE MA 
      * FENETRE ?
-     
      */
     if (firstDisconnect) {
         firstDisconnect = false;
