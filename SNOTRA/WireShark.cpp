@@ -15,7 +15,7 @@
 #include "PropertiesOfIterfaceSetter.h"
 #include "ObjectToCommunicate.h"
 
-WireShark::WireShark(QWidget *parent) : QWidget(parent) {
+WireShark::WireShark(ObjectToCommunicate obj, QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainWireSharkView = new QTableView();
@@ -29,7 +29,6 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
     mainLayout->addWidget(mainWireSharkView);
     setLayout(mainLayout);
     createHeaderTable();
-    ObjectToCommunicate obj = ObjectToCommunicate();
     addFrames(obj);
 }
 

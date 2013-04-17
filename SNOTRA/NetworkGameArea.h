@@ -77,8 +77,9 @@ public:
      */
     void descriptor();
     int static signalFromPushButtonPressed();
-
+    QMenuBar *menubar;
 private:
+    QAction *ping;
     QAction *wiresharkAct;
     QAction *deleteAct;
     QAction *disconnectAct;
@@ -107,7 +108,7 @@ private:
     int port2;
     QPoint pointDrawline1;
     QPoint pointDrawline2;
-    
+
     QPainter paint;
     QList<ObjectToCommunicate*> listItem;
     //QList<QLabel*> qLabelListSave;
@@ -119,17 +120,17 @@ private:
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
     QVector<QPoint> pointPairs;
-    WireShark *wireshark;    
+    WireShark *wireshark;
 
-//    /**
-//     * add label in the NetworkGameArea object contained in the backup
-//     */
-//    void loadLabelList();
-//
-//    /**
-//     * Make a list to make a backup
-//     */
-//    void saveLabelList();
+    //    /**
+    //     * add label in the NetworkGameArea object contained in the backup
+    //     */
+    //    void loadLabelList();
+    //
+    //    /**
+    //     * Make a list to make a backup
+    //     */
+    //    void saveLabelList();
 
     /**
      * Find the ObjectToCommunicate object associated whith the Qlabel Object
@@ -141,10 +142,10 @@ private:
     /**
      * Close all item in the NetworkGameArea
      */
-//    void resetGame();
+    //    void resetGame();
     ObjectToCommunicate *item;
     void paintWire(QVector<QPoint>);
-    
+
 public slots:
     /**
      * Close the item when the user click on delete in the conext menu
@@ -159,9 +160,9 @@ public slots:
     void launchWireshark();
     ////    void changeValuePort();
     void pushButtonPressed();
-//    void slotSaveLabelList();
-//    void slotLoadLabelList();
-//    void slotResetGame();
+    //    void slotSaveLabelList();
+    //    void slotLoadLabelList();
+    //    void slotResetGame();
 };
 
 

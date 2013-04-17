@@ -24,7 +24,7 @@ public:
      * constructor of WireShark
      * @param parent
      */
-    WireShark(QWidget *parent = 0);
+    WireShark(ObjectToCommunicate, QWidget* = 0);
     /**
      * Add frame from the model
      *@param ObjectToCommunicate device who want to show his frames
