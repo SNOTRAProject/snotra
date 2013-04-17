@@ -16,6 +16,7 @@
 #include "BackupManager.h"
 #include "RelevantActions.h"
 #include "LoadManager.h"
+#include "SendPing.h"
 
 int main(int argc, char *argv[]) {
     // initialize resources, if needed
@@ -26,5 +27,6 @@ int main(int argc, char *argv[]) {
     // create and show your widgets here
     Game *game = new Game();
     game->show();
+
     return app.exec();
 }

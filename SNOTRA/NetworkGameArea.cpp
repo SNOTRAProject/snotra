@@ -18,6 +18,7 @@
 #include "IpManager.h"
 #include "WireShark.h"
 
+
 using namespace std;
 
 NetworkGameArea::NetworkGameArea() {
@@ -65,12 +66,12 @@ void NetworkGameArea::paintEvent(QPaintEvent*) {
         for (auto& it2 : listItem) {
             if (it1 != it2) {
                 if (it1->isConnectedTo(it2->getDevice())) {
-                    QPoint p1(it1->getLabel()->pos().x() 
-                    + it1->getLabel()->width() / 2, it1->getLabel()->pos().y() 
-                    + it1->getLabel()->height() / 2);
-                    QPoint p2(it2->getLabel()->pos().x() 
-                    + it2->getLabel()->width() / 2, it2->getLabel()->pos().y() 
-                    + it2->getLabel()->height() / 2);
+                    QPoint p1(it1->getLabel()->pos().x()
+                            + it1->getLabel()->width() / 2, it1->getLabel()->pos().y()
+                            + it1->getLabel()->height() / 2);
+                    QPoint p2(it2->getLabel()->pos().x()
+                            + it2->getLabel()->width() / 2, it2->getLabel()->pos().y()
+                            + it2->getLabel()->height() / 2);
                     QLine line(it1->getLabel()->pos(),
                             it2->getLabel()->pos());
                     pointPairs.append(p1);
@@ -145,7 +146,7 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
                 item->setSizeOfInterfaceNameArray(sizeOfInterfaceNameArray);
                 item->setLabel(newIcon);
                 listItem.append(item);
- 
+
             } else if (event->dropAction() == Qt::MoveAction) {
                 event->source()->move(event->pos() - offset);
             }
@@ -161,12 +162,12 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             QStringList listOfInterfacesItem1;
             for (int i = 0; i < item1->getSizeOfInterfaceNameArray(); i++) {
                 listOfInterfacesItem1.append(item1->getInterfaceName()[i]
-                .c_str());
+                        .c_str());
             }
             QStringList listOfInterfacesItem2;
             for (int i = 0; i < item2->getSizeOfInterfaceNameArray(); i++) {
                 listOfInterfacesItem2.append(item2->getInterfaceName()[i]
-                .c_str());
+                        .c_str());
             }
             connecterChoice->widget.comboBoxChoiceInterfaceDevice1
                     ->addItems(listOfInterfacesItem1);
@@ -175,10 +176,10 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             connecterChoice->exec();
             item1->connectDevice(item1->getDevice(), item2->getDevice(),
                     item2->getDevice()->getNetworkInterfaceIdByName(
-            connecterChoice->getInterfaceName1()),
+                    connecterChoice->getInterfaceName1()),
                     connecterChoice->getPortDevice1(),
                     item1->getDevice()->getNetworkInterfaceIdByName(
-            connecterChoice->getInterfaceName2()),
+                    connecterChoice->getInterfaceName2()),
                     connecterChoice->getPortDevice2());
             descriptor();
             QLine lineToAdd(item2->getLabel()->pos(), item1->getLabel()->pos());
@@ -246,9 +247,9 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     QLabel *child = dynamic_cast<QLabel*> (childAt(event->pos()));
     if (!child)
         return;
-    
+
     labelConnecter1 = child;
-       
+
     deleteAct = new QAction(tr("&Delete"), this);
     deleteAct->setStatusTip(tr("Delete le périphérique séléctionné"));
     connect(deleteAct, SIGNAL(triggered()), this, SLOT(deleteItem()));
@@ -267,20 +268,24 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     }
     connect(disconnectAct, SIGNAL(triggered()), this,
             SLOT(disconnectStocker()));
-    
+
     wiresharkAct = new QAction(tr("&Open wireshark"), this);
     wiresharkAct->setStatusTip(tr("Open wireshark"));
     connect(wiresharkAct, SIGNAL(triggered()), this, SLOT(launchWireshark()));
     wireshark = new WireShark(*findItem(child));
+
+    pingAct = new QAction(tr("&Send Ping"), this);
+    pingAct->setStatusTip((tr("Send a ping to destination")));
+    connect(pingAct, SIGNAL(triggered()), this, SLOT(launchSentPing()));
 
     //menu.addAction(connectAct);
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
     menu.addAction(resetIPAct);
     menu.addAction(wiresharkAct);
+    menu.addAction(pingAct);
     menu.exec(event->globalPos());
-    
-    
+
 }
 
 void NetworkGameArea::disconnectStocker() {
@@ -314,6 +319,7 @@ void NetworkGameArea::deleteItem() {
 //void NetworkGameArea::launchWireshark(){
 //    item->getWireshark().show();
 //}
+
 void NetworkGameArea::resetIPItem() {
     ObjectToCommunicate *item;
     item = findItem(labelConnecter1);
@@ -336,7 +342,7 @@ void NetworkGameArea::descriptor() {
 
         qDebug() << item1->getLabel()->objectName() << " est connnecté à " <<
                 item2->getLabel()->objectName();
-       
+
         qDebug() << "////////////////////////////////////////////////////////";
 
     }
@@ -423,8 +429,6 @@ void NetworkGameArea::closeEvent(QCloseEvent * event) {
     event->ignore();
 }
 
-
-
 ObjectToCommunicate* NetworkGameArea::findItem(QLabel* label) {
     QList<ObjectToCommunicate*>::iterator i;
     for (i = listItem.begin(); i != listItem.end(); ++i) {
@@ -445,6 +449,12 @@ void NetworkGameArea::paintWire(QVector<QPoint> pointPairs) {
     painter.end();
 }
 
-void NetworkGameArea::launchWireshark(){
+void NetworkGameArea::launchWireshark() {
     wireshark->show();
+}
+
+void NetworkGameArea::launchSentPing() {
+    sendPing = new SendPing();
+    sendPing->exec();
+    qDebug() << sendPing->getDestinationIP();
 }

@@ -20,6 +20,7 @@
 #include "NumberOfInterfaceSetter.h"
 #include "ObjectToCommunicate.h"
 #include "WireShark.h"
+#include "SendPing.h"
 
 class NetworkGameArea : public QWidget {
     Q_OBJECT
@@ -79,11 +80,12 @@ public:
     int static signalFromPushButtonPressed();
     QMenuBar *menubar;
 private:
-    QAction *ping;
+    QAction *pingAct;
     QAction *wiresharkAct;
     QAction *deleteAct;
     QAction *disconnectAct;
     QAction *resetIPAct;
+    
     bool firstConnect;
     bool firstDisconnect;
 
@@ -121,6 +123,7 @@ private:
     bool addingItem;
     QVector<QPoint> pointPairs;
     WireShark *wireshark;
+    SendPing *sendPing;
 
     //    /**
     //     * add label in the NetworkGameArea object contained in the backup
@@ -160,6 +163,7 @@ public slots:
     void launchWireshark();
     ////    void changeValuePort();
     void pushButtonPressed();
+    void launchSentPing();
     //    void slotSaveLabelList();
     //    void slotLoadLabelList();
     //    void slotResetGame();

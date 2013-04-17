@@ -15,8 +15,15 @@ class SendPing : public QDialog {
 public:
     SendPing();
     virtual ~SendPing();
+    QString getDestinationIP() ;
+    
 private:
     Ui::SendPing widget;
+    void setIp();
+    QString destinationIP;
+    
+    public slots : 
+        void slotSetDestinationIp();
 };
 
 #endif	/* _SENDPING_H */

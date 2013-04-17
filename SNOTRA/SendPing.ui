@@ -55,5 +55,22 @@ p, li { white-space: pre-wrap; }
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>pressed()</signal>
+   <receiver>SendPing</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>231</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
