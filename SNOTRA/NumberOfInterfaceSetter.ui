@@ -26,7 +26,14 @@ p, li { white-space: pre-wrap; }
     </widget>
    </item>
    <item>
-    <widget class="QSpinBox" name="spinBox"/>
+    <widget class="QSpinBox" name="spinBox">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>99</number>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="pushButton">

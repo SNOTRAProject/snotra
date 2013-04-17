@@ -19,6 +19,7 @@
 #include "PropertiesOfIterfaceSetter.h"
 #include "NumberOfInterfaceSetter.h"
 #include "ObjectToCommunicate.h"
+#include "WireShark.h"
 
 class NetworkGameArea : public QWidget {
     Q_OBJECT
@@ -118,7 +119,7 @@ private:
     NumberOfInterfaceSetter *numberOfInterfaces;
     bool addingItem;
     QVector<QPoint> pointPairs;
-    
+    WireShark *wireshark;    
 
 //    /**
 //     * add label in the NetworkGameArea object contained in the backup
@@ -155,7 +156,7 @@ public slots:
      * Calls an IpManager object to reset IP
      */
     void resetIPItem();
-    //void launchWireshark();
+    void launchWireshark();
     ////    void changeValuePort();
     void pushButtonPressed();
 //    void slotSaveLabelList();

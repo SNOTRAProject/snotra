@@ -277,6 +277,7 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
     menu.addAction(resetIPAct);
+    menu.addAction(wiresharkAct);
     menu.exec(event->globalPos());
 }
 
@@ -440,4 +441,9 @@ void NetworkGameArea::paintWire(QVector<QPoint> pointPairs) {
     painter.begin(this);
     painter.drawLines(pointPairs);
     painter.end();
+}
+
+void NetworkGameArea::launchWireshark(){
+    wireshark = new WireShark();
+    wireshark->show();
 }

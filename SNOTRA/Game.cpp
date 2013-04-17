@@ -7,6 +7,7 @@
 
 #include "Game.h"
 #include "BackupManager.h"
+#include "WireShark.h"
 
 /**
  * the  window Game and connect the toolbox and the area of the game
@@ -33,12 +34,13 @@ Game::Game() {
             SLOT(show()));
     connect(toolBox->widget.pushButtonFil, SIGNAL(clicked()), networkGameArea,
             SLOT(pushButtonPressed()));
-//    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea,
-//            SLOT(slotLoadLabelList()));
-//    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea,
-//            SLOT(slotSaveLabelList()));
-    connect(gameWindow.actionNouvelle, SIGNAL(activated()), networkGameArea, 
+    //    connect(gameWindow.actionCharger, SIGNAL(activated()), networkGameArea,
+    //            SLOT(slotLoadLabelList()));
+    //    connect(gameWindow.actionSauvegarder, SIGNAL(activated()), networkGameArea,
+    //            SLOT(slotSaveLabelList()));
+    connect(gameWindow.actionNouvelle, SIGNAL(activated()), networkGameArea,
             SLOT(slotResetGame()));
+
 }
 
 Game::~Game() {
