@@ -15,7 +15,12 @@ void ARPTable::resetARPTable() {
 }
 
 Mac ARPTable::getMacByIp(Ip ip) {
-  return arpTable.at(ip);
+    try {
+        return arpTable.at(ip);
+    }
+    catch (int e) {
+        return Mac("00:00:00:00:00:00");
+    }
 }
 
 void ARPTable::addLine(Ip ip, Mac mac) {

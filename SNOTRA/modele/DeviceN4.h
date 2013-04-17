@@ -13,6 +13,9 @@
 #include "NetworkInterface.h"
 #include "ARPHeader.h"
 #include "ICMPHeader.h"
+#include "NetworkHeader.h"
+#include "DataLinkHeader.h"
+#include "TransportHeader.h"
 
 class DeviceN4 : public Device {
  public:
@@ -25,7 +28,8 @@ class DeviceN4 : public Device {
   void setARPTable(ARPTable);
   virtual void receiveFrame(std::shared_ptr<Frame>, int, int);
   virtual void sendFrame(std::shared_ptr<Frame>);
-  void createFrame(Ip, std::string);
+  void createFrame(Ip, std::string, bool = false);
+  virtual void connectNeighbour(std::shared_ptr<Device>, int, int, int, int, bool = true);
 
  private:
   RoutingTable routingTable;
