@@ -13,6 +13,10 @@
 class SendPing : public QDialog {
     Q_OBJECT
 public:
+    /**
+     * Default constructor
+     * create a window to set target's ip address to launch ping
+     */
     SendPing();
     virtual ~SendPing();
     QString getDestinationIP() ;

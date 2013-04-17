@@ -15,6 +15,7 @@ class BackupManager : public QDialog {
 public:
 
     /**
+     * Contructor
      * create a window for the user to set the name of the backup
      */
     BackupManager();

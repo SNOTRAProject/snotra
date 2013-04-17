@@ -14,6 +14,7 @@ class Confirmation : public QDialog {
     Q_OBJECT
 public:
     /**
+     * Constructor
      * create a window that asks if you are sure you want to overwrite the 
      * existing backup
      * 

@@ -14,6 +14,11 @@ class PropertiesOfInterfaceSetter : public QDialog {
     Q_OBJECT
     
 public:
+    /**
+     * Default Constructor 
+     * create a window to set a name for each interface (ex : eth0)
+     * and set ip by interface (no ip for a HUB)
+     */
     PropertiesOfInterfaceSetter();
     virtual ~PropertiesOfInterfaceSetter();
     void setText(QString textName);

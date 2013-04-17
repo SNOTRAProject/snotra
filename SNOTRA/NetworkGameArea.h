@@ -26,6 +26,7 @@ class NetworkGameArea : public QWidget {
     Q_OBJECT
 public:
     /**
+     * Default constructor
      * Create the window where the user can play and make his network 
      * configuration
      */

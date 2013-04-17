@@ -15,6 +15,7 @@ class NumberOfInterfaceSetter : public QDialog {
 public:
     
     /**
+     * Default contructor
      * Create a window to set the interfaces number of the selected device
      */
     NumberOfInterfaceSetter();

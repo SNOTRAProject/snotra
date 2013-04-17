@@ -22,6 +22,10 @@
 
 class DataBaseManager {
 public:
+    /**
+     * default constructor
+     * Do nothing
+     */
     DataBaseManager();
     DataBaseManager(const DataBaseManager & orig);
     /**

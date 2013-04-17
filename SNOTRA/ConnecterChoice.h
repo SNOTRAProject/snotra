@@ -14,6 +14,7 @@ class ConnecterChoice : public QDialog {
     Q_OBJECT
 public:
     /**
+     * constructor
      * create the window ConnecterChoice
      * The user have to choose the interface and have to set the ports of each 
      * devices
@@ -21,7 +22,13 @@ public:
     ConnecterChoice();
 
     Ui::ConnecterChoice widget;
+    
     void setPortSelected(int portSelectedDevice1, int portSelectedDevice2);
+    /**
+     * set text through devices
+     * @param Device1Name
+     * @param Device2Name
+     */
     void setText(QString Device1Name, QString Device2Name);
     virtual ~ConnecterChoice();
     int getPortDevice1();

@@ -20,6 +20,10 @@ public:
     LoadManager();
     virtual ~LoadManager();
     void setResultLineString();
+    /**
+     * get what the user had choosen
+     * @return 
+     */
     QString getResultLineString();
     void setResetGame(bool choice);
     bool getResetGame();

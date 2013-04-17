@@ -17,6 +17,7 @@ class Game : public QMainWindow {
     Q_OBJECT
 public:
     /**
+     * Default constructor
      * create the main windows of the game
      * Contains a menu, the toolBox, and the area network 
      */

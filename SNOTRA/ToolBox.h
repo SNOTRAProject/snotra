@@ -17,6 +17,7 @@ class ToolBox : public QWidget {
     Q_OBJECT
 public:
     /**
+     * Default constructor
      * create the toolbox. It contains all devices to drag and drop in the 
      * NetworkGameArea object
      */

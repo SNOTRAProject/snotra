@@ -13,6 +13,11 @@
 class RelevantActions : public QDialog {
     Q_OBJECT
 public:
+    /**
+     * default constructor,
+     * create a window to set what action is relevant and set the scoring through
+     * the context
+     */
     RelevantActions();
     virtual ~RelevantActions();
 private:

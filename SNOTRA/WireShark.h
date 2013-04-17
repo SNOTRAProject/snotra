@@ -21,7 +21,8 @@ class WireShark : public QWidget {
     Q_OBJECT
 public:
     /**
-     * constructor of WireShark
+     * Default constructor
+     * create a window to see what frame was gone by the device selected
      * @param parent
      */
     WireShark(ObjectToCommunicate*, QWidget* = 0);

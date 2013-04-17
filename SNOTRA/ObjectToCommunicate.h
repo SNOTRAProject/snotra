@@ -17,10 +17,13 @@
 class ObjectToCommunicate {
 public:
 
-    /**
-     * create an object to speack betwen graphical interface and model
-     */
+   
     ObjectToCommunicate();
+     /**
+     * Default constructor
+     * create an object to speack between graphical interface and model
+     * set what a Device has to get through a QLabel
+     */
     ObjectToCommunicate(QLabel*, int interfaceNumber, std::vector<std::string> interfaceName,
             std::vector<std::string> IP);
     ObjectToCommunicate(const ObjectToCommunicate& orig);
