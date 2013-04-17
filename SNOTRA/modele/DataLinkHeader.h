@@ -8,7 +8,7 @@
 class DataLinkHeader : public Header {
  public:
   DataLinkHeader();
-  DataLinkHeader(Mac, Mac, bool);
+  DataLinkHeader(Mac, Mac, Type, bool);
   virtual ~DataLinkHeader();
   Mac getSource();
   void setSource(Mac);

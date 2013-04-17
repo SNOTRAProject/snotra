@@ -33,7 +33,7 @@ class NetworkInterface {
   void disconnectWire(int);
   std::shared_ptr<Frame> receiveFrame(std::shared_ptr<Frame>);
   void sendFrame(std::shared_ptr<Frame>, int);
-  void createFrame(std::shared_ptr<Frame>, Mac, int);
+  void createFrame(std::shared_ptr<Frame>, Mac, int, Type);
   int getNumberOfWires() const;
 
  private:

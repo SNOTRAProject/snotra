@@ -58,6 +58,7 @@ void Device::sendFrameUnicast(std::shared_ptr<Frame> frame, int interfaceId, int
 }
 
 void Device::receiveFrame(std::shared_ptr<Frame> frame, int interfaceId, int portId) {
+    qDebug() << interfaceId;
   frame->setInterfaceId(interfaceId);
   frame->setPortId(portId);
   addFrameToHistory(frame);

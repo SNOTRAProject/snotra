@@ -43,12 +43,7 @@ std::string Mac::toString() {
 }
 
 bool operator==(Mac mac1, Mac mac2) {
-  for(std::list<unsigned char>::iterator it1 = mac1.getAddress().begin(), it2 = mac2.getAddress().begin(); it1 != mac1.getAddress().end(), it2 != mac2.getAddress().end(); it1++, it2++) {
-    if(*it1 != *it2) {
-      return false;
-    }
-  }
-  return true;
+    return mac1.getAddress() == mac2.getAddress();
 }
 
 int Mac::toHex(int i) {

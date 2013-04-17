@@ -1,4 +1,5 @@
 #include "DeviceN4.h"
+#include <QDebug>
 
 DeviceN4::DeviceN4() {
 }
@@ -48,8 +49,9 @@ void DeviceN4::receiveFrame(std::shared_ptr<Frame> frame, int interfaceId, int p
                 }
             }
             if(networkHeader->getProtocole() == NONE) {
-                std::shared_ptr<DataLinkHeader> dataLinkHeader = std::dynamic_pointer_cast<DataLinkHeader>(newFrame->getData()->getHeader());
+                std::shared_ptr<DataLinkHeader> dataLinkHeader = std::dynamic_pointer_cast<DataLinkHeader>(frame->getHeader());
                 //checking the protocol from the level below (DataLink)
+                qDebug() << ARP;
                 if(dataLinkHeader->getType() == ARP) {
                     std::shared_ptr<ARPHeader> networkHeader2 = std::dynamic_pointer_cast<ARPHeader>(newFrame->getHeader());
                     if(dataLinkHeader->getIsAnswer()) {
@@ -82,32 +84,38 @@ void DeviceN4::createFrame(Ip destination, std::string protocole, bool isAnswer)
         std::shared_ptr<Header> networkHeader;
         std::shared_ptr<Frame> networkFrame;
         std::shared_ptr<Header> dataLinkHeader;
+        Mac macDest;
+        Type type;
         Ip source = getNetworkInterfaces().at(temp).getIp();
-        Ip gateway = routingTable.getLineByIp(destination).first;
-        if (protocole.compare("ARP")) {
+        //Ip gateway = routingTable.getLineByIp(destination).first;
+        if (!protocole.compare("ARP")) {
+            type = ARP;
             if (isAnswer) {
                 networkHeader = std::shared_ptr<ARPHeader>(new ARPHeader(source, destination, STANDART_TTL, NONE, getNetworkInterfaces().at(temp).getMac(), arpTable.getMacByIp(destination), true));
+                macDest = arpTable.getMacByIp(destination);
             } else {
                 networkHeader = std::shared_ptr<ARPHeader>(new ARPHeader(source, destination, STANDART_TTL, NONE, getNetworkInterfaces().at(temp).getMac(), Mac("FF:FF:FF:FF:FF:FF"), false));
+                macDest = Mac("FF:FF:FF:FF:FF:FF");
             }
             networkFrame = std::shared_ptr<Frame > (new Frame(0, networkHeader, 0, 0));
-        } else if (protocole.compare("UDP")) {
+        } else if (!protocole.compare("UDP")) {
             //TODO
-        } else if (protocole.compare("TCP")) {
+        } else if (!protocole.compare("TCP")) {
             //TODO
-        } else if (protocole.compare("ICMP")) {
+        } else if (!protocole.compare("ICMP")) {
+            type = IP;
             std::shared_ptr<Header> transportHeader = std::shared_ptr<ICMPHeader > (new ICMPHeader(source, isAnswer));
             std::shared_ptr<Frame> transportFrame = std::shared_ptr<Frame > (new Frame(0, transportHeader, 0, 0));
             networkHeader = std::shared_ptr<Header > (new NetworkHeader(source, destination, STANDART_TTL, ICMP, isAnswer));
             networkFrame = std::shared_ptr<Frame > (new Frame(transportFrame, networkHeader, 0, 0));
-            Mac macDest = arpTable.getMacByIp(destination);
+            macDest = arpTable.getMacByIp(destination);
             if(macDest == Mac("00:00:00:00:00:00")) {
                 createFrame(destination, "ARP");
             }
             macDest = arpTable.getMacByIp(destination);
-            dataLinkHeader = std::shared_ptr<DataLinkHeader > (new DataLinkHeader(getNetworkInterfaces().at(temp).getMac(), macDest, isAnswer));
-            frame = std::shared_ptr<Frame > (new Frame(networkFrame, dataLinkHeader, 0, 0));
         }
+        dataLinkHeader = std::shared_ptr<DataLinkHeader > (new DataLinkHeader(getNetworkInterfaces().at(temp).getMac(), macDest, type, isAnswer));
+        frame = std::shared_ptr<Frame > (new Frame(networkFrame, dataLinkHeader, 0, 0));
         getNetworkInterfaces().at(temp).sendFrame(frame, 0);
     }
 }

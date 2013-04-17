@@ -42,12 +42,13 @@ void Ip::setMask(Mask mask_) {
 }
 
 bool Ip::operator==(const Ip& other) const {
-    for (std::list<unsigned char>::const_iterator it1 = address.begin(), it2 = other.getAddress().begin(); it1 != address.end(), it2 != other.getAddress().end(); it1++, it2++) {
-        if (*it1 != *it2) {
-            return false;
-        }
-    }
-    return true;
+    return other.getAddress() == address;
+//    for(auto& it1 : address, it2 : other.getAddress()) {
+//        if (*it1 != *it2) {
+//            return false;
+//        }
+//    }
+//    return true;
 }
 
 bool Ip::operator<(const Ip& other) const {

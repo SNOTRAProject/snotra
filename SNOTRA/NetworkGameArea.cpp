@@ -277,7 +277,8 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     pingAct = new QAction(tr("&Send Ping"), this);
     pingAct->setStatusTip((tr("Send a ping to destination")));
     connect(pingAct, SIGNAL(triggered()), this, SLOT(launchSentPing()));
-
+    item1 = findItem(child);
+    
     //menu.addAction(connectAct);
     menu.addAction(deleteAct);
     menu.addAction(disconnectAct);
@@ -457,4 +458,6 @@ void NetworkGameArea::launchSentPing() {
     sendPing = new SendPing();
     sendPing->exec();
     qDebug() << sendPing->getDestinationIP();
+    std::shared_ptr<DeviceN4> device = dynamic_pointer_cast<DeviceN4>(item1->getDevice());
+    device->createFrame(Ip(sendPing->getDestinationIP().toStdString(), 24), "ICMP");
 }

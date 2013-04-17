@@ -1,4 +1,5 @@
 #include "RoutingTable.h"
+#include <QDebug>
 
 RoutingTable::RoutingTable() {
 }
@@ -16,7 +17,8 @@ void RoutingTable::resetRoutingTable() {
 
 std::pair<Ip, int> RoutingTable::getLineByIp(Ip ip) {
   for(auto& it : routingTable) {
-    if(it.first.getNetwork() == ip.getNetwork()) {
+      qDebug() << it.first.toString().c_str() << ip.toString().c_str();
+    if(it.first == ip) {
       return it.second;
     }
   }
