@@ -34,8 +34,6 @@ WireShark::WireShark(QWidget *parent) : QWidget(parent) {
 }
 
 void WireShark::btnFiltre_clicked() {
-    QString delimiterPattern(" ");
-    filtreExtracted = filtre->text().split(delimiterPattern);
     createTableComplete();
 }
 
@@ -44,10 +42,10 @@ void WireShark::addFrames(ObjectToCommunicate obj) {
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
     listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
     listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
-    
-//    for(auto& it : obj.getDevice()->getAllFrameHistory()) {
-//        listOfstringFrame.append(it->toString().c_str());
-//    }
+
+    //    for(auto& it : obj.getDevice()->getAllFrameHistory()) {
+    //        listOfstringFrame.append(it->toString().c_str());
+    //    }
     QStringList::iterator i;
     for (i = listOfstringFrame.begin(); i != listOfstringFrame.end(); ++i) {
         QString strExtracted = *i;
@@ -74,37 +72,45 @@ void WireShark::createTableComplete() {
 }
 
 void WireShark::createLine(int row) {
-        for (int colum = 0; colum < 8; colum++) {
-            QString rowContent = filtreExtractedSplited.at(colum);
-            QStandardItem *item = new QStandardItem(rowContent);
-            item->setEditable(false);
-            qDebug() << rowContent;
-            model->setItem(row, colum, item);
-        }
+    for (int colum = 0; colum < 8; colum++) {
+        QString rowContent = filtreExtractedSplited.at(colum);
+        QStandardItem *item = new QStandardItem(rowContent);
+        item->setEditable(false);
+        qDebug() << rowContent;
+        model->setItem(row, colum, item);
+    }
 
 }
 
 void WireShark::filterLine(int row) {
     QString delimiterPattern(";");
     qDebug() << filtre->text();
-    if (filtre->text().compare("")) {
-        if (filtreExtracted.at(0) == "ip") {
-            if (filtreExtracted.at(1) == "=") {
-                filtreLineIp(row);
+
+    if ((filtre->text().compare("")) && (filtre->text().contains(" "))) {
+        filtreExtracted = filtre->text().split(" ");
+        if (filtreExtracted.size() >= 3) {
+            if (filtreExtracted.at(0) == "ip") {
+                if (filtreExtracted.at(1) == "=") {
+                    filtreLineIp(row);
+                }
+            } else if (filtreExtracted.at(0) == "mac") {
+                if (filtreExtracted.at(1) == "=") {
+                    filtreLineMac(row);
+                }
+            } else if (filtreExtracted.at(0) == "port") {
+                if (filtreExtracted.at(1) == "=") {
+                    filtreLinePort(row);
+                }
+
+            } else if (filtreExtracted.at(0) == "protocol") {
+                if (filtreExtracted.at(1) == "=") {
+                    filtreLineProtocl(row);
+                }
+            } else {
+                filtreExtractedSplited.clear();
             }
-        } else if (filtreExtracted.at(0) == "mac") {
-            if (filtreExtracted.at(1) == "=") {
-                filtreLineMac(row);
-            }
-        } else if (filtreExtracted.at(0) == "port"){
-            if (filtreExtracted.at(1) == "=") {
-                filtreLinePort(row);
-            }
-        
-        }else if (filtreExtracted.at(0) == "protocol"){
-            if (filtreExtracted.at(1) == "=") {
-                filtreLineProtocl(row);
-            }
+        } else {
+            filtreExtractedSplited = listOfstringFrame.at(row).split(delimiterPattern);
         }
     } else {
         filtreExtractedSplited = listOfstringFrame.at(row).split(delimiterPattern);
@@ -173,15 +179,15 @@ void WireShark::createTable() {
     for (auto& it : tableLine) {
         filterLine(readingRow);
         if (!filtreExtractedSplited.empty()) {
-                createLine(writingRow);
-                writingRow++;
+            createLine(writingRow);
+            writingRow++;
         }
         readingRow++;
     }
 }
 
 void WireShark::filtreLineIp(int row) {
-    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(3))||
+    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(3)) ||
             (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(4))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
     } else {
@@ -190,7 +196,7 @@ void WireShark::filtreLineIp(int row) {
 }
 
 void WireShark::filtreLineMac(int row) {
-    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(1))||
+    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(1)) ||
             (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(2))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
     } else {
@@ -199,7 +205,7 @@ void WireShark::filtreLineMac(int row) {
 }
 
 void WireShark::filtreLinePort(int row) {
-    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(5))|| 
+    if ((filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(5)) ||
             (filtreExtracted.at(2) == listOfstringFrame.at(row).split(";").at(6))) {
         filtreExtractedSplited = listOfstringFrame.at(row).split(";");
     } else {
@@ -208,20 +214,20 @@ void WireShark::filtreLinePort(int row) {
 }
 
 void WireShark::filtreLineProtocl(int row) {
-     QString content = listOfstringFrame.at(row).split(";").at(0);
+    QString content = listOfstringFrame.at(row).split(";").at(0);
     qDebug() << content << filtreExtracted.at(2);
-    QStringList protocolSplited =  content.split("/");
-    for(auto& it: protocolSplited) {
-    qDebug() << it;
-    } 
+    QStringList protocolSplited = content.split("/");
+    for (auto& it : protocolSplited) {
+        qDebug() << it;
+    }
     bool isEmpty = true;
     for (auto& it : protocolSplited) {
-    if (filtreExtracted.at(2) == (it)) {
-        filtreExtractedSplited = listOfstringFrame.at(row).split(";");
-        isEmpty = false;
-    } 
+        if (filtreExtracted.at(2) == (it)) {
+            filtreExtractedSplited = listOfstringFrame.at(row).split(";");
+            isEmpty = false;
+        }
     }
-    if(isEmpty) {
+    if (isEmpty) {
         filtreExtractedSplited.clear();
     }
 }
