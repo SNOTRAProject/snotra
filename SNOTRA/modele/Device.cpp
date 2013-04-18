@@ -44,9 +44,7 @@ void Device::addFrameToHistory(std::shared_ptr<Frame> frame) {
 void Device::sendFrameBroadcast(std::shared_ptr<Frame> frame) {
   for(int i = 0; i < networkInterfaces.size(); i++) {
     for(int j = 0; j < networkInterfaces.at(i).getNumberOfWires(); j++) {
-      if((i != frame->getInterfaceId()) || (j != frame->getPortId())) {
 	sendFrameUnicast(frame, i, j);
-      }
     }
   }
 }

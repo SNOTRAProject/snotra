@@ -118,7 +118,9 @@ void DeviceN4::createFrame(Ip destination, std::string protocole, bool isAnswer)
         }
         dataLinkHeader = std::shared_ptr<DataLinkHeader > (new DataLinkHeader(getNetworkInterfaces().at(temp).getMac(), macDest, type, isAnswer));
         frame = std::shared_ptr<Frame > (new Frame(networkFrame, dataLinkHeader, 0, 0));
-        getNetworkInterfaces().at(temp).sendFrame(frame, 0);
+        frame->setInterfaceId(temp);
+        frame->setPortId(0);
+        sendFrame(frame);
     }
 }
 
