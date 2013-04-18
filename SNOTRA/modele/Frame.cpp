@@ -1,4 +1,5 @@
 #include "Frame.h"
+#include <QDebug>
 
 Frame::Frame() {
 }
@@ -49,12 +50,13 @@ std::string Frame::toString() {
     std::string result;
     for(auto& it : toListString()) {
         result += it;
+        result += ";";
     }
     return result;
 }
 
 std::vector<std::string> Frame::toListString() {
-    std::vector<std::string> result;
+    std::vector<std::string> result(8, "");
     if(data != (std::shared_ptr<Frame>)0) {
         result = data->toListString();
     }

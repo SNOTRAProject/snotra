@@ -249,6 +249,7 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
         return;
 
     labelConnecter1 = child;
+    item1 = findItem(child);
 
     deleteAct = new QAction(tr("&Delete"), this);
     deleteAct->setStatusTip(tr("Delete le périphérique séléctionné"));
@@ -272,12 +273,10 @@ void NetworkGameArea::contextMenuEvent(QContextMenuEvent * event) {
     wiresharkAct = new QAction(tr("&Open wireshark"), this);
     wiresharkAct->setStatusTip(tr("Open wireshark"));
     connect(wiresharkAct, SIGNAL(triggered()), this, SLOT(launchWireshark()));
-    wireshark = new WireShark(*findItem(child));
 
     pingAct = new QAction(tr("&Send Ping"), this);
     pingAct->setStatusTip((tr("Send a ping to destination")));
     connect(pingAct, SIGNAL(triggered()), this, SLOT(launchSentPing()));
-    item1 = findItem(child);
     
     //menu.addAction(connectAct);
     menu.addAction(deleteAct);
@@ -451,6 +450,7 @@ void NetworkGameArea::paintWire(QVector<QPoint> pointPairs) {
 }
 
 void NetworkGameArea::launchWireshark() {
+    wireshark = new WireShark(item1);
     wireshark->show();
 }
 

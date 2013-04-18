@@ -61,8 +61,8 @@ void NetworkInterface::disconnectWire(int wireId) {
 std::shared_ptr<Frame> NetworkInterface::receiveFrame(std::shared_ptr<Frame> frame) {
   std::shared_ptr<Frame> newFrame = (std::shared_ptr<Frame>)0;
   std::shared_ptr<DataLinkHeader> header = std::dynamic_pointer_cast<DataLinkHeader>(frame->getHeader());
-  qDebug() << header->getDestination().toString().c_str();
-  if(/*(header->getDestination() == mac) || */(header->getDestination() == Mac("FF:FF:FF:FF:FF:FF"))) {
+  qDebug() << header->getDestination().toString().c_str() << mac.toString().c_str();
+  if((header->getDestination() == mac) || (header->getDestination() == Mac("FF:FF:FF:FF:FF:FF"))) {
     newFrame = frame->getData();
   }
   return newFrame;

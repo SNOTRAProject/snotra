@@ -18,9 +18,10 @@ class Mac {
 
  private:
   std::list<unsigned char> address;
+  static int cmpt;
 
   std::string getSubstring(std::string, int);
-  int toHex(int);
+  char toHex(int);
 
 };
 

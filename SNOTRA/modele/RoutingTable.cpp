@@ -17,7 +17,6 @@ void RoutingTable::resetRoutingTable() {
 
 std::pair<Ip, int> RoutingTable::getLineByIp(Ip ip) {
   for(auto& it : routingTable) {
-      qDebug() << it.first.toString().c_str() << ip.toString().c_str();
     if(it.first == ip) {
       return it.second;
     }

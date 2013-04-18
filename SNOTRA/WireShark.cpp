@@ -15,7 +15,7 @@
 #include "PropertiesOfIterfaceSetter.h"
 #include "ObjectToCommunicate.h"
 
-WireShark::WireShark(ObjectToCommunicate obj, QWidget *parent) : QWidget(parent) {
+WireShark::WireShark(ObjectToCommunicate* obj, QWidget *parent) : QWidget(parent) {
     //widget.setupUi(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainWireSharkView = new QTableView();
@@ -36,15 +36,15 @@ void WireShark::btnFiltre_clicked() {
     createTableComplete();
 }
 
-void WireShark::addFrames(ObjectToCommunicate obj) {
-    listOfstringFrame.append("ARP/ICMP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
-    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
-    listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
-    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
+void WireShark::addFrames(ObjectToCommunicate* obj) {
+//    listOfstringFrame.append("ARP/ICMP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
+//    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
+//    listOfstringFrame.append("ARP;MAC_S;MAC_D;IP-S;IP_D;PORT_S;PORT_D;HELLOWORLD");
+//    listOfstringFrame.append("ARP2;MAC_S2;MAC_2D;IP2-S;I2P_D;PORT2_S;PORT2_D;HELLOWORLD");
 
-    //    for(auto& it : obj.getDevice()->getAllFrameHistory()) {
-    //        listOfstringFrame.append(it->toString().c_str());
-    //    }
+        for(auto& it : obj->getDevice()->getAllFrameHistory()) {
+            listOfstringFrame.append(it->toString().c_str());
+        }
     QStringList::iterator i;
     for (i = listOfstringFrame.begin(); i != listOfstringFrame.end(); ++i) {
         QString strExtracted = *i;

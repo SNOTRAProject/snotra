@@ -24,12 +24,12 @@ public:
      * constructor of WireShark
      * @param parent
      */
-    WireShark(ObjectToCommunicate, QWidget* = 0);
+    WireShark(ObjectToCommunicate*, QWidget* = 0);
     /**
      * Add frame from the model
      *@param ObjectToCommunicate device who want to show his frames
      */
-    void addFrames(ObjectToCommunicate);
+    void addFrames(ObjectToCommunicate*);
     /**
      * create only the head of the table
      */

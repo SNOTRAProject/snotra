@@ -44,14 +44,14 @@ void DeviceN4::receiveFrame(std::shared_ptr<Frame> frame, int interfaceId, int p
                 }
                 else {
                     //Sending the response to the request
-                    std::shared_ptr<ICMPHeader> transportHeader = std::dynamic_pointer_cast<ICMPHeader>(frame->getHeader());
-                    createFrame(transportHeader->getSourceIp(), "ICMP", false);
+                    std::shared_ptr<ICMPHeader> transportHeader = std::dynamic_pointer_cast<ICMPHeader>(newFrame->getData()->getHeader());
+                    qDebug() << transportHeader->getSourceIp().toString().c_str();
+                    createFrame(transportHeader->getSourceIp(), "ICMP", true);
                 }
             }
             if(networkHeader->getProtocole() == NONE) {
                 std::shared_ptr<DataLinkHeader> dataLinkHeader = std::dynamic_pointer_cast<DataLinkHeader>(frame->getHeader());
                 //checking the protocol from the level below (DataLink)
-                qDebug() << ARP;
                 if(dataLinkHeader->getType() == ARP) {
                     std::shared_ptr<ARPHeader> networkHeader2 = std::dynamic_pointer_cast<ARPHeader>(newFrame->getHeader());
                     if(dataLinkHeader->getIsAnswer()) {
@@ -60,7 +60,8 @@ void DeviceN4::receiveFrame(std::shared_ptr<Frame> frame, int interfaceId, int p
                     }
                     else {
                         //Respond to the ARP request
-                        createFrame(networkHeader->getSource(), "ARP", false);
+                        arpTable.addLine(networkHeader2->getSource(), networkHeader2->getSourceMac());
+                        createFrame(networkHeader->getSource(), "ARP", true);
                     }
                 }
             }
@@ -104,6 +105,7 @@ void DeviceN4::createFrame(Ip destination, std::string protocole, bool isAnswer)
             //TODO
         } else if (!protocole.compare("ICMP")) {
             type = IP;
+            qDebug() << source.toString().c_str();
             std::shared_ptr<Header> transportHeader = std::shared_ptr<ICMPHeader > (new ICMPHeader(source, isAnswer));
             std::shared_ptr<Frame> transportFrame = std::shared_ptr<Frame > (new Frame(0, transportHeader, 0, 0));
             networkHeader = std::shared_ptr<Header > (new NetworkHeader(source, destination, STANDART_TTL, ICMP, isAnswer));

@@ -15,12 +15,11 @@ void ARPTable::resetARPTable() {
 }
 
 Mac ARPTable::getMacByIp(Ip ip) {
-    try {
-        return arpTable.at(ip);
-    }
-    catch (int e) {
+        std::map<Ip, Mac>::iterator it = arpTable.find(ip);
+        if(it != arpTable.end()) {
+            return it->second;
+        }
         return Mac("00:00:00:00:00:00");
-    }
 }
 
 void ARPTable::addLine(Ip ip, Mac mac) {
