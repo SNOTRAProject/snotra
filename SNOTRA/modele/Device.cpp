@@ -6,6 +6,7 @@ Device::Device() {
 
 Device::Device(int numberOfInterface, std::vector<std::string> names, std::vector<std::string> ip) {
     for(int i = 0; i < numberOfInterface; i++) {
+        qDebug() << names.at(i).c_str();
         addNetworkInterface(names.at(i), Mac(), Ip(ip.at(i), 24), true);
     }
 }
@@ -24,7 +25,7 @@ std::vector<NetworkInterface> Device::getNetworkInterfaces() const {
 int Device::getNetworkInterfaceIdByName(std::string name) const {
     int i = 0;
     for (auto& it : networkInterfaces) {
-        if(it.getName().compare(name)) {
+        if(!it.getName().compare(name)) {
             return i;
         }
         i++;

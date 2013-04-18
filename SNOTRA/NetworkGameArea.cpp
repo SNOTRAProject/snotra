@@ -174,15 +174,15 @@ void NetworkGameArea::dropEvent(QDropEvent *event) {
             connecterChoice->widget.comboBoxChoiceInterfaceDevice2
                     ->addItems(listOfInterfacesItem2);
             connecterChoice->exec();
+            qDebug()<<connecterChoice->getInterfaceName1().c_str() << connecterChoice->getInterfaceName2().c_str();
             item1->connectDevice(item1->getDevice(), item2->getDevice(),
-                    item2->getDevice()->getNetworkInterfaceIdByName(
+                    item1->getDevice()->getNetworkInterfaceIdByName(
                     connecterChoice->getInterfaceName1()),
                     connecterChoice->getPortDevice1(),
-                    item1->getDevice()->getNetworkInterfaceIdByName(
+                    item2->getDevice()->getNetworkInterfaceIdByName(
                     connecterChoice->getInterfaceName2()),
                     connecterChoice->getPortDevice2());
             descriptor();
-            QLine lineToAdd(item2->getLabel()->pos(), item1->getLabel()->pos());
         }
         pointDrawline1 = QPoint();
         pointDrawline2 = QPoint();
