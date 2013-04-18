@@ -1,0 +1,62 @@
+Dear new student which has been given the honor to continue our project. 
+In this file, I will list all the currenctly implemented functions in the model and state their tests result.
+Keys : 
+     "OK" means that this function has been tested and didn't show any bug
+     "In progress" means that the function has not been tested yet and is to use with precautions.
+     "TODO" means that this function is not even completed and still need work on it to finish.
+
+
+DeviceFactory::
+	createDevice() : OK/TODO : add the NAT router to the list
+
+
+Device::
+	activateNetworkInterface() : OK
+	addFrameToHistory() : OK
+	addNetworkInterface() : In progress
+	connectNeighbour() : OK/TODO : change the call to RoutingTable::addLine() to take into account a hub (in DeviceN4).
+	desactivateNetworkInterface() : OK
+	disconnectNeighbour() : In progress
+	giveFrameToInterface() : OK
+	isConnectedTo() : OK
+	receiveFrame() : OK/TODO : add all the case where the device can accept the frame, even if the Ip is not exactly his own (for DeviceN4).
+	sendFrame() : OK
+	sendFrameBroadcast() : OK
+	sendFrameUnicast() : OK
+
+
+DeviceN4::
+	createFrame() : OK/TODO : get the Id of the port to send before sending. For the moment, it always send on port 0.
+
+
+NetworkInterface::
+	connectWire() : OK
+	createFrame() : OK
+	disconnectWire() : In progress
+	receiveFrame() :: OK/TODO : same as Device::receiveFrame()
+	sendFrame() : OK
+
+Wire::
+	sendFrame() : OK
+
+Frame::
+	toString() : OK
+
+Header and all his child::
+       All functions : OK
+
+Ip and Mac::
+       constructors : OK/TODO : create the Ip address with the full string (see the toStringFull function for more informations)
+       getNetwork() : In progress
+       toString() : OK
+
+MacTable::
+	checkForDeletion : TODO : all
+	all the other functions dealing with the temporary state of the MacTable are at the same point.
+
+RoutingTable::
+	removeLine : In progress
+	other : OK
+
+ARPTable::
+	same as MacTable. All the time related functions are TODO.

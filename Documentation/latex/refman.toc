@@ -1,0 +1,136 @@
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}A\discretionary {-}{}{}R\discretionary {-}{}{}P\discretionary {-}{}{}Header Class Reference}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}A\discretionary {-}{}{}R\discretionary {-}{}{}P\discretionary {-}{}{}Table Class Reference}{5}{section.3.2}
+\contentsline {section}{\numberline {3.3}Backup\discretionary {-}{}{}Manager Class Reference}{6}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Constructor \& Destructor Documentation}{6}{subsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Backup\discretionary {-}{}{}Manager}{6}{subsubsection.3.3.1.1}
+\contentsline {section}{\numberline {3.4}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Change\discretionary {-}{}{}Ip Class Reference}{6}{section.3.4}
+\contentsline {section}{\numberline {3.5}Confirmation Class Reference}{7}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Constructor \& Destructor Documentation}{7}{subsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Confirmation}{7}{subsubsection.3.5.1.1}
+\contentsline {subsection}{\numberline {3.5.2}Member Function Documentation}{7}{subsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.2.1}set\discretionary {-}{}{}Reply\discretionary {-}{}{}O\discretionary {-}{}{}K}{7}{subsubsection.3.5.2.1}
+\contentsline {section}{\numberline {3.6}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Confirmation Class Reference}{7}{section.3.6}
+\contentsline {section}{\numberline {3.7}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Connecter\discretionary {-}{}{}Choice Class Reference}{8}{section.3.7}
+\contentsline {section}{\numberline {3.8}Connecter\discretionary {-}{}{}Choice Class Reference}{8}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Constructor \& Destructor Documentation}{9}{subsection.3.8.1}
+\contentsline {subsubsection}{\numberline {3.8.1.1}Connecter\discretionary {-}{}{}Choice}{9}{subsubsection.3.8.1.1}
+\contentsline {subsection}{\numberline {3.8.2}Member Function Documentation}{9}{subsection.3.8.2}
+\contentsline {subsubsection}{\numberline {3.8.2.1}set\discretionary {-}{}{}Interface}{9}{subsubsection.3.8.2.1}
+\contentsline {subsubsection}{\numberline {3.8.2.2}set\discretionary {-}{}{}Port\discretionary {-}{}{}Selected}{9}{subsubsection.3.8.2.2}
+\contentsline {subsubsection}{\numberline {3.8.2.3}set\discretionary {-}{}{}Text}{9}{subsubsection.3.8.2.3}
+\contentsline {section}{\numberline {3.9}Data\discretionary {-}{}{}Base\discretionary {-}{}{}Manager Class Reference}{10}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Constructor \& Destructor Documentation}{10}{subsection.3.9.1}
+\contentsline {subsubsection}{\numberline {3.9.1.1}Data\discretionary {-}{}{}Base\discretionary {-}{}{}Manager}{10}{subsubsection.3.9.1.1}
+\contentsline {subsection}{\numberline {3.9.2}Member Function Documentation}{10}{subsection.3.9.2}
+\contentsline {subsubsection}{\numberline {3.9.2.1}create}{10}{subsubsection.3.9.2.1}
+\contentsline {subsubsection}{\numberline {3.9.2.2}launch\discretionary {-}{}{}Save}{10}{subsubsection.3.9.2.2}
+\contentsline {subsubsection}{\numberline {3.9.2.3}load}{10}{subsubsection.3.9.2.3}
+\contentsline {subsubsection}{\numberline {3.9.2.4}show\discretionary {-}{}{}Table}{10}{subsubsection.3.9.2.4}
+\contentsline {section}{\numberline {3.10}Data\discretionary {-}{}{}Link\discretionary {-}{}{}Header Class Reference}{11}{section.3.10}
+\contentsline {section}{\numberline {3.11}Device Class Reference}{11}{section.3.11}
+\contentsline {section}{\numberline {3.12}Device\discretionary {-}{}{}Factory Class Reference}{12}{section.3.12}
+\contentsline {section}{\numberline {3.13}Device\discretionary {-}{}{}N4 Class Reference}{12}{section.3.13}
+\contentsline {section}{\numberline {3.14}Frame Class Reference}{13}{section.3.14}
+\contentsline {section}{\numberline {3.15}Game Class Reference}{13}{section.3.15}
+\contentsline {subsection}{\numberline {3.15.1}Constructor \& Destructor Documentation}{13}{subsection.3.15.1}
+\contentsline {subsubsection}{\numberline {3.15.1.1}Game}{13}{subsubsection.3.15.1.1}
+\contentsline {section}{\numberline {3.16}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Game Class Reference}{14}{section.3.16}
+\contentsline {section}{\numberline {3.17}Header Class Reference}{14}{section.3.17}
+\contentsline {section}{\numberline {3.18}Hub Class Reference}{14}{section.3.18}
+\contentsline {section}{\numberline {3.19}I\discretionary {-}{}{}C\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}Header Class Reference}{15}{section.3.19}
+\contentsline {section}{\numberline {3.20}Ip Class Reference}{15}{section.3.20}
+\contentsline {section}{\numberline {3.21}Ip\discretionary {-}{}{}Manager Class Reference}{16}{section.3.21}
+\contentsline {subsection}{\numberline {3.21.1}Constructor \& Destructor Documentation}{16}{subsection.3.21.1}
+\contentsline {subsubsection}{\numberline {3.21.1.1}Ip\discretionary {-}{}{}Manager}{16}{subsubsection.3.21.1.1}
+\contentsline {section}{\numberline {3.22}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Load\discretionary {-}{}{}Manager Class Reference}{16}{section.3.22}
+\contentsline {section}{\numberline {3.23}Load\discretionary {-}{}{}Manager Class Reference}{17}{section.3.23}
+\contentsline {subsection}{\numberline {3.23.1}Constructor \& Destructor Documentation}{17}{subsection.3.23.1}
+\contentsline {subsubsection}{\numberline {3.23.1.1}Load\discretionary {-}{}{}Manager}{17}{subsubsection.3.23.1.1}
+\contentsline {subsection}{\numberline {3.23.2}Member Function Documentation}{17}{subsection.3.23.2}
+\contentsline {subsubsection}{\numberline {3.23.2.1}get\discretionary {-}{}{}Result\discretionary {-}{}{}Line\discretionary {-}{}{}String}{17}{subsubsection.3.23.2.1}
+\contentsline {subsubsection}{\numberline {3.23.2.2}set\discretionary {-}{}{}Result\discretionary {-}{}{}Line\discretionary {-}{}{}String}{18}{subsubsection.3.23.2.2}
+\contentsline {section}{\numberline {3.24}Mac Class Reference}{18}{section.3.24}
+\contentsline {section}{\numberline {3.25}Mac\discretionary {-}{}{}Table Class Reference}{18}{section.3.25}
+\contentsline {section}{\numberline {3.26}Mask Class Reference}{18}{section.3.26}
+\contentsline {section}{\numberline {3.27}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Network\discretionary {-}{}{}Game\discretionary {-}{}{}Area Class Reference}{19}{section.3.27}
+\contentsline {section}{\numberline {3.28}Network\discretionary {-}{}{}Game\discretionary {-}{}{}Area Class Reference}{19}{section.3.28}
+\contentsline {subsection}{\numberline {3.28.1}Constructor \& Destructor Documentation}{20}{subsection.3.28.1}
+\contentsline {subsubsection}{\numberline {3.28.1.1}Network\discretionary {-}{}{}Game\discretionary {-}{}{}Area}{20}{subsubsection.3.28.1.1}
+\contentsline {subsection}{\numberline {3.28.2}Member Function Documentation}{20}{subsection.3.28.2}
+\contentsline {subsubsection}{\numberline {3.28.2.1}close\discretionary {-}{}{}Event}{20}{subsubsection.3.28.2.1}
+\contentsline {subsubsection}{\numberline {3.28.2.2}context\discretionary {-}{}{}Menu\discretionary {-}{}{}Event}{20}{subsubsection.3.28.2.2}
+\contentsline {subsubsection}{\numberline {3.28.2.3}delete\discretionary {-}{}{}Item}{20}{subsubsection.3.28.2.3}
+\contentsline {subsubsection}{\numberline {3.28.2.4}descriptor}{20}{subsubsection.3.28.2.4}
+\contentsline {subsubsection}{\numberline {3.28.2.5}drag\discretionary {-}{}{}Enter\discretionary {-}{}{}Event}{20}{subsubsection.3.28.2.5}
+\contentsline {subsubsection}{\numberline {3.28.2.6}drag\discretionary {-}{}{}Move\discretionary {-}{}{}Event}{20}{subsubsection.3.28.2.6}
+\contentsline {subsubsection}{\numberline {3.28.2.7}drop\discretionary {-}{}{}Event}{21}{subsubsection.3.28.2.7}
+\contentsline {subsubsection}{\numberline {3.28.2.8}mouse\discretionary {-}{}{}Press\discretionary {-}{}{}Event}{21}{subsubsection.3.28.2.8}
+\contentsline {subsubsection}{\numberline {3.28.2.9}reset\discretionary {-}{}{}I\discretionary {-}{}{}P\discretionary {-}{}{}Item}{21}{subsubsection.3.28.2.9}
+\contentsline {section}{\numberline {3.29}Network\discretionary {-}{}{}Header Class Reference}{21}{section.3.29}
+\contentsline {section}{\numberline {3.30}Network\discretionary {-}{}{}Interface Class Reference}{22}{section.3.30}
+\contentsline {section}{\numberline {3.31}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Number\discretionary {-}{}{}Of\discretionary {-}{}{}Interface\discretionary {-}{}{}Setter Class Reference}{22}{section.3.31}
+\contentsline {section}{\numberline {3.32}Number\discretionary {-}{}{}Of\discretionary {-}{}{}Interface\discretionary {-}{}{}Setter Class Reference}{22}{section.3.32}
+\contentsline {subsection}{\numberline {3.32.1}Constructor \& Destructor Documentation}{23}{subsection.3.32.1}
+\contentsline {subsubsection}{\numberline {3.32.1.1}Number\discretionary {-}{}{}Of\discretionary {-}{}{}Interface\discretionary {-}{}{}Setter}{23}{subsubsection.3.32.1.1}
+\contentsline {subsection}{\numberline {3.32.2}Member Function Documentation}{23}{subsection.3.32.2}
+\contentsline {subsubsection}{\numberline {3.32.2.1}set\discretionary {-}{}{}Nb\discretionary {-}{}{}Interfaces}{23}{subsubsection.3.32.2.1}
+\contentsline {section}{\numberline {3.33}Object\discretionary {-}{}{}To\discretionary {-}{}{}Communicate Class Reference}{23}{section.3.33}
+\contentsline {subsection}{\numberline {3.33.1}Constructor \& Destructor Documentation}{23}{subsection.3.33.1}
+\contentsline {subsubsection}{\numberline {3.33.1.1}Object\discretionary {-}{}{}To\discretionary {-}{}{}Communicate}{23}{subsubsection.3.33.1.1}
+\contentsline {section}{\numberline {3.34}Properties\discretionary {-}{}{}Of\discretionary {-}{}{}Interface\discretionary {-}{}{}Setter Class Reference}{24}{section.3.34}
+\contentsline {subsection}{\numberline {3.34.1}Constructor \& Destructor Documentation}{24}{subsection.3.34.1}
+\contentsline {subsubsection}{\numberline {3.34.1.1}Properties\discretionary {-}{}{}Of\discretionary {-}{}{}Interface\discretionary {-}{}{}Setter}{24}{subsubsection.3.34.1.1}
+\contentsline {section}{\numberline {3.35}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Properties\discretionary {-}{}{}Of\discretionary {-}{}{}Iterface\discretionary {-}{}{}Setter Class Reference}{24}{section.3.35}
+\contentsline {section}{\numberline {3.36}Relevant\discretionary {-}{}{}Actions Class Reference}{25}{section.3.36}
+\contentsline {subsection}{\numberline {3.36.1}Constructor \& Destructor Documentation}{25}{subsection.3.36.1}
+\contentsline {subsubsection}{\numberline {3.36.1.1}Relevant\discretionary {-}{}{}Actions}{25}{subsubsection.3.36.1.1}
+\contentsline {section}{\numberline {3.37}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Relevant\discretionary {-}{}{}Actions Class Reference}{25}{section.3.37}
+\contentsline {section}{\numberline {3.38}Routing\discretionary {-}{}{}Table Class Reference}{26}{section.3.38}
+\contentsline {section}{\numberline {3.39}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Sauvegarder Class Reference}{26}{section.3.39}
+\contentsline {section}{\numberline {3.40}Send\discretionary {-}{}{}Ping Class Reference}{26}{section.3.40}
+\contentsline {subsection}{\numberline {3.40.1}Constructor \& Destructor Documentation}{27}{subsection.3.40.1}
+\contentsline {subsubsection}{\numberline {3.40.1.1}Send\discretionary {-}{}{}Ping}{27}{subsubsection.3.40.1.1}
+\contentsline {section}{\numberline {3.41}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Send\discretionary {-}{}{}Ping Class Reference}{27}{section.3.41}
+\contentsline {section}{\numberline {3.42}Switch Class Reference}{27}{section.3.42}
+\contentsline {section}{\numberline {3.43}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Header Class Reference}{28}{section.3.43}
+\contentsline {section}{\numberline {3.44}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Tool\discretionary {-}{}{}Box Class Reference}{28}{section.3.44}
+\contentsline {section}{\numberline {3.45}Tool\discretionary {-}{}{}Box Class Reference}{29}{section.3.45}
+\contentsline {subsection}{\numberline {3.45.1}Constructor \& Destructor Documentation}{29}{subsection.3.45.1}
+\contentsline {subsubsection}{\numberline {3.45.1.1}Tool\discretionary {-}{}{}Box}{29}{subsubsection.3.45.1.1}
+\contentsline {section}{\numberline {3.46}Transport\discretionary {-}{}{}Header Class Reference}{29}{section.3.46}
+\contentsline {section}{\numberline {3.47}U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Header Class Reference}{30}{section.3.47}
+\contentsline {section}{\numberline {3.48}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Change\discretionary {-}{}{}Ip Class Reference}{30}{section.3.48}
+\contentsline {section}{\numberline {3.49}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Confirmation Class Reference}{31}{section.3.49}
+\contentsline {section}{\numberline {3.50}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Connecter\discretionary {-}{}{}Choice Class Reference}{31}{section.3.50}
+\contentsline {section}{\numberline {3.51}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Game Class Reference}{32}{section.3.51}
+\contentsline {section}{\numberline {3.52}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Load\discretionary {-}{}{}Manager Class Reference}{33}{section.3.52}
+\contentsline {section}{\numberline {3.53}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Network\discretionary {-}{}{}Game\discretionary {-}{}{}Area Class Reference}{33}{section.3.53}
+\contentsline {section}{\numberline {3.54}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Number\discretionary {-}{}{}Of\discretionary {-}{}{}Interface\discretionary {-}{}{}Setter Class Reference}{34}{section.3.54}
+\contentsline {section}{\numberline {3.55}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Properties\discretionary {-}{}{}Of\discretionary {-}{}{}Iterface\discretionary {-}{}{}Setter Class Reference}{34}{section.3.55}
+\contentsline {section}{\numberline {3.56}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Relevant\discretionary {-}{}{}Actions Class Reference}{35}{section.3.56}
+\contentsline {section}{\numberline {3.57}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sauvegarder Class Reference}{36}{section.3.57}
+\contentsline {section}{\numberline {3.58}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Send\discretionary {-}{}{}Ping Class Reference}{36}{section.3.58}
+\contentsline {section}{\numberline {3.59}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Tool\discretionary {-}{}{}Box Class Reference}{37}{section.3.59}
+\contentsline {section}{\numberline {3.60}Ui\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Wire\discretionary {-}{}{}Shark Class Reference}{38}{section.3.60}
+\contentsline {section}{\numberline {3.61}Wire Class Reference}{38}{section.3.61}
+\contentsline {section}{\numberline {3.62}Wire\discretionary {-}{}{}Shark Class Reference}{38}{section.3.62}
+\contentsline {subsection}{\numberline {3.62.1}Constructor \& Destructor Documentation}{39}{subsection.3.62.1}
+\contentsline {subsubsection}{\numberline {3.62.1.1}Wire\discretionary {-}{}{}Shark}{39}{subsubsection.3.62.1.1}
+\contentsline {subsection}{\numberline {3.62.2}Member Function Documentation}{39}{subsection.3.62.2}
+\contentsline {subsubsection}{\numberline {3.62.2.1}add\discretionary {-}{}{}Frames}{39}{subsubsection.3.62.2.1}
+\contentsline {subsubsection}{\numberline {3.62.2.2}create\discretionary {-}{}{}Header\discretionary {-}{}{}Table}{39}{subsubsection.3.62.2.2}
+\contentsline {subsubsection}{\numberline {3.62.2.3}create\discretionary {-}{}{}Line}{39}{subsubsection.3.62.2.3}
+\contentsline {subsubsection}{\numberline {3.62.2.4}create\discretionary {-}{}{}Table}{40}{subsubsection.3.62.2.4}
+\contentsline {subsubsection}{\numberline {3.62.2.5}create\discretionary {-}{}{}Table\discretionary {-}{}{}Complete}{40}{subsubsection.3.62.2.5}
+\contentsline {subsubsection}{\numberline {3.62.2.6}filter\discretionary {-}{}{}Line}{40}{subsubsection.3.62.2.6}
+\contentsline {subsubsection}{\numberline {3.62.2.7}filtre\discretionary {-}{}{}Line\discretionary {-}{}{}Ip}{40}{subsubsection.3.62.2.7}
+\contentsline {subsubsection}{\numberline {3.62.2.8}filtre\discretionary {-}{}{}Line\discretionary {-}{}{}Mac}{40}{subsubsection.3.62.2.8}
+\contentsline {subsubsection}{\numberline {3.62.2.9}filtre\discretionary {-}{}{}Line\discretionary {-}{}{}Port}{40}{subsubsection.3.62.2.9}
+\contentsline {subsubsection}{\numberline {3.62.2.10}filtre\discretionary {-}{}{}Line\discretionary {-}{}{}Protocl}{40}{subsubsection.3.62.2.10}
+\contentsline {section}{\numberline {3.63}Ui\discretionary {-}{}{}:\discretionary {-}{}{}:Wire\discretionary {-}{}{}Shark Class Reference}{41}{section.3.63}
+\contentsline {part}{Index}{41}{section*.98}

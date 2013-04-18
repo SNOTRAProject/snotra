@@ -1,0 +1,78 @@
+\hypertarget{class_data_base_manager}{\section{Data\-Base\-Manager Class Reference}
+\label{class_data_base_manager}\index{Data\-Base\-Manager@{Data\-Base\-Manager}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_data_base_manager_a876dd05c6424d0efb99d95a2c584a804}{Data\-Base\-Manager} ()
+\item 
+\hypertarget{class_data_base_manager_a3b91f96f1be6a637759ea10ccb20b116}{{\bfseries Data\-Base\-Manager} (const \hyperlink{class_data_base_manager}{Data\-Base\-Manager} \&orig)}\label{class_data_base_manager_a3b91f96f1be6a637759ea10ccb20b116}
+
+\item 
+void \hyperlink{class_data_base_manager_a77d78a7b7c5a5e4ffbdecd18431df5ca}{create} (Q\-Label $\ast$item)
+\item 
+\hypertarget{class_data_base_manager_a5991b838d7fb6e71f440ffd986366311}{void {\bfseries close\-Db} ()}\label{class_data_base_manager_a5991b838d7fb6e71f440ffd986366311}
+
+\item 
+Q\-List$<$ Q\-Label $\ast$ $>$ \hyperlink{class_data_base_manager_a6f3e5a052947cbf1a3a6211edd49b183}{load} ()
+\item 
+void \hyperlink{class_data_base_manager_ac7af4c3a862853b5ebd12c35338e4004}{show\-Table} ()
+\item 
+void \hyperlink{class_data_base_manager_adcd538709bbbb818c49ef27504e17f6c}{launch\-Save} ()
+\item 
+\hypertarget{class_data_base_manager_a6254877a64abea331bcdf567bade19cc}{void {\bfseries set\-Reset\-Game} (bool choice)}\label{class_data_base_manager_a6254877a64abea331bcdf567bade19cc}
+
+\item 
+\hypertarget{class_data_base_manager_a7536bf6bb93057f0f64902f981c36c66}{bool {\bfseries get\-Reset\-Game} ()}\label{class_data_base_manager_a7536bf6bb93057f0f64902f981c36c66}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_data_base_manager_a876dd05c6424d0efb99d95a2c584a804}{\index{Data\-Base\-Manager@{Data\-Base\-Manager}!Data\-Base\-Manager@{Data\-Base\-Manager}}
+\index{Data\-Base\-Manager@{Data\-Base\-Manager}!DataBaseManager@{Data\-Base\-Manager}}
+\subsubsection[{Data\-Base\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Data\-Base\-Manager\-::\-Data\-Base\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_manager_a876dd05c6424d0efb99d95a2c584a804}
+default constructor Do nothing 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_data_base_manager_a77d78a7b7c5a5e4ffbdecd18431df5ca}{\index{Data\-Base\-Manager@{Data\-Base\-Manager}!create@{create}}
+\index{create@{create}!DataBaseManager@{Data\-Base\-Manager}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}void Data\-Base\-Manager\-::create (
+\begin{DoxyParamCaption}
+\item[{Q\-Label $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_manager_a77d78a7b7c5a5e4ffbdecd18431df5ca}
+Create a line in the database manager to save the item \hypertarget{class_data_base_manager_adcd538709bbbb818c49ef27504e17f6c}{\index{Data\-Base\-Manager@{Data\-Base\-Manager}!launch\-Save@{launch\-Save}}
+\index{launch\-Save@{launch\-Save}!DataBaseManager@{Data\-Base\-Manager}}
+\subsubsection[{launch\-Save}]{\setlength{\rightskip}{0pt plus 5cm}void Data\-Base\-Manager\-::launch\-Save (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_manager_adcd538709bbbb818c49ef27504e17f6c}
+make a new table in the database to records the backups \hypertarget{class_data_base_manager_a6f3e5a052947cbf1a3a6211edd49b183}{\index{Data\-Base\-Manager@{Data\-Base\-Manager}!load@{load}}
+\index{load@{load}!DataBaseManager@{Data\-Base\-Manager}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}Q\-List$<$ Q\-Label $\ast$ $>$ Data\-Base\-Manager\-::load (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_manager_a6f3e5a052947cbf1a3a6211edd49b183}
+load the label that are in the database \begin{DoxyReturn}{Returns}
+a list of the labels 
+\end{DoxyReturn}
+\hypertarget{class_data_base_manager_ac7af4c3a862853b5ebd12c35338e4004}{\index{Data\-Base\-Manager@{Data\-Base\-Manager}!show\-Table@{show\-Table}}
+\index{show\-Table@{show\-Table}!DataBaseManager@{Data\-Base\-Manager}}
+\subsubsection[{show\-Table}]{\setlength{\rightskip}{0pt plus 5cm}void Data\-Base\-Manager\-::show\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_data_base_manager_ac7af4c3a862853b5ebd12c35338e4004}
+show the table (just for debug) 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Data\-Base\-Manager.\-h\item 
+Data\-Base\-Manager.\-cpp\end{DoxyCompactItemize}
